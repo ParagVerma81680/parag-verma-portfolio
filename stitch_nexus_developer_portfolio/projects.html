@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects - Portfolio.OS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "inverse-surface": "#2d3133",
+                "tertiary": "#575e72",
+                "primary": "#4953bc",
+                "primary-fixed": "#e0e0ff",
+                "on-primary": "#ffffff",
+                "on-tertiary-container": "#262e40",
+                "on-secondary-container": "#3d687c",
+                "surface-variant": "#e0e3e5",
+                "on-background": "#191c1e",
+                "on-primary-fixed-variant": "#2f3aa3",
+                "inverse-on-surface": "#eff1f3",
+                "on-tertiary": "#ffffff",
+                "secondary-fixed": "#bee9ff",
+                "error-container": "#ffdad6",
+                "surface": "#f7f9fb",
+                "inverse-primary": "#bdc2ff",
+                "surface-bright": "#f7f9fb",
+                "tertiary-container": "#8e95ab",
+                "on-primary-container": "#101b8a",
+                "on-tertiary-fixed": "#141b2c",
+                "tertiary-fixed": "#dbe2fa",
+                "on-error-container": "#93000a",
+                "tertiary-fixed-dim": "#bfc6dd",
+                "primary-fixed-dim": "#bdc2ff",
+                "on-error": "#ffffff",
+                "surface-tint": "#4953bc",
+                "surface-dim": "#d8dadc",
+                "on-surface-variant": "#454653",
+                "surface-container-highest": "#e0e3e5",
+                "outline": "#767684",
+                "secondary": "#396477",
+                "on-secondary-fixed": "#001f2a",
+                "error": "#ba1a1a",
+                "on-primary-fixed": "#000767",
+                "surface-container-lowest": "#ffffff",
+                "surface-container": "#eceef0",
+                "surface-container-high": "#e6e8ea",
+                "on-surface": "#191c1e",
+                "surface-container-low": "#f2f4f6",
+                "background": "#f7f9fb",
+                "on-secondary": "#ffffff",
+                "secondary-container": "#bae6fd",
+                "on-tertiary-fixed-variant": "#3f4759",
+                "primary-container": "#818cf8",
+                "on-secondary-fixed-variant": "#1e4c5f",
+                "secondary-fixed-dim": "#a1cde3",
+                "outline-variant": "#c6c5d5"
+        },
+        "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-desktop": "64px",
+                "margin-mobile": "16px",
+                "gutter": "24px",
+                "max-width": "1280px",
+                "lg": "24px",
+                "xl": "40px",
+                "unit": "4px",
+                "xs": "4px",
+                "md": "16px",
+                "sm": "8px"
+        },
+        "fontFamily": {
+                "headline-lg": [
+                        "Geist"
+                ],
+                "headline-md": [
+                        "Geist"
+                ],
+                "body-md": [
+                        "Geist"
+                ],
+                "body-lg": [
+                        "Geist"
+                ],
+                "label-md": [
+                        "Geist"
+                ],
+                "body-sm": [
+                        "Geist"
+                ],
+                "headline-lg-mobile": [
+                        "Geist"
+                ],
+                "headline-xl": [
+                        "Geist"
+                ]
+        },
+        "fontSize": {
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "450"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-md": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "450"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-xl": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: #f7f9fb;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(73, 83, 188, 0.2); 
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(73, 83, 188, 0.1), 0 8px 10px -6px rgba(73, 83, 188, 0.1);
+        }
+
+        /* Glowing Button */
+        .btn-glow {
+            background: #4953bc;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-glow:hover {
+            background: #3a4296;
+            box-shadow: 0 4px 12px rgba(73, 83, 188, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f7f9fb;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d8dadc;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c6c5d5;
+        }
+    </style>
+</head>
+<body class="text-on-background font-body-md min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface/90 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-outline-variant/30 shadow-sm transition-all duration-300">
+<div class="flex justify-between items-center w-full px-gutter max-w-max-width mx-auto h-20">
+<!-- Brand Logo -->
+<a class="font-headline-lg text-headline-md font-bold text-primary tracking-tight" href="#">Portfolio.OS</a>
+<!-- Navigation Links (Desktop) -->
+<nav id="topnav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300">
+  <div class="flex justify-between items-center w-full px-gutter max-w-[1280px] mx-auto h-20">
+    <a href="index.html" class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary text-2xl">terminal</span>
+      <span class="font-bold text-headline-md text-primary tracking-tight">Portfolio.OS</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 font-body-md text-body-md">
+      <a href="index.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Home</a>
+      <a href="about.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">About</a>
+      <a href="skills.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Skills</a>
+      <a href="projects.html" class="text-primary font-bold border-b-2 border-primary pb-1 transition-all duration-300">Projects</a>
+      <a href="experience.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Experience</a>
+      <a href="resume.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Resume</a>
+      <a href="contact.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Contact</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="assets/resume.pdf" download class="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface font-label-caps text-label-caps hover:border-primary hover:text-primary transition-all duration-300">Download CV <span class="material-symbols-outlined text-base">download</span></a>
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-on-surface hover:text-primary transition-colors rounded-lg hover:bg-surface-container" aria-label="Toggle menu">
+        <span class="material-symbols-outlined" id="menu-icon">menu</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-surface/95 backdrop-blur-xl border-b border-outline-variant/30 px-gutter py-6 flex flex-col gap-1">
+    <a href="index.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Home</a>
+    <a href="about.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">About</a>
+    <a href="skills.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Skills</a>
+    <a href="projects.html" class="py-3 px-4 rounded-xl bg-primary/10 text-primary font-bold font-body-md text-body-md transition-all">Projects</a>
+    <a href="experience.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Experience</a>
+    <a href="resume.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Resume</a>
+    <a href="contact.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Contact</a>
+    <div class="pt-4 border-t border-outline-variant/30 mt-2">
+      <a href="assets/resume.pdf" download class="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-on-primary font-label-caps text-label-caps hover:bg-primary/90 transition-all">Download CV <span class="material-symbols-outlined text-base">download</span></a>
+    </div>
+  </div>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<button class="hidden md:inline-flex btn-glow px-6 py-2.5 rounded-full font-label-md text-label-md items-center gap-2">
+                    Download CV
+                </button>
+<button aria-label="Toggle Dark Mode" class="text-on-surface hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="light_mode">light_mode</span>
+</button>
+<!-- Mobile Menu Toggle -->
+<button aria-label="Menu" class="md:hidden text-on-surface p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-xl px-gutter w-full max-w-max-width mx-auto relative z-10">
+<!-- Header Section -->
+<div class="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div class="max-w-2xl">
+<h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface mb-6">Featured Work</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">A curated selection of technical projects ranging from high-performance systems engineering to modern web architectures.</p>
+</div>
+<!-- Filters -->
+<div class="flex flex-wrap gap-3" id="proj-filter-controls">
+<button class="proj-filter-btn active px-5 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md transition-all shadow-sm" data-filter="all">All</button>
+<button class="proj-filter-btn px-5 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md transition-all hover:bg-surface-container-high hover:text-on-surface" data-filter="ai">AI</button>
+<button class="proj-filter-btn px-5 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md transition-all hover:bg-surface-container-high hover:text-on-surface" data-filter="games">Games</button>
+<button class="proj-filter-btn px-5 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md transition-all hover:bg-surface-container-high hover:text-on-surface" data-filter="unity">Unity</button>
+<button class="proj-filter-btn px-5 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md transition-all hover:bg-surface-container-high hover:text-on-surface" data-filter="unreal">Unreal Engine</button>
+<button class="proj-filter-btn px-5 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md transition-all hover:bg-surface-container-high hover:text-on-surface" data-filter="tools">Tools</button>
+</div>
+</div>
+<!-- Project Gallery Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12" id="proj-grid">
+<!-- Project 1: FRIDAY (Large / Spans 2 cols on lg) -->
+<article class="proj-card glass-card rounded-2xl overflow-hidden flex flex-col group lg:col-span-2 cursor-pointer bg-surface-container-lowest border border-outline-variant/30 transition-all duration-300" data-category="ai tools">
+<div class="relative h-64 md:h-80 lg:h-96 w-full overflow-hidden bg-surface-container-low">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105" data-alt="Futuristic AI voice assistant interface with glowing neural waveforms." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBZtuUvGUhcb657xegH9bXZWoD5FuqANcC86iyHZwBt8jD71P_8aqecs-0eocPEAR7n2aFOfedyWG-eK9ETQbANP4cRufVIxXh1sA0z8aYj9Tnt0nuMs_KCDNmfN5cPiNjKyOfmZZ2C-zg9LYqyxrRhGyOhhy3P03uF7IeMrJIP-K725a1APgvMLaHw3hVNG6o_RBozF3XLO_5HrRsfHzvrtz-RyOgMSm9fHbNFQjpHecx5R1jPBEvc')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 to-transparent"></div>
+<div class="absolute top-4 right-4 flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary text-on-primary backdrop-blur-md rounded-full font-label-md text-label-md shadow-sm">Python</span>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container backdrop-blur-md rounded-full font-label-md text-label-md shadow-sm">AI</span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary transition-colors">FRIDAY | AI Voice Assistant</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">A Windows-based personal AI assistant with voice and text interaction. It can answer questions, open applications and websites, provide weather and time information, set reminders, perform web searches, and interact with Windows controls.</p>
+<div class="flex items-center gap-6 mt-auto pt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary font-label-md text-label-md transition-colors" href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();">
+<span class="material-symbols-outlined text-lg">code</span> View on GitHub
+</a>
+<span class="ml-auto material-symbols-outlined text-outline group-hover:text-primary transition-colors transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+</article>
+<!-- Project 2: Fogwatch -->
+<article class="proj-card glass-card rounded-2xl overflow-hidden flex flex-col group cursor-pointer bg-surface-container-lowest border border-outline-variant/30 transition-all duration-300" data-category="games unreal">
+<div class="relative h-64 w-full overflow-hidden bg-surface-container-low">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105" data-alt="A moody, atmospheric 3D lighthouse island surrounded by thick creeping fog and dark ocean waters under moonlight." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAIU2Tsxg87ZUrkI34zGtI09DSbzVohvTQr19Zv-iZ6Dvx8nQ1-jZJxlXTogfVNY7owN2j9fAjBR27rm-qs8XLcLcpSkYKfOWZHa3IBJhaPyYeFyJo9AZg88PUrnhepxFA0a_HyPJpdD26g0R1GpGaiGDETwmQT15Du-0O4chr13ACo_MlxZf9R6LQRx1GwEmi_E8Pwbc3mK2WIX5c3i8BMtSq_5rU_n88CtD_mAIt_mxBtRTDp28km')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 to-transparent"></div>
+<div class="absolute top-4 right-4 flex gap-2">
+<span class="px-3 py-1 bg-primary text-on-primary backdrop-blur-md rounded-full font-label-md text-label-md shadow-sm">Unreal Engine 5</span>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container backdrop-blur-md rounded-full font-label-md text-label-md shadow-sm">Game Development</span>
+</div>
+</div>
+<div class="p-6 md:p-8 flex flex-col flex-grow">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">Fogwatch | Story Mode Horror Game</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">A horror-mystery story game set on a remote lighthouse island where previous watchers have disappeared. The project explores exploration, NPCs, night-time monsters, spreading fog, multiple paths, and a hidden ending.</p>
+<div class="flex items-center gap-4 mt-auto pt-4 border-t border-outline-variant/30">
+<span class="text-secondary font-label-md text-label-md">Planned in UE5</span>
+<span class="ml-auto material-symbols-outlined text-outline group-hover:text-primary transition-colors transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+</article>
+<!-- Project 3: 2D Unity Game -->
+<article class="proj-card glass-card rounded-2xl overflow-hidden flex flex-col group cursor-pointer lg:col-span-1 bg-surface-container-lowest border border-outline-variant/30 transition-all duration-300" data-category="games unity">
+<div class="relative h-64 w-full overflow-hidden bg-surface-container-low">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105" data-alt="Vibrant 2D game environment showcasing platforming geometry and camera focus." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD-tzodMXJ6gvcMQ5KA7IuKuiY-VWWXVMSBX5Q8-MSOflysCqTA4KXm3qGtWO157OFpy38KPfOJBQMVywc_Fxi9OfOTlDrLZJ_otmrjWQIfs0TVzsRVTQOG2PD3jzQvJwjxtdbvq3xTmkwqzIHzyoUiYhvqvFr7E4dCSBtEM1o7LIG3yn004iSIhu7TNKApPYf8Vfg3s-80yrQUD-MYQl6YGfpFKmik0FxIVp6taUS9jIrECeEKxSDV')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 to-transparent"></div>
+<div class="absolute top-4 right-4 flex gap-2">
+<span class="px-3 py-1 bg-primary text-on-primary backdrop-blur-md rounded-full font-label-md text-label-md shadow-sm">Unity</span>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container backdrop-blur-md rounded-full font-label-md text-label-md shadow-sm">C#</span>
+</div>
+</div>
+<div class="p-6 md:p-8 flex flex-col flex-grow">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">2D Unity Game</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">A 2D game project focused on learning core game-development systems, including player movement and camera behaviour. Implemented a custom CameraFollow2D.cs system so the camera smoothly follows the player.</p>
+<div class="flex items-center gap-4 mt-auto pt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary font-label-md text-label-md transition-colors" href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();">
+<span class="material-symbols-outlined text-base">code</span> Source
+</a>
+<span class="ml-auto material-symbols-outlined text-outline group-hover:text-primary transition-colors transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+</article>
+<!-- Decorative Filler/Teaser Card (Spans 2 cols on lg) -->
+<article class="glass-card rounded-2xl p-8 flex flex-col items-center justify-center text-center group border-dashed border-outline-variant/60 hover:border-primary/50 lg:col-span-2 bg-surface-container/30">
+<span class="material-symbols-outlined text-4xl text-outline mb-4 group-hover:text-primary transition-colors">hourglass_empty</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">More in the pipeline</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Constantly exploring new tools, game mechanics, and software projects. Check GitHub for latest commits and experimental repos.</p>
+<a class="mt-6 px-6 py-2 rounded-full border border-outline-variant/50 text-on-surface-variant font-label-md text-label-md transition-all hover:border-primary hover:text-primary hover:bg-primary/5 bg-surface-container-lowest" href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer">View GitHub Profile</a>
+</article>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 border-t border-outline-variant/30 bg-surface-container-lowest">
+  <div class="flex flex-col md:flex-row justify-between items-center w-full px-gutter max-w-[1280px] mx-auto gap-6 md:gap-0">
+    <div class="font-bold text-body-lg text-on-surface">Portfolio.OS</div>
+    <div class="font-label-caps text-label-caps text-secondary text-center">© 2026 Parag Verma • Computer Science Student &amp; Developer</div>
+    <div class="flex flex-wrap justify-center gap-6">
+      <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">GitHub</a>
+      <a href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" rel="noopener noreferrer" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">LinkedIn</a>
+      <a href="mailto:paragverma88014@gmail.com" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">Email</a>
+      <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200 flex items-center gap-1">Back to Top <span class="material-symbols-outlined text-sm">arrow_upward</span></a>
+    </div>
+  </div>
+</footer>
+<script>
+// Project Filtering Logic
+const projFilterBtns = document.querySelectorAll('.proj-filter-btn');
+const projCards = document.querySelectorAll('.proj-card');
+
+projFilterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    projFilterBtns.forEach(b => {
+      b.className = 'proj-filter-btn px-5 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md transition-all hover:bg-surface-container-high hover:text-on-surface';
+    });
+    btn.className = 'proj-filter-btn active px-5 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md transition-all shadow-sm';
+
+    const filter = btn.getAttribute('data-filter');
+    projCards.forEach(card => {
+      const categories = card.getAttribute('data-category').split(' ');
+      if (filter === 'all' || categories.includes(filter)) {
+        card.style.display = 'flex';
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(8px)';
+        setTimeout(() => {
+          card.style.transition = 'all 0.3s ease';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 30);
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Mobile menu
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
+if (mobileMenuBtn) {
+  mobileMenuBtn.addEventListener('click', () => {
+    const isHidden = mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    menuIcon.textContent = isHidden ? 'close' : 'menu';
+  });
+  document.addEventListener('click', (e) => {
+    if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenu.classList.add('hidden');
+      menuIcon.textContent = 'menu';
+    }
+  });
+}
+</script>
+</body></html>

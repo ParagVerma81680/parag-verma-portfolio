@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Resume - Portfolio.OS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;450;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "inverse-surface": "#2d3133",
+                "tertiary": "#575e72",
+                "primary": "#4953bc",
+                "primary-fixed": "#e0e0ff",
+                "on-primary": "#ffffff",
+                "on-tertiary-container": "#262e40",
+                "on-secondary-container": "#3d687c",
+                "surface-variant": "#e0e3e5",
+                "on-background": "#191c1e",
+                "on-primary-fixed-variant": "#2f3aa3",
+                "inverse-on-surface": "#eff1f3",
+                "on-tertiary": "#ffffff",
+                "secondary-fixed": "#bee9ff",
+                "error-container": "#ffdad6",
+                "surface": "#f7f9fb",
+                "inverse-primary": "#bdc2ff",
+                "surface-bright": "#f7f9fb",
+                "tertiary-container": "#8e95ab",
+                "on-primary-container": "#101b8a",
+                "on-tertiary-fixed": "#141b2c",
+                "tertiary-fixed": "#dbe2fa",
+                "on-error-container": "#93000a",
+                "tertiary-fixed-dim": "#bfc6dd",
+                "primary-fixed-dim": "#bdc2ff",
+                "on-error": "#ffffff",
+                "surface-tint": "#4953bc",
+                "surface-dim": "#d8dadc",
+                "on-surface-variant": "#454653",
+                "surface-container-highest": "#e0e3e5",
+                "outline": "#767684",
+                "secondary": "#396477",
+                "on-secondary-fixed": "#001f2a",
+                "error": "#ba1a1a",
+                "on-primary-fixed": "#000767",
+                "surface-container-lowest": "#ffffff",
+                "surface-container": "#eceef0",
+                "surface-container-high": "#e6e8ea",
+                "on-surface": "#191c1e",
+                "surface-container-low": "#f2f4f6",
+                "background": "#f7f9fb",
+                "on-secondary": "#ffffff",
+                "secondary-container": "#bae6fd",
+                "on-tertiary-fixed-variant": "#3f4759",
+                "primary-container": "#818cf8",
+                "on-secondary-fixed-variant": "#1e4c5f",
+                "secondary-fixed-dim": "#a1cde3",
+                "outline-variant": "#c6c5d5"
+        },
+        "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-desktop": "64px",
+                "margin-mobile": "16px",
+                "gutter": "24px",
+                "max-width": "1280px",
+                "lg": "24px",
+                "xl": "40px",
+                "unit": "4px",
+                "xs": "4px",
+                "md": "16px",
+                "sm": "8px"
+        },
+        "fontFamily": {
+                "headline-lg": [
+                        "Geist"
+                ],
+                "headline-md": [
+                        "Geist"
+                ],
+                "body-md": [
+                        "Geist"
+                ],
+                "body-lg": [
+                        "Geist"
+                ],
+                "label-md": [
+                        "Geist"
+                ],
+                "body-sm": [
+                        "Geist"
+                ],
+                "headline-lg-mobile": [
+                        "Geist"
+                ],
+                "headline-xl": [
+                        "Geist"
+                ]
+        },
+        "fontSize": {
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "450"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-md": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "450"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-xl": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card {
+            background: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Ambient Orbs -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+<div class="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-primary-fixed/20 blur-[120px] opacity-70"></div>
+<div class="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-secondary-fixed/20 blur-[150px] opacity-50"></div>
+</div>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm backdrop-blur-md transition-colors duration-300">
+<nav class="flex justify-between items-center w-full px-gutter max-w-max-width mx-auto h-20">
+<div class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">
+                Portfolio.OS
+            </div>
+<ul class="hidden md:flex items-center gap-8">
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300 font-body-md text-body-md" href="#">Home</a></li>
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300 font-body-md text-body-md" href="#">About</a></li>
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300 font-body-md text-body-md" href="#">Skills</a></li>
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300 font-body-md text-body-md" href="#">Projects</a></li>
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300 font-body-md text-body-md" href="#">Experience</a></li>
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300 font-body-md text-body-md" href="#">Achievements</a></li>
+<li><a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">Resume</a></li>
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300 font-body-md text-body-md" href="#">Contact</a></li>
+</ul>
+<div class="flex items-center gap-4">
+<button class="hidden md:flex items-center justify-center bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:shadow-md transition-all duration-300">
+                    Download CV
+                </button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">light_mode</span>
+</button>
+</div>
+</nav>
+</header>
+<!-- Main Content -->
+<main class="flex-grow relative z-10 pt-32 pb-xl px-gutter max-w-max-width mx-auto w-full">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface mb-2">Curriculum Vitae</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">A comprehensive overview of my professional experience, technical expertise, and academic background.</p>
+</div>
+<button class="flex items-center gap-2 bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-300 whitespace-nowrap group">
+<span class="material-symbols-outlined group-hover:-translate-y-1 transition-transform">download</span>
+                Download PDF Resume
+            </button>
+</div>
+<!-- Resume Document (Glass Card) -->
+<div class="glass-card backdrop-blur-xl border border-outline-variant/30 rounded-xl p-8 md:p-16 max-w-5xl mx-auto relative overflow-hidden">
+<!-- Decorative corner accent -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-fixed/50 rounded-bl-full blur-2xl"></div>
+<!-- Header -->
+<header class="border-b border-outline-variant/30 pb-8 mb-8 relative z-10">
+<h2 class="font-headline-xl text-headline-md md:text-headline-xl text-on-surface tracking-tight mb-4">Alex Mercer</h2>
+<div class="flex flex-wrap gap-x-6 gap-y-2 font-label-md text-label-md text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">mail</span>
+                        alex.mercer@example.com
+                    </div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">language</span>
+                        portfolio.os
+                    </div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">location_on</span>
+                        San Francisco, CA
+                    </div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">code</span>
+                        github.com/alexm-dev
+                    </div>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 relative z-10">
+<!-- Main Column (Left/Top) -->
+<div class="lg:col-span-2 space-y-12">
+<!-- Profile -->
+<section>
+<h3 class="font-headline-lg text-headline-md text-primary mb-4 flex items-center gap-3">
+<span class="material-symbols-outlined">person</span> Summary
+                        </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                            Forward-thinking Software Engineer with 5+ years of experience architecting scalable backend systems and high-performance user interfaces. Specializing in cloud-native applications and microservices architecture. Passionate about writing clean, maintainable code and optimizing system performance for complex data pipelines.
+                        </p>
+</section>
+<!-- Experience -->
+<section>
+<h3 class="font-headline-lg text-headline-md text-primary mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined">work</span> Experience
+                        </h3>
+<div class="space-y-8">
+<div class="relative pl-6 border-l border-outline-variant/50">
+<div class="absolute w-3 h-3 bg-primary rounded-full -left-[6.5px] top-1.5 shadow-sm"></div>
+<div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold">Senior Software Engineer</h4>
+<span class="font-label-md text-label-md text-secondary">2021 - Present</span>
+</div>
+<div class="font-body-md text-body-sm text-primary mb-3">Nexus Technologies Inc.</div>
+<ul class="list-none space-y-2 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline mt-0.5">chevron_right</span>
+                                        Spearheaded the migration of a legacy monolithic application to a microservices architecture using Go and Kubernetes, reducing latency by 40%.
+                                    </li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline mt-0.5">chevron_right</span>
+                                        Engineered a real-time analytics dashboard utilized by 10k+ daily active users, leveraging React, WebSockets, and Redis.
+                                    </li>
+</ul>
+</div>
+<div class="relative pl-6 border-l border-outline-variant/50">
+<div class="absolute w-3 h-3 bg-surface-variant border border-outline-variant rounded-full -left-[6.5px] top-1.5"></div>
+<div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold">Full Stack Developer</h4>
+<span class="font-label-md text-label-md text-on-surface-variant">2018 - 2021</span>
+</div>
+<div class="font-body-md text-body-sm text-primary mb-3">Quantum Software Solutions</div>
+<ul class="list-none space-y-2 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline mt-0.5">chevron_right</span>
+                                        Developed and maintained secure RESTful APIs using Node.js and Express, processing over 1M requests daily.
+                                    </li>
+</ul>
+</div>
+</div>
+</section>
+</div>
+<!-- Sidebar Column (Right/Bottom) -->
+<div class="space-y-12">
+<!-- Education -->
+<section>
+<h3 class="font-headline-lg text-headline-md text-primary mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined">school</span> Education
+                        </h3>
+<div class="space-y-6">
+<div>
+<h4 class="font-body-md text-body-md text-on-surface font-semibold mb-1">M.S. Computer Science</h4>
+<div class="font-body-md text-body-sm text-on-surface-variant mb-1">Stanford University</div>
+<div class="font-label-md text-label-md text-secondary">2016 - 2018</div>
+</div>
+<div>
+<h4 class="font-body-md text-body-md text-on-surface font-semibold mb-1">B.S. Software Engineering</h4>
+<div class="font-body-md text-body-sm text-on-surface-variant mb-1">MIT</div>
+<div class="font-label-md text-label-md text-on-surface-variant">2012 - 2016</div>
+</div>
+</div>
+</section>
+<!-- Technical Skills -->
+<section>
+<h3 class="font-headline-lg text-headline-md text-primary mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined">terminal</span> Skills
+                        </h3>
+<div class="mb-4">
+<div class="font-label-md text-label-md text-on-surface-variant mb-3 uppercase tracking-widest">Languages</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-primary-fixed border border-primary/20 text-on-primary-fixed font-body-sm text-body-sm px-2 py-1 rounded">TypeScript</span>
+<span class="bg-primary-fixed border border-primary/20 text-on-primary-fixed font-body-sm text-body-sm px-2 py-1 rounded">Go</span>
+<span class="bg-primary-fixed border border-primary/20 text-on-primary-fixed font-body-sm text-body-sm px-2 py-1 rounded">Python</span>
+<span class="bg-primary-fixed border border-primary/20 text-on-primary-fixed font-body-sm text-body-sm px-2 py-1 rounded">Rust</span>
+</div>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface-variant mb-3 uppercase tracking-widest">Technologies</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-variant border border-outline-variant/50 text-on-surface font-body-sm text-body-sm px-2 py-1 rounded">React</span>
+<span class="bg-surface-variant border border-outline-variant/50 text-on-surface font-body-sm text-body-sm px-2 py-1 rounded">Node.js</span>
+<span class="bg-surface-variant border border-outline-variant/50 text-on-surface font-body-sm text-body-sm px-2 py-1 rounded">Docker</span>
+<span class="bg-surface-variant border border-outline-variant/50 text-on-surface font-body-sm text-body-sm px-2 py-1 rounded">Kubernetes</span>
+<span class="bg-surface-variant border border-outline-variant/50 text-on-surface font-body-sm text-body-sm px-2 py-1 rounded">AWS</span>
+<span class="bg-surface-variant border border-outline-variant/50 text-on-surface font-body-sm text-body-sm px-2 py-1 rounded">PostgreSQL</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-12">
+<button class="flex items-center gap-2 bg-transparent border border-outline hover:border-primary text-on-surface font-label-md text-label-md px-6 py-3 rounded-lg hover:bg-primary/5 transition-all duration-300">
+<span class="material-symbols-outlined">print</span>
+                Print Version
+            </button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-xl border-t border-outline-variant/30 relative z-20">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-gutter max-w-max-width mx-auto gap-6 md:gap-0">
+<div class="font-headline-lg text-body-lg font-bold text-on-surface">
+                Portfolio.OS
+            </div>
+<div class="text-on-surface-variant font-label-md text-label-md text-center md:text-left">
+                © 2024 Computer Science Portfolio. Built with vertical momentum.
+            </div>
+<ul class="flex flex-wrap justify-center gap-6">
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary transition-colors duration-200 active:scale-95" href="#">GitHub</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary transition-colors duration-200 active:scale-95" href="#">LinkedIn</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary transition-colors duration-200 active:scale-95" href="#">Email</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary transition-colors duration-200 active:scale-95" href="#">Back to Top</a></li>
+</ul>
+</div>
+</footer>
+</body></html>
