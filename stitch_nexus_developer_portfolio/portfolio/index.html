@@ -185,6 +185,9 @@
 </head>
 <body class="bg-cream-100 text-text-main font-geist antialiased selection:bg-accent-cobalt selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
 
+<!-- Scroll Progress Bar -->
+<div id="progress-bar"></div>
+
 <!-- Interactive Scientific Starfield & HUD Canvas -->
 <canvas id="sci-canvas"></canvas>
 <div class="noise-bg"></div>
@@ -278,7 +281,7 @@
   <section class="mb-24 md:mb-32 relative">
     
     <!-- Top Telemetry Stream -->
-    <div class="flex flex-wrap items-center justify-between gap-4 mb-6 pb-3 border-b border-text-main/10 font-mono text-[11px] text-text-muted font-bold">
+    <div class="hero-telemetry flex flex-wrap items-center justify-between gap-4 mb-6 pb-3 border-b border-text-main/10 font-mono text-[11px] text-text-muted font-bold">
       <div class="flex items-center gap-2.5">
         <span class="inline-block w-2.5 h-2.5 bg-accent-cobalt rounded-sm animate-pulse"></span>
         <span class="text-accent-cobalt uppercase tracking-widest">SYSTEM // ONLINE</span>
@@ -294,56 +297,56 @@
 
     <!-- Main Name Composition (Huge Scientific Typography) -->
     <div class="relative space-y-2 mb-8">
-      <div class="font-mono text-xs text-accent-cobalt font-bold tracking-[0.25em] uppercase mb-2">
+      <div class="hero-label font-mono text-xs text-accent-cobalt font-bold tracking-[0.25em] uppercase mb-2">
         // 01 ARCHITECT &amp; CS STUDENT
       </div>
 
-      <div class="relative">
+      <div class="relative overflow-hidden">
         <h1 class="font-syne font-black text-6xl sm:text-8xl md:text-9xl lg:text-[10.5rem] tracking-tighter leading-[0.88] text-text-main select-none">
-          PARAG<br/>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-text-main via-accent-cobalt to-accent-lavender">VERMA</span><span class="text-accent-cobalt font-mono text-4xl sm:text-6xl md:text-8xl">_</span>
+          <span class="hero-parag block">PARAG</span>
+          <span class="hero-verma block text-transparent bg-clip-text bg-gradient-to-r from-text-main via-accent-cobalt to-accent-lavender">VERMA<span class="text-accent-cobalt font-mono text-4xl sm:text-6xl md:text-8xl scramble-cursor"></span></span>
         </h1>
       </div>
 
       <div class="flex flex-wrap items-center gap-3 pt-3">
-        <h2 class="font-mono font-bold text-lg sm:text-2xl md:text-3xl text-text-main tracking-tight">
-          Computer Science Student <span class="text-accent-coral">///</span> Developer <span class="text-accent-lavender">///</span> Builder
+        <h2 class="hero-subtitle font-mono font-bold text-lg sm:text-2xl md:text-3xl text-text-main tracking-tight">
+          Computer Science Student /// Developer /// Builder
         </h2>
       </div>
     </div>
 
-    <p class="font-geist text-lg md:text-xl text-text-muted max-w-2xl leading-relaxed mb-10">
+    <p class="hero-bio font-geist text-lg md:text-xl text-text-muted max-w-2xl leading-relaxed mb-10">
       Learning, building, and solving problems one project at a time.
     </p>
 
     <!-- Scientific Actions & CTAs -->
     <div class="flex flex-wrap items-center gap-4">
-      <a href="projects.html" class="px-8 py-4 rounded-2xl bg-accent-cobalt text-white font-mono text-xs tracking-widest uppercase font-extrabold hover:bg-blue-700 transition-all duration-300 flex items-center gap-2 shadow-[0_8px_25px_rgba(40,69,224,0.35)] hover:-translate-y-0.5" data-cursor="EXPLORE →">
+      <a href="projects.html" class="hero-cta px-8 py-4 rounded-2xl bg-accent-cobalt text-white font-mono text-xs tracking-widest uppercase font-extrabold hover:bg-blue-700 transition-all duration-300 flex items-center gap-2 shadow-[0_8px_25px_rgba(40,69,224,0.35)] hover:-translate-y-0.5" data-cursor="EXPLORE →">
         <span>VIEW MY WORK</span>
         <span class="material-symbols-outlined text-base">arrow_forward</span>
       </a>
-      <a href="assets/resume.pdf" download class="px-7 py-4 rounded-2xl hud-card hover:border-accent-cobalt text-text-main font-mono text-xs tracking-widest uppercase font-bold transition-all duration-300 flex items-center gap-2 hover:-translate-y-0.5 shadow-sm" data-cursor="GET CV">
+      <a href="assets/resume.pdf" download class="hero-cta px-7 py-4 rounded-2xl hud-card hover:border-accent-cobalt text-text-main font-mono text-xs tracking-widest uppercase font-bold transition-all duration-300 flex items-center gap-2 hover:-translate-y-0.5 shadow-sm" data-cursor="GET CV">
         <span>DOWNLOAD RESUME</span>
         <span class="material-symbols-outlined text-base">download</span>
       </a>
-      <a href="contact.html" class="px-6 py-4 rounded-2xl text-text-muted hover:text-accent-cobalt font-mono text-xs tracking-widest uppercase font-bold transition-colors" data-cursor="CONTACT">
+      <a href="contact.html" class="hero-cta px-6 py-4 rounded-2xl text-text-muted hover:text-accent-cobalt font-mono text-xs tracking-widest uppercase font-bold transition-colors" data-cursor="CONTACT">
         CONTACT ME →
       </a>
     </div>
   </section>
 
   <!-- Bento Grid Showcase: Currently Building & Developer Terminal -->
-  <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-24 reveal">
+  <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-24">
     
     <!-- Currently Building Card (7 cols) -->
-    <div class="lg:col-span-7 hud-card hud-card-hover hud-corner-tl hud-corner-br rounded-3xl p-8 md:p-10 flex flex-col justify-between relative overflow-hidden group">
+    <div class="zoom-card mag-card lg:col-span-7 hud-card hud-card-hover hud-corner-tl hud-corner-br rounded-3xl p-8 md:p-10 flex flex-col justify-between relative overflow-hidden group">
       <div>
         <div class="flex items-center justify-between gap-4 mb-6">
           <div class="flex items-center gap-2 font-mono text-xs text-accent-cobalt uppercase tracking-widest font-extrabold">
             <span class="material-symbols-outlined text-base">build</span>
             <span>CURRENTLY BUILDING</span>
           </div>
-          <span class="px-3 py-1 rounded-full bg-accent-mint/15 text-emerald-800 border border-accent-mint/30 font-mono text-[11px] font-bold">
+          <span class="px-3 py-1 rounded-full bg-accent-mint/15 text-emerald-800 border border-accent-mint/30 font-mono text-[11px] font-bold badge-pulse">
             ● ACTIVE FOCUS
           </span>
         </div>
@@ -356,7 +359,7 @@
         </p>
 
         <!-- Tech Chips -->
-        <div class="flex flex-wrap gap-2 mb-8">
+        <div class="flex flex-wrap gap-2 mb-8 stagger-children">
           <span class="px-3 py-1.5 rounded-xl bg-white border border-text-main/10 text-text-main font-mono text-xs shadow-sm font-bold">C++</span>
           <span class="px-3 py-1.5 rounded-xl bg-white border border-text-main/10 text-text-main font-mono text-xs shadow-sm font-bold">DSA</span>
           <span class="px-3 py-1.5 rounded-xl bg-white border border-text-main/10 text-text-main font-mono text-xs shadow-sm font-bold">OOP</span>
@@ -374,7 +377,7 @@
     </div>
 
     <!-- Interactive Developer Object Code Terminal (5 cols) -->
-    <div class="lg:col-span-5 hud-card rounded-3xl p-6 md:p-8 flex flex-col justify-between font-mono text-xs leading-relaxed border border-text-main/10 relative overflow-hidden bg-white/90 shadow-md">
+    <div class="zoom-card mag-card lg:col-span-5 hud-card rounded-3xl p-6 md:p-8 flex flex-col justify-between font-mono text-xs leading-relaxed border border-text-main/10 relative overflow-hidden bg-white/90 shadow-md">
       <div class="flex items-center justify-between pb-4 border-b border-text-main/10 mb-4 text-text-muted">
         <div class="flex items-center gap-2">
           <div class="w-3 h-3 rounded-full bg-accent-coral"></div>
@@ -408,29 +411,29 @@
   </section>
 
   <!-- 3 Column Quick Nav Telemetry Cards -->
-  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
-    <a href="skills.html" class="hud-card hud-card-hover rounded-2xl p-7 flex flex-col justify-between group" data-cursor="SKILLS">
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
+    <a href="skills.html" class="zoom-card mag-card hud-card hud-card-hover rounded-2xl p-7 flex flex-col justify-between group" data-cursor="SKILLS">
       <div>
-        <span class="font-mono text-xs text-accent-cobalt font-extrabold">// 01 CAPABILITIES</span>
-        <h4 class="font-syne font-extrabold text-xl text-text-main mt-2 mb-1 group-hover:text-accent-cobalt transition-colors">Technical Skills</h4>
+        <span class="font-mono text-xs text-accent-cobalt font-extrabold clip-reveal block">// 01 CAPABILITIES</span>
+        <h4 class="word-swing font-syne font-extrabold text-xl text-text-main mt-2 mb-1 group-hover:text-accent-cobalt transition-colors">Technical Skills</h4>
         <p class="font-geist text-sm text-text-muted">C++, Data Structures, OOP, JavaScript, HTML &amp; Tailwind, Git, VS Code.</p>
       </div>
       <span class="material-symbols-outlined text-text-muted group-hover:text-accent-cobalt mt-6 self-end transition-colors">arrow_forward</span>
     </a>
 
-    <a href="projects.html" class="hud-card hud-card-hover rounded-2xl p-7 flex flex-col justify-between group" data-cursor="PROJECTS">
+    <a href="projects.html" class="zoom-card mag-card hud-card hud-card-hover rounded-2xl p-7 flex flex-col justify-between group" data-cursor="PROJECTS">
       <div>
-        <span class="font-mono text-xs text-accent-lavender font-extrabold">// 02 CASE STUDIES</span>
-        <h4 class="font-syne font-extrabold text-xl text-text-main mt-2 mb-1 group-hover:text-accent-lavender transition-colors">Featured Projects</h4>
+        <span class="font-mono text-xs text-accent-lavender font-extrabold clip-reveal block">// 02 CASE STUDIES</span>
+        <h4 class="word-swing font-syne font-extrabold text-xl text-text-main mt-2 mb-1 group-hover:text-accent-lavender transition-colors">Featured Projects</h4>
         <p class="font-geist text-sm text-text-muted">FRIDAY AI Voice Assistant, Fogwatch UE5 Game, 2D Unity Game.</p>
       </div>
       <span class="material-symbols-outlined text-text-muted group-hover:text-accent-lavender mt-6 self-end transition-colors">arrow_forward</span>
     </a>
 
-    <a href="experience.html" class="hud-card hud-card-hover rounded-2xl p-7 flex flex-col justify-between group" data-cursor="TIMELINE">
+    <a href="experience.html" class="zoom-card mag-card hud-card hud-card-hover rounded-2xl p-7 flex flex-col justify-between group" data-cursor="TIMELINE">
       <div>
-        <span class="font-mono text-xs text-accent-coral font-extrabold">// 03 EXECUTION</span>
-        <h4 class="font-syne font-extrabold text-xl text-text-main mt-2 mb-1 group-hover:text-accent-coral transition-colors">Learning Journey</h4>
+        <span class="font-mono text-xs text-accent-coral font-extrabold clip-reveal block">// 03 EXECUTION</span>
+        <h4 class="word-swing font-syne font-extrabold text-xl text-text-main mt-2 mb-1 group-hover:text-accent-coral transition-colors">Learning Journey</h4>
         <p class="font-geist text-sm text-text-muted">Foundations in C++ → Project Building → Game Dev &amp; AI Exploration.</p>
       </div>
       <span class="material-symbols-outlined text-text-muted group-hover:text-accent-coral mt-6 self-end transition-colors">arrow_forward</span>
@@ -630,15 +633,244 @@
     animateParticles();
   }
 
-  // Reveal Observer
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
+  // ============================================================
+  // GSAP ANIMATION ENGINE — Swing · Scramble · Zoom · Magnetic
+  // ============================================================
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ── SCROLL PROGRESS BAR ──
+  const progressBar = document.getElementById('progress-bar');
+  if (progressBar) {
+    window.addEventListener('scroll', () => {
+      const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      progressBar.style.width = pct + '%';
+    });
+  }
+
+  // ── UTILITY: SPLIT TEXT INTO CHARS ──
+  function splitChars(el) {
+    const text = el.innerText;
+    el.innerHTML = text.split('').map(c =>
+      c === ' ' ? ' ' : `<span class="char-wrap"><span class="char-inner">${c}</span></span>`
+    ).join('');
+    return el.querySelectorAll('.char-inner');
+  }
+
+  // ── UTILITY: SPLIT TEXT INTO WORDS ──
+  function splitWords(el) {
+    const html = el.innerHTML;
+    el.innerHTML = html.split(/(\s+)/).map(w =>
+      w.trim() ? `<span class="word-wrap" style="display:inline-block;overflow:hidden"><span class="word-inner" style="display:inline-block">${w}</span></span>` : w
+    ).join('');
+    return el.querySelectorAll('.word-inner');
+  }
+
+  // ── SCRAMBLE TEXT EFFECT ──
+  function scramble(el, finalText, duration) {
+    const chars = '!<>-_\/[]{}—=+*^?#ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let frame = 0;
+    const totalFrames = Math.floor(duration * 60);
+    function tick() {
+      el.textContent = finalText.split('').map((c, i) => {
+        if (i < Math.floor((frame / totalFrames) * finalText.length)) return c;
+        return chars[Math.floor(Math.random() * chars.length)];
+      }).join('');
+      frame++;
+      if (frame <= totalFrames) requestAnimationFrame(tick);
+      else el.textContent = finalText;
+    }
+    tick();
+  }
+
+  // ── PAGE LOAD SEQUENCE ──
+  gsap.set('main', { autoAlpha: 0 });
+  gsap.to('main', { autoAlpha: 1, duration: 0.4, ease: 'power2.out' });
+
+  // Hero telemetry strip — slides in from left
+  gsap.from('.hero-telemetry', {
+    x: -60, opacity: 0, duration: 0.9,
+    ease: 'expo.out', delay: 0.2
+  });
+
+  // Hero label — fade up
+  gsap.from('.hero-label', {
+    y: 20, opacity: 0, duration: 0.6,
+    ease: 'power3.out', delay: 0.4
+  });
+
+  // PARAG — swing in from the left with rotation
+  const paragEl = document.querySelector('.hero-parag');
+  if (paragEl) {
+    gsap.from(paragEl, {
+      x: -160, rotation: -4, opacity: 0, duration: 1.4,
+      ease: 'elastic.out(1, 0.6)', delay: 0.5
+    });
+  }
+
+  // VERMA — swing in from the right with rotation (opposite direction)
+  const vermaEl = document.querySelector('.hero-verma');
+  if (vermaEl) {
+    gsap.from(vermaEl, {
+      x: 160, rotation: 4, opacity: 0, duration: 1.4,
+      ease: 'elastic.out(1, 0.6)', delay: 0.7
+    });
+  }
+
+  // Scramble subtitle
+  const subEl = document.querySelector('.hero-subtitle');
+  if (subEl) {
+    const final = subEl.textContent;
+    gsap.set(subEl, { opacity: 0 });
+    gsap.to(subEl, {
+      opacity: 1, duration: 0.01, delay: 1.2,
+      onComplete: () => scramble(subEl, final, 1.2)
+    });
+  }
+
+  // Bio paragraph — fade up
+  gsap.from('.hero-bio', {
+    y: 30, opacity: 0, duration: 0.9,
+    ease: 'power3.out', delay: 1.5
+  });
+
+  // CTA buttons — staggered zoom-in from bottom
+  gsap.from('.hero-cta', {
+    y: 40, scale: 0.88, opacity: 0,
+    duration: 0.8, stagger: 0.12,
+    ease: 'back.out(1.7)', delay: 1.7
+  });
+
+  // ── SCROLL-TRIGGERED CARD ANIMATIONS ──
+  // [zoom-card] → zoom-in from bottom with slight rotation
+  gsap.utils.toArray('.zoom-card').forEach((el, i) => {
+    const dirs = [
+      { x: -80, rotation: -4, scale: 0.85 },
+      { x:  80, rotation:  4, scale: 0.85 },
+      { y:  90, rotation: -2, scale: 0.88 },
+      { y:  90, rotation:  2, scale: 0.88 },
+      { x: -60, y: 40, rotation: -3, scale: 0.9 },
+      { x:  60, y: 40, rotation:  3, scale: 0.9 }
+    ];
+    const d = dirs[i % dirs.length];
+    gsap.from(el, {
+      ...d, opacity: 0,
+      duration: 1.1,
+      ease: 'expo.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+        toggleActions: 'play none none none'
       }
     });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  });
+
+  // [swing-in] → pendulum swing from top-left
+  gsap.utils.toArray('.swing-in').forEach((el, i) => {
+    gsap.from(el, {
+      y: -80, rotation: i % 2 === 0 ? -8 : 8,
+      opacity: 0, transformOrigin: 'top center',
+      duration: 1.2, ease: 'elastic.out(1, 0.6)',
+      scrollTrigger: {
+        trigger: el, start: 'top 90%',
+        toggleActions: 'play none none none'
+      }
+    });
+  });
+
+  // [clip-reveal] → clip-path horizontal wipe
+  gsap.utils.toArray('.clip-reveal').forEach(el => {
+    gsap.fromTo(el,
+      { clipPath: 'inset(0 100% 0 0)', opacity: 1 },
+      {
+        clipPath: 'inset(0 0% 0 0)', opacity: 1,
+        duration: 1.2, ease: 'expo.inOut',
+        scrollTrigger: {
+          trigger: el, start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      }
+    );
+  });
+
+  // [stagger-children] → stagger fade-up on child elements
+  gsap.utils.toArray('.stagger-children').forEach(parent => {
+    const children = parent.querySelectorAll(':scope > *');
+    gsap.from(children, {
+      y: 45, opacity: 0, duration: 0.8,
+      stagger: 0.1, ease: 'power3.out',
+      scrollTrigger: {
+        trigger: parent, start: 'top 86%',
+        toggleActions: 'play none none none'
+      }
+    });
+  });
+
+  // [fade-up] → simple fade-up
+  gsap.utils.toArray('.fade-up').forEach((el, i) => {
+    gsap.from(el, {
+      y: 50, opacity: 0, duration: 0.9,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: el, start: 'top 88%',
+        toggleActions: 'play none none none'
+      }
+    });
+  });
+
+  // ── MAGNETIC 3D TILT ON HUD CARDS ──
+  document.querySelectorAll('.mag-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width / 2);
+      const dy = (e.clientY - cy) / (rect.height / 2);
+      gsap.to(card, {
+        rotateY: dx * 10, rotateX: -dy * 10,
+        scale: 1.02, duration: 0.5, ease: 'power2.out',
+        transformPerspective: 800
+      });
+    });
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, {
+        rotateY: 0, rotateX: 0,
+        scale: 1, duration: 0.7, ease: 'elastic.out(1, 0.6)'
+      });
+    });
+  });
+
+  // ── HEADER SCROLL BEHAVIOUR ──
+  const header = document.getElementById('main-header');
+  if (header) {
+    ScrollTrigger.create({
+      start: 'top -60',
+      onUpdate: self => {
+        if (self.progress > 0) {
+          header.style.background = 'rgba(245,242,234,0.88)';
+          header.style.backdropFilter = 'blur(24px)';
+          header.style.boxShadow = '0 4px 24px rgba(17,18,21,0.08)';
+        } else {
+          header.style.background = 'transparent';
+          header.style.backdropFilter = 'none';
+          header.style.boxShadow = 'none';
+        }
+      }
+    });
+  }
+
+  // ── SECTION HEADING WORD SWING ──
+  document.querySelectorAll('.word-swing').forEach(el => {
+    const words = splitWords(el);
+    gsap.from(words, {
+      y: '110%', rotation: 4,
+      opacity: 0, duration: 0.9,
+      stagger: 0.08, ease: 'expo.out',
+      scrollTrigger: {
+        trigger: el, start: 'top 90%',
+        toggleActions: 'play none none none'
+      }
+    });
+  });
 </script>
 
 </body>

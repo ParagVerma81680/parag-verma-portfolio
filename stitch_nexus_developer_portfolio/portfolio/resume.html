@@ -185,6 +185,9 @@
 </head>
 <body class="bg-cream-100 text-text-main font-geist antialiased selection:bg-accent-cobalt selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
 
+<!-- Scroll Progress Bar -->
+<div id="progress-bar"></div>
+
 <!-- Interactive Scientific Starfield & HUD Canvas -->
 <canvas id="sci-canvas"></canvas>
 <div class="noise-bg"></div>
@@ -764,15 +767,244 @@
     animateParticles();
   }
 
-  // Reveal Observer
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
+  // ============================================================
+  // GSAP ANIMATION ENGINE — Swing · Scramble · Zoom · Magnetic
+  // ============================================================
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ── SCROLL PROGRESS BAR ──
+  const progressBar = document.getElementById('progress-bar');
+  if (progressBar) {
+    window.addEventListener('scroll', () => {
+      const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      progressBar.style.width = pct + '%';
+    });
+  }
+
+  // ── UTILITY: SPLIT TEXT INTO CHARS ──
+  function splitChars(el) {
+    const text = el.innerText;
+    el.innerHTML = text.split('').map(c =>
+      c === ' ' ? ' ' : `<span class="char-wrap"><span class="char-inner">${c}</span></span>`
+    ).join('');
+    return el.querySelectorAll('.char-inner');
+  }
+
+  // ── UTILITY: SPLIT TEXT INTO WORDS ──
+  function splitWords(el) {
+    const html = el.innerHTML;
+    el.innerHTML = html.split(/(\s+)/).map(w =>
+      w.trim() ? `<span class="word-wrap" style="display:inline-block;overflow:hidden"><span class="word-inner" style="display:inline-block">${w}</span></span>` : w
+    ).join('');
+    return el.querySelectorAll('.word-inner');
+  }
+
+  // ── SCRAMBLE TEXT EFFECT ──
+  function scramble(el, finalText, duration) {
+    const chars = '!<>-_\/[]{}—=+*^?#ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let frame = 0;
+    const totalFrames = Math.floor(duration * 60);
+    function tick() {
+      el.textContent = finalText.split('').map((c, i) => {
+        if (i < Math.floor((frame / totalFrames) * finalText.length)) return c;
+        return chars[Math.floor(Math.random() * chars.length)];
+      }).join('');
+      frame++;
+      if (frame <= totalFrames) requestAnimationFrame(tick);
+      else el.textContent = finalText;
+    }
+    tick();
+  }
+
+  // ── PAGE LOAD SEQUENCE ──
+  gsap.set('main', { autoAlpha: 0 });
+  gsap.to('main', { autoAlpha: 1, duration: 0.4, ease: 'power2.out' });
+
+  // Hero telemetry strip — slides in from left
+  gsap.from('.hero-telemetry', {
+    x: -60, opacity: 0, duration: 0.9,
+    ease: 'expo.out', delay: 0.2
+  });
+
+  // Hero label — fade up
+  gsap.from('.hero-label', {
+    y: 20, opacity: 0, duration: 0.6,
+    ease: 'power3.out', delay: 0.4
+  });
+
+  // PARAG — swing in from the left with rotation
+  const paragEl = document.querySelector('.hero-parag');
+  if (paragEl) {
+    gsap.from(paragEl, {
+      x: -160, rotation: -4, opacity: 0, duration: 1.4,
+      ease: 'elastic.out(1, 0.6)', delay: 0.5
+    });
+  }
+
+  // VERMA — swing in from the right with rotation (opposite direction)
+  const vermaEl = document.querySelector('.hero-verma');
+  if (vermaEl) {
+    gsap.from(vermaEl, {
+      x: 160, rotation: 4, opacity: 0, duration: 1.4,
+      ease: 'elastic.out(1, 0.6)', delay: 0.7
+    });
+  }
+
+  // Scramble subtitle
+  const subEl = document.querySelector('.hero-subtitle');
+  if (subEl) {
+    const final = subEl.textContent;
+    gsap.set(subEl, { opacity: 0 });
+    gsap.to(subEl, {
+      opacity: 1, duration: 0.01, delay: 1.2,
+      onComplete: () => scramble(subEl, final, 1.2)
+    });
+  }
+
+  // Bio paragraph — fade up
+  gsap.from('.hero-bio', {
+    y: 30, opacity: 0, duration: 0.9,
+    ease: 'power3.out', delay: 1.5
+  });
+
+  // CTA buttons — staggered zoom-in from bottom
+  gsap.from('.hero-cta', {
+    y: 40, scale: 0.88, opacity: 0,
+    duration: 0.8, stagger: 0.12,
+    ease: 'back.out(1.7)', delay: 1.7
+  });
+
+  // ── SCROLL-TRIGGERED CARD ANIMATIONS ──
+  // [zoom-card] → zoom-in from bottom with slight rotation
+  gsap.utils.toArray('.zoom-card').forEach((el, i) => {
+    const dirs = [
+      { x: -80, rotation: -4, scale: 0.85 },
+      { x:  80, rotation:  4, scale: 0.85 },
+      { y:  90, rotation: -2, scale: 0.88 },
+      { y:  90, rotation:  2, scale: 0.88 },
+      { x: -60, y: 40, rotation: -3, scale: 0.9 },
+      { x:  60, y: 40, rotation:  3, scale: 0.9 }
+    ];
+    const d = dirs[i % dirs.length];
+    gsap.from(el, {
+      ...d, opacity: 0,
+      duration: 1.1,
+      ease: 'expo.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+        toggleActions: 'play none none none'
       }
     });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  });
+
+  // [swing-in] → pendulum swing from top-left
+  gsap.utils.toArray('.swing-in').forEach((el, i) => {
+    gsap.from(el, {
+      y: -80, rotation: i % 2 === 0 ? -8 : 8,
+      opacity: 0, transformOrigin: 'top center',
+      duration: 1.2, ease: 'elastic.out(1, 0.6)',
+      scrollTrigger: {
+        trigger: el, start: 'top 90%',
+        toggleActions: 'play none none none'
+      }
+    });
+  });
+
+  // [clip-reveal] → clip-path horizontal wipe
+  gsap.utils.toArray('.clip-reveal').forEach(el => {
+    gsap.fromTo(el,
+      { clipPath: 'inset(0 100% 0 0)', opacity: 1 },
+      {
+        clipPath: 'inset(0 0% 0 0)', opacity: 1,
+        duration: 1.2, ease: 'expo.inOut',
+        scrollTrigger: {
+          trigger: el, start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      }
+    );
+  });
+
+  // [stagger-children] → stagger fade-up on child elements
+  gsap.utils.toArray('.stagger-children').forEach(parent => {
+    const children = parent.querySelectorAll(':scope > *');
+    gsap.from(children, {
+      y: 45, opacity: 0, duration: 0.8,
+      stagger: 0.1, ease: 'power3.out',
+      scrollTrigger: {
+        trigger: parent, start: 'top 86%',
+        toggleActions: 'play none none none'
+      }
+    });
+  });
+
+  // [fade-up] → simple fade-up
+  gsap.utils.toArray('.fade-up').forEach((el, i) => {
+    gsap.from(el, {
+      y: 50, opacity: 0, duration: 0.9,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: el, start: 'top 88%',
+        toggleActions: 'play none none none'
+      }
+    });
+  });
+
+  // ── MAGNETIC 3D TILT ON HUD CARDS ──
+  document.querySelectorAll('.mag-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width / 2);
+      const dy = (e.clientY - cy) / (rect.height / 2);
+      gsap.to(card, {
+        rotateY: dx * 10, rotateX: -dy * 10,
+        scale: 1.02, duration: 0.5, ease: 'power2.out',
+        transformPerspective: 800
+      });
+    });
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, {
+        rotateY: 0, rotateX: 0,
+        scale: 1, duration: 0.7, ease: 'elastic.out(1, 0.6)'
+      });
+    });
+  });
+
+  // ── HEADER SCROLL BEHAVIOUR ──
+  const header = document.getElementById('main-header');
+  if (header) {
+    ScrollTrigger.create({
+      start: 'top -60',
+      onUpdate: self => {
+        if (self.progress > 0) {
+          header.style.background = 'rgba(245,242,234,0.88)';
+          header.style.backdropFilter = 'blur(24px)';
+          header.style.boxShadow = '0 4px 24px rgba(17,18,21,0.08)';
+        } else {
+          header.style.background = 'transparent';
+          header.style.backdropFilter = 'none';
+          header.style.boxShadow = 'none';
+        }
+      }
+    });
+  }
+
+  // ── SECTION HEADING WORD SWING ──
+  document.querySelectorAll('.word-swing').forEach(el => {
+    const words = splitWords(el);
+    gsap.from(words, {
+      y: '110%', rotation: 4,
+      opacity: 0, duration: 0.9,
+      stagger: 0.08, ease: 'expo.out',
+      scrollTrigger: {
+        trigger: el, start: 'top 90%',
+        toggleActions: 'play none none none'
+      }
+    });
+  });
 </script>
 
 </body>
