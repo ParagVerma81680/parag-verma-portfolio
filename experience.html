@@ -1,450 +1,426 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
+<html lang="en" class="dark scroll-smooth">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Experience - Portfolio.OS</title>
-<!-- Fonts -->
+<title>Experience — Parag Verma | Portfolio.OS</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet"/>
-<!-- Material Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Theme Configuration -->
-<script id="tailwind-config">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
   tailwind.config = {
     darkMode: "class",
     theme: {
       extend: {
-        "colors": {
-                "inverse-surface": "#2d3133",
-                "tertiary": "#575e72",
-                "primary": "#4953bc",
-                "primary-fixed": "#e0e0ff",
-                "on-primary": "#ffffff",
-                "on-tertiary-container": "#262e40",
-                "on-secondary-container": "#3d687c",
-                "surface-variant": "#e0e3e5",
-                "on-background": "#191c1e",
-                "on-primary-fixed-variant": "#2f3aa3",
-                "inverse-on-surface": "#eff1f3",
-                "on-tertiary": "#ffffff",
-                "secondary-fixed": "#bee9ff",
-                "error-container": "#ffdad6",
-                "surface": "#f7f9fb",
-                "inverse-primary": "#bdc2ff",
-                "surface-bright": "#f7f9fb",
-                "tertiary-container": "#8e95ab",
-                "on-primary-container": "#101b8a",
-                "on-tertiary-fixed": "#141b2c",
-                "tertiary-fixed": "#dbe2fa",
-                "on-error-container": "#93000a",
-                "tertiary-fixed-dim": "#bfc6dd",
-                "primary-fixed-dim": "#bdc2ff",
-                "on-error": "#ffffff",
-                "surface-tint": "#4953bc",
-                "surface-dim": "#d8dadc",
-                "on-surface-variant": "#454653",
-                "surface-container-highest": "#e0e3e5",
-                "outline": "#767684",
-                "secondary": "#396477",
-                "on-secondary-fixed": "#001f2a",
-                "error": "#ba1a1a",
-                "on-primary-fixed": "#000767",
-                "surface-container-lowest": "#ffffff",
-                "surface-container": "#eceef0",
-                "surface-container-high": "#e6e8ea",
-                "on-surface": "#191c1e",
-                "surface-container-low": "#f2f4f6",
-                "background": "#f7f9fb",
-                "on-secondary": "#ffffff",
-                "secondary-container": "#bae6fd",
-                "on-tertiary-fixed-variant": "#3f4759",
-                "primary-container": "#818cf8",
-                "on-secondary-fixed-variant": "#1e4c5f",
-                "secondary-fixed-dim": "#a1cde3",
-                "outline-variant": "#c6c5d5"
+        colors: {
+          dark: {
+            950: "#040508",
+            900: "#08090d",
+            850: "#0e1118",
+            800: "#141822",
+            700: "#1c2230",
+            600: "#283044"
+          },
+          accent: {
+            blue: "#3b82f6",
+            cyan: "#06b6d4",
+            purple: "#8b5cf6",
+            indigo: "#6366f1"
+          }
         },
-        "borderRadius": {
-                "DEFAULT": "1rem",
-                "lg": "2rem",
-                "xl": "3rem",
-                "full": "9999px"
-        },
-        "spacing": {
-                "margin-desktop": "64px",
-                "margin-mobile": "16px",
-                "gutter": "24px",
-                "max-width": "1280px",
-                "lg": "24px",
-                "xl": "40px",
-                "unit": "4px",
-                "xs": "4px",
-                "md": "16px",
-                "sm": "8px",
-                "container-max": "1280px",
-                "section-gap": "120px"
-        },
-        "fontFamily": {
-                "headline-lg": [
-                        "Geist"
-                ],
-                "headline-md": [
-                        "Geist"
-                ],
-                "body-md": [
-                        "Geist"
-                ],
-                "body-lg": [
-                        "Geist"
-                ],
-                "label-md": [
-                        "Geist"
-                ],
-                "body-sm": [
-                        "Geist"
-                ],
-                "headline-lg-mobile": [
-                        "Geist"
-                ],
-                "headline-xl": [
-                        "Geist"
-                ]
-        },
-        "fontSize": {
-                "headline-lg": [
-                        "32px",
-                        {
-                                "lineHeight": "40px",
-                                "letterSpacing": "-0.01em",
-                                "fontWeight": "600"
-                        }
-                ],
-                "headline-md": [
-                        "24px",
-                        {
-                                "lineHeight": "32px",
-                                "fontWeight": "600"
-                        }
-                ],
-                "body-md": [
-                        "16px",
-                        {
-                                "lineHeight": "24px",
-                                "fontWeight": "450"
-                        }
-                ],
-                "body-lg": [
-                        "18px",
-                        {
-                                "lineHeight": "28px",
-                                "fontWeight": "400"
-                        }
-                ],
-                "label-md": [
-                        "12px",
-                        {
-                                "lineHeight": "16px",
-                                "letterSpacing": "0.05em",
-                                "fontWeight": "600"
-                        }
-                ],
-                "body-sm": [
-                        "14px",
-                        {
-                                "lineHeight": "20px",
-                                "fontWeight": "450"
-                        }
-                ],
-                "headline-lg-mobile": [
-                        "24px",
-                        {
-                                "lineHeight": "32px",
-                                "fontWeight": "600"
-                        }
-                ],
-                "headline-xl": [
-                        "48px",
-                        {
-                                "lineHeight": "56px",
-                                "letterSpacing": "-0.02em",
-                                "fontWeight": "700"
-                        }
-                ]
+        fontFamily: {
+          syne: ["Syne", "sans-serif"],
+          geist: ["Geist", "sans-serif"],
+          mono: ["Space Mono", "monospace"]
         }
-},
-    },
+      }
+    }
   }
 </script>
 <style>
-        /* Ambient Glows */
-        .ambient-orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.25;
-            z-index: -1;
-            pointer-events: none;
-        }
-        .orb-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #e0e0ff; } /* Soft lavender */
-        .orb-2 { bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: #ffdad6; } /* Soft peach */
-
-        /* Timeline Expand Animation */
-        .timeline-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
-            opacity: 0;
-        }
-        .timeline-card.expanded .timeline-details {
-            max-height: 500px; /* Arbitrary large height to allow content */
-            opacity: 1;
-        }
-        .timeline-card .expand-icon {
-            transition: transform 0.3s ease;
-        }
-        .timeline-card.expanded .expand-icon {
-            transform: rotate(180deg);
-        }
-    </style>
+  /* Noise & Grid Background */
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  }
+  .noise-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 99;
+  }
+  /* Custom Cursor */
+  .custom-cursor-dot {
+    pointer-events: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 6px; height: 6px;
+    background: #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease-out, opacity 0.2s;
+    z-index: 1000;
+  }
+  .custom-cursor-follower {
+    pointer-events: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 32px; height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
+    z-index: 999;
+  }
+  .cursor-hover .custom-cursor-follower {
+    width: 54px; height: 54px;
+    border-color: rgba(59, 130, 246, 0.8);
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  /* Glass Surfaces */
+  .glass-surface {
+    background: rgba(14, 17, 24, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .glass-surface-hover {
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-surface-hover:hover {
+    border-color: rgba(59, 130, 246, 0.45);
+    box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.25);
+    transform: translateY(-3px);
+  }
+  /* Typography Highlights */
+  .gradient-title {
+    background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .gradient-accent {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  /* Reveal on Scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #ambient-glow {
+    position: fixed;
+    top: 0; left: 0;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.03) 45%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.5s;
+  }
+  @media (pointer: coarse) {
+    .custom-cursor-dot, .custom-cursor-follower { display: none !important; }
+  }
+  @media print {
+    header, footer, .no-print, #ambient-glow, .noise-overlay { display: none !important; }
+    body { background: #ffffff !important; color: #000000 !important; }
+    .glass-surface { background: transparent !important; border: 1px solid #e2e8f0 !important; color: #000000 !important; }
+  }
+</style>
 </head>
-<body class="bg-background text-on-background font-body-md text-body-md min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
-<!-- Ambient Background -->
-<div class="ambient-orb orb-1"></div>
-<div class="ambient-orb orb-2"></div>
-<!-- TopNavBar (Shared Component) -->
-<nav id="topnav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300">
-  <div class="flex justify-between items-center w-full px-gutter max-w-[1280px] mx-auto h-20">
-    <a href="index.html" class="flex items-center gap-2">
-      <span class="material-symbols-outlined text-primary text-2xl">terminal</span>
-      <span class="font-bold text-headline-md text-primary tracking-tight">Portfolio.OS</span>
+<body class="bg-dark-950 text-slate-100 font-geist antialiased selection:bg-accent-blue/30 selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
+<div class="noise-overlay"></div>
+<div id="ambient-glow"></div>
+<div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 md:py-6 transition-all duration-300" id="main-header">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <!-- Brand / System OS -->
+    <a href="index.html" class="flex items-center gap-3 group focus:outline-none">
+      <div class="w-9 h-9 rounded-xl bg-dark-900 border border-white/15 flex items-center justify-center text-accent-blue group-hover:border-accent-blue/60 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300">
+        <span class="material-symbols-outlined text-lg">terminal</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-syne font-bold text-sm tracking-tight text-white group-hover:text-accent-blue transition-colors">Portfolio.OS</span>
+        <span class="font-mono text-[10px] text-slate-400 tracking-widest uppercase flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          SYS.ONLINE
+        </span>
+      </div>
     </a>
-    <div class="hidden md:flex items-center gap-8 font-body-md text-body-md">
-      <a href="index.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Home</a>
-      <a href="about.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">About</a>
-      <a href="skills.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Skills</a>
-      <a href="projects.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Projects</a>
-      <a href="experience.html" class="text-primary font-bold border-b-2 border-primary pb-1 transition-all duration-300">Experience</a>
-      <a href="resume.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Resume</a>
-      <a href="contact.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Contact</a>
-    </div>
+
+    <!-- Desktop Floating Pill Nav -->
+    <nav class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-surface shadow-2xl border border-white/10">
+      <a href="index.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Home</a>
+<a href="about.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">About</a>
+<a href="skills.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Skills</a>
+<a href="projects.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Projects</a>
+<a href="experience.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-white bg-accent-blue/20 border border-accent-blue/40 shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300">Experience</a>
+<a href="resume.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Resume</a>
+<a href="contact.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Contact</a>
+
+    </nav>
+
+    <!-- Quick Action / Status -->
     <div class="flex items-center gap-3">
-      <a href="assets/resume.pdf" download class="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface font-label-caps text-label-caps hover:border-primary hover:text-primary transition-all duration-300">Download CV <span class="material-symbols-outlined text-base">download</span></a>
-      <button id="mobile-menu-btn" class="md:hidden p-2 text-on-surface hover:text-primary transition-colors rounded-lg hover:bg-surface-container" aria-label="Toggle menu">
+      <a href="assets/resume.pdf" download class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full glass-surface text-xs font-mono text-slate-300 hover:text-white hover:border-accent-blue/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] transition-all duration-300">
+        <span>CV</span>
+        <span class="material-symbols-outlined text-sm">download</span>
+      </a>
+      <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-xl glass-surface flex items-center justify-center text-slate-300 hover:text-white" aria-label="Toggle menu">
         <span class="material-symbols-outlined" id="menu-icon">menu</span>
       </button>
     </div>
   </div>
-  <div id="mobile-menu" class="hidden md:hidden bg-surface/95 backdrop-blur-xl border-b border-outline-variant/30 px-gutter py-6 flex flex-col gap-1">
-    <a href="index.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Home</a>
-    <a href="about.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">About</a>
-    <a href="skills.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Skills</a>
-    <a href="projects.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Projects</a>
-    <a href="experience.html" class="py-3 px-4 rounded-xl bg-primary/10 text-primary font-bold font-body-md text-body-md transition-all">Experience</a>
-    <a href="resume.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Resume</a>
-    <a href="contact.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Contact</a>
-    <div class="pt-4 border-t border-outline-variant/30 mt-2">
-      <a href="assets/resume.pdf" download class="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-on-primary font-label-caps text-label-caps hover:bg-primary/90 transition-all">Download CV <span class="material-symbols-outlined text-base">download</span></a>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto mt-3 rounded-2xl glass-surface p-6 flex flex-col gap-2 border border-white/10 shadow-2xl">
+    <a href="index.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Home</a>
+<a href="about.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">About</a>
+<a href="skills.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Skills</a>
+<a href="projects.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Projects</a>
+<a href="experience.html" class="py-3 px-4 rounded-xl text-white font-syne font-bold text-lg bg-accent-blue/20 border border-accent-blue/30 transition-all">Experience</a>
+<a href="resume.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Resume</a>
+<a href="contact.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Contact</a>
+
+    <div class="pt-4 border-t border-white/10 mt-2">
+      <a href="assets/resume.pdf" download class="flex items-center justify-center gap-2 py-3 rounded-xl bg-accent-blue text-white font-mono text-xs tracking-wider uppercase hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20">
+        <span>Download CV</span>
+        <span class="material-symbols-outlined text-base">download</span>
+      </a>
     </div>
   </div>
-</nav>
-<!-- Main Content Canvas -->
-<main class="flex-grow pt-32 pb-section-gap px-gutter w-full max-w-container-max mx-auto relative z-10">
-<!-- Section Header -->
-<header class="mb-20 text-center max-w-3xl mx-auto">
-<h1 class="font-headline-lg-mobile md:font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface mb-6">Experience &amp; Journey</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant">A journey through programming, projects, and continuous technical learning.</p>
 </header>
-<!-- Timeline Architecture -->
-<div class="relative w-full mx-auto max-w-5xl">
-<!-- Central Axis (Desktop) / Left Axis (Mobile) -->
-<div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-outline-variant/40 transform md:-translate-x-1/2"></div>
-<!-- Timeline Item 1: Foundations (Left side on desktop) -->
-<div class="relative flex flex-col md:flex-row items-start md:items-center justify-between w-full mb-16 md:mb-24 group timeline-item">
-<!-- Node -->
-<div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-surface-container-lowest border-2 border-primary transform -translate-x-1/2 mt-8 md:mt-0 z-10 shadow-sm"></div>
-<!-- Content (Left side on desktop) -->
-<div class="w-full pl-16 md:pl-0 md:w-[45%] md:pr-12 md:text-right">
-<div class="timeline-card bg-surface-container-lowest border border-outline-variant/40 shadow-sm rounded-[2rem] p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-md relative overflow-hidden text-left md:text-right cursor-pointer">
-<div class="flex flex-col md:items-end mb-2">
-<span class="font-label-md text-label-md text-primary mb-1 uppercase tracking-widest font-bold">FOUNDATIONS</span>
-<h3 class="font-headline-md text-headline-md text-on-surface">C++ &amp; Programming Foundations</h3>
-<h4 class="font-body-lg text-body-lg text-secondary">Computer Science Student</h4>
-</div>
-<p class="text-on-surface-variant mb-4">Building a strong foundation in C++ through programming practice, object-oriented concepts, and problem solving.</p>
-<!-- Expand Toggle -->
-<div class="flex items-center justify-start md:justify-end text-primary font-label-md text-label-md uppercase tracking-wider group/btn">
-<span class="mr-2">Inspect Details</span>
-<span class="material-symbols-outlined expand-icon group-hover/btn:text-secondary transition-colors" data-icon="expand_more">expand_more</span>
-</div>
-<!-- Expandable Content -->
-<div class="timeline-details mt-4 pt-4 border-t border-outline-variant/30 text-left">
-<ul class="list-none space-y-3 text-on-surface-variant">
-<li class="flex items-start">
-<span class="material-symbols-outlined text-secondary mr-2 text-[18px] mt-0.5" data-icon="check_circle">check_circle</span>
-<span>Consistent C++ programming covering memory, pointers, syntax, and algorithmic logic.</span>
-</li>
-<li class="flex items-start">
-<span class="material-symbols-outlined text-secondary mr-2 text-[18px] mt-0.5" data-icon="check_circle">check_circle</span>
-<span>Understanding core Object-Oriented Programming (classes, encapsulation, inheritance).</span>
-</li>
-<li class="flex items-start">
-<span class="material-symbols-outlined text-secondary mr-2 text-[18px] mt-0.5" data-icon="check_circle">check_circle</span>
-<span>Systematic approach to breaking down problems and finding efficient solutions.</span>
-</li>
-</ul>
-<div class="mt-4 flex flex-wrap gap-2 md:justify-end">
-<span class="px-2.5 py-1 rounded-lg bg-primary-fixed border border-primary/20 text-on-primary-fixed font-body-sm text-body-sm">C++</span>
-<span class="px-2.5 py-1 rounded-lg bg-primary-fixed border border-primary/20 text-on-primary-fixed font-body-sm text-body-sm">OOP</span>
-<span class="px-2.5 py-1 rounded-lg bg-primary-fixed border border-primary/20 text-on-primary-fixed font-body-sm text-body-sm">Problem Solving</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Empty space for layout balance on desktop -->
-<div class="hidden md:block md:w-[45%]"></div>
-</div>
-<!-- Timeline Item 2: Building (Right side on desktop) -->
-<div class="relative flex flex-col md:flex-row items-start md:items-center justify-between w-full mb-16 md:mb-24 group timeline-item">
-<!-- Node -->
-<div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-surface-container-lowest border-2 border-secondary transform -translate-x-1/2 mt-8 md:mt-0 z-10 shadow-sm"></div>
-<!-- Empty space for layout balance on desktop -->
-<div class="hidden md:block md:w-[45%]"></div>
-<!-- Content (Right side on desktop) -->
-<div class="w-full pl-16 md:pl-12 md:w-[45%] text-left">
-<div class="timeline-card bg-surface-container-lowest border border-outline-variant/40 shadow-sm rounded-[2rem] p-6 transition-all duration-300 hover:border-secondary/50 hover:shadow-md relative overflow-hidden cursor-pointer">
-<div class="flex flex-col mb-2">
-<span class="font-label-md text-label-md text-secondary mb-1 uppercase tracking-widest font-bold">BUILDING</span>
-<h3 class="font-headline-md text-headline-md text-on-surface">DSA &amp; Project Development</h3>
-<h4 class="font-body-lg text-body-lg text-primary">Learning • Building</h4>
-</div>
-<p class="text-on-surface-variant mb-4">Developing my problem-solving skills through Data Structures &amp; Algorithms while turning what I learn into practical projects.</p>
-<!-- Expand Toggle -->
-<div class="flex items-center text-secondary font-label-md text-label-md uppercase tracking-wider group/btn">
-<span class="mr-2">Inspect Details</span>
-<span class="material-symbols-outlined expand-icon group-hover/btn:text-primary transition-colors" data-icon="expand_more">expand_more</span>
-</div>
-<!-- Expandable Content -->
-<div class="timeline-details mt-4 pt-4 border-t border-outline-variant/30">
-<ul class="list-none space-y-3 text-on-surface-variant">
-<li class="flex items-start">
-<span class="material-symbols-outlined text-primary mr-2 text-[18px] mt-0.5" data-icon="account_tree">account_tree</span>
-<span>Practicing core data structures (arrays, linked lists, stacks, queues, trees) and sorting algorithms.</span>
-</li>
-<li class="flex items-start">
-<span class="material-symbols-outlined text-primary mr-2 text-[18px] mt-0.5" data-icon="code">code</span>
-<span>Building functional tools, websites, and experimenting with modern development workflows.</span>
-</li>
-</ul>
-<div class="mt-4 flex flex-wrap gap-2">
-<span class="px-2.5 py-1 rounded-lg bg-secondary-fixed border border-secondary/20 text-on-secondary-fixed font-body-sm text-body-sm">DSA</span>
-<span class="px-2.5 py-1 rounded-lg bg-secondary-fixed border border-secondary/20 text-on-secondary-fixed font-body-sm text-body-sm">Projects</span>
-<span class="px-2.5 py-1 rounded-lg bg-secondary-fixed border border-secondary/20 text-on-secondary-fixed font-body-sm text-body-sm">Algorithms</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Timeline Item 3: Exploring (Left side on desktop) -->
-<div class="relative flex flex-col md:flex-row items-start md:items-center justify-between w-full mb-16 group timeline-item">
-<!-- Node -->
-<div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-surface-container-lowest border-2 border-primary transform -translate-x-1/2 mt-8 md:mt-0 z-10 shadow-sm"></div>
-<!-- Content (Left side on desktop) -->
-<div class="w-full pl-16 md:pl-0 md:w-[45%] md:pr-12 md:text-right">
-<div class="timeline-card bg-surface-container-lowest border border-outline-variant/40 shadow-sm rounded-[2rem] p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-md relative overflow-hidden text-left md:text-right cursor-pointer">
-<div class="flex flex-col md:items-end mb-2">
-<span class="font-label-md text-label-md text-primary mb-1 uppercase tracking-widest font-bold">EXPLORING</span>
-<h3 class="font-headline-md text-headline-md text-on-surface">AI &amp; Game Development</h3>
-<h4 class="font-body-lg text-body-lg text-secondary">Projects &amp; Exploration</h4>
-</div>
-<p class="text-on-surface-variant mb-4">Exploring different areas of software development through projects like FRIDAY, a Windows AI assistant, and game-development experiments with Unity and Unreal Engine 5.</p>
-<!-- Expand Toggle -->
-<div class="flex items-center justify-start md:justify-end text-primary font-label-md text-label-md uppercase tracking-wider group/btn">
-<span class="mr-2">Inspect Details</span>
-<span class="material-symbols-outlined expand-icon group-hover/btn:text-secondary transition-colors" data-icon="expand_more">expand_more</span>
-</div>
-<!-- Expandable Content -->
-<div class="timeline-details mt-4 pt-4 border-t border-outline-variant/30 text-left">
-<ul class="list-none space-y-3 text-on-surface-variant">
-<li class="flex items-start">
-<span class="material-symbols-outlined text-secondary mr-2 text-[18px] mt-0.5" data-icon="smart_toy">smart_toy</span>
-<span>Developing FRIDAY: personal AI voice and text assistant for Windows.</span>
-</li>
-<li class="flex items-start">
-<span class="material-symbols-outlined text-secondary mr-2 text-[18px] mt-0.5" data-icon="videogame_asset">videogame_asset</span>
-<span>Unity 2D game mechanics &amp; custom CameraFollow2D.cs implementation.</span>
-</li>
-<li class="flex items-start">
-<span class="material-symbols-outlined text-secondary mr-2 text-[18px] mt-0.5" data-icon="videogame_asset">videogame_asset</span>
-<span>Fogwatch horror-mystery story game concept in Unreal Engine 5.</span>
-</li>
-</ul>
-<div class="mt-4 flex flex-wrap gap-2 md:justify-end">
-<span class="px-2.5 py-1 rounded-lg bg-primary-fixed border border-primary/20 text-on-primary-fixed font-body-sm text-body-sm">AI (FRIDAY)</span>
-<span class="px-2.5 py-1 rounded-lg bg-primary-fixed border border-primary/20 text-on-primary-fixed font-body-sm text-body-sm">Unity</span>
-<span class="px-2.5 py-1 rounded-lg bg-primary-fixed border border-primary/20 text-on-primary-fixed font-body-sm text-body-sm">Unreal Engine 5</span>
-<span class="px-2.5 py-1 rounded-lg bg-primary-fixed border border-primary/20 text-on-primary-fixed font-body-sm text-body-sm">Game Dev</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Empty space for layout balance on desktop -->
-<div class="hidden md:block md:w-[45%]"></div>
-</div>
-<!-- Bottom Fade for timeline line -->
-<div class="absolute left-6 md:left-1/2 bottom-0 w-px h-24 bg-gradient-to-t from-background to-outline-variant/40 transform md:-translate-x-1/2 z-0"></div>
-</div>
+
+<!-- Page Content -->
+
+<main class="flex-grow relative z-10 pt-32 md:pt-44 pb-24 px-6 md:px-8 max-w-6xl mx-auto w-full">
+  
+  <header class="mb-16 md:mb-24">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-surface text-xs font-mono text-accent-blue mb-4 border border-accent-blue/30">
+      <span>04 // EXECUTION LOG</span>
+    </div>
+    <h1 class="font-syne font-extrabold text-4xl sm:text-6xl md:text-7xl text-white tracking-tight">
+      Experience &amp; Journey<span class="text-accent-blue">.</span>
+    </h1>
+    <p class="font-geist text-lg text-slate-400 max-w-2xl mt-4">
+      A journey through programming, projects, and continuous technical learning.
+    </p>
+  </header>
+
+  <!-- Timeline Nodes -->
+  <div class="relative max-w-4xl mx-auto space-y-12">
+    <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-1/2"></div>
+
+    <!-- Node 1: Foundations -->
+    <div class="relative flex flex-col md:flex-row items-start justify-between gap-8 reveal">
+      <div class="hidden md:block w-[45%] text-right pt-2">
+        <span class="font-mono text-xs text-accent-blue font-bold tracking-widest uppercase">STAGE 01</span>
+      </div>
+      <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-accent-blue -translate-x-1/2 border-4 border-dark-950 shadow-[0_0_15px_rgba(59,130,246,0.6)] z-10 mt-2"></div>
+      
+      <div class="w-full pl-10 md:pl-0 md:w-[45%]">
+        <div class="glass-surface glass-surface-hover rounded-2xl p-8 relative overflow-hidden">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-mono text-xs text-accent-blue font-bold tracking-widest uppercase">FOUNDATIONS</span>
+          </div>
+          <h3 class="font-syne font-bold text-2xl text-white mb-1">C++ &amp; Programming Foundations</h3>
+          <h4 class="font-mono text-xs text-slate-400 mb-4">Computer Science Student</h4>
+          <p class="font-geist text-sm text-slate-300 mb-6 leading-relaxed">
+            Building a strong foundation in C++ through programming practice, object-oriented concepts, and problem solving.
+          </p>
+          <ul class="list-disc list-inside space-y-1.5 font-geist text-xs text-slate-400 mb-6">
+            <li>Consistent C++ programming covering memory, pointers, syntax, and algorithmic logic.</li>
+            <li>Understanding core Object-Oriented Programming (classes, encapsulation, inheritance).</li>
+            <li>Systematic approach to breaking down problems and finding efficient solutions.</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10">
+            <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 font-mono text-xs">C++</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 font-mono text-xs">OOP</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 font-mono text-xs">Problem Solving</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Node 2: Building -->
+    <div class="relative flex flex-col md:flex-row items-start justify-between gap-8 reveal">
+      <div class="w-full pl-10 md:pl-0 md:w-[45%] order-2 md:order-1">
+        <div class="glass-surface glass-surface-hover rounded-2xl p-8 relative overflow-hidden">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-mono text-xs text-accent-cyan font-bold tracking-widest uppercase">BUILDING</span>
+          </div>
+          <h3 class="font-syne font-bold text-2xl text-white mb-1">DSA &amp; Project Development</h3>
+          <h4 class="font-mono text-xs text-slate-400 mb-4">Learning • Building</h4>
+          <p class="font-geist text-sm text-slate-300 mb-6 leading-relaxed">
+            Developing my problem-solving skills through Data Structures &amp; Algorithms while turning what I learn into practical projects.
+          </p>
+          <ul class="list-disc list-inside space-y-1.5 font-geist text-xs text-slate-400 mb-6">
+            <li>Practicing core data structures (arrays, linked lists, stacks, queues, trees) and sorting algorithms.</li>
+            <li>Building functional tools, websites, and experimenting with modern development workflows.</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10">
+            <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 font-mono text-xs">DSA</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 font-mono text-xs">Projects</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 font-mono text-xs">Algorithms</span>
+          </div>
+        </div>
+      </div>
+      <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-accent-cyan -translate-x-1/2 border-4 border-dark-950 shadow-[0_0_15px_rgba(6,182,212,0.6)] z-10 mt-2"></div>
+      <div class="hidden md:block w-[45%] order-1 md:order-2 pt-2">
+        <span class="font-mono text-xs text-accent-cyan font-bold tracking-widest uppercase">STAGE 02</span>
+      </div>
+    </div>
+
+    <!-- Node 3: Exploring -->
+    <div class="relative flex flex-col md:flex-row items-start justify-between gap-8 reveal">
+      <div class="hidden md:block w-[45%] text-right pt-2">
+        <span class="font-mono text-xs text-accent-purple font-bold tracking-widest uppercase">STAGE 03</span>
+      </div>
+      <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-accent-purple -translate-x-1/2 border-4 border-dark-950 shadow-[0_0_15px_rgba(139,92,246,0.6)] z-10 mt-2"></div>
+      
+      <div class="w-full pl-10 md:pl-0 md:w-[45%]">
+        <div class="glass-surface glass-surface-hover rounded-2xl p-8 relative overflow-hidden">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-mono text-xs text-accent-purple font-bold tracking-widest uppercase">EXPLORING</span>
+          </div>
+          <h3 class="font-syne font-bold text-2xl text-white mb-1">AI &amp; Game Development</h3>
+          <h4 class="font-mono text-xs text-slate-400 mb-4">Projects &amp; Exploration</h4>
+          <p class="font-geist text-sm text-slate-300 mb-6 leading-relaxed">
+            Exploring different areas of software development through projects like FRIDAY, a Windows AI assistant, and game-development experiments with Unity and Unreal Engine 5.
+          </p>
+          <ul class="list-disc list-inside space-y-1.5 font-geist text-xs text-slate-400 mb-6">
+            <li>Developing FRIDAY: personal AI voice and text assistant for Windows.</li>
+            <li>Unity 2D game mechanics &amp; custom CameraFollow2D.cs implementation.</li>
+            <li>Fogwatch horror-mystery story game concept in Unreal Engine 5.</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10">
+            <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 font-mono text-xs">AI (FRIDAY)</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 font-mono text-xs">Unity</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 font-mono text-xs">Unreal Engine 5</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 font-mono text-xs">Game Dev</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </main>
-<!-- Footer (Shared Component) -->
-<footer class="w-full py-16 border-t border-outline-variant/30 bg-surface-container-lowest">
-  <div class="flex flex-col md:flex-row justify-between items-center w-full px-gutter max-w-[1280px] mx-auto gap-6 md:gap-0">
-    <div class="font-bold text-body-lg text-on-surface">Portfolio.OS</div>
-    <div class="font-label-caps text-label-caps text-secondary text-center">© 2026 Parag Verma • Computer Science Student &amp; Developer</div>
-    <div class="flex flex-wrap justify-center gap-6">
-      <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">GitHub</a>
-      <a href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" rel="noopener noreferrer" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">LinkedIn</a>
-      <a href="mailto:paragverma88014@gmail.com" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">Email</a>
-      <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200 flex items-center gap-1">Back to Top <span class="material-symbols-outlined text-sm">arrow_upward</span></a>
+
+
+<!-- Global Footer -->
+<footer class="w-full py-16 md:py-24 border-t border-white/5 bg-dark-900/60 relative z-10 mt-auto">
+  <div class="max-w-6xl mx-auto px-6 md:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-12 border-b border-white/5">
+      <div>
+        <span class="font-mono text-xs text-accent-blue uppercase tracking-widest mb-2 block">// DIGITAL ARTIFACT 2026</span>
+        <h3 class="font-syne font-bold text-2xl md:text-3xl text-white">Parag Verma</h3>
+        <p class="font-geist text-sm text-slate-400 mt-1 max-w-md">Computer Science Student • Developer • Builder. Focused on systems, algorithmic problem solving, and software engineering.</p>
+      </div>
+      <div class="flex flex-wrap gap-4 font-mono text-xs">
+        <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span>GitHub</span>
+          <span class="material-symbols-outlined text-sm">open_in_new</span>
+        </a>
+        <a href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span>LinkedIn</span>
+          <span class="material-symbols-outlined text-sm">open_in_new</span>
+        </a>
+        <a href="mailto:paragverma88014@gmail.com" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span>Email</span>
+          <span class="material-symbols-outlined text-sm">mail</span>
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 text-xs font-mono text-slate-500">
+      <div>© 2026 Parag Verma • Computer Science Student &amp; Developer</div>
+      <div class="flex items-center gap-6">
+        <span>LOC // 28.6139° N, 77.2090° E</span>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-white transition-colors flex items-center gap-1">
+          <span>TOP</span>
+          <span class="material-symbols-outlined text-sm">arrow_upward</span>
+        </button>
+      </div>
     </div>
   </div>
 </footer>
-<!-- Interactive Script for Timeline Cards -->
+
+<!-- Interactive Scripts & Cursor -->
+<div class="custom-cursor-dot" id="cursor-dot"></div>
+<div class="custom-cursor-follower" id="cursor-follower"></div>
+
 <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const timelineCards = document.querySelectorAll('.timeline-card');
-            
-            timelineCards.forEach(card => {
-                card.addEventListener('click', () => {
-                    // Toggle current card
-                    card.classList.toggle('expanded');
-                    
-                    // Optional: Close others (Accordion style)
-                    // timelineCards.forEach(otherCard => {
-                    //    if (otherCard !== card) otherCard.classList.remove('expanded');
-                    // });
-                });
-            });
-        });
-    </script>
-<script>
-// Mobile menu
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const menuIcon = document.getElementById('menu-icon');
-if (mobileMenuBtn) {
-  mobileMenuBtn.addEventListener('click', () => {
-    const isHidden = mobileMenu.classList.contains('hidden');
-    mobileMenu.classList.toggle('hidden');
-    menuIcon.textContent = isHidden ? 'close' : 'menu';
-  });
-  document.addEventListener('click', (e) => {
-    if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-      mobileMenu.classList.add('hidden');
-      menuIcon.textContent = 'menu';
+  // Mobile drawer toggle
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      const isHidden = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      menuIcon.textContent = isHidden ? 'close' : 'menu';
+    });
+  }
+
+  // Smooth Interactive Custom Cursor
+  const dot = document.getElementById('cursor-dot');
+  const follower = document.getElementById('cursor-follower');
+  const glow = document.getElementById('ambient-glow');
+  let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+  let followerX = mouseX, followerY = mouseY;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (dot) {
+      dot.style.left = mouseX + 'px';
+      dot.style.top = mouseY + 'px';
+    }
+    if (glow) {
+      glow.style.left = mouseX + 'px';
+      glow.style.top = mouseY + 'px';
     }
   });
-}
+
+  function renderCursor() {
+    followerX += (mouseX - followerX) * 0.18;
+    followerY += (mouseY - followerY) * 0.18;
+    if (follower) {
+      follower.style.left = followerX + 'px';
+      follower.style.top = followerY + 'px';
+    }
+    requestAnimationFrame(renderCursor);
+  }
+  requestAnimationFrame(renderCursor);
+
+  document.querySelectorAll('a, button, [role="button"], input, textarea').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+
+  // Scroll Reveal Observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
-</body></html>
+
+</body>
+</html>
