@@ -173,16 +173,80 @@
     100% { transform: translate(40px, -30px) scale(1.1); }
   }
 
-  /* Reveal on Scroll */
-  .reveal {
-    opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  /* ===========================
+     CSS ENTRY ANIMATIONS (IntersectionObserver driven)
+     Elements start hidden, get .anim-ready added by JS observer
+  =========================== */
+
+  /* Base hidden state */
+  .anim-box { opacity: 0; }
+  .anim-box.anim-ready {
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+
+  /* Fade up (default) */
+  .anim-box.from-bottom.anim-ready {
+    animation: anim-from-bottom 0.85s both;
   }
+  @keyframes anim-from-bottom {
+    from { opacity: 0; transform: translateY(45px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Swing in from left */
+  .anim-box.from-left.anim-ready {
+    animation: anim-from-left 0.9s both;
+  }
+  @keyframes anim-from-left {
+    from { opacity: 0; transform: translateX(-60px) rotate(-3deg); }
+    to   { opacity: 1; transform: translateX(0) rotate(0); }
+  }
+
+  /* Swing in from right */
+  .anim-box.from-right.anim-ready {
+    animation: anim-from-right 0.9s both;
+  }
+  @keyframes anim-from-right {
+    from { opacity: 0; transform: translateX(60px) rotate(3deg); }
+    to   { opacity: 1; transform: translateX(0) rotate(0); }
+  }
+
+  /* Zoom in */
+  .anim-box.zoom-in.anim-ready {
+    animation: anim-zoom-in 0.8s both;
+  }
+  @keyframes anim-zoom-in {
+    from { opacity: 0; transform: scale(0.88) translateY(30px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  /* Swing from top */
+  .anim-box.from-top.anim-ready {
+    animation: anim-from-top 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  @keyframes anim-from-top {
+    from { opacity: 0; transform: translateY(-50px) rotate(-5deg); transform-origin: top center; }
+    to   { opacity: 1; transform: translateY(0) rotate(0); }
+  }
+
+  /* Clip wipe */
+  .anim-box.clip-wipe { opacity: 1 !important; clip-path: inset(0 100% 0 0); }
+  .anim-box.clip-wipe.anim-ready {
+    animation: anim-clip-wipe 1s cubic-bezier(0.77, 0, 0.175, 1) both;
+  }
+  @keyframes anim-clip-wipe {
+    from { clip-path: inset(0 100% 0 0); }
+    to   { clip-path: inset(0 0% 0 0); }
+  }
+
+  /* Stagger delay helpers */
+  .anim-d1 { animation-delay: 0.05s !important; }
+  .anim-d2 { animation-delay: 0.12s !important; }
+  .anim-d3 { animation-delay: 0.19s !important; }
+  .anim-d4 { animation-delay: 0.26s !important; }
+  .anim-d5 { animation-delay: 0.33s !important; }
+  .anim-d6 { animation-delay: 0.40s !important; }
 
   @media (pointer: coarse) {
     .custom-cursor-dot, .custom-cursor-follower { display: none !important; }
@@ -191,6 +255,7 @@
     header, footer, .no-print, #sci-canvas, .noise-bg, .glow-orb { display: none !important; }
     body { background: #ffffff !important; color: #000000 !important; }
     .hud-card { background: transparent !important; border: 1px solid #e2e8f0 !important; box-shadow: none !important; }
+    .anim-box { opacity: 1 !important; clip-path: none !important; }
   }
 </style>
 </head>
@@ -751,115 +816,25 @@
     ease: 'back.out(1.7)', delay: 1.7
   });
 
-  // ── SCROLL-TRIGGERED CARD ANIMATIONS ──
-  // [zoom-card] → zoom-in with staggered direction
-  gsap.utils.toArray('.zoom-card').forEach((el, i) => {
-    const dirs = [
-      { x: -60, rotation: -3, scale: 0.88 },
-      { x:  60, rotation:  3, scale: 0.88 },
-      { y:  70, rotation: -2, scale: 0.9 },
-      { y:  70, rotation:  2, scale: 0.9 },
-      { x: -40, y: 30, rotation: -2, scale: 0.92 },
-      { x:  40, y: 30, rotation:  2, scale: 0.92 }
-    ];
-    const d = dirs[i % dirs.length];
-    gsap.from(el, {
-      ...d, opacity: 0,
-      duration: 1.0,
-      ease: 'expo.out',
-      immediateRender: false,
-      scrollTrigger: {
-        trigger: el,
-        start: 'top bottom',
-        end: 'bottom top',
-        once: true,
-        toggleActions: 'play none none none'
+  // ── CSS ANIMATION OBSERVER (reliable for all pages) ──
+  // Adds .anim-ready to .anim-box elements as they enter viewport
+  const animObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('anim-ready');
+        animObserver.unobserve(entry.target);
       }
     });
-  });
+  }, { threshold: 0.05, rootMargin: '0px 0px -10px 0px' });
 
-  // [swing-in] → pendulum swing
-  gsap.utils.toArray('.swing-in').forEach((el, i) => {
-    gsap.from(el, {
-      y: -60, rotation: i % 2 === 0 ? -6 : 6,
-      opacity: 0, transformOrigin: 'top center',
-      duration: 1.1, ease: 'elastic.out(1, 0.6)',
-      immediateRender: false,
-      scrollTrigger: {
-        trigger: el, start: 'top bottom',
-        once: true,
-        toggleActions: 'play none none none'
-      }
+  document.querySelectorAll('.anim-box').forEach(el => animObserver.observe(el));
+
+  // Safety net: after 800ms force all still-hidden anim-box visible
+  setTimeout(() => {
+    document.querySelectorAll('.anim-box:not(.anim-ready)').forEach(el => {
+      el.classList.add('anim-ready');
     });
-  });
-
-  // [clip-reveal] → clip-path horizontal wipe
-  gsap.utils.toArray('.clip-reveal').forEach(el => {
-    gsap.fromTo(el,
-      { clipPath: 'inset(0 100% 0 0)', opacity: 1 },
-      {
-        clipPath: 'inset(0 0% 0 0)', opacity: 1,
-        duration: 1.1, ease: 'expo.inOut',
-        immediateRender: false,
-        scrollTrigger: {
-          trigger: el, start: 'top bottom',
-          once: true,
-          toggleActions: 'play none none none'
-        }
-      }
-    );
-  });
-
-  // [stagger-children] → stagger fade-up on children
-  gsap.utils.toArray('.stagger-children').forEach(parent => {
-    const children = parent.querySelectorAll(':scope > *');
-    gsap.from(children, {
-      y: 40, opacity: 0, duration: 0.75,
-      stagger: 0.09, ease: 'power3.out',
-      immediateRender: false,
-      scrollTrigger: {
-        trigger: parent, start: 'top bottom',
-        once: true,
-        toggleActions: 'play none none none'
-      }
-    });
-  });
-
-  // [fade-up] → fade-up from below
-  gsap.utils.toArray('.fade-up').forEach((el) => {
-    gsap.from(el, {
-      y: 45, opacity: 0, duration: 0.85,
-      ease: 'power3.out',
-      immediateRender: false,
-      scrollTrigger: {
-        trigger: el, start: 'top bottom',
-        once: true,
-        toggleActions: 'play none none none'
-      }
-    });
-  });
-
-  // [word-swing] → word by word swing up
-  document.querySelectorAll('.word-swing').forEach(el => {
-    const words = splitWords(el);
-    gsap.from(words, {
-      y: '100%', rotation: 3,
-      opacity: 0, duration: 0.8,
-      stagger: 0.07, ease: 'expo.out',
-      immediateRender: false,
-      scrollTrigger: {
-        trigger: el, start: 'top bottom',
-        once: true,
-        toggleActions: 'play none none none'
-      }
-    });
-  });
-
-  // Force ScrollTrigger to recompute positions after fonts/images load
-  window.addEventListener('load', () => {
-    ScrollTrigger.refresh();
-  });
-  setTimeout(() => { ScrollTrigger.refresh(); }, 300);
+  }, 800);
 
   // ── MAGNETIC 3D TILT ON HUD CARDS ──
   document.querySelectorAll('.mag-card').forEach(card => {
