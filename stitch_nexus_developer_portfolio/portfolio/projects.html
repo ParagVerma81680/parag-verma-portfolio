@@ -6,7 +6,7 @@
 <title>Projects — Parag Verma | Scientific Developer OS</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,800;1,400&family=Syne:wght@600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,800;1,400&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -36,15 +36,25 @@
           }
         },
         fontFamily: {
-          syne: ["Syne", "sans-serif"],
+          cormorant: ["Cormorant Garant", "Georgia", "serif"],
           geist: ["Geist", "sans-serif"],
-          mono: ["JetBrains Mono", "Space Mono", "monospace"]
+          mono: ["JetBrains Mono", "monospace"]
         }
       }
     }
   }
 </script>
 <style>
+  /* ===========================
+     CORMORANT GARANT — ITALIAN EDITORIAL SERIF
+  =========================== */
+  .font-cormorant {
+    font-family: "Cormorant Garant", Georgia, serif !important;
+    font-feature-settings: "liga" 1, "kern" 1, "onum" 1;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.01em;
+  }
+
   /* Noise & Sci-Fi Background Canvas */
   #sci-canvas {
     position: fixed;
@@ -68,6 +78,7 @@
       linear-gradient(to right, rgba(17, 18, 21, 0.04) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(17, 18, 21, 0.04) 1px, transparent 1px);
   }
+
 
   /* Scientific HUD Glass Card */
   .hud-card {
@@ -218,7 +229,7 @@
         <span class="font-mono font-extrabold text-sm tracking-tighter">PV//</span>
       </div>
       <div class="flex flex-col">
-        <span class="font-syne font-extrabold text-sm tracking-tight text-text-main group-hover:text-accent-cobalt transition-colors">PARAG.VERMA</span>
+        <span class="font-cormorant font-semibold text-sm tracking-tight text-text-main group-hover:text-accent-cobalt transition-colors">PARAG.VERMA</span>
         <span class="font-mono text-[10px] text-text-muted tracking-widest uppercase flex items-center gap-1.5 font-bold">
           <span class="w-1.5 h-1.5 rounded-full bg-accent-mint animate-ping"></span>
           SYS.RUNNING // 2026
@@ -281,7 +292,7 @@
     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full hud-card text-xs font-mono text-accent-cobalt mb-4 border border-accent-cobalt/20 font-bold">
       <span>03 // WORK &amp; EXPLORATIONS</span>
     </div>
-    <h1 class="font-syne font-black text-5xl sm:text-7xl md:text-8xl text-text-main tracking-tight">
+    <h1 class="font-cormorant font-bold text-3xl sm:text-4xl md:text-5xl text-text-main tracking-tight">
       Featured Projects<span class="text-accent-cobalt">.</span>
     </h1>
     <p class="font-geist text-lg text-text-muted max-w-2xl mt-4">
@@ -316,7 +327,7 @@
 
       <div class="p-8 md:p-10 flex flex-col flex-grow">
         <div class="flex items-center gap-2 font-mono text-xs text-accent-cobalt mb-2 font-bold">// 01 CASE STUDY</div>
-        <h2 class="font-syne font-extrabold text-2xl md:text-3xl text-text-main mb-4 group-hover:text-accent-cobalt transition-colors">FRIDAY | AI Voice Assistant</h2>
+        <h2 class="font-cormorant font-semibold text-xl md:text-2xl text-text-main mb-4 group-hover:text-accent-cobalt transition-colors">FRIDAY | AI Voice Assistant</h2>
         <p class="font-geist text-text-muted mb-6 flex-grow leading-relaxed">
           A Windows-based personal AI assistant with voice and text interaction. It can answer questions, open applications and websites, provide weather and time information, set reminders, perform web searches, and interact with Windows controls.
         </p>
@@ -344,7 +355,7 @@
 
       <div class="p-8 flex flex-col flex-grow">
         <div class="flex items-center gap-2 font-mono text-xs text-accent-lavender mb-2 font-bold">// 02 CASE STUDY</div>
-        <h2 class="font-syne font-extrabold text-xl md:text-2xl text-text-main mb-3 group-hover:text-accent-lavender transition-colors">Fogwatch | Story Mode Horror Game</h2>
+        <h2 class="font-cormorant font-semibold text-xl md:text-2xl text-text-main mb-3 group-hover:text-accent-lavender transition-colors">Fogwatch | Story Mode Horror Game</h2>
         <p class="font-geist text-sm text-text-muted mb-6 flex-grow leading-relaxed">
           A horror-mystery story game set on a remote lighthouse island where previous watchers have disappeared. The project explores exploration, NPCs, night-time monsters, spreading fog, multiple paths, and a hidden ending.
         </p>
@@ -369,7 +380,7 @@
 
       <div class="p-8 flex flex-col flex-grow">
         <div class="flex items-center gap-2 font-mono text-xs text-accent-coral mb-2 font-bold">// 03 CASE STUDY</div>
-        <h2 class="font-syne font-extrabold text-xl md:text-2xl text-text-main mb-3 group-hover:text-accent-coral transition-colors">2D Unity Game</h2>
+        <h2 class="font-cormorant font-semibold text-xl md:text-2xl text-text-main mb-3 group-hover:text-accent-coral transition-colors">2D Unity Game</h2>
         <p class="font-geist text-sm text-text-muted mb-6 flex-grow leading-relaxed">
           A 2D game project focused on learning core game-development systems, including player movement and camera behaviour. Implemented a custom CameraFollow2D.cs system so the camera smoothly follows the player.
         </p>
@@ -388,7 +399,7 @@
       <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-accent-cobalt mb-4 border border-text-main/10 shadow-sm">
         <span class="material-symbols-outlined text-2xl">hourglass_empty</span>
       </div>
-      <h3 class="font-syne font-extrabold text-2xl text-text-main mb-2">More in the pipeline</h3>
+      <h3 class="font-cormorant font-semibold text-2xl text-text-main mb-2">More in the pipeline</h3>
       <p class="font-geist text-sm text-text-muted max-w-md mb-6">
         Constantly exploring new tools, game mechanics, and software projects. Check GitHub for latest commits and experimental repos.
       </p>
@@ -411,7 +422,7 @@
           <span class="w-2 h-2 rounded-full bg-accent-cobalt"></span>
           <span>SYSTEM TERMINATION // ARCHIVE 2026</span>
         </div>
-        <h3 class="font-syne font-extrabold text-2xl md:text-4xl text-text-main">PARAG VERMA</h3>
+        <h3 class="font-cormorant font-semibold text-lg md:text-2xl text-text-main">PARAG VERMA</h3>
         <p class="font-geist text-sm text-text-muted mt-1 max-w-md">Computer Science Student • Developer • Builder. Focused on software development, algorithmic problem solving, and modern creative engineering.</p>
       </div>
       <div class="flex flex-wrap gap-3 font-mono text-xs">

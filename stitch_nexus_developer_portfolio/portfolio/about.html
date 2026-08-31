@@ -6,7 +6,7 @@
 <title>About — Parag Verma | Scientific Developer OS</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,800;1,400&family=Syne:wght@600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,800;1,400&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -36,15 +36,25 @@
           }
         },
         fontFamily: {
-          syne: ["Syne", "sans-serif"],
+          cormorant: ["Cormorant Garant", "Georgia", "serif"],
           geist: ["Geist", "sans-serif"],
-          mono: ["JetBrains Mono", "Space Mono", "monospace"]
+          mono: ["JetBrains Mono", "monospace"]
         }
       }
     }
   }
 </script>
 <style>
+  /* ===========================
+     CORMORANT GARANT — ITALIAN EDITORIAL SERIF
+  =========================== */
+  .font-cormorant {
+    font-family: "Cormorant Garant", Georgia, serif !important;
+    font-feature-settings: "liga" 1, "kern" 1, "onum" 1;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.01em;
+  }
+
   /* Noise & Sci-Fi Background Canvas */
   #sci-canvas {
     position: fixed;
@@ -68,6 +78,7 @@
       linear-gradient(to right, rgba(17, 18, 21, 0.04) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(17, 18, 21, 0.04) 1px, transparent 1px);
   }
+
 
   /* Scientific HUD Glass Card */
   .hud-card {
@@ -218,7 +229,7 @@
         <span class="font-mono font-extrabold text-sm tracking-tighter">PV//</span>
       </div>
       <div class="flex flex-col">
-        <span class="font-syne font-extrabold text-sm tracking-tight text-text-main group-hover:text-accent-cobalt transition-colors">PARAG.VERMA</span>
+        <span class="font-cormorant font-semibold text-sm tracking-tight text-text-main group-hover:text-accent-cobalt transition-colors">PARAG.VERMA</span>
         <span class="font-mono text-[10px] text-text-muted tracking-widest uppercase flex items-center gap-1.5 font-bold">
           <span class="w-1.5 h-1.5 rounded-full bg-accent-mint animate-ping"></span>
           SYS.RUNNING // 2026
@@ -282,7 +293,7 @@
     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full hud-card text-xs font-mono text-accent-cobalt mb-4 border border-accent-cobalt/20 font-bold">
       <span>01 // ARCHITECTURE &amp; BIO</span>
     </div>
-    <h1 class="font-syne font-black text-5xl sm:text-7xl md:text-8xl text-text-main tracking-tight">
+    <h1 class="font-cormorant font-bold text-3xl sm:text-4xl md:text-5xl text-text-main tracking-tight">
       About Me<span class="text-accent-cobalt">.</span>
     </h1>
     <p class="font-geist text-lg text-text-muted max-w-2xl mt-4">
@@ -294,7 +305,7 @@
   <section class="hud-card hud-corner-tl hud-corner-br rounded-3xl p-8 md:p-14 mb-16 relative overflow-hidden reveal shadow-sm">
     <div class="max-w-3xl">
       <span class="font-mono text-xs text-accent-cobalt uppercase tracking-widest mb-4 block font-bold">// PERSONAL STATEMENT</span>
-      <p class="font-syne font-bold text-2xl sm:text-3xl text-text-main leading-snug mb-8">
+      <p class="font-cormorant font-bold text-2xl sm:text-3xl text-text-main leading-snug mb-8">
         “I’m a Computer Science student who enjoys turning what I learn into real projects.”
       </p>
       <p class="font-geist text-base md:text-lg text-text-muted leading-relaxed">
@@ -318,7 +329,7 @@
             <span class="material-symbols-outlined text-2xl">center_focus_strong</span>
           </div>
           <span class="font-mono text-xs text-text-muted uppercase tracking-wider block mb-1 font-bold">Current Focus</span>
-          <h3 class="font-syne font-extrabold text-lg text-text-main">C++ + DSA</h3>
+          <h3 class="font-cormorant font-semibold text-lg text-text-main">C++ + DSA</h3>
         </div>
         <p class="font-geist text-xs text-text-muted mt-4">Data Structures &amp; Algorithms</p>
       </div>
@@ -330,7 +341,7 @@
             <span class="material-symbols-outlined text-2xl">layers</span>
           </div>
           <span class="font-mono text-xs text-text-muted uppercase tracking-wider block mb-1 font-bold">Developer Stack</span>
-          <h3 class="font-syne font-extrabold text-lg text-text-main">C++ • JS • HTML • Tailwind</h3>
+          <h3 class="font-cormorant font-semibold text-lg text-text-main">C++ • JS • HTML • Tailwind</h3>
         </div>
         <p class="font-geist text-xs text-text-muted mt-4">Core Languages &amp; Web</p>
       </div>
@@ -342,7 +353,7 @@
             <span class="material-symbols-outlined text-2xl">terminal</span>
           </div>
           <span class="font-mono text-xs text-text-muted uppercase tracking-wider block mb-1 font-bold">Tools I Use</span>
-          <h3 class="font-syne font-extrabold text-lg text-text-main">VS Code • Git</h3>
+          <h3 class="font-cormorant font-semibold text-lg text-text-main">VS Code • Git</h3>
         </div>
         <p class="font-geist text-xs text-text-muted mt-4">Git • GitHub • VS Code</p>
       </div>
@@ -354,7 +365,7 @@
             <span class="material-symbols-outlined text-2xl">explore</span>
           </div>
           <span class="font-mono text-xs text-text-muted uppercase tracking-wider block mb-1 font-bold">Currently Exploring</span>
-          <h3 class="font-syne font-extrabold text-lg text-text-main">Web Dev • AI Tools</h3>
+          <h3 class="font-cormorant font-semibold text-lg text-text-main">Web Dev • AI Tools</h3>
         </div>
         <p class="font-geist text-xs text-text-muted mt-4">Hackathons &amp; Modern Tools</p>
       </div>
@@ -371,19 +382,19 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div class="hud-card rounded-2xl p-7 border-l-4 border-accent-cobalt shadow-sm">
         <span class="font-mono text-xs text-accent-cobalt font-bold tracking-widest uppercase">01 — FOUNDATIONS</span>
-        <h4 class="font-syne font-extrabold text-xl text-text-main mt-2 mb-2">C++ &amp; Programming Fundamentals</h4>
+        <h4 class="font-cormorant font-semibold text-xl text-text-main mt-2 mb-2">C++ &amp; Programming Fundamentals</h4>
         <p class="font-geist text-sm text-text-muted">Core syntax, object-oriented principles, memory management, and structured problem-solving.</p>
       </div>
 
       <div class="hud-card rounded-2xl p-7 border-l-4 border-accent-lavender shadow-sm">
         <span class="font-mono text-xs text-accent-lavender font-bold tracking-widest uppercase">02 — BUILDING</span>
-        <h4 class="font-syne font-extrabold text-xl text-text-main mt-2 mb-2">DSA &amp; Real Projects</h4>
+        <h4 class="font-cormorant font-semibold text-xl text-text-main mt-2 mb-2">DSA &amp; Real Projects</h4>
         <p class="font-geist text-sm text-text-muted">Applied data structures, algorithmic reasoning, and developing practical software applications like FRIDAY.</p>
       </div>
 
       <div class="hud-card rounded-2xl p-7 border-l-4 border-accent-coral shadow-sm">
         <span class="font-mono text-xs text-accent-coral font-bold tracking-widest uppercase">03 — EXPLORING</span>
-        <h4 class="font-syne font-extrabold text-xl text-text-main mt-2 mb-2">Web Development &amp; Hackathons</h4>
+        <h4 class="font-cormorant font-semibold text-xl text-text-main mt-2 mb-2">Web Development &amp; Hackathons</h4>
         <p class="font-geist text-sm text-text-muted">Modern frontend technologies, game systems in Unity/UE5, rapid building, and collaborative development.</p>
       </div>
     </div>
@@ -401,7 +412,7 @@
           <span class="w-2 h-2 rounded-full bg-accent-cobalt"></span>
           <span>SYSTEM TERMINATION // ARCHIVE 2026</span>
         </div>
-        <h3 class="font-syne font-extrabold text-2xl md:text-4xl text-text-main">PARAG VERMA</h3>
+        <h3 class="font-cormorant font-semibold text-lg md:text-2xl text-text-main">PARAG VERMA</h3>
         <p class="font-geist text-sm text-text-muted mt-1 max-w-md">Computer Science Student • Developer • Builder. Focused on software development, algorithmic problem solving, and modern creative engineering.</p>
       </div>
       <div class="flex flex-wrap gap-3 font-mono text-xs">

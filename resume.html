@@ -6,7 +6,7 @@
 <title>Curriculum Vitae — Parag Verma | Scientific Developer OS</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,800;1,400&family=Syne:wght@600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,800;1,400&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -36,15 +36,25 @@
           }
         },
         fontFamily: {
-          syne: ["Syne", "sans-serif"],
+          cormorant: ["Cormorant Garant", "Georgia", "serif"],
           geist: ["Geist", "sans-serif"],
-          mono: ["JetBrains Mono", "Space Mono", "monospace"]
+          mono: ["JetBrains Mono", "monospace"]
         }
       }
     }
   }
 </script>
 <style>
+  /* ===========================
+     CORMORANT GARANT — ITALIAN EDITORIAL SERIF
+  =========================== */
+  .font-cormorant {
+    font-family: "Cormorant Garant", Georgia, serif !important;
+    font-feature-settings: "liga" 1, "kern" 1, "onum" 1;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.01em;
+  }
+
   /* Noise & Sci-Fi Background Canvas */
   #sci-canvas {
     position: fixed;
@@ -68,6 +78,7 @@
       linear-gradient(to right, rgba(17, 18, 21, 0.04) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(17, 18, 21, 0.04) 1px, transparent 1px);
   }
+
 
   /* Scientific HUD Glass Card */
   .hud-card {
@@ -218,7 +229,7 @@
         <span class="font-mono font-extrabold text-sm tracking-tighter">PV//</span>
       </div>
       <div class="flex flex-col">
-        <span class="font-syne font-extrabold text-sm tracking-tight text-text-main group-hover:text-accent-cobalt transition-colors">PARAG.VERMA</span>
+        <span class="font-cormorant font-semibold text-sm tracking-tight text-text-main group-hover:text-accent-cobalt transition-colors">PARAG.VERMA</span>
         <span class="font-mono text-[10px] text-text-muted tracking-widest uppercase flex items-center gap-1.5 font-bold">
           <span class="w-1.5 h-1.5 rounded-full bg-accent-mint animate-ping"></span>
           SYS.RUNNING // 2026
@@ -282,7 +293,7 @@
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full hud-card text-xs font-mono text-accent-cobalt mb-4 border border-accent-cobalt/20 font-bold">
         <span>05 // PROFESSIONAL RECORD</span>
       </div>
-      <h1 class="font-syne font-black text-5xl sm:text-7xl md:text-8xl text-text-main tracking-tight">
+      <h1 class="font-cormorant font-bold text-3xl sm:text-4xl md:text-5xl text-text-main tracking-tight">
         Curriculum Vitae<span class="text-accent-cobalt">.</span>
       </h1>
       <p class="font-geist text-base md:text-lg text-text-muted max-w-2xl mt-2">
@@ -304,7 +315,7 @@
     <!-- Top Identity Header -->
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-8 border-b border-text-main/10 mb-10">
       <div>
-        <h2 class="font-syne font-extrabold text-3xl sm:text-4xl text-text-main">Parag Verma</h2>
+        <h2 class="font-cormorant font-semibold text-3xl sm:text-4xl text-text-main">Parag Verma</h2>
         <span class="font-mono text-xs text-accent-cobalt tracking-wider uppercase mt-1 block font-bold">B.Tech Computer Science and Engineering (AI and ML)</span>
       </div>
       <div class="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs text-text-muted">
@@ -344,7 +355,7 @@
             <!-- Project 1 -->
             <div class="border-l-2 border-accent-cobalt pl-4">
               <div class="flex justify-between items-baseline mb-1">
-                <h4 class="font-syne font-extrabold text-lg text-text-main">FRIDAY — AI Personal Voice Assistant</h4>
+                <h4 class="font-cormorant font-semibold text-lg text-text-main">FRIDAY — AI Personal Voice Assistant</h4>
                 <span class="font-mono text-xs text-accent-cobalt font-bold">Apr 2026</span>
               </div>
               <a href="https://github.com/ParagVerma81680" target="_blank" class="font-mono text-xs text-text-muted hover:text-accent-cobalt mb-2 inline-block font-bold">GitHub Repository →</a>
@@ -362,7 +373,7 @@
             <!-- Project 2 -->
             <div class="border-l-2 border-accent-lavender pl-4">
               <div class="flex justify-between items-baseline mb-1">
-                <h4 class="font-syne font-extrabold text-lg text-text-main">Unreal Engine / Game Development Project</h4>
+                <h4 class="font-cormorant font-semibold text-lg text-text-main">Unreal Engine / Game Development Project</h4>
                 <span class="font-mono text-xs text-accent-lavender font-bold">Jun 2026</span>
               </div>
               <a href="https://github.com/ParagVerma81680" target="_blank" class="font-mono text-xs text-text-muted hover:text-accent-cobalt mb-2 inline-block font-bold">GitHub Repository →</a>
@@ -379,7 +390,7 @@
             <!-- Project 3 -->
             <div class="border-l-2 border-accent-coral pl-4">
               <div class="flex justify-between items-baseline mb-1">
-                <h4 class="font-syne font-extrabold text-lg text-text-main">Developer Portfolio Website</h4>
+                <h4 class="font-cormorant font-semibold text-lg text-text-main">Developer Portfolio Website</h4>
                 <span class="font-mono text-xs text-accent-coral font-bold">Aug 2026</span>
               </div>
               <a href="https://github.com/ParagVerma81680" target="_blank" class="font-mono text-xs text-text-muted hover:text-accent-cobalt mb-2 inline-block font-bold">GitHub Repository →</a>
@@ -405,7 +416,7 @@
           <div class="space-y-4">
             <div class="p-5 rounded-2xl hud-card border border-text-main/5">
               <div class="flex justify-between items-baseline mb-1">
-                <h4 class="font-syne font-extrabold text-base text-text-main">Data Structure and Algorithms</h4>
+                <h4 class="font-cormorant font-semibold text-base text-text-main">Data Structure and Algorithms</h4>
                 <span class="font-mono text-xs text-accent-cobalt font-bold">Aug 2026 – Jan 2027</span>
               </div>
               <ul class="list-disc list-inside space-y-1 font-geist text-xs text-text-muted">
@@ -417,7 +428,7 @@
 
             <div class="p-5 rounded-2xl hud-card border border-text-main/5">
               <div class="flex justify-between items-baseline mb-1">
-                <h4 class="font-syne font-extrabold text-base text-text-main">Object - Oriented Programming in C++</h4>
+                <h4 class="font-cormorant font-semibold text-base text-text-main">Object - Oriented Programming in C++</h4>
                 <span class="font-mono text-xs text-accent-cobalt font-bold">Aug 2026 – Jan 2027</span>
               </div>
               <ul class="list-disc list-inside space-y-1 font-geist text-xs text-text-muted">
@@ -459,7 +470,7 @@
           <div class="space-y-4">
             <div class="p-5 rounded-2xl hud-card border-l-4 border-accent-cobalt">
               <div class="flex justify-between items-baseline mb-1">
-                <h4 class="font-syne font-extrabold text-sm text-text-main">Lovely Professional University</h4>
+                <h4 class="font-cormorant font-semibold text-sm text-text-main">Lovely Professional University</h4>
                 <span class="font-mono text-xs text-text-muted font-semibold">Since Aug 2025</span>
               </div>
               <div class="font-geist text-xs text-text-muted mb-1">Bachelor of Technology - Computer Science and Engineering(AI and ML)</div>
@@ -468,7 +479,7 @@
 
             <div class="p-5 rounded-2xl hud-card">
               <div class="flex justify-between items-baseline mb-1">
-                <h4 class="font-syne font-extrabold text-sm text-text-main">New Sun Rise Sr Sec School</h4>
+                <h4 class="font-cormorant font-semibold text-sm text-text-main">New Sun Rise Sr Sec School</h4>
                 <span class="font-mono text-xs text-text-muted font-semibold">2022 – 2024</span>
               </div>
               <div class="font-geist text-xs text-text-muted mb-1">Intermediate (Class XII)</div>
@@ -477,7 +488,7 @@
 
             <div class="p-5 rounded-2xl hud-card">
               <div class="flex justify-between items-baseline mb-1">
-                <h4 class="font-syne font-extrabold text-sm text-text-main">New Sun Rise Sr Sec School</h4>
+                <h4 class="font-cormorant font-semibold text-sm text-text-main">New Sun Rise Sr Sec School</h4>
                 <span class="font-mono text-xs text-text-muted font-semibold">2021 – 2022</span>
               </div>
               <div class="font-geist text-xs text-text-muted mb-1">Matriculation (Class X)</div>
@@ -586,7 +597,7 @@
           <span class="w-2 h-2 rounded-full bg-accent-cobalt"></span>
           <span>SYSTEM TERMINATION // ARCHIVE 2026</span>
         </div>
-        <h3 class="font-syne font-extrabold text-2xl md:text-4xl text-text-main">PARAG VERMA</h3>
+        <h3 class="font-cormorant font-semibold text-lg md:text-2xl text-text-main">PARAG VERMA</h3>
         <p class="font-geist text-sm text-text-muted mt-1 max-w-md">Computer Science Student • Developer • Builder. Focused on software development, algorithmic problem solving, and modern creative engineering.</p>
       </div>
       <div class="flex flex-wrap gap-3 font-mono text-xs">
