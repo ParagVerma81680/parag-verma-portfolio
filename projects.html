@@ -711,37 +711,42 @@
   });
 
   // ── SCROLL-TRIGGERED CARD ANIMATIONS ──
-  // [zoom-card] → zoom-in from bottom with slight rotation
+  // [zoom-card] → zoom-in with staggered direction
   gsap.utils.toArray('.zoom-card').forEach((el, i) => {
     const dirs = [
-      { x: -80, rotation: -4, scale: 0.85 },
-      { x:  80, rotation:  4, scale: 0.85 },
-      { y:  90, rotation: -2, scale: 0.88 },
-      { y:  90, rotation:  2, scale: 0.88 },
-      { x: -60, y: 40, rotation: -3, scale: 0.9 },
-      { x:  60, y: 40, rotation:  3, scale: 0.9 }
+      { x: -60, rotation: -3, scale: 0.88 },
+      { x:  60, rotation:  3, scale: 0.88 },
+      { y:  70, rotation: -2, scale: 0.9 },
+      { y:  70, rotation:  2, scale: 0.9 },
+      { x: -40, y: 30, rotation: -2, scale: 0.92 },
+      { x:  40, y: 30, rotation:  2, scale: 0.92 }
     ];
     const d = dirs[i % dirs.length];
     gsap.from(el, {
       ...d, opacity: 0,
-      duration: 1.1,
+      duration: 1.0,
       ease: 'expo.out',
+      immediateRender: false,
       scrollTrigger: {
         trigger: el,
-        start: 'top 88%',
+        start: 'top bottom',
+        end: 'bottom top',
+        once: true,
         toggleActions: 'play none none none'
       }
     });
   });
 
-  // [swing-in] → pendulum swing from top-left
+  // [swing-in] → pendulum swing
   gsap.utils.toArray('.swing-in').forEach((el, i) => {
     gsap.from(el, {
-      y: -80, rotation: i % 2 === 0 ? -8 : 8,
+      y: -60, rotation: i % 2 === 0 ? -6 : 6,
       opacity: 0, transformOrigin: 'top center',
-      duration: 1.2, ease: 'elastic.out(1, 0.6)',
+      duration: 1.1, ease: 'elastic.out(1, 0.6)',
+      immediateRender: false,
       scrollTrigger: {
-        trigger: el, start: 'top 90%',
+        trigger: el, start: 'top bottom',
+        once: true,
         toggleActions: 'play none none none'
       }
     });
@@ -753,39 +758,67 @@
       { clipPath: 'inset(0 100% 0 0)', opacity: 1 },
       {
         clipPath: 'inset(0 0% 0 0)', opacity: 1,
-        duration: 1.2, ease: 'expo.inOut',
+        duration: 1.1, ease: 'expo.inOut',
+        immediateRender: false,
         scrollTrigger: {
-          trigger: el, start: 'top 85%',
+          trigger: el, start: 'top bottom',
+          once: true,
           toggleActions: 'play none none none'
         }
       }
     );
   });
 
-  // [stagger-children] → stagger fade-up on child elements
+  // [stagger-children] → stagger fade-up on children
   gsap.utils.toArray('.stagger-children').forEach(parent => {
     const children = parent.querySelectorAll(':scope > *');
     gsap.from(children, {
-      y: 45, opacity: 0, duration: 0.8,
-      stagger: 0.1, ease: 'power3.out',
+      y: 40, opacity: 0, duration: 0.75,
+      stagger: 0.09, ease: 'power3.out',
+      immediateRender: false,
       scrollTrigger: {
-        trigger: parent, start: 'top 86%',
+        trigger: parent, start: 'top bottom',
+        once: true,
         toggleActions: 'play none none none'
       }
     });
   });
 
-  // [fade-up] → simple fade-up
-  gsap.utils.toArray('.fade-up').forEach((el, i) => {
+  // [fade-up] → fade-up from below
+  gsap.utils.toArray('.fade-up').forEach((el) => {
     gsap.from(el, {
-      y: 50, opacity: 0, duration: 0.9,
+      y: 45, opacity: 0, duration: 0.85,
       ease: 'power3.out',
+      immediateRender: false,
       scrollTrigger: {
-        trigger: el, start: 'top 88%',
+        trigger: el, start: 'top bottom',
+        once: true,
         toggleActions: 'play none none none'
       }
     });
   });
+
+  // [word-swing] → word by word swing up
+  document.querySelectorAll('.word-swing').forEach(el => {
+    const words = splitWords(el);
+    gsap.from(words, {
+      y: '100%', rotation: 3,
+      opacity: 0, duration: 0.8,
+      stagger: 0.07, ease: 'expo.out',
+      immediateRender: false,
+      scrollTrigger: {
+        trigger: el, start: 'top bottom',
+        once: true,
+        toggleActions: 'play none none none'
+      }
+    });
+  });
+
+  // Force ScrollTrigger to recompute positions after fonts/images load
+  window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
+  });
+  setTimeout(() => { ScrollTrigger.refresh(); }, 300);
 
   // ── MAGNETIC 3D TILT ON HUD CARDS ──
   document.querySelectorAll('.mag-card').forEach(card => {
@@ -828,19 +861,8 @@
     });
   }
 
-  // ── SECTION HEADING WORD SWING ──
-  document.querySelectorAll('.word-swing').forEach(el => {
-    const words = splitWords(el);
-    gsap.from(words, {
-      y: '110%', rotation: 4,
-      opacity: 0, duration: 0.9,
-      stagger: 0.08, ease: 'expo.out',
-      scrollTrigger: {
-        trigger: el, start: 'top 90%',
-        toggleActions: 'play none none none'
-      }
-    });
-  });
+
+
 </script>
 
 <script>
