@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Projects — Parag Verma | Portfolio.OS</title>
+<title>Projects — Parag Verma | Creative Portfolio</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet"/>
@@ -11,23 +11,27 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
-    darkMode: "class",
     theme: {
       extend: {
         colors: {
-          dark: {
-            950: "#040508",
-            900: "#08090d",
-            850: "#0e1118",
-            800: "#141822",
-            700: "#1c2230",
-            600: "#283044"
+          cream: {
+            50: "#FAF8F5",
+            100: "#F4F1EA",
+            200: "#EAE6DD",
+            300: "#DDD9D0",
+            400: "#C8C3B8"
+          },
+          text: {
+            main: "#17181C",
+            muted: "#555861",
+            light: "#828694"
           },
           accent: {
-            blue: "#3b82f6",
-            cyan: "#06b6d4",
-            purple: "#8b5cf6",
-            indigo: "#6366f1"
+            cobalt: "#3157FF",
+            lavender: "#8B7CFF",
+            coral: "#FF7657",
+            mint: "#20BFA3",
+            amber: "#F59E0B"
           }
         },
         fontFamily: {
@@ -40,27 +44,30 @@
   }
 </script>
 <style>
-  /* Noise & Grid Background */
-  .bg-grid-pattern {
-    background-size: 40px 40px;
-    background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  }
-  .noise-overlay {
+  /* Noise Texture */
+  .noise-bg {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
     pointer-events: none;
-    z-index: 99;
+    z-index: 40;
   }
+
+  /* Micro Grid Pattern */
+  .bg-grid-warm {
+    background-size: 48px 48px;
+    background-image: 
+      linear-gradient(to right, rgba(23, 24, 28, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(23, 24, 28, 0.035) 1px, transparent 1px);
+  }
+
   /* Custom Cursor */
   .custom-cursor-dot {
     pointer-events: none;
     position: fixed;
     top: 0; left: 0;
     width: 6px; height: 6px;
-    background: #ffffff;
+    background: #17181C;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: transform 0.08s ease-out, opacity 0.2s;
@@ -70,133 +77,184 @@
     pointer-events: none;
     position: fixed;
     top: 0; left: 0;
-    width: 32px; height: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 36px; height: 36px;
+    border: 1.5px solid rgba(23, 24, 28, 0.25);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
     z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.05em;
   }
   .cursor-hover .custom-cursor-follower {
-    width: 54px; height: 54px;
-    border-color: rgba(59, 130, 246, 0.8);
-    background-color: rgba(59, 130, 246, 0.1);
+    width: 64px; height: 64px;
+    border-color: #3157FF;
+    background-color: rgba(49, 87, 255, 0.95);
+    box-shadow: 0 8px 24px rgba(49, 87, 255, 0.35);
   }
-  /* Glass Surfaces */
-  .glass-surface {
-    background: rgba(14, 17, 24, 0.7);
+
+  /* Floating Drift Animations */
+  @keyframes drift-slow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-18px) rotate(1.5deg); }
+  }
+  @keyframes drift-reverse {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(18px) rotate(-1.5deg); }
+  }
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.75; transform: scale(1.06); }
+  }
+  @keyframes marquee-drift {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-drift { animation: drift-slow 8s ease-in-out infinite; }
+  .animate-drift-reverse { animation: drift-reverse 9s ease-in-out infinite; }
+  .animate-pulse-glow { animation: pulse-soft 6s ease-in-out infinite; }
+  .animate-marquee { animation: marquee-drift 24s linear infinite; }
+
+  /* Glass Surface Cards */
+  .warm-glass {
+    background: rgba(255, 255, 255, 0.72);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(23, 24, 28, 0.07);
+    box-shadow: 0 10px 35px -5px rgba(23, 24, 28, 0.04);
   }
-  .glass-surface-hover {
+  .warm-glass-hover {
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .glass-surface-hover:hover {
-    border-color: rgba(59, 130, 246, 0.45);
-    box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.25);
-    transform: translateY(-3px);
+  .warm-glass-hover:hover {
+    border-color: rgba(49, 87, 255, 0.35);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 20px 45px -10px rgba(49, 87, 255, 0.12), 0 1px 3px rgba(23, 24, 28, 0.05);
+    transform: translateY(-4px);
   }
-  /* Typography Highlights */
-  .gradient-title {
-    background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .gradient-accent {
-    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #8b5cf6 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+
   /* Reveal on Scroll */
   .reveal {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(28px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .reveal.active {
     opacity: 1;
     transform: translateY(0);
   }
-  #ambient-glow {
+
+  /* Interactive Radial Follower Glow */
+  #ambient-mouse-glow {
     position: fixed;
     top: 0; left: 0;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.03) 45%, transparent 70%);
+    width: 650px; height: 650px;
+    background: radial-gradient(circle, rgba(49, 87, 255, 0.06) 0%, rgba(139, 124, 255, 0.04) 40%, transparent 70%);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 1;
     transition: opacity 0.5s;
   }
+
   @media (pointer: coarse) {
     .custom-cursor-dot, .custom-cursor-follower { display: none !important; }
   }
   @media print {
-    header, footer, .no-print, #ambient-glow, .noise-overlay { display: none !important; }
+    header, footer, .no-print, #ambient-mouse-glow, .noise-bg, .floating-bg-element { display: none !important; }
     body { background: #ffffff !important; color: #000000 !important; }
-    .glass-surface { background: transparent !important; border: 1px solid #e2e8f0 !important; color: #000000 !important; }
+    .warm-glass { background: transparent !important; border: 1px solid #e2e8f0 !important; box-shadow: none !important; }
   }
 </style>
 </head>
-<body class="bg-dark-950 text-slate-100 font-geist antialiased selection:bg-accent-blue/30 selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
-<div class="noise-overlay"></div>
-<div id="ambient-glow"></div>
-<div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+<body class="bg-cream-100 text-text-main font-geist antialiased selection:bg-accent-cobalt selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
+<div class="noise-bg"></div>
+<div id="ambient-mouse-glow"></div>
+<div class="fixed inset-0 bg-grid-warm pointer-events-none z-0"></div>
 
-<!-- TopNavBar -->
+<!-- Background Living Floating Numbers & Telemetry Layers -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
+  <!-- Large Floating Translucent Numbers -->
+  <span class="absolute top-[12%] -left-8 font-syne font-extrabold text-[140px] md:text-[220px] text-text-main/[0.025] leading-none animate-drift">01</span>
+  <span class="absolute top-[45%] -right-12 font-syne font-extrabold text-[160px] md:text-[260px] text-accent-cobalt/[0.03] leading-none animate-drift-reverse">2026</span>
+  <span class="absolute bottom-[8%] left-[10%] font-syne font-extrabold text-[130px] md:text-[200px] text-accent-lavender/[0.035] leading-none animate-drift">02</span>
+  
+  <!-- Subtle Soft Atmospheric Glow Orbs -->
+  <div class="absolute top-[-10%] right-[10%] w-[550px] h-[550px] bg-accent-cobalt/5 rounded-full blur-[120px] pointer-events-none animate-pulse-glow"></div>
+  <div class="absolute top-[40%] left-[-10%] w-[600px] h-[600px] bg-accent-lavender/5 rounded-full blur-[140px] pointer-events-none animate-pulse-glow" style="animation-delay: 2s;"></div>
+  <div class="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] bg-accent-coral/5 rounded-full blur-[130px] pointer-events-none animate-pulse-glow" style="animation-delay: 4s;"></div>
+
+  <!-- Small Floating Technical Labels -->
+  <div class="absolute top-[22%] right-[8%] font-mono text-[10px] text-text-muted/40 tracking-widest uppercase hidden lg:block animate-drift">
+    [ SYSTEM // OPERATIONAL ]
+  </div>
+  <div class="absolute top-[68%] left-[4%] font-mono text-[10px] text-text-muted/40 tracking-widest uppercase hidden lg:block animate-drift-reverse">
+    COORD // 28.6139° N, 77.2090° E
+  </div>
+  <div class="absolute bottom-[20%] right-[15%] font-mono text-[10px] text-text-muted/40 tracking-widest uppercase hidden lg:block animate-drift">
+    FRAME 028 // CREATIVE MODE
+  </div>
+</div>
+
+<!-- Floating Navigation Bar -->
 <header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 md:py-6 transition-all duration-300" id="main-header">
   <div class="max-w-6xl mx-auto flex items-center justify-between">
-    <!-- Brand / System OS -->
-    <a href="index.html" class="flex items-center gap-3 group focus:outline-none">
-      <div class="w-9 h-9 rounded-xl bg-dark-900 border border-white/15 flex items-center justify-center text-accent-blue group-hover:border-accent-blue/60 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300">
-        <span class="material-symbols-outlined text-lg">terminal</span>
+    <!-- Brand / Operating System Logo -->
+    <a href="index.html" class="flex items-center gap-3 group focus:outline-none" data-cursor="HOME">
+      <div class="w-10 h-10 rounded-2xl bg-white border border-text-main/10 flex items-center justify-center text-accent-cobalt shadow-sm group-hover:border-accent-cobalt/40 group-hover:shadow-[0_4px_16px_rgba(49,87,255,0.2)] transition-all duration-300">
+        <span class="material-symbols-outlined text-xl">terminal</span>
       </div>
       <div class="flex flex-col">
-        <span class="font-syne font-bold text-sm tracking-tight text-white group-hover:text-accent-blue transition-colors">Portfolio.OS</span>
-        <span class="font-mono text-[10px] text-slate-400 tracking-widest uppercase flex items-center gap-1.5">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          SYS.ONLINE
+        <span class="font-syne font-bold text-base tracking-tight text-text-main group-hover:text-accent-cobalt transition-colors">Portfolio.OS</span>
+        <span class="font-mono text-[10px] text-text-muted tracking-widest uppercase flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent-mint animate-pulse"></span>
+          ONLINE // 2026
         </span>
       </div>
     </a>
 
-    <!-- Desktop Floating Pill Nav -->
-    <nav class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-surface shadow-2xl border border-white/10">
-      <a href="index.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Home</a>
-<a href="about.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">About</a>
-<a href="skills.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Skills</a>
-<a href="projects.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-white bg-accent-blue/20 border border-accent-blue/40 shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300">Projects</a>
-<a href="experience.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Experience</a>
-<a href="resume.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Resume</a>
-<a href="contact.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Contact</a>
+    <!-- Desktop Floating Pill Navigation -->
+    <nav class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full warm-glass shadow-lg border border-text-main/10">
+      <a href="index.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-text-muted hover:text-text-main hover:bg-black/5 transition-all duration-300" data-cursor="OPEN →">Home</a>
+<a href="about.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-text-muted hover:text-text-main hover:bg-black/5 transition-all duration-300" data-cursor="OPEN →">About</a>
+<a href="skills.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-text-muted hover:text-text-main hover:bg-black/5 transition-all duration-300" data-cursor="OPEN →">Skills</a>
+<a href="projects.html" class="px-4 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-white bg-accent-cobalt shadow-[0_4px_14px_rgba(49,87,255,0.35)] transition-all duration-300 font-bold" data-cursor="PAGE">Projects</a>
+<a href="experience.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-text-muted hover:text-text-main hover:bg-black/5 transition-all duration-300" data-cursor="OPEN →">Experience</a>
+<a href="resume.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-text-muted hover:text-text-main hover:bg-black/5 transition-all duration-300" data-cursor="OPEN →">Resume</a>
+<a href="contact.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-text-muted hover:text-text-main hover:bg-black/5 transition-all duration-300" data-cursor="OPEN →">Contact</a>
 
     </nav>
 
-    <!-- Quick Action / Status -->
+    <!-- Quick Action / CV -->
     <div class="flex items-center gap-3">
-      <a href="assets/resume.pdf" download class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full glass-surface text-xs font-mono text-slate-300 hover:text-white hover:border-accent-blue/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] transition-all duration-300">
+      <a href="assets/resume.pdf" download class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full warm-glass text-xs font-mono text-text-main hover:text-accent-cobalt hover:border-accent-cobalt/40 hover:shadow-md transition-all duration-300 font-semibold" data-cursor="DOWNLOAD">
         <span>CV</span>
         <span class="material-symbols-outlined text-sm">download</span>
       </a>
-      <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-xl glass-surface flex items-center justify-center text-slate-300 hover:text-white" aria-label="Toggle menu">
+      <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-xl warm-glass flex items-center justify-center text-text-main hover:text-accent-cobalt" aria-label="Toggle menu">
         <span class="material-symbols-outlined" id="menu-icon">menu</span>
       </button>
     </div>
   </div>
 
   <!-- Mobile Drawer Menu -->
-  <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto mt-3 rounded-2xl glass-surface p-6 flex flex-col gap-2 border border-white/10 shadow-2xl">
-    <a href="index.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Home</a>
-<a href="about.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">About</a>
-<a href="skills.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Skills</a>
-<a href="projects.html" class="py-3 px-4 rounded-xl text-white font-syne font-bold text-lg bg-accent-blue/20 border border-accent-blue/30 transition-all">Projects</a>
-<a href="experience.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Experience</a>
-<a href="resume.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Resume</a>
-<a href="contact.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Contact</a>
+  <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto mt-3 rounded-2xl warm-glass p-6 flex flex-col gap-2 border border-text-main/10 shadow-2xl">
+    <a href="index.html" class="py-3.5 px-4 rounded-xl text-text-muted hover:text-text-main hover:bg-black/5 font-syne font-semibold text-lg transition-all">Home</a>
+<a href="about.html" class="py-3.5 px-4 rounded-xl text-text-muted hover:text-text-main hover:bg-black/5 font-syne font-semibold text-lg transition-all">About</a>
+<a href="skills.html" class="py-3.5 px-4 rounded-xl text-text-muted hover:text-text-main hover:bg-black/5 font-syne font-semibold text-lg transition-all">Skills</a>
+<a href="projects.html" class="py-3.5 px-4 rounded-xl text-white font-syne font-bold text-lg bg-accent-cobalt shadow-md transition-all">Projects</a>
+<a href="experience.html" class="py-3.5 px-4 rounded-xl text-text-muted hover:text-text-main hover:bg-black/5 font-syne font-semibold text-lg transition-all">Experience</a>
+<a href="resume.html" class="py-3.5 px-4 rounded-xl text-text-muted hover:text-text-main hover:bg-black/5 font-syne font-semibold text-lg transition-all">Resume</a>
+<a href="contact.html" class="py-3.5 px-4 rounded-xl text-text-muted hover:text-text-main hover:bg-black/5 font-syne font-semibold text-lg transition-all">Contact</a>
 
-    <div class="pt-4 border-t border-white/10 mt-2">
-      <a href="assets/resume.pdf" download class="flex items-center justify-center gap-2 py-3 rounded-xl bg-accent-blue text-white font-mono text-xs tracking-wider uppercase hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20">
+    <div class="pt-4 border-t border-text-main/10 mt-2">
+      <a href="assets/resume.pdf" download class="flex items-center justify-center gap-2 py-3.5 rounded-xl bg-accent-cobalt text-white font-mono text-xs tracking-wider uppercase font-bold hover:bg-blue-700 transition-all shadow-md">
         <span>Download CV</span>
         <span class="material-symbols-outlined text-base">download</span>
       </a>
@@ -204,126 +262,126 @@
   </div>
 </header>
 
-<!-- Page Content -->
+<!-- Main Page Content Canvas -->
 
 <main class="flex-grow relative z-10 pt-32 md:pt-44 pb-24 px-6 md:px-8 max-w-6xl mx-auto w-full">
   
   <header class="mb-12 md:mb-16">
-    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-surface text-xs font-mono text-accent-blue mb-4 border border-accent-blue/30">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full warm-glass text-xs font-mono text-accent-cobalt mb-4 border border-accent-cobalt/20 font-bold">
       <span>03 // WORK &amp; EXPLORATIONS</span>
     </div>
-    <h1 class="font-syne font-extrabold text-4xl sm:text-6xl md:text-7xl text-white tracking-tight">
-      Featured Projects<span class="text-accent-blue">.</span>
+    <h1 class="font-syne font-extrabold text-5xl sm:text-7xl md:text-8xl text-text-main tracking-tight">
+      Featured Projects<span class="text-accent-cobalt">.</span>
     </h1>
-    <p class="font-geist text-lg text-slate-400 max-w-2xl mt-4">
+    <p class="font-geist text-lg text-text-muted max-w-2xl mt-4">
       A showcase of real software applications, game development prototypes, and experimental systems.
     </p>
   </header>
 
   <!-- Filter Buttons -->
-  <div class="flex flex-wrap gap-2 mb-12 pb-4 border-b border-white/10">
-    <button class="proj-filter-btn px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider bg-accent-blue text-white font-bold transition-all shadow-md shadow-blue-500/20" data-filter="all">All Projects</button>
-    <button class="proj-filter-btn px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider glass-surface text-slate-400 hover:text-white transition-all" data-filter="ai">AI</button>
-    <button class="proj-filter-btn px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider glass-surface text-slate-400 hover:text-white transition-all" data-filter="games">Games</button>
-    <button class="proj-filter-btn px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider glass-surface text-slate-400 hover:text-white transition-all" data-filter="unity">Unity</button>
-    <button class="proj-filter-btn px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider glass-surface text-slate-400 hover:text-white transition-all" data-filter="unreal">Unreal Engine</button>
-    <button class="proj-filter-btn px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider glass-surface text-slate-400 hover:text-white transition-all" data-filter="tools">Tools</button>
+  <div class="flex flex-wrap gap-2.5 mb-12 pb-4 border-b border-text-main/10">
+    <button class="proj-filter-btn px-5 py-2 rounded-full font-mono text-xs uppercase tracking-wider bg-accent-cobalt text-white font-bold transition-all shadow-[0_4px_14px_rgba(49,87,255,0.3)]" data-filter="all">All Projects</button>
+    <button class="proj-filter-btn px-5 py-2 rounded-full font-mono text-xs uppercase tracking-wider warm-glass text-text-muted hover:text-text-main transition-all font-semibold" data-filter="ai">AI</button>
+    <button class="proj-filter-btn px-5 py-2 rounded-full font-mono text-xs uppercase tracking-wider warm-glass text-text-muted hover:text-text-main transition-all font-semibold" data-filter="games">Games</button>
+    <button class="proj-filter-btn px-5 py-2 rounded-full font-mono text-xs uppercase tracking-wider warm-glass text-text-muted hover:text-text-main transition-all font-semibold" data-filter="unity">Unity</button>
+    <button class="proj-filter-btn px-5 py-2 rounded-full font-mono text-xs uppercase tracking-wider warm-glass text-text-muted hover:text-text-main transition-all font-semibold" data-filter="unreal">Unreal Engine</button>
+    <button class="proj-filter-btn px-5 py-2 rounded-full font-mono text-xs uppercase tracking-wider warm-glass text-text-muted hover:text-text-main transition-all font-semibold" data-filter="tools">Tools</button>
   </div>
 
   <!-- Projects Grid -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="proj-grid">
     
     <!-- Project 1: FRIDAY (Large Spans 2 cols on lg) -->
-    <article class="proj-card lg:col-span-2 glass-surface glass-surface-hover rounded-2xl overflow-hidden flex flex-col group relative" data-category="ai tools">
-      <div class="relative h-64 sm:h-80 w-full overflow-hidden bg-dark-900">
+    <article class="proj-card lg:col-span-2 warm-glass warm-glass-hover rounded-3xl overflow-hidden flex flex-col group relative shadow-sm" data-category="ai tools" data-cursor="VIEW →">
+      <div class="relative h-64 sm:h-80 w-full overflow-hidden bg-cream-300">
         <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBZtuUvGUhcb657xegH9bXZWoD5FuqANcC86iyHZwBt8jD71P_8aqecs-0eocPEAR7n2aFOfedyWG-eK9ETQbANP4cRufVIxXh1sA0z8aYj9Tnt0nuMs_KCDNmfN5cPiNjKyOfmZZ2C-zg9LYqyxrRhGyOhhy3P03uF7IeMrJIP-K725a1APgvMLaHw3hVNG6o_RBozF3XLO_5HrRsfHzvrtz-RyOgMSm9fHbNFQjpHecx5R1jPBEvc')"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-cream-100 via-cream-100/30 to-transparent"></div>
         
         <div class="absolute top-4 right-4 flex gap-2">
-          <span class="px-3 py-1 bg-accent-blue/80 backdrop-blur-md rounded-full font-mono text-xs font-bold text-white border border-accent-blue/40 shadow-sm">Python</span>
-          <span class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full font-mono text-xs font-bold text-white border border-white/20 shadow-sm">AI</span>
+          <span class="px-3.5 py-1 bg-accent-cobalt text-white backdrop-blur-md rounded-full font-mono text-xs font-bold shadow-md">Python</span>
+          <span class="px-3.5 py-1 bg-white/90 text-text-main backdrop-blur-md rounded-full font-mono text-xs font-bold shadow-sm">AI</span>
         </div>
       </div>
 
-      <div class="p-8 flex flex-col flex-grow">
-        <div class="flex items-center gap-2 font-mono text-xs text-accent-blue mb-2">// 01 CASE STUDY</div>
-        <h2 class="font-syne font-bold text-2xl md:text-3xl text-white mb-4 group-hover:text-accent-blue transition-colors">FRIDAY | AI Voice Assistant</h2>
-        <p class="font-geist text-slate-400 mb-6 flex-grow leading-relaxed">
+      <div class="p-8 md:p-10 flex flex-col flex-grow">
+        <div class="flex items-center gap-2 font-mono text-xs text-accent-cobalt mb-2 font-bold">// 01 CASE STUDY</div>
+        <h2 class="font-syne font-bold text-2xl md:text-3xl text-text-main mb-4 group-hover:text-accent-cobalt transition-colors">FRIDAY | AI Voice Assistant</h2>
+        <p class="font-geist text-text-muted mb-6 flex-grow leading-relaxed">
           A Windows-based personal AI assistant with voice and text interaction. It can answer questions, open applications and websites, provide weather and time information, set reminders, perform web searches, and interact with Windows controls.
         </p>
-        <div class="flex items-center justify-between pt-4 border-t border-white/10">
-          <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-accent-blue hover:text-white flex items-center gap-1.5 transition-colors">
+        <div class="flex items-center justify-between pt-5 border-t border-text-main/10">
+          <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-accent-cobalt hover:underline flex items-center gap-1.5 font-bold" data-cursor="OPEN →">
             <span class="material-symbols-outlined text-sm">code</span>
             <span>View on GitHub</span>
           </a>
-          <span class="material-symbols-outlined text-slate-500 group-hover:text-white transition-colors group-hover:translate-x-1">arrow_forward</span>
+          <span class="material-symbols-outlined text-text-muted group-hover:text-accent-cobalt transition-colors group-hover:translate-x-1">arrow_forward</span>
         </div>
       </div>
     </article>
 
     <!-- Project 2: Fogwatch -->
-    <article class="proj-card glass-surface glass-surface-hover rounded-2xl overflow-hidden flex flex-col group relative" data-category="games unreal">
-      <div class="relative h-64 w-full overflow-hidden bg-dark-900">
+    <article class="proj-card warm-glass warm-glass-hover rounded-3xl overflow-hidden flex flex-col group relative shadow-sm" data-category="games unreal" data-cursor="VIEW →">
+      <div class="relative h-64 w-full overflow-hidden bg-cream-300">
         <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAIU2Tsxg87ZUrkI34zGtI09DSbzVohvTQr19Zv-iZ6Dvx8nQ1-jZJxlXTogfVNY7owN2j9fAjBR27rm-qs8XLcLcpSkYKfOWZHa3IBJhaPyYeFyJo9AZg88PUrnhepxFA0a_HyPJpdD26g0R1GpGaiGDETwmQT15Du-0O4chr13ACo_MlxZf9R6LQRx1GwEmi_E8Pwbc3mK2WIX5c3i8BMtSq_5rU_n88CtD_mAIt_mxBtRTDp28km')"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-cream-100 via-cream-100/30 to-transparent"></div>
         
         <div class="absolute top-4 right-4 flex gap-2">
-          <span class="px-2.5 py-1 bg-accent-purple/80 backdrop-blur-md rounded-full font-mono text-xs font-bold text-white border border-accent-purple/40">UE5</span>
-          <span class="px-2.5 py-1 bg-white/10 backdrop-blur-md rounded-full font-mono text-xs font-bold text-white border border-white/20">Game Dev</span>
+          <span class="px-3 py-1 bg-accent-lavender text-white backdrop-blur-md rounded-full font-mono text-xs font-bold shadow-md">UE5</span>
+          <span class="px-3 py-1 bg-white/90 text-text-main backdrop-blur-md rounded-full font-mono text-xs font-bold shadow-sm">Game Dev</span>
         </div>
       </div>
 
       <div class="p-8 flex flex-col flex-grow">
-        <div class="flex items-center gap-2 font-mono text-xs text-accent-purple mb-2">// 02 CASE STUDY</div>
-        <h2 class="font-syne font-bold text-xl md:text-2xl text-white mb-3 group-hover:text-accent-purple transition-colors">Fogwatch | Story Mode Horror Game</h2>
-        <p class="font-geist text-sm text-slate-400 mb-6 flex-grow leading-relaxed">
+        <div class="flex items-center gap-2 font-mono text-xs text-accent-lavender mb-2 font-bold">// 02 CASE STUDY</div>
+        <h2 class="font-syne font-bold text-xl md:text-2xl text-text-main mb-3 group-hover:text-accent-lavender transition-colors">Fogwatch | Story Mode Horror Game</h2>
+        <p class="font-geist text-sm text-text-muted mb-6 flex-grow leading-relaxed">
           A horror-mystery story game set on a remote lighthouse island where previous watchers have disappeared. The project explores exploration, NPCs, night-time monsters, spreading fog, multiple paths, and a hidden ending.
         </p>
-        <div class="flex items-center justify-between pt-4 border-t border-white/10">
-          <span class="font-mono text-xs text-slate-400">Planned in UE5</span>
-          <span class="material-symbols-outlined text-slate-500 group-hover:text-white transition-colors group-hover:translate-x-1">arrow_forward</span>
+        <div class="flex items-center justify-between pt-5 border-t border-text-main/10">
+          <span class="font-mono text-xs text-text-muted font-bold">Planned in UE5</span>
+          <span class="material-symbols-outlined text-text-muted group-hover:text-accent-lavender transition-colors group-hover:translate-x-1">arrow_forward</span>
         </div>
       </div>
     </article>
 
     <!-- Project 3: 2D Unity Game -->
-    <article class="proj-card glass-surface glass-surface-hover rounded-2xl overflow-hidden flex flex-col group relative" data-category="games unity">
-      <div class="relative h-64 w-full overflow-hidden bg-dark-900">
+    <article class="proj-card warm-glass warm-glass-hover rounded-3xl overflow-hidden flex flex-col group relative shadow-sm" data-category="games unity" data-cursor="VIEW →">
+      <div class="relative h-64 w-full overflow-hidden bg-cream-300">
         <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD-tzodMXJ6gvcMQ5KA7IuKuiY-VWWXVMSBX5Q8-MSOflysCqTA4KXm3qGtWO157OFpy38KPfOJBQMVywc_Fxi9OfOTlDrLZJ_otmrjWQIfs0TVzsRVTQOG2PD3jzQvJwjxtdbvq3xTmkwqzIHzyoUiYhvqvFr7E4dCSBtEM1o7LIG3yn004iSIhu7TNKApPYf8Vfg3s-80yrQUD-MYQl6YGfpFKmik0FxIVp6taUS9jIrECeEKxSDV')"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-cream-100 via-cream-100/30 to-transparent"></div>
         
         <div class="absolute top-4 right-4 flex gap-2">
-          <span class="px-2.5 py-1 bg-accent-cyan/80 backdrop-blur-md rounded-full font-mono text-xs font-bold text-white border border-accent-cyan/40">Unity</span>
-          <span class="px-2.5 py-1 bg-white/10 backdrop-blur-md rounded-full font-mono text-xs font-bold text-white border border-white/20">C#</span>
+          <span class="px-3 py-1 bg-accent-coral text-white backdrop-blur-md rounded-full font-mono text-xs font-bold shadow-md">Unity</span>
+          <span class="px-3 py-1 bg-white/90 text-text-main backdrop-blur-md rounded-full font-mono text-xs font-bold shadow-sm">C#</span>
         </div>
       </div>
 
       <div class="p-8 flex flex-col flex-grow">
-        <div class="flex items-center gap-2 font-mono text-xs text-accent-cyan mb-2">// 03 CASE STUDY</div>
-        <h2 class="font-syne font-bold text-xl md:text-2xl text-white mb-3 group-hover:text-accent-cyan transition-colors">2D Unity Game</h2>
-        <p class="font-geist text-sm text-slate-400 mb-6 flex-grow leading-relaxed">
+        <div class="flex items-center gap-2 font-mono text-xs text-accent-coral mb-2 font-bold">// 03 CASE STUDY</div>
+        <h2 class="font-syne font-bold text-xl md:text-2xl text-text-main mb-3 group-hover:text-accent-coral transition-colors">2D Unity Game</h2>
+        <p class="font-geist text-sm text-text-muted mb-6 flex-grow leading-relaxed">
           A 2D game project focused on learning core game-development systems, including player movement and camera behaviour. Implemented a custom CameraFollow2D.cs system so the camera smoothly follows the player.
         </p>
-        <div class="flex items-center justify-between pt-4 border-t border-white/10">
-          <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-accent-cyan hover:text-white flex items-center gap-1.5 transition-colors">
+        <div class="flex items-center justify-between pt-5 border-t border-text-main/10">
+          <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-accent-coral hover:underline flex items-center gap-1.5 font-bold" data-cursor="OPEN →">
             <span class="material-symbols-outlined text-sm">code</span>
             <span>Source Code</span>
           </a>
-          <span class="material-symbols-outlined text-slate-500 group-hover:text-white transition-colors group-hover:translate-x-1">arrow_forward</span>
+          <span class="material-symbols-outlined text-text-muted group-hover:text-accent-coral transition-colors group-hover:translate-x-1">arrow_forward</span>
         </div>
       </div>
     </article>
 
     <!-- Pipeline Teaser Card (Spans 2 cols on lg) -->
-    <article class="lg:col-span-2 glass-surface rounded-2xl p-8 flex flex-col items-center justify-center text-center border-dashed border-white/20 bg-dark-900/40 relative">
-      <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-slate-400 mb-4 border border-white/10">
+    <article class="lg:col-span-2 warm-glass rounded-3xl p-8 md:p-10 flex flex-col items-center justify-center text-center border-dashed border-text-main/20 bg-cream-200/40 relative shadow-sm">
+      <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-accent-cobalt mb-4 border border-text-main/10 shadow-sm">
         <span class="material-symbols-outlined text-2xl">hourglass_empty</span>
       </div>
-      <h3 class="font-syne font-bold text-2xl text-white mb-2">More in the pipeline</h3>
-      <p class="font-geist text-sm text-slate-400 max-w-md mb-6">
+      <h3 class="font-syne font-bold text-2xl text-text-main mb-2">More in the pipeline</h3>
+      <p class="font-geist text-sm text-text-muted max-w-md mb-6">
         Constantly exploring new tools, game mechanics, and software projects. Check GitHub for latest commits and experimental repos.
       </p>
-      <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 rounded-full border border-white/20 text-xs font-mono text-slate-300 hover:text-white hover:border-accent-blue/60 transition-all">
+      <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full border border-text-main/20 text-xs font-mono text-text-main hover:text-accent-cobalt hover:border-accent-cobalt/60 transition-all font-bold" data-cursor="OPEN →">
         View GitHub Profile →
       </a>
     </article>
@@ -333,35 +391,35 @@
 </main>
 
 
-<!-- Global Footer -->
-<footer class="w-full py-16 md:py-24 border-t border-white/5 bg-dark-900/60 relative z-10 mt-auto">
+<!-- Editorial Warm Footer -->
+<footer class="w-full py-16 md:py-24 border-t border-text-main/10 bg-cream-200/60 relative z-10 mt-auto">
   <div class="max-w-6xl mx-auto px-6 md:px-8">
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-12 border-b border-white/5">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-12 border-b border-text-main/10">
       <div>
-        <span class="font-mono text-xs text-accent-blue uppercase tracking-widest mb-2 block">// DIGITAL ARTIFACT 2026</span>
-        <h3 class="font-syne font-bold text-2xl md:text-3xl text-white">Parag Verma</h3>
-        <p class="font-geist text-sm text-slate-400 mt-1 max-w-md">Computer Science Student • Developer • Builder. Focused on systems, algorithmic problem solving, and software engineering.</p>
+        <span class="font-mono text-xs text-accent-cobalt uppercase tracking-widest mb-2 block font-semibold">// DIGITAL PORTFOLIO 2026</span>
+        <h3 class="font-syne font-bold text-2xl md:text-3xl text-text-main">Parag Verma</h3>
+        <p class="font-geist text-sm text-text-muted mt-1 max-w-md">Computer Science Student • Developer • Builder. Focused on software development, algorithmic problem solving, and modern creative engineering.</p>
       </div>
       <div class="flex flex-wrap gap-4 font-mono text-xs">
-        <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+        <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl warm-glass hover:border-accent-cobalt/40 text-text-main hover:text-accent-cobalt transition-all flex items-center gap-2 font-medium" data-cursor="OPEN →">
           <span>GitHub</span>
           <span class="material-symbols-outlined text-sm">open_in_new</span>
         </a>
-        <a href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+        <a href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl warm-glass hover:border-accent-cobalt/40 text-text-main hover:text-accent-cobalt transition-all flex items-center gap-2 font-medium" data-cursor="OPEN →">
           <span>LinkedIn</span>
           <span class="material-symbols-outlined text-sm">open_in_new</span>
         </a>
-        <a href="mailto:paragverma88014@gmail.com" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+        <a href="mailto:paragverma88014@gmail.com" class="px-4 py-2.5 rounded-xl warm-glass hover:border-accent-cobalt/40 text-text-main hover:text-accent-cobalt transition-all flex items-center gap-2 font-medium" data-cursor="MAIL">
           <span>Email</span>
           <span class="material-symbols-outlined text-sm">mail</span>
         </a>
       </div>
     </div>
-    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 text-xs font-mono text-slate-500">
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 text-xs font-mono text-text-muted">
       <div>© 2026 Parag Verma • Computer Science Student &amp; Developer</div>
       <div class="flex items-center gap-6">
         <span>LOC // 28.6139° N, 77.2090° E</span>
-        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-white transition-colors flex items-center gap-1">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-text-main transition-colors flex items-center gap-1 font-bold">
           <span>TOP</span>
           <span class="material-symbols-outlined text-sm">arrow_upward</span>
         </button>
@@ -370,7 +428,7 @@
   </div>
 </footer>
 
-<!-- Interactive Scripts & Cursor -->
+<!-- Interactive Scripts & Contextual Cursor -->
 <div class="custom-cursor-dot" id="cursor-dot"></div>
 <div class="custom-cursor-follower" id="cursor-follower"></div>
 
@@ -387,10 +445,10 @@
     });
   }
 
-  // Smooth Interactive Custom Cursor
+  // Context-Aware Custom Cursor Engine
   const dot = document.getElementById('cursor-dot');
   const follower = document.getElementById('cursor-follower');
-  const glow = document.getElementById('ambient-glow');
+  const glow = document.getElementById('ambient-mouse-glow');
   let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
   let followerX = mouseX, followerY = mouseY;
 
@@ -418,9 +476,17 @@
   }
   requestAnimationFrame(renderCursor);
 
-  document.querySelectorAll('a, button, [role="button"], input, textarea').forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  // Contextual Cursor Text Handling
+  document.querySelectorAll('[data-cursor], a, button, input, textarea, .proj-card, .skill-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      document.body.classList.add('cursor-hover');
+      const label = el.getAttribute('data-cursor') || (el.classList.contains('proj-card') ? 'VIEW →' : (el.tagName === 'A' ? 'OPEN →' : 'EXPLORE'));
+      if (follower) follower.textContent = label;
+    });
+    el.addEventListener('mouseleave', () => {
+      document.body.classList.remove('cursor-hover');
+      if (follower) follower.textContent = '';
+    });
   });
 
   // Scroll Reveal Observer
@@ -430,7 +496,7 @@
         entry.target.classList.add('active');
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
@@ -441,9 +507,9 @@
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => {
-        b.className = 'proj-filter-btn px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider glass-surface text-slate-400 hover:text-white transition-all';
+        b.className = 'proj-filter-btn px-5 py-2 rounded-full font-mono text-xs uppercase tracking-wider warm-glass text-text-muted hover:text-text-main transition-all font-semibold';
       });
-      btn.className = 'proj-filter-btn px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider bg-accent-blue text-white font-bold transition-all shadow-md shadow-blue-500/20';
+      btn.className = 'proj-filter-btn px-5 py-2 rounded-full font-mono text-xs uppercase tracking-wider bg-accent-cobalt text-white font-bold transition-all shadow-[0_4px_14px_rgba(49,87,255,0.3)]';
       
       const f = btn.getAttribute('data-filter');
       cards.forEach(card => {
