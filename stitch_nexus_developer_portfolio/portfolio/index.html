@@ -1,482 +1,452 @@
 <!DOCTYPE html>
-
-<html class="scroll-smooth" lang="en"><head>
+<html lang="en" class="dark scroll-smooth">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Portfolio.OS | Home</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;450;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<title>Home — Parag Verma | Portfolio.OS</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
   tailwind.config = {
     darkMode: "class",
     theme: {
       extend: {
-        "colors": {
-                "inverse-surface": "#2d3133",
-                "tertiary": "#575e72",
-                "primary": "#4953bc",
-                "primary-fixed": "#e0e0ff",
-                "on-primary": "#ffffff",
-                "on-tertiary-container": "#262e40",
-                "on-secondary-container": "#3d687c",
-                "surface-variant": "#e0e3e5",
-                "on-background": "#191c1e",
-                "on-primary-fixed-variant": "#2f3aa3",
-                "inverse-on-surface": "#eff1f3",
-                "on-tertiary": "#ffffff",
-                "secondary-fixed": "#bee9ff",
-                "error-container": "#ffdad6",
-                "surface": "#f7f9fb",
-                "inverse-primary": "#bdc2ff",
-                "surface-bright": "#f7f9fb",
-                "tertiary-container": "#8e95ab",
-                "on-primary-container": "#101b8a",
-                "on-tertiary-fixed": "#141b2c",
-                "tertiary-fixed": "#dbe2fa",
-                "on-error-container": "#93000a",
-                "tertiary-fixed-dim": "#bfc6dd",
-                "primary-fixed-dim": "#bdc2ff",
-                "on-error": "#ffffff",
-                "surface-tint": "#4953bc",
-                "surface-dim": "#d8dadc",
-                "on-surface-variant": "#454653",
-                "surface-container-highest": "#e0e3e5",
-                "outline": "#767684",
-                "secondary": "#396477",
-                "on-secondary-fixed": "#001f2a",
-                "error": "#ba1a1a",
-                "on-primary-fixed": "#000767",
-                "surface-container-lowest": "#ffffff",
-                "surface-container": "#eceef0",
-                "surface-container-high": "#e6e8ea",
-                "on-surface": "#191c1e",
-                "surface-container-low": "#f2f4f6",
-                "background": "#f7f9fb",
-                "on-secondary": "#ffffff",
-                "secondary-container": "#bae6fd",
-                "on-tertiary-fixed-variant": "#3f4759",
-                "primary-container": "#818cf8",
-                "on-secondary-fixed-variant": "#1e4c5f",
-                "secondary-fixed-dim": "#a1cde3",
-                "outline-variant": "#c6c5d5"
+        colors: {
+          dark: {
+            950: "#040508",
+            900: "#08090d",
+            850: "#0e1118",
+            800: "#141822",
+            700: "#1c2230",
+            600: "#283044"
+          },
+          accent: {
+            blue: "#3b82f6",
+            cyan: "#06b6d4",
+            purple: "#8b5cf6",
+            indigo: "#6366f1"
+          }
         },
-        "borderRadius": {
-                "DEFAULT": "1rem",
-                "lg": "2rem",
-                "xl": "3rem",
-                "full": "9999px"
-        },
-        "spacing": {
-                "margin-desktop": "64px",
-                "margin-mobile": "16px",
-                "gutter": "24px",
-                "max-width": "1280px",
-                "lg": "24px",
-                "xl": "40px",
-                "unit": "4px",
-                "xs": "4px",
-                "md": "16px",
-                "sm": "8px",
-                "container-max": "1280px",
-                "section-gap": "120px"
-        },
-        "fontFamily": {
-                "headline-lg": [
-                        "Geist"
-                ],
-                "headline-md": [
-                        "Geist"
-                ],
-                "body-md": [
-                        "Geist"
-                ],
-                "body-lg": [
-                        "Geist"
-                ],
-                "label-md": [
-                        "Geist"
-                ],
-                "body-sm": [
-                        "Geist"
-                ],
-                "headline-lg-mobile": [
-                        "Geist"
-                ],
-                "headline-xl": [
-                        "Geist"
-                ],
-                "display-lg": [
-                        "Geist"
-                ],
-                "display-lg-mobile": [
-                        "Geist"
-                ],
-                "label-caps": [
-                        "Geist"
-                ],
-                "code-sm": [
-                        "monospace"
-                ]
-        },
-        "fontSize": {
-                "headline-lg": [
-                        "32px",
-                        {
-                                "lineHeight": "40px",
-                                "letterSpacing": "-0.01em",
-                                "fontWeight": "600"
-                        }
-                ],
-                "headline-md": [
-                        "24px",
-                        {
-                                "lineHeight": "32px",
-                                "fontWeight": "600"
-                        }
-                ],
-                "body-md": [
-                        "16px",
-                        {
-                                "lineHeight": "24px",
-                                "fontWeight": "450"
-                        }
-                ],
-                "body-lg": [
-                        "18px",
-                        {
-                                "lineHeight": "28px",
-                                "fontWeight": "400"
-                        }
-                ],
-                "label-md": [
-                        "12px",
-                        {
-                                "lineHeight": "16px",
-                                "letterSpacing": "0.05em",
-                                "fontWeight": "600"
-                        }
-                ],
-                "body-sm": [
-                        "14px",
-                        {
-                                "lineHeight": "20px",
-                                "fontWeight": "450"
-                        }
-                ],
-                "headline-lg-mobile": [
-                        "24px",
-                        {
-                                "lineHeight": "32px",
-                                "fontWeight": "600"
-                        }
-                ],
-                "headline-xl": [
-                        "48px",
-                        {
-                                "lineHeight": "56px",
-                                "letterSpacing": "-0.02em",
-                                "fontWeight": "700"
-                        }
-                ],
-                "display-lg": [
-                        "64px",
-                        {
-                                "lineHeight": "1.1",
-                                "letterSpacing": "-0.04em",
-                                "fontWeight": "700"
-                        }
-                ],
-                "display-lg-mobile": [
-                        "40px",
-                        {
-                                "lineHeight": "1.2",
-                                "letterSpacing": "-0.02em",
-                                "fontWeight": "700"
-                        }
-                ],
-                "label-caps": [
-                        "12px",
-                        {
-                                "lineHeight": "1.0",
-                                "letterSpacing": "0.1em",
-                                "fontWeight": "600"
-                        }
-                ],
-                "code-sm": [
-                        "14px",
-                        {
-                                "lineHeight": "1.5",
-                                "fontWeight": "400"
-                        }
-                ]
+        fontFamily: {
+          syne: ["Syne", "sans-serif"],
+          geist: ["Geist", "sans-serif"],
+          mono: ["Space Mono", "monospace"]
         }
-},
-    },
+      }
+    }
   }
 </script>
 <style>
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(73, 83, 188, 0.1);
-        }
-        .glow-effect:hover {
-            box-shadow: 0 10px 30px rgba(73, 83, 188, 0.1);
-            border-color: rgba(73, 83, 188, 0.3);
-        }
-        .text-gradient {
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-image: linear-gradient(90deg, #4953bc, #396477);
-        }
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        .delay-100 { animation-delay: 100ms; }
-        .delay-200 { animation-delay: 200ms; }
-        .delay-300 { animation-delay: 300ms; }
-        .delay-400 { animation-delay: 400ms; }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        #scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, #4953bc, #396477);
-            z-index: 9999;
-            transition: width 0.1s ease-out;
-        }
-
-        /* Ambient Orbs */
-        .ambient-orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.3;
-            z-index: -1;
-            pointer-events: none;
-        }
-        .orb-1 {
-            top: -10%;
-            right: -5%;
-            width: 600px;
-            height: 600px;
-            background: #e0e0ff;
-        }
-        .orb-2 {
-            bottom: -20%;
-            left: -10%;
-            width: 800px;
-            height: 800px;
-            background: #bae6fd;
-        }
-    </style>
+  /* Noise & Grid Background */
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  }
+  .noise-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 99;
+  }
+  /* Custom Cursor */
+  .custom-cursor-dot {
+    pointer-events: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 6px; height: 6px;
+    background: #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease-out, opacity 0.2s;
+    z-index: 1000;
+  }
+  .custom-cursor-follower {
+    pointer-events: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 32px; height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
+    z-index: 999;
+  }
+  .cursor-hover .custom-cursor-follower {
+    width: 54px; height: 54px;
+    border-color: rgba(59, 130, 246, 0.8);
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  /* Glass Surfaces */
+  .glass-surface {
+    background: rgba(14, 17, 24, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .glass-surface-hover {
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-surface-hover:hover {
+    border-color: rgba(59, 130, 246, 0.45);
+    box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.25);
+    transform: translateY(-3px);
+  }
+  /* Typography Highlights */
+  .gradient-title {
+    background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .gradient-accent {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  /* Reveal on Scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #ambient-glow {
+    position: fixed;
+    top: 0; left: 0;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.03) 45%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.5s;
+  }
+  @media (pointer: coarse) {
+    .custom-cursor-dot, .custom-cursor-follower { display: none !important; }
+  }
+  @media print {
+    header, footer, .no-print, #ambient-glow, .noise-overlay { display: none !important; }
+    body { background: #ffffff !important; color: #000000 !important; }
+    .glass-surface { background: transparent !important; border: 1px solid #e2e8f0 !important; color: #000000 !important; }
+  }
+</style>
 </head>
-<body class="bg-background text-on-background antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
-<!-- Scroll Progress -->
-<div id="scroll-progress"></div>
-<!-- Ambient Background Orbs -->
-<div class="ambient-orb orb-1"></div>
-<div class="ambient-orb orb-2"></div>
+<body class="bg-dark-950 text-slate-100 font-geist antialiased selection:bg-accent-blue/30 selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
+<div class="noise-overlay"></div>
+<div id="ambient-glow"></div>
+<div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+
 <!-- TopNavBar -->
-<nav id="topnav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300">
-  <div class="flex justify-between items-center w-full px-gutter max-w-[1280px] mx-auto h-20">
-    <a href="index.html" class="flex items-center gap-2">
-      <span class="material-symbols-outlined text-primary text-2xl">terminal</span>
-      <span class="font-bold text-headline-md text-primary tracking-tight">Portfolio.OS</span>
+<header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 md:py-6 transition-all duration-300" id="main-header">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <!-- Brand / System OS -->
+    <a href="index.html" class="flex items-center gap-3 group focus:outline-none">
+      <div class="w-9 h-9 rounded-xl bg-dark-900 border border-white/15 flex items-center justify-center text-accent-blue group-hover:border-accent-blue/60 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300">
+        <span class="material-symbols-outlined text-lg">terminal</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-syne font-bold text-sm tracking-tight text-white group-hover:text-accent-blue transition-colors">Portfolio.OS</span>
+        <span class="font-mono text-[10px] text-slate-400 tracking-widest uppercase flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          SYS.ONLINE
+        </span>
+      </div>
     </a>
-    <div class="hidden md:flex items-center gap-8 font-body-md text-body-md">
-      <a href="index.html" class="text-primary font-bold border-b-2 border-primary pb-1 transition-all duration-300">Home</a>
-      <a href="about.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">About</a>
-      <a href="skills.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Skills</a>
-      <a href="projects.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Projects</a>
-      <a href="experience.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Experience</a>
-      <a href="resume.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Resume</a>
-      <a href="contact.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Contact</a>
-    </div>
+
+    <!-- Desktop Floating Pill Nav -->
+    <nav class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-surface shadow-2xl border border-white/10">
+      <a href="index.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-white bg-accent-blue/20 border border-accent-blue/40 shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300">Home</a>
+<a href="about.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">About</a>
+<a href="skills.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Skills</a>
+<a href="projects.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Projects</a>
+<a href="experience.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Experience</a>
+<a href="resume.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Resume</a>
+<a href="contact.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Contact</a>
+
+    </nav>
+
+    <!-- Quick Action / Status -->
     <div class="flex items-center gap-3">
-      <a href="assets/resume.pdf" download class="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface font-label-caps text-label-caps hover:border-primary hover:text-primary transition-all duration-300">Download CV <span class="material-symbols-outlined text-base">download</span></a>
-      <button id="mobile-menu-btn" class="md:hidden p-2 text-on-surface hover:text-primary transition-colors rounded-lg hover:bg-surface-container" aria-label="Toggle menu">
+      <a href="assets/resume.pdf" download class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full glass-surface text-xs font-mono text-slate-300 hover:text-white hover:border-accent-blue/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] transition-all duration-300">
+        <span>CV</span>
+        <span class="material-symbols-outlined text-sm">download</span>
+      </a>
+      <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-xl glass-surface flex items-center justify-center text-slate-300 hover:text-white" aria-label="Toggle menu">
         <span class="material-symbols-outlined" id="menu-icon">menu</span>
       </button>
     </div>
   </div>
-  <div id="mobile-menu" class="hidden md:hidden bg-surface/95 backdrop-blur-xl border-b border-outline-variant/30 px-gutter py-6 flex flex-col gap-1">
-    <a href="index.html" class="py-3 px-4 rounded-xl bg-primary/10 text-primary font-bold font-body-md text-body-md transition-all">Home</a>
-    <a href="about.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">About</a>
-    <a href="skills.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Skills</a>
-    <a href="projects.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Projects</a>
-    <a href="experience.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Experience</a>
-    <a href="resume.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Resume</a>
-    <a href="contact.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Contact</a>
-    <div class="pt-4 border-t border-outline-variant/30 mt-2">
-      <a href="assets/resume.pdf" download class="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-on-primary font-label-caps text-label-caps hover:bg-primary/90 transition-all">Download CV <span class="material-symbols-outlined text-base">download</span></a>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto mt-3 rounded-2xl glass-surface p-6 flex flex-col gap-2 border border-white/10 shadow-2xl">
+    <a href="index.html" class="py-3 px-4 rounded-xl text-white font-syne font-bold text-lg bg-accent-blue/20 border border-accent-blue/30 transition-all">Home</a>
+<a href="about.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">About</a>
+<a href="skills.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Skills</a>
+<a href="projects.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Projects</a>
+<a href="experience.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Experience</a>
+<a href="resume.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Resume</a>
+<a href="contact.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Contact</a>
+
+    <div class="pt-4 border-t border-white/10 mt-2">
+      <a href="assets/resume.pdf" download class="flex items-center justify-center gap-2 py-3 rounded-xl bg-accent-blue text-white font-mono text-xs tracking-wider uppercase hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20">
+        <span>Download CV</span>
+        <span class="material-symbols-outlined text-base">download</span>
+      </a>
     </div>
   </div>
-</nav>
-<!-- Main Content -->
-<main class="pt-32 pb-section-gap px-gutter md:px-gutter max-w-container-max mx-auto">
-<!-- Hero Section -->
-<section class="min-h-[819px] flex flex-col lg:flex-row items-center justify-between gap-12 relative">
-<!-- Text Content -->
-<div class="w-full lg:w-1/2 flex flex-col items-start z-10">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary font-label-caps text-label-caps mb-6 animate-fade-in-up">
-<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                    Currently Building & Learning
-                </div>
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-4 animate-fade-in-up delay-100">
-                    Hello, I'm <br/>
-<span class="text-gradient">Parag Verma</span>
-</h1>
-<h2 class="font-headline-md text-headline-md text-on-surface-variant mb-6 animate-fade-in-up delay-200">
-                    Computer Science Student • Developer • Builder
-                </h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-10 animate-fade-in-up delay-300">
-                    Learning, building, and solving problems one project at a time.
-                </p>
-<div class="flex flex-wrap items-center gap-4 animate-fade-in-up delay-400">
-<a class="px-6 py-3 rounded-lg bg-gradient-to-r from-primary to-secondary text-on-primary font-label-caps text-label-caps font-bold hover:shadow-[0_10px_20px_rgba(73,83,188,0.2)] transition-all duration-300 flex items-center gap-2" href="projects.html">
-                        View My Work
-                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-<a class="px-6 py-3 rounded-lg glass-panel text-on-surface font-label-caps text-label-caps hover:bg-surface-container transition-all duration-300 flex items-center gap-2" href="resume.html">
-                        View Resume
-                        <span class="material-symbols-outlined text-sm">description</span>
-</a>
-<div class="flex items-center gap-3 ml-4 border-l border-outline-variant/30 pl-4 py-2">
-<a aria-label="GitHub" class="text-on-surface-variant hover:text-primary transition-colors" href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer">
-<span class="material-symbols-outlined">code</span>
-</a>
-<a aria-label="LinkedIn" class="text-on-surface-variant hover:text-secondary transition-colors" href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" rel="noopener noreferrer">
-<span class="material-symbols-outlined">work</span>
-</a>
-</div>
-</div>
-</div>
-<!-- 3D Visual -->
-<div class="w-full lg:w-1/2 h-[500px] relative animate-fade-in-up delay-300 rounded-2xl overflow-hidden glass-panel border-primary/10 glow-effect transition-all duration-500 shadow-sm bg-gradient-to-br from-surface-container-lowest to-surface-container-low">
-<!-- Decorative Frame -->
-<div class="absolute top-4 left-4 right-4 flex justify-between items-center z-10 pointer-events-none opacity-50">
-<div class="flex gap-2">
-<div class="w-2 h-2 rounded-full bg-error"></div>
-<div class="w-2 h-2 rounded-full bg-secondary-container"></div>
-<div class="w-2 h-2 rounded-full bg-primary"></div>
-</div>
-<span class="font-code-sm text-code-sm text-on-surface-variant">scene.render()</span>
-</div>
-<!-- 3D Scene Injection -->
-<!-- Overlay Gradient for blending -->
-<div class="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent pointer-events-none"></div>
-</div>
-</section>
-<!-- Divider -->
-<div class="w-full h-px bg-gradient-to-r from-transparent via-outline-variant/30 to-transparent my-16"></div>
-<!-- Currently Building Section -->
-<section class="animate-fade-in-up" style="animation-delay: 500ms; animation-fill-mode: both;">
-<div class="flex items-center gap-4 mb-8">
-<span class="material-symbols-outlined text-secondary">build</span>
-<h3 class="font-headline-md text-headline-md text-on-surface">Currently building...</h3>
-</div>
-<!-- Project Card (Bento/Glass Style) -->
-<div class="glass-panel rounded-xl p-8 relative group overflow-hidden glow-effect transition-all duration-300 bg-surface-container-lowest">
-<!-- Background Subtle Graphic -->
-<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 group-hover:bg-primary/10 transition-colors duration-500"></div>
-<div class="relative z-10 flex flex-col md:flex-row gap-8 items-start md:items-center">
-<!-- Content -->
-<div class="flex-1">
-<div class="flex items-center gap-3 mb-2">
-<span class="px-2 py-1 rounded bg-surface-container border border-outline-variant/20 font-code-sm text-code-sm text-secondary">ACTIVE</span>
-<h4 class="font-headline-md text-xl font-bold text-on-surface">Data Structures &amp; Algorithms in C++</h4>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">
-                            Practicing core algorithms, linear &amp; non-linear data structures, and problem-solving patterns in modern C++ with clean OOP design.
-                        </p>
-<!-- Tech Stack Chips -->
-<div class="flex flex-wrap gap-2 mb-6">
-<span class="px-3 py-1 rounded-md bg-primary/5 border border-primary/20 font-code-sm text-code-sm text-primary">C++</span>
-<span class="px-3 py-1 rounded-md bg-primary/5 border border-primary/20 font-code-sm text-code-sm text-primary">DSA</span>
-<span class="px-3 py-1 rounded-md bg-primary/5 border border-primary/20 font-code-sm text-code-sm text-primary">OOP</span>
-<span class="px-3 py-1 rounded-md bg-primary/5 border border-primary/20 font-code-sm text-code-sm text-primary">Problem Solving</span>
-</div>
-<a class="inline-flex items-center gap-2 font-label-caps text-label-caps text-primary hover:text-secondary transition-colors" href="projects.html">
-                            Follow Progress <span class="material-symbols-outlined text-sm">arrow_outward</span>
-</a>
-</div>
-<!-- Code Snippet Visual -->
-<div class="w-full md:w-1/2 bg-surface-container-low rounded-lg border border-outline-variant/30 p-4 font-code-sm text-code-sm text-on-surface-variant relative overflow-hidden group/code shadow-inner">
-<div class="flex justify-between items-center border-b border-outline-variant/30 pb-2 mb-2">
-<span class="text-tertiary">src/dsa/problem_solver.cpp</span>
-<button class="opacity-0 group-hover/code:opacity-100 transition-opacity text-primary hover:text-secondary">
-<span class="material-symbols-outlined text-sm">content_copy</span>
-</button>
-</div>
-<pre class="overflow-x-auto whitespace-pre-wrap text-xs md:text-sm"><code><span class="text-secondary">#include</span> <span class="text-outline">&lt;iostream&gt;</span>
-<span class="text-secondary">#include</span> <span class="text-outline">&lt;vector&gt;</span>
+</header>
 
-<span class="text-primary">class</span> <span class="text-on-surface font-semibold">ProblemSolver</span> {
-<span class="text-primary">public:</span>
-    <span class="text-primary">void</span> <span class="text-secondary">solve</span>(<span class="text-primary">const</span> std::vector&lt;<span class="text-primary">int</span>&gt;&amp; data) {
-        <span class="text-outline">// Applying optimal algorithm...</span>
-        std::cout &lt;&lt; <span class="text-outline">"Solved with efficiency."</span> &lt;&lt; std::endl;
-    }
-};</code></pre>
-</div>
-</div>
-</div>
-</section>
+<!-- Page Content -->
+
+<main class="flex-grow relative z-10 pt-32 md:pt-44 pb-24 px-6 md:px-8 max-w-6xl mx-auto w-full">
+  
+  <!-- Hero Section -->
+  <section class="mb-24 md:mb-36">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-surface text-xs font-mono text-accent-blue mb-8 border border-accent-blue/30 shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+      <span class="w-2 h-2 rounded-full bg-accent-blue animate-ping"></span>
+      <span>CURRENT STATUS // BUILDING &amp; LEARNING</span>
+    </div>
+
+    <div class="space-y-4 mb-8">
+      <h1 class="font-syne font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] text-white">
+        Parag Verma<span class="text-accent-blue">.</span>
+      </h1>
+      <h2 class="font-syne font-semibold text-2xl sm:text-3xl md:text-4xl text-slate-300 tracking-tight">
+        Computer Science Student <span class="text-slate-600">•</span> Developer <span class="text-slate-600">•</span> Builder
+      </h2>
+    </div>
+
+    <p class="font-geist text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed mb-10">
+      Learning, building, and solving problems one project at a time.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-wrap items-center gap-4">
+      <a href="projects.html" class="px-7 py-3.5 rounded-xl bg-accent-blue text-white font-mono text-xs tracking-wider uppercase font-bold hover:bg-blue-600 transition-all duration-300 flex items-center gap-2 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5">
+        <span>View My Work</span>
+        <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </a>
+      <a href="assets/resume.pdf" download class="px-7 py-3.5 rounded-xl glass-surface hover:border-accent-blue/50 text-white font-mono text-xs tracking-wider uppercase font-bold transition-all duration-300 flex items-center gap-2 hover:-translate-y-0.5">
+        <span>Download Resume</span>
+        <span class="material-symbols-outlined text-base">download</span>
+      </a>
+      <a href="contact.html" class="px-6 py-3.5 rounded-xl text-slate-400 hover:text-white font-mono text-xs tracking-wider uppercase transition-colors">
+        Contact Me →
+      </a>
+    </div>
+  </section>
+
+  <!-- Bento Grid Showcase -->
+  <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-24 reveal">
+    <div class="lg:col-span-7 glass-surface glass-surface-hover rounded-2xl p-8 md:p-10 flex flex-col justify-between relative overflow-hidden group">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-accent-blue/10 rounded-full blur-3xl pointer-events-none group-hover:bg-accent-blue/20 transition-all duration-700"></div>
+      <div>
+        <div class="flex items-center justify-between gap-4 mb-6">
+          <div class="flex items-center gap-2 font-mono text-xs text-accent-blue uppercase tracking-widest">
+            <span class="material-symbols-outlined text-base">build</span>
+            <span>CURRENTLY BUILDING</span>
+          </div>
+          <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono text-[11px] font-bold">
+            ACTIVE FOCUS
+          </span>
+        </div>
+
+        <h3 class="font-syne font-bold text-2xl md:text-3xl text-white mb-3">
+          Data Structures &amp; Algorithms in C++
+        </h3>
+        <p class="font-geist text-slate-400 leading-relaxed mb-6">
+          Practicing core algorithms, linear &amp; non-linear data structures, and problem-solving patterns in modern C++ with clean OOP design.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-8">
+          <span class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 font-mono text-xs">C++</span>
+          <span class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 font-mono text-xs">DSA</span>
+          <span class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 font-mono text-xs">OOP</span>
+          <span class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 font-mono text-xs">Problem Solving</span>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-white/10 flex items-center justify-between">
+        <a href="projects.html" class="font-mono text-xs text-accent-blue hover:text-white transition-colors flex items-center gap-1">
+          <span>Explore All Projects</span>
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+        <span class="font-mono text-[11px] text-slate-500">2026 WORKSPACE</span>
+      </div>
+    </div>
+
+    <div class="lg:col-span-5 glass-surface rounded-2xl p-6 md:p-8 flex flex-col justify-between font-mono text-xs leading-relaxed border border-white/10 relative overflow-hidden bg-dark-900/90">
+      <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4 text-slate-500">
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+        </div>
+        <span class="text-[11px] text-slate-400">developer_spec.cpp</span>
+      </div>
+
+      <div class="space-y-1.5 text-slate-300 overflow-x-auto">
+        <p class="text-slate-500">// System Profile Spec</p>
+        <p><span class="text-accent-purple">#include</span> <span class="text-emerald-300">&lt;iostream&gt;</span></p>
+        <p><span class="text-accent-blue">struct</span> <span class="text-yellow-300">Developer</span> &#123;</p>
+        <p class="pl-4"><span class="text-accent-blue">string</span> name = <span class="text-emerald-300">"Parag Verma"</span>;</p>
+        <p class="pl-4"><span class="text-accent-blue">string</span> program = <span class="text-emerald-300">"B.Tech CSE (AI &amp; ML)"</span>;</p>
+        <p class="pl-4"><span class="text-accent-blue">float</span> cgpa = <span class="text-accent-cyan">9.33f</span>;</p>
+        <p class="pl-4"><span class="text-accent-blue">vector</span>&lt;<span class="text-accent-blue">string</span>&gt; focus = &#123;<span class="text-emerald-300">"C++"</span>, <span class="text-emerald-300">"DSA"</span>, <span class="text-emerald-300">"AI"</span>, <span class="text-emerald-300">"Game Dev"</span>&#125;;</p>
+        <p class="pl-4"><span class="text-accent-blue">bool</span> readyToBuild = <span class="text-accent-cyan">true</span>;</p>
+        <p>&#125;;</p>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-slate-400 text-[11px]">
+        <span class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-accent-blue animate-pulse"></span>
+          <span>C++20 Standard</span>
+        </span>
+        <a href="about.html" class="text-accent-blue hover:underline">Read Full Bio →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 Column Quick Nav Telemetry -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+    <a href="skills.html" class="glass-surface glass-surface-hover rounded-xl p-6 flex flex-col justify-between group">
+      <div>
+        <span class="font-mono text-xs text-accent-blue">// 01 CAPABILITIES</span>
+        <h4 class="font-syne font-bold text-xl text-white mt-2 mb-1 group-hover:text-accent-blue transition-colors">Technical Skills</h4>
+        <p class="font-geist text-sm text-slate-400">C++, Data Structures, OOP, JavaScript, HTML &amp; Tailwind, Git, VS Code.</p>
+      </div>
+      <span class="material-symbols-outlined text-slate-500 group-hover:text-white mt-6 self-end transition-colors">arrow_forward</span>
+    </a>
+
+    <a href="projects.html" class="glass-surface glass-surface-hover rounded-xl p-6 flex flex-col justify-between group">
+      <div>
+        <span class="font-mono text-xs text-accent-blue">// 02 CASE STUDIES</span>
+        <h4 class="font-syne font-bold text-xl text-white mt-2 mb-1 group-hover:text-accent-blue transition-colors">Featured Projects</h4>
+        <p class="font-geist text-sm text-slate-400">FRIDAY AI Voice Assistant, Fogwatch UE5 Game, 2D Unity Game.</p>
+      </div>
+      <span class="material-symbols-outlined text-slate-500 group-hover:text-white mt-6 self-end transition-colors">arrow_forward</span>
+    </a>
+
+    <a href="experience.html" class="glass-surface glass-surface-hover rounded-xl p-6 flex flex-col justify-between group">
+      <div>
+        <span class="font-mono text-xs text-accent-blue">// 03 EXECUTION</span>
+        <h4 class="font-syne font-bold text-xl text-white mt-2 mb-1 group-hover:text-accent-blue transition-colors">Learning Journey</h4>
+        <p class="font-geist text-sm text-slate-400">Foundations in C++ → Project Building → Game Dev &amp; AI Exploration.</p>
+      </div>
+      <span class="material-symbols-outlined text-slate-500 group-hover:text-white mt-6 self-end transition-colors">arrow_forward</span>
+    </a>
+  </section>
 </main>
-<!-- Footer -->
-<footer class="w-full py-16 border-t border-outline-variant/30 bg-surface-container-lowest">
-  <div class="flex flex-col md:flex-row justify-between items-center w-full px-gutter max-w-[1280px] mx-auto gap-6 md:gap-0">
-    <div class="font-bold text-body-lg text-on-surface">Portfolio.OS</div>
-    <div class="font-label-caps text-label-caps text-secondary text-center">© 2026 Parag Verma • Computer Science Student &amp; Developer</div>
-    <div class="flex flex-wrap justify-center gap-6">
-      <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">GitHub</a>
-      <a href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" rel="noopener noreferrer" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">LinkedIn</a>
-      <a href="mailto:paragverma88014@gmail.com" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">Email</a>
-      <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200 flex items-center gap-1">Back to Top <span class="material-symbols-outlined text-sm">arrow_upward</span></a>
+
+
+<!-- Global Footer -->
+<footer class="w-full py-16 md:py-24 border-t border-white/5 bg-dark-900/60 relative z-10 mt-auto">
+  <div class="max-w-6xl mx-auto px-6 md:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-12 border-b border-white/5">
+      <div>
+        <span class="font-mono text-xs text-accent-blue uppercase tracking-widest mb-2 block">// DIGITAL ARTIFACT 2026</span>
+        <h3 class="font-syne font-bold text-2xl md:text-3xl text-white">Parag Verma</h3>
+        <p class="font-geist text-sm text-slate-400 mt-1 max-w-md">Computer Science Student • Developer • Builder. Focused on systems, algorithmic problem solving, and software engineering.</p>
+      </div>
+      <div class="flex flex-wrap gap-4 font-mono text-xs">
+        <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span>GitHub</span>
+          <span class="material-symbols-outlined text-sm">open_in_new</span>
+        </a>
+        <a href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span>LinkedIn</span>
+          <span class="material-symbols-outlined text-sm">open_in_new</span>
+        </a>
+        <a href="mailto:paragverma88014@gmail.com" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span>Email</span>
+          <span class="material-symbols-outlined text-sm">mail</span>
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 text-xs font-mono text-slate-500">
+      <div>© 2026 Parag Verma • Computer Science Student &amp; Developer</div>
+      <div class="flex items-center gap-6">
+        <span>LOC // 28.6139° N, 77.2090° E</span>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-white transition-colors flex items-center gap-1">
+          <span>TOP</span>
+          <span class="material-symbols-outlined text-sm">arrow_upward</span>
+        </button>
+      </div>
     </div>
   </div>
 </footer>
-<!-- Scroll Progress Script -->
+
+<!-- Interactive Scripts & Cursor -->
+<div class="custom-cursor-dot" id="cursor-dot"></div>
+<div class="custom-cursor-follower" id="cursor-follower"></div>
+
 <script>
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('scroll-progress').style.width = scrolled + '%';
-        });
-    </script>
-<script>
-// Mobile menu
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const menuIcon = document.getElementById('menu-icon');
-if (mobileMenuBtn) {
-  mobileMenuBtn.addEventListener('click', () => {
-    const isHidden = mobileMenu.classList.contains('hidden');
-    mobileMenu.classList.toggle('hidden');
-    menuIcon.textContent = isHidden ? 'close' : 'menu';
-  });
-  document.addEventListener('click', (e) => {
-    if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-      mobileMenu.classList.add('hidden');
-      menuIcon.textContent = 'menu';
+  // Mobile drawer toggle
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      const isHidden = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      menuIcon.textContent = isHidden ? 'close' : 'menu';
+    });
+  }
+
+  // Smooth Interactive Custom Cursor
+  const dot = document.getElementById('cursor-dot');
+  const follower = document.getElementById('cursor-follower');
+  const glow = document.getElementById('ambient-glow');
+  let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+  let followerX = mouseX, followerY = mouseY;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (dot) {
+      dot.style.left = mouseX + 'px';
+      dot.style.top = mouseY + 'px';
+    }
+    if (glow) {
+      glow.style.left = mouseX + 'px';
+      glow.style.top = mouseY + 'px';
     }
   });
-}
+
+  function renderCursor() {
+    followerX += (mouseX - followerX) * 0.18;
+    followerY += (mouseY - followerY) * 0.18;
+    if (follower) {
+      follower.style.left = followerX + 'px';
+      follower.style.top = followerY + 'px';
+    }
+    requestAnimationFrame(renderCursor);
+  }
+  requestAnimationFrame(renderCursor);
+
+  document.querySelectorAll('a, button, [role="button"], input, textarea').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+
+  // Scroll Reveal Observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
-</body></html>
+
+</body>
+</html>

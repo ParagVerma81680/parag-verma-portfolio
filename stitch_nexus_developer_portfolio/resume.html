@@ -1,422 +1,613 @@
 <!DOCTYPE html>
-
-<html class="" lang="en"><head>
+<html lang="en" class="dark scroll-smooth">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Resume - Portfolio.OS</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;450;600;700&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<title>Curriculum Vitae — Parag Verma | Portfolio.OS</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
   tailwind.config = {
     darkMode: "class",
     theme: {
       extend: {
-        "colors": {
-                "inverse-surface": "#2d3133",
-                "tertiary": "#575e72",
-                "primary": "#4953bc",
-                "primary-fixed": "#e0e0ff",
-                "on-primary": "#ffffff",
-                "on-tertiary-container": "#262e40",
-                "on-secondary-container": "#3d687c",
-                "surface-variant": "#e0e3e5",
-                "on-background": "#191c1e",
-                "on-primary-fixed-variant": "#2f3aa3",
-                "inverse-on-surface": "#eff1f3",
-                "on-tertiary": "#ffffff",
-                "secondary-fixed": "#bee9ff",
-                "error-container": "#ffdad6",
-                "surface": "#f7f9fb",
-                "inverse-primary": "#bdc2ff",
-                "surface-bright": "#f7f9fb",
-                "tertiary-container": "#8e95ab",
-                "on-primary-container": "#101b8a",
-                "on-tertiary-fixed": "#141b2c",
-                "tertiary-fixed": "#dbe2fa",
-                "on-error-container": "#93000a",
-                "tertiary-fixed-dim": "#bfc6dd",
-                "primary-fixed-dim": "#bdc2ff",
-                "on-error": "#ffffff",
-                "surface-tint": "#4953bc",
-                "surface-dim": "#d8dadc",
-                "on-surface-variant": "#454653",
-                "surface-container-highest": "#e0e3e5",
-                "outline": "#767684",
-                "secondary": "#396477",
-                "on-secondary-fixed": "#001f2a",
-                "error": "#ba1a1a",
-                "on-primary-fixed": "#000767",
-                "surface-container-lowest": "#ffffff",
-                "surface-container": "#eceef0",
-                "surface-container-high": "#e6e8ea",
-                "on-surface": "#191c1e",
-                "surface-container-low": "#f2f4f6",
-                "background": "#f7f9fb",
-                "on-secondary": "#ffffff",
-                "secondary-container": "#bae6fd",
-                "on-tertiary-fixed-variant": "#3f4759",
-                "primary-container": "#818cf8",
-                "on-secondary-fixed-variant": "#1e4c5f",
-                "secondary-fixed-dim": "#a1cde3",
-                "outline-variant": "#c6c5d5"
+        colors: {
+          dark: {
+            950: "#040508",
+            900: "#08090d",
+            850: "#0e1118",
+            800: "#141822",
+            700: "#1c2230",
+            600: "#283044"
+          },
+          accent: {
+            blue: "#3b82f6",
+            cyan: "#06b6d4",
+            purple: "#8b5cf6",
+            indigo: "#6366f1"
+          }
         },
-        "borderRadius": {
-                "DEFAULT": "1rem",
-                "lg": "2rem",
-                "xl": "3rem",
-                "full": "9999px"
-        },
-        "spacing": {
-                "margin-desktop": "64px",
-                "margin-mobile": "16px",
-                "gutter": "24px",
-                "max-width": "1280px",
-                "lg": "24px",
-                "xl": "40px",
-                "unit": "4px",
-                "xs": "4px",
-                "md": "16px",
-                "sm": "8px"
-        },
-        "fontFamily": {
-                "headline-lg": [
-                        "Geist"
-                ],
-                "headline-md": [
-                        "Geist"
-                ],
-                "body-md": [
-                        "Geist"
-                ],
-                "body-lg": [
-                        "Geist"
-                ],
-                "label-md": [
-                        "Geist"
-                ],
-                "body-sm": [
-                        "Geist"
-                ],
-                "headline-lg-mobile": [
-                        "Geist"
-                ],
-                "headline-xl": [
-                        "Geist"
-                ]
-        },
-        "fontSize": {
-                "headline-lg": [
-                        "32px",
-                        {
-                                "lineHeight": "40px",
-                                "letterSpacing": "-0.01em",
-                                "fontWeight": "600"
-                        }
-                ],
-                "headline-md": [
-                        "24px",
-                        {
-                                "lineHeight": "32px",
-                                "fontWeight": "600"
-                        }
-                ],
-                "body-md": [
-                        "16px",
-                        {
-                                "lineHeight": "24px",
-                                "fontWeight": "450"
-                        }
-                ],
-                "body-lg": [
-                        "18px",
-                        {
-                                "lineHeight": "28px",
-                                "fontWeight": "400"
-                        }
-                ],
-                "label-md": [
-                        "12px",
-                        {
-                                "lineHeight": "16px",
-                                "letterSpacing": "0.05em",
-                                "fontWeight": "600"
-                        }
-                ],
-                "body-sm": [
-                        "14px",
-                        {
-                                "lineHeight": "20px",
-                                "fontWeight": "450"
-                        }
-                ],
-                "headline-lg-mobile": [
-                        "24px",
-                        {
-                                "lineHeight": "32px",
-                                "fontWeight": "600"
-                        }
-                ],
-                "headline-xl": [
-                        "48px",
-                        {
-                                "lineHeight": "56px",
-                                "letterSpacing": "-0.02em",
-                                "fontWeight": "700"
-                        }
-                ]
+        fontFamily: {
+          syne: ["Syne", "sans-serif"],
+          geist: ["Geist", "sans-serif"],
+          mono: ["Space Mono", "monospace"]
         }
-},
-    },
+      }
+    }
   }
 </script>
 <style>
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-        .glass-card {
-            background: #ffffff;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-        }
-    </style>
+  /* Noise & Grid Background */
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  }
+  .noise-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 99;
+  }
+  /* Custom Cursor */
+  .custom-cursor-dot {
+    pointer-events: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 6px; height: 6px;
+    background: #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease-out, opacity 0.2s;
+    z-index: 1000;
+  }
+  .custom-cursor-follower {
+    pointer-events: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 32px; height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
+    z-index: 999;
+  }
+  .cursor-hover .custom-cursor-follower {
+    width: 54px; height: 54px;
+    border-color: rgba(59, 130, 246, 0.8);
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  /* Glass Surfaces */
+  .glass-surface {
+    background: rgba(14, 17, 24, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .glass-surface-hover {
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-surface-hover:hover {
+    border-color: rgba(59, 130, 246, 0.45);
+    box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.25);
+    transform: translateY(-3px);
+  }
+  /* Typography Highlights */
+  .gradient-title {
+    background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .gradient-accent {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  /* Reveal on Scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #ambient-glow {
+    position: fixed;
+    top: 0; left: 0;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.03) 45%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.5s;
+  }
+  @media (pointer: coarse) {
+    .custom-cursor-dot, .custom-cursor-follower { display: none !important; }
+  }
+  @media print {
+    header, footer, .no-print, #ambient-glow, .noise-overlay { display: none !important; }
+    body { background: #ffffff !important; color: #000000 !important; }
+    .glass-surface { background: transparent !important; border: 1px solid #e2e8f0 !important; color: #000000 !important; }
+  }
+</style>
 </head>
-<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
-<!-- Ambient Orbs -->
-<div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-<div class="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-primary-fixed/20 blur-[120px] opacity-70"></div>
-<div class="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-secondary-fixed/20 blur-[150px] opacity-50"></div>
-</div>
+<body class="bg-dark-950 text-slate-100 font-geist antialiased selection:bg-accent-blue/30 selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
+<div class="noise-overlay"></div>
+<div id="ambient-glow"></div>
+<div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+
 <!-- TopNavBar -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm backdrop-blur-md transition-colors duration-300">
-<nav id="topnav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300">
-  <div class="flex justify-between items-center w-full px-gutter max-w-[1280px] mx-auto h-20">
-    <a href="index.html" class="flex items-center gap-2">
-      <span class="material-symbols-outlined text-primary text-2xl">terminal</span>
-      <span class="font-bold text-headline-md text-primary tracking-tight">Portfolio.OS</span>
+<header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 md:py-6 transition-all duration-300" id="main-header">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <!-- Brand / System OS -->
+    <a href="index.html" class="flex items-center gap-3 group focus:outline-none">
+      <div class="w-9 h-9 rounded-xl bg-dark-900 border border-white/15 flex items-center justify-center text-accent-blue group-hover:border-accent-blue/60 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300">
+        <span class="material-symbols-outlined text-lg">terminal</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-syne font-bold text-sm tracking-tight text-white group-hover:text-accent-blue transition-colors">Portfolio.OS</span>
+        <span class="font-mono text-[10px] text-slate-400 tracking-widest uppercase flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          SYS.ONLINE
+        </span>
+      </div>
     </a>
-    <div class="hidden md:flex items-center gap-8 font-body-md text-body-md">
-      <a href="index.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Home</a>
-      <a href="about.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">About</a>
-      <a href="skills.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Skills</a>
-      <a href="projects.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Projects</a>
-      <a href="experience.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Experience</a>
-      <a href="resume.html" class="text-primary font-bold border-b-2 border-primary pb-1 transition-all duration-300">Resume</a>
-      <a href="contact.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Contact</a>
-    </div>
+
+    <!-- Desktop Floating Pill Nav -->
+    <nav class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-surface shadow-2xl border border-white/10">
+      <a href="index.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Home</a>
+<a href="about.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">About</a>
+<a href="skills.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Skills</a>
+<a href="projects.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Projects</a>
+<a href="experience.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Experience</a>
+<a href="resume.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-white bg-accent-blue/20 border border-accent-blue/40 shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300">Resume</a>
+<a href="contact.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Contact</a>
+
+    </nav>
+
+    <!-- Quick Action / Status -->
     <div class="flex items-center gap-3">
-      <a href="assets/resume.pdf" download class="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface font-label-caps text-label-caps hover:border-primary hover:text-primary transition-all duration-300">Download CV <span class="material-symbols-outlined text-base">download</span></a>
-      <button id="mobile-menu-btn" class="md:hidden p-2 text-on-surface hover:text-primary transition-colors rounded-lg hover:bg-surface-container" aria-label="Toggle menu">
+      <a href="assets/resume.pdf" download class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full glass-surface text-xs font-mono text-slate-300 hover:text-white hover:border-accent-blue/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] transition-all duration-300">
+        <span>CV</span>
+        <span class="material-symbols-outlined text-sm">download</span>
+      </a>
+      <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-xl glass-surface flex items-center justify-center text-slate-300 hover:text-white" aria-label="Toggle menu">
         <span class="material-symbols-outlined" id="menu-icon">menu</span>
       </button>
     </div>
   </div>
-  <div id="mobile-menu" class="hidden md:hidden bg-surface/95 backdrop-blur-xl border-b border-outline-variant/30 px-gutter py-6 flex flex-col gap-1">
-    <a href="index.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Home</a>
-    <a href="about.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">About</a>
-    <a href="skills.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Skills</a>
-    <a href="projects.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Projects</a>
-    <a href="experience.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Experience</a>
-    <a href="resume.html" class="py-3 px-4 rounded-xl bg-primary/10 text-primary font-bold font-body-md text-body-md transition-all">Resume</a>
-    <a href="contact.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Contact</a>
-    <div class="pt-4 border-t border-outline-variant/30 mt-2">
-      <a href="assets/resume.pdf" download class="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-on-primary font-label-caps text-label-caps hover:bg-primary/90 transition-all">Download CV <span class="material-symbols-outlined text-base">download</span></a>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto mt-3 rounded-2xl glass-surface p-6 flex flex-col gap-2 border border-white/10 shadow-2xl">
+    <a href="index.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Home</a>
+<a href="about.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">About</a>
+<a href="skills.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Skills</a>
+<a href="projects.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Projects</a>
+<a href="experience.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Experience</a>
+<a href="resume.html" class="py-3 px-4 rounded-xl text-white font-syne font-bold text-lg bg-accent-blue/20 border border-accent-blue/30 transition-all">Resume</a>
+<a href="contact.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Contact</a>
+
+    <div class="pt-4 border-t border-white/10 mt-2">
+      <a href="assets/resume.pdf" download class="flex items-center justify-center gap-2 py-3 rounded-xl bg-accent-blue text-white font-mono text-xs tracking-wider uppercase hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20">
+        <span>Download CV</span>
+        <span class="material-symbols-outlined text-base">download</span>
+      </a>
     </div>
   </div>
-</nav>
 </header>
-<!-- Main Content -->
-<main class="flex-grow relative z-10 pt-32 pb-xl px-gutter max-w-max-width mx-auto w-full">
-<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-<div>
-<h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface mb-2">Curriculum Vitae</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">A comprehensive overview of my professional experience, technical expertise, and academic background.</p>
-</div>
-<button class="flex items-center gap-2 bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-300 whitespace-nowrap group">
-<span class="material-symbols-outlined group-hover:-translate-y-1 transition-transform">download</span>
-                Download PDF Resume
-            </button>
-</div>
-<!-- Resume Document (Glass Card) -->
-<div class="glass-card backdrop-blur-xl border border-outline-variant/30 rounded-xl p-8 md:p-16 max-w-5xl mx-auto relative overflow-hidden">
-<!-- Decorative corner accent -->
-<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-fixed/50 rounded-bl-full blur-2xl"></div>
-<!-- Header -->
-<header class="border-b border-outline-variant/30 pb-8 mb-8 relative z-10">
-<h2 class="font-headline-xl text-headline-md md:text-headline-xl text-on-surface tracking-tight mb-4">Parag Verma</h2>
-<div class="flex flex-wrap gap-x-6 gap-y-2 font-label-md text-label-md text-on-surface-variant">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-secondary text-[18px]">mail</span>
-<!-- PLACEHOLDER: replace with your email -->
-<a href="mailto:paragverma88014@gmail.com" class="hover:text-primary transition-colors">paragverma88014@gmail.com</a>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-secondary text-[18px]">work</span>
-<a href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">linkedin.com/in/parag-verma</a>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-secondary text-[18px]">code</span>
-<a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">github.com/ParagVerma81680</a>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-secondary text-[18px]">location_on</span>
-<!-- PLACEHOLDER: replace with your location -->
-<span>[Your Location]</span>
-</div>
-</div>
-</header>
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 relative z-10">
-<!-- Main Column (Left/Top) -->
-<div class="lg:col-span-2 space-y-12">
-<!-- Profile -->
-<section>
-<h3 class="font-headline-lg text-headline-md text-primary mb-4 flex items-center gap-3">
-<span class="material-symbols-outlined">person</span> Summary
-</h3>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                            Computer Science student focused on C++, Data Structures &amp; Algorithms, and software development. Experienced in building practical projects including personal AI assistants (FRIDAY), responsive web tools, and game mechanics in Unity. Passionate about problem solving, clean OOP architecture, and continuous learning.
-                        </p>
-</section>
-<!-- Projects & Technical Experience -->
-<section>
-<h3 class="font-headline-lg text-headline-md text-primary mb-6 flex items-center gap-3">
-<span class="material-symbols-outlined">terminal</span> Technical Projects &amp; Building
-</h3>
-<div class="space-y-8">
-<!-- Project 1 -->
-<div class="relative pl-6 border-l border-outline-variant/50">
-<div class="absolute w-3 h-3 bg-primary rounded-full -left-[6.5px] top-1.5 shadow-sm"></div>
-<div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
-<h4 class="font-body-lg text-body-lg text-on-surface font-semibold">FRIDAY — AI Voice Assistant</h4>
-<span class="font-label-md text-label-md text-secondary font-semibold">Ongoing / Experimental</span>
-</div>
-<div class="font-body-md text-body-sm text-primary mb-3">Windows Desktop AI Assistant</div>
-<ul class="list-none space-y-2 font-body-md text-body-md text-on-surface-variant">
-<li class="flex items-start gap-2">
-<span class="material-symbols-outlined text-[16px] text-outline mt-0.5">chevron_right</span>
-<span>Engineered a Windows-based personal AI assistant with dual voice and text interfaces for Q&amp;A, app launching, weather, reminders, and system controls.</span>
-</li>
-<li class="flex items-start gap-2">
-<span class="material-symbols-outlined text-[16px] text-outline mt-0.5">chevron_right</span>
-<span>Integrated modern AI development workflows using Claude, Codex, and Antigravity.</span>
-</li>
-</ul>
-</div>
-<!-- Project 2 -->
-<div class="relative pl-6 border-l border-outline-variant/50">
-<div class="absolute w-3 h-3 bg-secondary rounded-full -left-[6.5px] top-1.5 shadow-sm"></div>
-<div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
-<h4 class="font-body-lg text-body-lg text-on-surface font-semibold">Fogwatch — Story Mode Game</h4>
-<span class="font-label-md text-label-md text-secondary font-semibold">Planned in UE5</span>
-</div>
-<div class="font-body-md text-body-sm text-primary mb-3">Unreal Engine 5 Concept</div>
-<ul class="list-none space-y-2 font-body-md text-body-md text-on-surface-variant">
-<li class="flex items-start gap-2">
-<span class="material-symbols-outlined text-[16px] text-outline mt-0.5">chevron_right</span>
-<span>Designed a 3D narrative mystery game concept set on a remote lighthouse island with creeping fog and non-linear exploration.</span>
-</li>
-</ul>
-</div>
-<!-- Project 3 -->
-<div class="relative pl-6 border-l border-outline-variant/50">
-<div class="absolute w-3 h-3 bg-surface-variant border border-outline-variant rounded-full -left-[6.5px] top-1.5"></div>
-<div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
-<h4 class="font-body-lg text-body-lg text-on-surface font-semibold">2D Unity Game</h4>
-<span class="font-label-md text-label-md text-on-surface-variant font-semibold">In Development</span>
-</div>
-<div class="font-body-md text-body-sm text-primary mb-3">Unity &amp; C# Mechanics</div>
-<ul class="list-none space-y-2 font-body-md text-body-md text-on-surface-variant">
-<li class="flex items-start gap-2">
-<span class="material-symbols-outlined text-[16px] text-outline mt-0.5">chevron_right</span>
-<span>Implemented 2D player mechanics and custom player-tracking camera controllers (<code>CameraFollow2D.cs</code>).</span>
-</li>
-</ul>
-</div>
-</div>
-</section>
-</div>
-<!-- Sidebar Column (Right/Bottom) -->
-<div class="space-y-12">
-<!-- Education -->
-<section>
-<h3 class="font-headline-lg text-headline-md text-primary mb-6 flex items-center gap-3">
-<span class="material-symbols-outlined">school</span> Education
-</h3>
-<div class="space-y-6">
-<div>
-<h4 class="font-body-md text-body-md text-on-surface font-semibold mb-1">B.Tech / B.S. in Computer Science (Ongoing)</h4>
-<!-- PLACEHOLDER: replace with college name -->
-<div class="font-body-md text-body-sm text-on-surface-variant mb-1">[Your College / University Name]</div>
-<!-- PLACEHOLDER: replace with years -->
-<div class="font-label-md text-label-md text-secondary">[Start Year] - Present</div>
-</div>
-</div>
-</section>
-<!-- Technical Skills -->
-<section>
-<h3 class="font-headline-lg text-headline-md text-primary mb-6 flex items-center gap-3">
-<span class="material-symbols-outlined">terminal</span> Skills
-</h3>
-<div class="mb-4">
-<div class="font-label-md text-label-md text-on-surface-variant mb-3 uppercase tracking-widest">Languages</div>
-<div class="flex flex-wrap gap-2">
-<span class="bg-primary-fixed border border-primary/20 text-on-primary-fixed font-body-sm text-body-sm px-2.5 py-1 rounded">C++</span>
-<span class="bg-primary-fixed border border-primary/20 text-on-primary-fixed font-body-sm text-body-sm px-2.5 py-1 rounded">JavaScript</span>
-<span class="bg-primary-fixed border border-primary/20 text-on-primary-fixed font-body-sm text-body-sm px-2.5 py-1 rounded">HTML / Tailwind</span>
-<span class="bg-primary-fixed border border-primary/20 text-on-primary-fixed font-body-sm text-body-sm px-2.5 py-1 rounded">Python</span>
-<span class="bg-primary-fixed border border-primary/20 text-on-primary-fixed font-body-sm text-body-sm px-2.5 py-1 rounded">C#</span>
-</div>
-</div>
-<div>
-<div class="font-label-md text-label-md text-on-surface-variant mb-3 uppercase tracking-widest">Tools &amp; Concepts</div>
-<div class="flex flex-wrap gap-2">
-<span class="bg-surface-variant border border-outline-variant/50 text-on-surface font-body-sm text-body-sm px-2.5 py-1 rounded">DSA</span>
-<span class="bg-surface-variant border border-outline-variant/50 text-on-surface font-body-sm text-body-sm px-2.5 py-1 rounded">OOP</span>
-<span class="bg-surface-variant border border-outline-variant/50 text-on-surface font-body-sm text-body-sm px-2.5 py-1 rounded">Git / GitHub</span>
-<span class="bg-surface-variant border border-outline-variant/50 text-on-surface font-body-sm text-body-sm px-2.5 py-1 rounded">VS Code</span>
-<span class="bg-surface-variant border border-outline-variant/50 text-on-surface font-body-sm text-body-sm px-2.5 py-1 rounded">Unity</span>
-<span class="bg-surface-variant border border-outline-variant/50 text-on-surface font-body-sm text-body-sm px-2.5 py-1 rounded">Tailwind CSS</span>
-<span class="bg-surface-variant border border-outline-variant/50 text-on-surface font-body-sm text-body-sm px-2.5 py-1 rounded">Problem Solving</span>
-</div>
-</div>
-</section>
-</div>
-</div>
-</div>
-<div class="flex justify-center mt-12">
-<button class="flex items-center gap-2 bg-transparent border border-outline hover:border-primary text-on-surface font-label-md text-label-md px-6 py-3 rounded-lg hover:bg-primary/5 transition-all duration-300">
-<span class="material-symbols-outlined">print</span>
-                Print Version
-            </button>
-</div>
+
+<!-- Page Content -->
+
+<main class="flex-grow relative z-10 pt-32 md:pt-44 pb-24 px-6 md:px-8 max-w-6xl mx-auto w-full">
+  
+  <header class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12 no-print">
+    <div>
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-surface text-xs font-mono text-accent-blue mb-4 border border-accent-blue/30">
+        <span>05 // PROFESSIONAL RECORD</span>
+      </div>
+      <h1 class="font-syne font-extrabold text-4xl sm:text-6xl md:text-7xl text-white tracking-tight">
+        Curriculum Vitae<span class="text-accent-blue">.</span>
+      </h1>
+      <p class="font-geist text-base md:text-lg text-slate-400 max-w-2xl mt-2">
+        Official resume and technical profile of Parag Verma — Computer Science &amp; Engineering (AI and ML).
+      </p>
+    </div>
+    
+    <div class="flex items-center gap-3">
+      <button onclick="window.print()" class="px-6 py-3 rounded-xl bg-accent-blue text-white font-mono text-xs font-bold tracking-wider uppercase hover:bg-blue-600 transition-all flex items-center gap-2 shadow-lg shadow-blue-500/20">
+        <span class="material-symbols-outlined text-base">print</span>
+        <span>Print / Save PDF</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Editorial CV Glass Card -->
+  <div class="glass-surface rounded-2xl p-8 md:p-14 border border-white/10 relative overflow-hidden shadow-2xl">
+    
+    <!-- Top Identity Header -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-8 border-b border-white/10 mb-10">
+      <div>
+        <h2 class="font-syne font-bold text-3xl sm:text-4xl text-white">Parag Verma</h2>
+        <span class="font-mono text-xs text-accent-blue tracking-wider uppercase mt-1 block">B.Tech Computer Science and Engineering (AI and ML)</span>
+      </div>
+      <div class="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs text-slate-400">
+        <a href="mailto:paragverma88014@gmail.com" class="hover:text-white flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-sm text-accent-blue">mail</span>
+          <span>paragverma88014@gmail.com</span>
+        </a>
+        <a href="tel:+918168088014" class="hover:text-white flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-sm text-accent-cyan">call</span>
+          <span>+91 8168088014</span>
+        </a>
+        <a href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" class="hover:text-white flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-sm text-accent-purple">work</span>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/ParagVerma81680" target="_blank" class="hover:text-white flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-sm text-slate-300">code</span>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 2 Column Body Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      
+      <!-- Left Column: Projects & Training & Highlights (7 cols) -->
+      <div class="lg:col-span-7 space-y-10">
+        
+        <!-- Projects Section -->
+        <section>
+          <div class="flex items-center gap-2 font-mono text-xs text-accent-blue uppercase tracking-widest mb-6 pb-2 border-b border-white/10">
+            <span class="material-symbols-outlined text-base">folder_open</span>
+            <span>PROJECTS</span>
+          </div>
+
+          <div class="space-y-6">
+            <!-- Project 1 -->
+            <div class="border-l-2 border-accent-blue pl-4">
+              <div class="flex justify-between items-baseline mb-1">
+                <h4 class="font-syne font-bold text-lg text-white">FRIDAY — AI Personal Voice Assistant</h4>
+                <span class="font-mono text-xs text-accent-blue">Apr 2026</span>
+              </div>
+              <a href="https://github.com/ParagVerma81680" target="_blank" class="font-mono text-xs text-slate-400 hover:text-white mb-2 inline-block">GitHub Repository →</a>
+              <ul class="list-disc list-inside space-y-1 font-geist text-xs text-slate-300 leading-relaxed">
+                <li>Developed a personal AI assistant capable of voice and text-based interaction.</li>
+                <li>Implemented conversational AI features for answering queries and assisting with daily tasks.</li>
+                <li>Added functionality for web search, weather/time queries, application and website launching, and reminders.</li>
+                <li>Integrated system-level controls to interact with the Windows environment.</li>
+              </ul>
+              <div class="mt-2.5 font-mono text-[11px] text-slate-400">
+                <span class="text-slate-500">Tech:</span> Python, AI/LLM APIs, Speech Recognition, Text-to-Speech, Windows Automation
+              </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="border-l-2 border-accent-purple pl-4">
+              <div class="flex justify-between items-baseline mb-1">
+                <h4 class="font-syne font-bold text-lg text-white">Unreal Engine / Game Development Project</h4>
+                <span class="font-mono text-xs text-accent-purple">Jun 2026</span>
+              </div>
+              <a href="https://github.com/ParagVerma81680" target="_blank" class="font-mono text-xs text-slate-400 hover:text-white mb-2 inline-block">GitHub Repository →</a>
+              <ul class="list-disc list-inside space-y-1 font-geist text-xs text-slate-300 leading-relaxed">
+                <li>Worked on game-development concepts using Unreal Engine 5.</li>
+                <li>Explored gameplay systems, level design, and interactive game mechanics.</li>
+                <li>Worked with Unreal Engine tools and development workflows.</li>
+              </ul>
+              <div class="mt-2.5 font-mono text-[11px] text-slate-400">
+                <span class="text-slate-500">Tech:</span> Unreal Engine 5, C++, Blueprints
+              </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="border-l-2 border-accent-cyan pl-4">
+              <div class="flex justify-between items-baseline mb-1">
+                <h4 class="font-syne font-bold text-lg text-white">Developer Portfolio Website</h4>
+                <span class="font-mono text-xs text-accent-cyan">Aug 2026</span>
+              </div>
+              <a href="https://github.com/ParagVerma81680" target="_blank" class="font-mono text-xs text-slate-400 hover:text-white mb-2 inline-block">GitHub Repository →</a>
+              <ul class="list-disc list-inside space-y-1 font-geist text-xs text-slate-300 leading-relaxed">
+                <li>Designed and developed a personal developer portfolio website to showcase skills, projects, and achievements.</li>
+                <li>Created a responsive and modern user interface for presenting professional information.</li>
+                <li>Used Git and GitHub for project version control and development workflow.</li>
+              </ul>
+              <div class="mt-2.5 font-mono text-[11px] text-slate-400">
+                <span class="text-slate-500">Tech:</span> HTML, CSS, JavaScript, Git, GitHub
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Training Section -->
+        <section>
+          <div class="flex items-center gap-2 font-mono text-xs text-accent-blue uppercase tracking-widest mb-6 pb-2 border-b border-white/10">
+            <span class="material-symbols-outlined text-base">model_training</span>
+            <span>TRAINING</span>
+          </div>
+
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl glass-surface border border-white/5">
+              <div class="flex justify-between items-baseline mb-1">
+                <h4 class="font-syne font-bold text-base text-white">Data Structure and Algorithms</h4>
+                <span class="font-mono text-xs text-accent-blue">Aug 2026 – Jan 2027</span>
+              </div>
+              <ul class="list-disc list-inside space-y-1 font-geist text-xs text-slate-300">
+                <li>Practiced core data structures including arrays, linked lists, stacks, queues, trees, and graphs.</li>
+                <li>Implemented fundamental algorithms including searching, sorting, recursion, and problem-solving techniques.</li>
+                <li>Strengthened programming and logical problem-solving skills through regular C++ practice.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-xl glass-surface border border-white/5">
+              <div class="flex justify-between items-baseline mb-1">
+                <h4 class="font-syne font-bold text-base text-white">Object - Oriented Programming in C++</h4>
+                <span class="font-mono text-xs text-accent-blue">Aug 2026 – Jan 2027</span>
+              </div>
+              <ul class="list-disc list-inside space-y-1 font-geist text-xs text-slate-300">
+                <li>Practiced classes, objects, constructors, access modifiers, functions, inheritance, and polymorphism.</li>
+                <li>Developed small programs to apply OOP concepts and improve code organization.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Achievements & Highlights -->
+        <section>
+          <div class="flex items-center gap-2 font-mono text-xs text-accent-blue uppercase tracking-widest mb-4 pb-2 border-b border-white/10">
+            <span class="material-symbols-outlined text-base">star</span>
+            <span>ACHIEVEMENTS &amp; HIGHLIGHTS</span>
+          </div>
+          <ul class="list-disc list-inside space-y-1.5 font-geist text-xs text-slate-300 leading-relaxed">
+            <li>Developed Platform 13, an active project demonstrating practical software development and implementation skills.</li>
+            <li>Worked on Fogwatch, an ongoing project currently paused.</li>
+            <li>Explored AI assistant development through the planned Friday AI Assistant project.</li>
+            <li>Gained hands-on experience with Unity 2D game development through an earlier project.</li>
+            <li>Presented Hall Effect as part of academic work, demonstrating technical presentation and communication skills.</li>
+            <li>Continuously developing programming skills in C++, Python, and Data Structures &amp; Algorithms.</li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- Right Column: Education & Skills & Certificates (5 cols) -->
+      <div class="lg:col-span-5 space-y-10">
+        
+        <!-- Education -->
+        <section>
+          <div class="flex items-center gap-2 font-mono text-xs text-accent-blue uppercase tracking-widest mb-6 pb-2 border-b border-white/10">
+            <span class="material-symbols-outlined text-base">school</span>
+            <span>EDUCATION</span>
+          </div>
+
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl glass-surface border-l-2 border-accent-blue">
+              <div class="flex justify-between items-baseline mb-1">
+                <h4 class="font-syne font-bold text-sm text-white">Lovely Professional University</h4>
+                <span class="font-mono text-xs text-slate-400">Since Aug 2025</span>
+              </div>
+              <div class="font-geist text-xs text-slate-300 mb-1">Bachelor of Technology - Computer Science and Engineering(AI and ML)</div>
+              <div class="font-mono text-xs text-accent-blue font-bold">Phagwara, Punjab • CGPA: 9.33</div>
+            </div>
+
+            <div class="p-4 rounded-xl glass-surface">
+              <div class="flex justify-between items-baseline mb-1">
+                <h4 class="font-syne font-bold text-sm text-white">New Sun Rise Sr Sec School</h4>
+                <span class="font-mono text-xs text-slate-400">2022 – 2024</span>
+              </div>
+              <div class="font-geist text-xs text-slate-300 mb-1">Intermediate (Class XII)</div>
+              <div class="font-mono text-xs text-slate-400">Fatehabad, Haryana • 76.2%</div>
+            </div>
+
+            <div class="p-4 rounded-xl glass-surface">
+              <div class="flex justify-between items-baseline mb-1">
+                <h4 class="font-syne font-bold text-sm text-white">New Sun Rise Sr Sec School</h4>
+                <span class="font-mono text-xs text-slate-400">2021 – 2022</span>
+              </div>
+              <div class="font-geist text-xs text-slate-300 mb-1">Matriculation (Class X)</div>
+              <div class="font-mono text-xs text-slate-400">Fatehabad, Haryana • 95.0%</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section>
+          <div class="flex items-center gap-2 font-mono text-xs text-accent-blue uppercase tracking-widest mb-6 pb-2 border-b border-white/10">
+            <span class="material-symbols-outlined text-base">terminal</span>
+            <span>SKILLS</span>
+          </div>
+
+          <div class="space-y-4 font-mono text-xs">
+            <div>
+              <span class="text-slate-500 uppercase tracking-widest text-[10px] block mb-1.5">Languages</span>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">C/C++</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">Python</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">SQL</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">HTML</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">CSS</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">JavaScript</span>
+              </div>
+            </div>
+
+            <div>
+              <span class="text-slate-500 uppercase tracking-widest text-[10px] block mb-1.5">Databases</span>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">MySQL</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">PL/SQL</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">MongoDB</span>
+              </div>
+            </div>
+
+            <div>
+              <span class="text-slate-500 uppercase tracking-widest text-[10px] block mb-1.5">Tools / Platforms</span>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">VSCode</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">Git</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">GitHub</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">Unreal Engine 5</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">Unity</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">Excel</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">Power BI</span>
+              </div>
+            </div>
+
+            <div>
+              <span class="text-slate-500 uppercase tracking-widest text-[10px] block mb-1.5">Core Concepts</span>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">DSA</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">Operating System</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">OOPS</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">DBMS</span>
+                <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">Computer Networks</span>
+              </div>
+            </div>
+
+            <div>
+              <span class="text-slate-500 uppercase tracking-widest text-[10px] block mb-1.5">Soft Skills</span>
+              <p class="font-geist text-xs text-slate-400 leading-relaxed">Problem Solving, Teamwork &amp; Collaboration, Adaptability, Communication, Leadership, Quick Learning</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Certificates -->
+        <section>
+          <div class="flex items-center gap-2 font-mono text-xs text-accent-blue uppercase tracking-widest mb-4 pb-2 border-b border-white/10">
+            <span class="material-symbols-outlined text-base">workspace_premium</span>
+            <span>CERTIFICATES</span>
+          </div>
+          <div class="space-y-2.5 font-geist text-xs text-slate-300">
+            <div class="p-3 rounded-lg glass-surface">
+              <div class="font-bold text-white">Algo Arena 2.0 - Coding Competition</div>
+              <div class="text-slate-400 font-mono text-[10px]">Weinnova8/TheEduCode • Apr 2026</div>
+            </div>
+            <div class="p-3 rounded-lg glass-surface">
+              <div class="font-bold text-white">Introduction to Cyber Security</div>
+              <div class="text-slate-400 font-mono text-[10px]">Infosys • Mar 2026</div>
+            </div>
+            <div class="p-3 rounded-lg glass-surface">
+              <div class="font-bold text-white">CS107: C++ Programming</div>
+              <div class="text-slate-400 font-mono text-[10px]">Saylor Academy • Jan 2026</div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </main>
-<!-- Footer -->
-<footer class="w-full py-16 border-t border-outline-variant/30 bg-surface-container-lowest">
-  <div class="flex flex-col md:flex-row justify-between items-center w-full px-gutter max-w-[1280px] mx-auto gap-6 md:gap-0">
-    <div class="font-bold text-body-lg text-on-surface">Portfolio.OS</div>
-    <div class="font-label-caps text-label-caps text-secondary text-center">© 2026 Parag Verma • Computer Science Student &amp; Developer</div>
-    <div class="flex flex-wrap justify-center gap-6">
-      <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">GitHub</a>
-      <a href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" rel="noopener noreferrer" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">LinkedIn</a>
-      <a href="mailto:paragverma88014@gmail.com" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">Email</a>
-      <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200 flex items-center gap-1">Back to Top <span class="material-symbols-outlined text-sm">arrow_upward</span></a>
+
+
+<!-- Global Footer -->
+<footer class="w-full py-16 md:py-24 border-t border-white/5 bg-dark-900/60 relative z-10 mt-auto">
+  <div class="max-w-6xl mx-auto px-6 md:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-12 border-b border-white/5">
+      <div>
+        <span class="font-mono text-xs text-accent-blue uppercase tracking-widest mb-2 block">// DIGITAL ARTIFACT 2026</span>
+        <h3 class="font-syne font-bold text-2xl md:text-3xl text-white">Parag Verma</h3>
+        <p class="font-geist text-sm text-slate-400 mt-1 max-w-md">Computer Science Student • Developer • Builder. Focused on systems, algorithmic problem solving, and software engineering.</p>
+      </div>
+      <div class="flex flex-wrap gap-4 font-mono text-xs">
+        <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span>GitHub</span>
+          <span class="material-symbols-outlined text-sm">open_in_new</span>
+        </a>
+        <a href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span>LinkedIn</span>
+          <span class="material-symbols-outlined text-sm">open_in_new</span>
+        </a>
+        <a href="mailto:paragverma88014@gmail.com" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span>Email</span>
+          <span class="material-symbols-outlined text-sm">mail</span>
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 text-xs font-mono text-slate-500">
+      <div>© 2026 Parag Verma • Computer Science Student &amp; Developer</div>
+      <div class="flex items-center gap-6">
+        <span>LOC // 28.6139° N, 77.2090° E</span>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-white transition-colors flex items-center gap-1">
+          <span>TOP</span>
+          <span class="material-symbols-outlined text-sm">arrow_upward</span>
+        </button>
+      </div>
     </div>
   </div>
 </footer>
+
+<!-- Interactive Scripts & Cursor -->
+<div class="custom-cursor-dot" id="cursor-dot"></div>
+<div class="custom-cursor-follower" id="cursor-follower"></div>
+
 <script>
-// Mobile menu
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const menuIcon = document.getElementById('menu-icon');
-if (mobileMenuBtn) {
-  mobileMenuBtn.addEventListener('click', () => {
-    const isHidden = mobileMenu.classList.contains('hidden');
-    mobileMenu.classList.toggle('hidden');
-    menuIcon.textContent = isHidden ? 'close' : 'menu';
-  });
-  document.addEventListener('click', (e) => {
-    if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-      mobileMenu.classList.add('hidden');
-      menuIcon.textContent = 'menu';
+  // Mobile drawer toggle
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      const isHidden = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      menuIcon.textContent = isHidden ? 'close' : 'menu';
+    });
+  }
+
+  // Smooth Interactive Custom Cursor
+  const dot = document.getElementById('cursor-dot');
+  const follower = document.getElementById('cursor-follower');
+  const glow = document.getElementById('ambient-glow');
+  let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+  let followerX = mouseX, followerY = mouseY;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (dot) {
+      dot.style.left = mouseX + 'px';
+      dot.style.top = mouseY + 'px';
+    }
+    if (glow) {
+      glow.style.left = mouseX + 'px';
+      glow.style.top = mouseY + 'px';
     }
   });
-}
+
+  function renderCursor() {
+    followerX += (mouseX - followerX) * 0.18;
+    followerY += (mouseY - followerY) * 0.18;
+    if (follower) {
+      follower.style.left = followerX + 'px';
+      follower.style.top = followerY + 'px';
+    }
+    requestAnimationFrame(renderCursor);
+  }
+  requestAnimationFrame(renderCursor);
+
+  document.querySelectorAll('a, button, [role="button"], input, textarea').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+
+  // Scroll Reveal Observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
-</body></html>
+
+</body>
+</html>

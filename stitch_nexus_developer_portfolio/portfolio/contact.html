@@ -1,392 +1,425 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
+<html lang="en" class="dark scroll-smooth">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Contact | Portfolio.OS</title>
-<!-- Google Fonts -->
+<title>Contact — Parag Verma | Portfolio.OS</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;450;600;700&amp;display=swap" rel="stylesheet"/>
-<!-- Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Theme Configuration -->
-<script id="tailwind-config">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
   tailwind.config = {
     darkMode: "class",
     theme: {
       extend: {
-        "colors": {
-                "inverse-surface": "#2d3133",
-                "tertiary": "#575e72",
-                "primary": "#4953bc",
-                "primary-fixed": "#e0e0ff",
-                "on-primary": "#ffffff",
-                "on-tertiary-container": "#262e40",
-                "on-secondary-container": "#3d687c",
-                "surface-variant": "#e0e3e5",
-                "on-background": "#191c1e",
-                "on-primary-fixed-variant": "#2f3aa3",
-                "inverse-on-surface": "#eff1f3",
-                "on-tertiary": "#ffffff",
-                "secondary-fixed": "#bee9ff",
-                "error-container": "#ffdad6",
-                "surface": "#f7f9fb",
-                "inverse-primary": "#bdc2ff",
-                "surface-bright": "#f7f9fb",
-                "tertiary-container": "#8e95ab",
-                "on-primary-container": "#101b8a",
-                "on-tertiary-fixed": "#141b2c",
-                "tertiary-fixed": "#dbe2fa",
-                "on-error-container": "#93000a",
-                "tertiary-fixed-dim": "#bfc6dd",
-                "primary-fixed-dim": "#bdc2ff",
-                "on-error": "#ffffff",
-                "surface-tint": "#4953bc",
-                "surface-dim": "#d8dadc",
-                "on-surface-variant": "#454653",
-                "surface-container-highest": "#e0e3e5",
-                "outline": "#767684",
-                "secondary": "#396477",
-                "on-secondary-fixed": "#001f2a",
-                "error": "#ba1a1a",
-                "on-primary-fixed": "#000767",
-                "surface-container-lowest": "#ffffff",
-                "surface-container": "#eceef0",
-                "surface-container-high": "#e6e8ea",
-                "on-surface": "#191c1e",
-                "surface-container-low": "#f2f4f6",
-                "background": "#f7f9fb",
-                "on-secondary": "#ffffff",
-                "secondary-container": "#bae6fd",
-                "on-tertiary-fixed-variant": "#3f4759",
-                "primary-container": "#818cf8",
-                "on-secondary-fixed-variant": "#1e4c5f",
-                "secondary-fixed-dim": "#a1cde3",
-                "outline-variant": "#c6c5d5"
+        colors: {
+          dark: {
+            950: "#040508",
+            900: "#08090d",
+            850: "#0e1118",
+            800: "#141822",
+            700: "#1c2230",
+            600: "#283044"
+          },
+          accent: {
+            blue: "#3b82f6",
+            cyan: "#06b6d4",
+            purple: "#8b5cf6",
+            indigo: "#6366f1"
+          }
         },
-        "borderRadius": {
-                "DEFAULT": "1rem",
-                "lg": "2rem",
-                "xl": "3rem",
-                "full": "9999px"
-        },
-        "spacing": {
-                "margin-desktop": "64px",
-                "margin-mobile": "16px",
-                "gutter": "24px",
-                "max-width": "1280px",
-                "lg": "24px",
-                "xl": "40px",
-                "unit": "4px",
-                "xs": "4px",
-                "md": "16px",
-                "sm": "8px"
-        },
-        "fontFamily": {
-                "headline-lg": [
-                        "Geist"
-                ],
-                "headline-md": [
-                        "Geist"
-                ],
-                "body-md": [
-                        "Geist"
-                ],
-                "body-lg": [
-                        "Geist"
-                ],
-                "label-md": [
-                        "Geist"
-                ],
-                "body-sm": [
-                        "Geist"
-                ],
-                "headline-lg-mobile": [
-                        "Geist"
-                ],
-                "headline-xl": [
-                        "Geist"
-                ]
-        },
-        "fontSize": {
-                "headline-lg": [
-                        "32px",
-                        {
-                                "lineHeight": "40px",
-                                "letterSpacing": "-0.01em",
-                                "fontWeight": "600"
-                        }
-                ],
-                "headline-md": [
-                        "24px",
-                        {
-                                "lineHeight": "32px",
-                                "fontWeight": "600"
-                        }
-                ],
-                "body-md": [
-                        "16px",
-                        {
-                                "lineHeight": "24px",
-                                "fontWeight": "450"
-                        }
-                ],
-                "body-lg": [
-                        "18px",
-                        {
-                                "lineHeight": "28px",
-                                "fontWeight": "400"
-                        }
-                ],
-                "label-md": [
-                        "12px",
-                        {
-                                "lineHeight": "16px",
-                                "letterSpacing": "0.05em",
-                                "fontWeight": "600"
-                        }
-                ],
-                "body-sm": [
-                        "14px",
-                        {
-                                "lineHeight": "20px",
-                                "fontWeight": "450"
-                        }
-                ],
-                "headline-lg-mobile": [
-                        "24px",
-                        {
-                                "lineHeight": "32px",
-                                "fontWeight": "600"
-                        }
-                ],
-                "headline-xl": [
-                        "48px",
-                        {
-                                "lineHeight": "56px",
-                                "letterSpacing": "-0.02em",
-                                "fontWeight": "700"
-                        }
-                ]
+        fontFamily: {
+          syne: ["Syne", "sans-serif"],
+          geist: ["Geist", "sans-serif"],
+          mono: ["Space Mono", "monospace"]
         }
-},
-    },
+      }
+    }
   }
 </script>
 <style>
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-        .input-recessed {
-            background: rgba(224, 224, 255, 0.4); /* lavender primary-fixed */
-        }
-        .input-peach {
-            background: rgba(255, 218, 214, 0.4); /* peach error-container */
-        }
-    </style>
+  /* Noise & Grid Background */
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  }
+  .noise-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 99;
+  }
+  /* Custom Cursor */
+  .custom-cursor-dot {
+    pointer-events: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 6px; height: 6px;
+    background: #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease-out, opacity 0.2s;
+    z-index: 1000;
+  }
+  .custom-cursor-follower {
+    pointer-events: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 32px; height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
+    z-index: 999;
+  }
+  .cursor-hover .custom-cursor-follower {
+    width: 54px; height: 54px;
+    border-color: rgba(59, 130, 246, 0.8);
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  /* Glass Surfaces */
+  .glass-surface {
+    background: rgba(14, 17, 24, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .glass-surface-hover {
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-surface-hover:hover {
+    border-color: rgba(59, 130, 246, 0.45);
+    box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.25);
+    transform: translateY(-3px);
+  }
+  /* Typography Highlights */
+  .gradient-title {
+    background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .gradient-accent {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  /* Reveal on Scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #ambient-glow {
+    position: fixed;
+    top: 0; left: 0;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.03) 45%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.5s;
+  }
+  @media (pointer: coarse) {
+    .custom-cursor-dot, .custom-cursor-follower { display: none !important; }
+  }
+  @media print {
+    header, footer, .no-print, #ambient-glow, .noise-overlay { display: none !important; }
+    body { background: #ffffff !important; color: #000000 !important; }
+    .glass-surface { background: transparent !important; border: 1px solid #e2e8f0 !important; color: #000000 !important; }
+  }
+</style>
 </head>
-<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden selection:bg-primary selection:text-on-primary">
-<!-- Ambient Background Orbs -->
-<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-<div class="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-primary-fixed blur-[120px] transition-transform duration-1000 ease-out opacity-60" id="orb1"></div>
-<div class="absolute bottom-[-20%] right-[-10%] w-[700px] h-[700px] rounded-full bg-error-container blur-[150px] transition-transform duration-1000 ease-out opacity-60" id="orb2"></div>
-</div>
+<body class="bg-dark-950 text-slate-100 font-geist antialiased selection:bg-accent-blue/30 selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
+<div class="noise-overlay"></div>
+<div id="ambient-glow"></div>
+<div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+
 <!-- TopNavBar -->
-<nav id="topnav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300">
-  <div class="flex justify-between items-center w-full px-gutter max-w-[1280px] mx-auto h-20">
-    <a href="index.html" class="flex items-center gap-2">
-      <span class="material-symbols-outlined text-primary text-2xl">terminal</span>
-      <span class="font-bold text-headline-md text-primary tracking-tight">Portfolio.OS</span>
+<header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 md:py-6 transition-all duration-300" id="main-header">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <!-- Brand / System OS -->
+    <a href="index.html" class="flex items-center gap-3 group focus:outline-none">
+      <div class="w-9 h-9 rounded-xl bg-dark-900 border border-white/15 flex items-center justify-center text-accent-blue group-hover:border-accent-blue/60 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300">
+        <span class="material-symbols-outlined text-lg">terminal</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-syne font-bold text-sm tracking-tight text-white group-hover:text-accent-blue transition-colors">Portfolio.OS</span>
+        <span class="font-mono text-[10px] text-slate-400 tracking-widest uppercase flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          SYS.ONLINE
+        </span>
+      </div>
     </a>
-    <div class="hidden md:flex items-center gap-8 font-body-md text-body-md">
-      <a href="index.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Home</a>
-      <a href="about.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">About</a>
-      <a href="skills.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Skills</a>
-      <a href="projects.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Projects</a>
-      <a href="experience.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Experience</a>
-      <a href="resume.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Resume</a>
-      <a href="contact.html" class="text-primary font-bold border-b-2 border-primary pb-1 transition-all duration-300">Contact</a>
-    </div>
+
+    <!-- Desktop Floating Pill Nav -->
+    <nav class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-surface shadow-2xl border border-white/10">
+      <a href="index.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Home</a>
+<a href="about.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">About</a>
+<a href="skills.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Skills</a>
+<a href="projects.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Projects</a>
+<a href="experience.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Experience</a>
+<a href="resume.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Resume</a>
+<a href="contact.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-white bg-accent-blue/20 border border-accent-blue/40 shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300">Contact</a>
+
+    </nav>
+
+    <!-- Quick Action / Status -->
     <div class="flex items-center gap-3">
-      <a href="assets/resume.pdf" download class="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface font-label-caps text-label-caps hover:border-primary hover:text-primary transition-all duration-300">Download CV <span class="material-symbols-outlined text-base">download</span></a>
-      <button id="mobile-menu-btn" class="md:hidden p-2 text-on-surface hover:text-primary transition-colors rounded-lg hover:bg-surface-container" aria-label="Toggle menu">
+      <a href="assets/resume.pdf" download class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full glass-surface text-xs font-mono text-slate-300 hover:text-white hover:border-accent-blue/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] transition-all duration-300">
+        <span>CV</span>
+        <span class="material-symbols-outlined text-sm">download</span>
+      </a>
+      <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-xl glass-surface flex items-center justify-center text-slate-300 hover:text-white" aria-label="Toggle menu">
         <span class="material-symbols-outlined" id="menu-icon">menu</span>
       </button>
     </div>
   </div>
-  <div id="mobile-menu" class="hidden md:hidden bg-surface/95 backdrop-blur-xl border-b border-outline-variant/30 px-gutter py-6 flex flex-col gap-1">
-    <a href="index.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Home</a>
-    <a href="about.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">About</a>
-    <a href="skills.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Skills</a>
-    <a href="projects.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Projects</a>
-    <a href="experience.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Experience</a>
-    <a href="resume.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Resume</a>
-    <a href="contact.html" class="py-3 px-4 rounded-xl bg-primary/10 text-primary font-bold font-body-md text-body-md transition-all">Contact</a>
-    <div class="pt-4 border-t border-outline-variant/30 mt-2">
-      <a href="assets/resume.pdf" download class="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-on-primary font-label-caps text-label-caps hover:bg-primary/90 transition-all">Download CV <span class="material-symbols-outlined text-base">download</span></a>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto mt-3 rounded-2xl glass-surface p-6 flex flex-col gap-2 border border-white/10 shadow-2xl">
+    <a href="index.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Home</a>
+<a href="about.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">About</a>
+<a href="skills.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Skills</a>
+<a href="projects.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Projects</a>
+<a href="experience.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Experience</a>
+<a href="resume.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Resume</a>
+<a href="contact.html" class="py-3 px-4 rounded-xl text-white font-syne font-bold text-lg bg-accent-blue/20 border border-accent-blue/30 transition-all">Contact</a>
+
+    <div class="pt-4 border-t border-white/10 mt-2">
+      <a href="assets/resume.pdf" download class="flex items-center justify-center gap-2 py-3 rounded-xl bg-accent-blue text-white font-mono text-xs tracking-wider uppercase hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20">
+        <span>Download CV</span>
+        <span class="material-symbols-outlined text-base">download</span>
+      </a>
     </div>
   </div>
-</nav>
-<!-- Main Content Canvas -->
-<main class="flex-grow pt-[160px] pb-xl px-gutter w-full max-w-max-width mx-auto relative z-10 flex flex-col justify-center">
-<!-- Header Section -->
-<div class="mb-16 max-w-3xl">
-<h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface mb-6">Let's connect &amp; <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-error-container">build together.</span></h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant">
-                Feel free to reach out for project collaboration, discussions, or questions. I'm always open to discussing new ideas, software tools, and exciting projects.
-            </p>
-</div>
-<!-- Bento Grid Layout for Contact -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-<!-- Contact Details Card (Left) -->
-<div class="lg:col-span-4 flex flex-col gap-6">
-<!-- Main Info Card -->
-<div class="glass-panel border border-outline-variant/40 rounded-[2rem] p-8 hover:border-primary/40 transition-colors duration-500 relative overflow-hidden group shadow-sm hover:shadow-md">
-<!-- Decorative inner glow -->
-<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-8 relative z-10">Direct Comms</h3>
-<div class="flex flex-col gap-8 relative z-10">
-<!-- Email (Editable Placeholder) -->
-<a class="flex items-center gap-4 group/link" href="mailto:paragverma88014@gmail.com">
-<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant/30 group-hover/link:border-primary group-hover/link:bg-primary/10 transition-all duration-300">
-<span class="material-symbols-outlined text-on-surface-variant group-hover/link:text-primary transition-colors">mail</span>
-</div>
-<div>
-<span class="block font-label-md text-label-md text-on-surface-variant mb-1 uppercase">Email</span>
-<span class="font-body-lg text-body-lg text-on-surface">paragverma88014@gmail.com</span>
-</div>
-</a>
-<a class="flex items-center gap-4 group/link" href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer">
-<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant/30 group-hover/link:border-primary group-hover/link:bg-primary/10 transition-all duration-300">
-<span class="material-symbols-outlined text-on-surface-variant group-hover/link:text-primary transition-colors">code</span>
-</div>
-<div>
-<span class="block font-label-md text-label-md text-on-surface-variant mb-1 uppercase">GitHub</span>
-<span class="font-body-lg text-body-lg text-on-surface">ParagVerma81680</span>
-</div>
-</a>
-<a class="flex items-center gap-4 group/link" href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" rel="noopener noreferrer">
-<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant/30 group-hover/link:border-secondary group-hover/link:bg-secondary/10 transition-all duration-300">
-<span class="material-symbols-outlined text-on-surface-variant group-hover/link:text-secondary transition-colors">work</span>
-</div>
-<div>
-<span class="block font-label-md text-label-md text-on-surface-variant mb-1 uppercase">LinkedIn</span>
-<span class="font-body-lg text-body-lg text-on-surface">parag-verma</span>
-</div>
-</a>
-</div>
-</div>
-<!-- Abstract Visual Card -->
-<div class="glass-panel border border-outline-variant/40 rounded-[2rem] h-48 relative overflow-hidden hidden lg:block group shadow-sm">
-<div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-50 transition-opacity duration-700 mix-blend-multiply" data-alt="A light abstract minimal digital art piece showing soft flowing peach and lavender gradients over a bright white background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvYN6_LtrYk_mdvS6V2voLSl1oaSp8LxD1f6yHtGVcSXN5EYzfJ2JATIxUjMxBmEIQamAOHUNQKL-BBxGm6Qu9SVs7YbYkUCS7a0x6mN48oRl4fLRdJ7Qqj5yvtFgkTL_8ONNObM-eYhf_UGEXM4v-7SZ3Uv3wkeO-G1E5PDa2Y7PF15fymLAafDRZKtDhIGKoQ7f5bpxBegSRygqH7UI4Uo_RVp3j-uH5ljeKCyEXcfhrury6-fqF')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
-<div class="absolute bottom-6 left-6">
-<span class="font-label-md text-label-md text-primary flex items-center gap-2">
-<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                            System Online.
-                        </span>
-</div>
-</div>
-</div>
-<!-- Contact Form (Right) -->
-<div class="lg:col-span-8">
-<form class="glass-panel border border-outline-variant/40 rounded-[2rem] p-8 md:p-12 relative overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-500">
-<!-- Subtle top highlight line -->
-<div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-<!-- Name Field -->
-<div>
-<label class="font-label-md text-label-md text-on-surface-variant block mb-3 uppercase tracking-widest" for="name">Name</label>
-<input class="w-full input-recessed border border-outline-variant/40 rounded-xl px-5 py-4 text-body-lg text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 placeholder:text-outline-variant placeholder:font-body-sm" id="name" placeholder="John Doe" type="text"/>
-</div>
-<!-- Email Field -->
-<div>
-<label class="font-label-md text-label-md text-on-surface-variant block mb-3 uppercase tracking-widest" for="email">Email</label>
-<input class="w-full input-peach border border-outline-variant/40 rounded-xl px-5 py-4 text-body-lg text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 placeholder:text-outline-variant placeholder:font-body-sm" id="email" placeholder="john@example.com" type="email"/>
-</div>
-</div>
-<!-- Subject Field -->
-<div class="mb-8">
-<label class="font-label-md text-label-md text-on-surface-variant block mb-3 uppercase tracking-widest" for="subject">Subject</label>
-<input class="w-full input-recessed border border-outline-variant/40 rounded-xl px-5 py-4 text-body-lg text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 placeholder:text-outline-variant placeholder:font-body-sm" id="subject" placeholder="Project Inquiry / Architecture Consultation" type="text"/>
-</div>
-<!-- Message Field -->
-<div class="mb-10">
-<label class="font-label-md text-label-md text-on-surface-variant block mb-3 uppercase tracking-widest" for="message">Message</label>
-<textarea class="w-full input-peach border border-outline-variant/40 rounded-xl px-5 py-4 text-body-lg text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 placeholder:text-outline-variant placeholder:font-body-sm resize-none" id="message" placeholder="Describe your project requirements, technical constraints, or just say hello..." rows="5"></textarea>
-</div>
-<!-- Submit Action -->
-<div class="flex justify-end">
-<button class="group relative inline-flex items-center justify-center bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-md text-label-md px-10 py-5 rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] uppercase tracking-wider shadow-sm hover:shadow-[0_0_20px_rgba(73,83,188,0.3)]" type="submit">
-<span class="absolute inset-0 w-full h-full bg-gradient-to-r from-primary-fixed/0 via-primary-fixed/30 to-primary-fixed/0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></span>
-<span class="relative flex items-center gap-2">
-                                Initialize Sequence
-                                <span class="material-symbols-outlined text-[18px]">send</span>
-</span>
-</button>
-</div>
-</form>
-</div>
-</div>
+</header>
+
+<!-- Page Content -->
+
+<main class="flex-grow relative z-10 pt-32 md:pt-44 pb-24 px-6 md:px-8 max-w-6xl mx-auto w-full">
+  
+  <header class="mb-16 md:mb-24">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-surface text-xs font-mono text-accent-blue mb-4 border border-accent-blue/30">
+      <span>06 // DIRECT COMMS</span>
+    </div>
+    <h1 class="font-syne font-extrabold text-4xl sm:text-6xl md:text-7xl text-white tracking-tight">
+      Let's connect &amp; <span class="text-accent-blue">build together.</span>
+    </h1>
+    <p class="font-geist text-lg text-slate-400 max-w-2xl mt-4">
+      Feel free to reach out for project collaboration, discussions, or questions. I'm always open to discussing new ideas, software tools, and exciting projects.
+    </p>
+  </header>
+
+  <!-- 2 Column Bento Grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 reveal">
+    
+    <!-- Left Column: Comms Directory (5 cols) -->
+    <div class="lg:col-span-5 space-y-4">
+      
+      <!-- Email Card -->
+      <a href="mailto:paragverma88014@gmail.com" class="glass-surface glass-surface-hover rounded-xl p-6 flex items-center gap-4 group block">
+        <div class="w-12 h-12 rounded-xl bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center text-accent-blue group-hover:border-accent-blue/60 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all">
+          <span class="material-symbols-outlined">mail</span>
+        </div>
+        <div>
+          <span class="font-mono text-[10px] text-slate-400 uppercase tracking-widest block">EMAIL DISPATCH</span>
+          <span class="font-syne font-bold text-white text-base group-hover:text-accent-blue transition-colors">paragverma88014@gmail.com</span>
+        </div>
+      </a>
+
+      <!-- GitHub Card -->
+      <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="glass-surface glass-surface-hover rounded-xl p-6 flex items-center gap-4 group block">
+        <div class="w-12 h-12 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center text-accent-cyan group-hover:border-accent-cyan/60 group-hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all">
+          <span class="material-symbols-outlined">code</span>
+        </div>
+        <div>
+          <span class="font-mono text-[10px] text-slate-400 uppercase tracking-widest block">GITHUB REPOSITORY</span>
+          <span class="font-syne font-bold text-white text-base group-hover:text-accent-cyan transition-colors">ParagVerma81680</span>
+        </div>
+      </a>
+
+      <!-- LinkedIn Card -->
+      <a href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" rel="noopener noreferrer" class="glass-surface glass-surface-hover rounded-xl p-6 flex items-center gap-4 group block">
+        <div class="w-12 h-12 rounded-xl bg-accent-purple/10 border border-accent-purple/20 flex items-center justify-center text-accent-purple group-hover:border-accent-purple/60 group-hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-all">
+          <span class="material-symbols-outlined">work</span>
+        </div>
+        <div>
+          <span class="font-mono text-[10px] text-slate-400 uppercase tracking-widest block">PROFESSIONAL NETWORK</span>
+          <span class="font-syne font-bold text-white text-base group-hover:text-accent-purple transition-colors">parag-verma</span>
+        </div>
+      </a>
+
+      <!-- Phone Card -->
+      <a href="tel:+918168088014" class="glass-surface glass-surface-hover rounded-xl p-6 flex items-center gap-4 group block">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:border-emerald-500/60 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all">
+          <span class="material-symbols-outlined">call</span>
+        </div>
+        <div>
+          <span class="font-mono text-[10px] text-slate-400 uppercase tracking-widest block">TELEPHONE</span>
+          <span class="font-syne font-bold text-white text-base group-hover:text-emerald-400 transition-colors">+91 8168088014</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Right Column: Interactive Terminal Contact Form (7 cols) -->
+    <div class="lg:col-span-7 glass-surface rounded-2xl p-8 md:p-10 border border-white/10 relative overflow-hidden">
+      <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-accent-blue animate-pulse"></span>
+          <span class="font-mono text-xs text-white uppercase tracking-widest">DISPATCH MESSAGE</span>
+        </div>
+        <span class="font-mono text-[10px] text-slate-500">ENCRYPTION // TLS</span>
+      </div>
+
+      <form id="contact-form" class="space-y-4" onsubmit="event.preventDefault(); document.getElementById('form-status').classList.remove('hidden'); this.reset();">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="font-mono text-[11px] text-slate-400 uppercase tracking-wider block mb-2">Your Name</label>
+            <input type="text" required class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-white/10 text-white font-geist text-sm focus:outline-none focus:border-accent-blue transition-colors" placeholder="e.g. Alex Mercer"/>
+          </div>
+          <div>
+            <label class="font-mono text-[11px] text-slate-400 uppercase tracking-wider block mb-2">Your Email</label>
+            <input type="email" required class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-white/10 text-white font-geist text-sm focus:outline-none focus:border-accent-blue transition-colors" placeholder="e.g. name@example.com"/>
+          </div>
+        </div>
+
+        <div>
+          <label class="font-mono text-[11px] text-slate-400 uppercase tracking-wider block mb-2">Subject</label>
+          <input type="text" required class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-white/10 text-white font-geist text-sm focus:outline-none focus:border-accent-blue transition-colors" placeholder="Project Collaboration / Inquiries"/>
+        </div>
+
+        <div>
+          <label class="font-mono text-[11px] text-slate-400 uppercase tracking-wider block mb-2">Message</label>
+          <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-white/10 text-white font-geist text-sm focus:outline-none focus:border-accent-blue transition-colors" placeholder="Write your message here..."></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-4 rounded-xl bg-accent-blue text-white font-mono text-xs uppercase tracking-widest font-bold hover:bg-blue-600 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25">
+          <span>Transmit Message</span>
+          <span class="material-symbols-outlined text-base">send</span>
+        </button>
+
+        <div id="form-status" class="hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs text-center">
+          ✓ Message received. I will get back to you shortly!
+        </div>
+      </form>
+    </div>
+
+  </div>
+
 </main>
-<!-- Footer -->
-<footer class="w-full py-16 border-t border-outline-variant/30 bg-surface-container-lowest">
-  <div class="flex flex-col md:flex-row justify-between items-center w-full px-gutter max-w-[1280px] mx-auto gap-6 md:gap-0">
-    <div class="font-bold text-body-lg text-on-surface">Portfolio.OS</div>
-    <div class="font-label-caps text-label-caps text-secondary text-center">© 2026 Parag Verma • Computer Science Student &amp; Developer</div>
-    <div class="flex flex-wrap justify-center gap-6">
-      <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">GitHub</a>
-      <a href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" rel="noopener noreferrer" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">LinkedIn</a>
-      <a href="mailto:paragverma88014@gmail.com" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">Email</a>
-      <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200 flex items-center gap-1">Back to Top <span class="material-symbols-outlined text-sm">arrow_upward</span></a>
+
+
+<!-- Global Footer -->
+<footer class="w-full py-16 md:py-24 border-t border-white/5 bg-dark-900/60 relative z-10 mt-auto">
+  <div class="max-w-6xl mx-auto px-6 md:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-12 border-b border-white/5">
+      <div>
+        <span class="font-mono text-xs text-accent-blue uppercase tracking-widest mb-2 block">// DIGITAL ARTIFACT 2026</span>
+        <h3 class="font-syne font-bold text-2xl md:text-3xl text-white">Parag Verma</h3>
+        <p class="font-geist text-sm text-slate-400 mt-1 max-w-md">Computer Science Student • Developer • Builder. Focused on systems, algorithmic problem solving, and software engineering.</p>
+      </div>
+      <div class="flex flex-wrap gap-4 font-mono text-xs">
+        <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span>GitHub</span>
+          <span class="material-symbols-outlined text-sm">open_in_new</span>
+        </a>
+        <a href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span>LinkedIn</span>
+          <span class="material-symbols-outlined text-sm">open_in_new</span>
+        </a>
+        <a href="mailto:paragverma88014@gmail.com" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span>Email</span>
+          <span class="material-symbols-outlined text-sm">mail</span>
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 text-xs font-mono text-slate-500">
+      <div>© 2026 Parag Verma • Computer Science Student &amp; Developer</div>
+      <div class="flex items-center gap-6">
+        <span>LOC // 28.6139° N, 77.2090° E</span>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-white transition-colors flex items-center gap-1">
+          <span>TOP</span>
+          <span class="material-symbols-outlined text-sm">arrow_upward</span>
+        </button>
+      </div>
     </div>
   </div>
 </footer>
-<!-- Micro-interactions Script -->
-<script>
-        // Simple parallax for ambient orbs
-        document.addEventListener('mousemove', (e) => {
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            const orb1 = document.getElementById('orb1');
-            const orb2 = document.getElementById('orb2');
-            
-            if(orb1) orb1.style.transform = `translate(${x * -30}px, ${y * -30}px)`;
-            if(orb2) orb2.style.transform = `translate(${x * 40}px, ${y * 40}px)`;
-        });
 
-        // Add custom shimmer animation via inline style since Tailwind v3 arbitrary keyframes can be tricky in CDN
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes shimmer {
-                100% { transform: translateX(100%); }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
+<!-- Interactive Scripts & Cursor -->
+<div class="custom-cursor-dot" id="cursor-dot"></div>
+<div class="custom-cursor-follower" id="cursor-follower"></div>
+
 <script>
-// Mobile menu
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const menuIcon = document.getElementById('menu-icon');
-if (mobileMenuBtn) {
-  mobileMenuBtn.addEventListener('click', () => {
-    const isHidden = mobileMenu.classList.contains('hidden');
-    mobileMenu.classList.toggle('hidden');
-    menuIcon.textContent = isHidden ? 'close' : 'menu';
-  });
-  document.addEventListener('click', (e) => {
-    if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-      mobileMenu.classList.add('hidden');
-      menuIcon.textContent = 'menu';
+  // Mobile drawer toggle
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      const isHidden = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      menuIcon.textContent = isHidden ? 'close' : 'menu';
+    });
+  }
+
+  // Smooth Interactive Custom Cursor
+  const dot = document.getElementById('cursor-dot');
+  const follower = document.getElementById('cursor-follower');
+  const glow = document.getElementById('ambient-glow');
+  let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+  let followerX = mouseX, followerY = mouseY;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (dot) {
+      dot.style.left = mouseX + 'px';
+      dot.style.top = mouseY + 'px';
+    }
+    if (glow) {
+      glow.style.left = mouseX + 'px';
+      glow.style.top = mouseY + 'px';
     }
   });
-}
+
+  function renderCursor() {
+    followerX += (mouseX - followerX) * 0.18;
+    followerY += (mouseY - followerY) * 0.18;
+    if (follower) {
+      follower.style.left = followerX + 'px';
+      follower.style.top = followerY + 'px';
+    }
+    requestAnimationFrame(renderCursor);
+  }
+  requestAnimationFrame(renderCursor);
+
+  document.querySelectorAll('a, button, [role="button"], input, textarea').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+
+  // Scroll Reveal Observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
-</body></html>
+
+</body>
+</html>

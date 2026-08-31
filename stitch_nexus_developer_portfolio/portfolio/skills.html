@@ -1,483 +1,485 @@
 <!DOCTYPE html>
-
-<html class="" lang="en"><head>
+<html lang="en" class="dark scroll-smooth">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Skills - Portfolio.OS</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<title>Skills — Parag Verma | Portfolio.OS</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
   tailwind.config = {
     darkMode: "class",
     theme: {
       extend: {
-        "colors": {
-                "inverse-surface": "#2d3133",
-                "tertiary": "#575e72",
-                "primary": "#4953bc",
-                "primary-fixed": "#e0e0ff",
-                "on-primary": "#ffffff",
-                "on-tertiary-container": "#262e40",
-                "on-secondary-container": "#3d687c",
-                "surface-variant": "#e0e3e5",
-                "on-background": "#191c1e",
-                "on-primary-fixed-variant": "#2f3aa3",
-                "inverse-on-surface": "#eff1f3",
-                "on-tertiary": "#ffffff",
-                "secondary-fixed": "#bee9ff",
-                "error-container": "#ffdad6",
-                "surface": "#f7f9fb",
-                "inverse-primary": "#bdc2ff",
-                "surface-bright": "#f7f9fb",
-                "tertiary-container": "#8e95ab",
-                "on-primary-container": "#101b8a",
-                "on-tertiary-fixed": "#141b2c",
-                "tertiary-fixed": "#dbe2fa",
-                "on-error-container": "#93000a",
-                "tertiary-fixed-dim": "#bfc6dd",
-                "primary-fixed-dim": "#bdc2ff",
-                "on-error": "#ffffff",
-                "surface-tint": "#4953bc",
-                "surface-dim": "#d8dadc",
-                "on-surface-variant": "#454653",
-                "surface-container-highest": "#e0e3e5",
-                "outline": "#767684",
-                "secondary": "#396477",
-                "on-secondary-fixed": "#001f2a",
-                "error": "#ba1a1a",
-                "on-primary-fixed": "#000767",
-                "surface-container-lowest": "#ffffff",
-                "surface-container": "#eceef0",
-                "surface-container-high": "#e6e8ea",
-                "on-surface": "#191c1e",
-                "surface-container-low": "#f2f4f6",
-                "background": "#f7f9fb",
-                "on-secondary": "#ffffff",
-                "secondary-container": "#bae6fd",
-                "on-tertiary-fixed-variant": "#3f4759",
-                "primary-container": "#818cf8",
-                "on-secondary-fixed-variant": "#1e4c5f",
-                "secondary-fixed-dim": "#a1cde3",
-                "outline-variant": "#c6c5d5"
+        colors: {
+          dark: {
+            950: "#040508",
+            900: "#08090d",
+            850: "#0e1118",
+            800: "#141822",
+            700: "#1c2230",
+            600: "#283044"
+          },
+          accent: {
+            blue: "#3b82f6",
+            cyan: "#06b6d4",
+            purple: "#8b5cf6",
+            indigo: "#6366f1"
+          }
         },
-        "borderRadius": {
-                "DEFAULT": "1rem",
-                "lg": "2rem",
-                "xl": "3rem",
-                "full": "9999px"
-        },
-        "spacing": {
-                "margin-desktop": "64px",
-                "margin-mobile": "16px",
-                "gutter": "24px",
-                "max-width": "1280px",
-                "lg": "24px",
-                "xl": "40px",
-                "unit": "4px",
-                "xs": "4px",
-                "md": "16px",
-                "sm": "8px"
-        },
-        "fontFamily": {
-                "headline-lg": [
-                        "Geist"
-                ],
-                "headline-md": [
-                        "Geist"
-                ],
-                "body-md": [
-                        "Geist"
-                ],
-                "body-lg": [
-                        "Geist"
-                ],
-                "label-md": [
-                        "Geist"
-                ],
-                "body-sm": [
-                        "Geist"
-                ],
-                "headline-lg-mobile": [
-                        "Geist"
-                ],
-                "headline-xl": [
-                        "Geist"
-                ]
-        },
-        "fontSize": {
-                "headline-lg": [
-                        "32px",
-                        {
-                                "lineHeight": "40px",
-                                "letterSpacing": "-0.01em",
-                                "fontWeight": "600"
-                        }
-                ],
-                "headline-md": [
-                        "24px",
-                        {
-                                "lineHeight": "32px",
-                                "fontWeight": "600"
-                        }
-                ],
-                "body-md": [
-                        "16px",
-                        {
-                                "lineHeight": "24px",
-                                "fontWeight": "450"
-                        }
-                ],
-                "body-lg": [
-                        "18px",
-                        {
-                                "lineHeight": "28px",
-                                "fontWeight": "400"
-                        }
-                ],
-                "label-md": [
-                        "12px",
-                        {
-                                "lineHeight": "16px",
-                                "letterSpacing": "0.05em",
-                                "fontWeight": "600"
-                        }
-                ],
-                "body-sm": [
-                        "14px",
-                        {
-                                "lineHeight": "20px",
-                                "fontWeight": "450"
-                        }
-                ],
-                "headline-lg-mobile": [
-                        "24px",
-                        {
-                                "lineHeight": "32px",
-                                "fontWeight": "600"
-                        }
-                ],
-                "headline-xl": [
-                        "48px",
-                        {
-                                "lineHeight": "56px",
-                                "letterSpacing": "-0.02em",
-                                "fontWeight": "700"
-                        }
-                ]
+        fontFamily: {
+          syne: ["Syne", "sans-serif"],
+          geist: ["Geist", "sans-serif"],
+          mono: ["Space Mono", "monospace"]
         }
-},
-    },
+      }
+    }
   }
 </script>
 <style>
-        body {
-            background-color: #f7f9fb; /* surface */
-            color: #191c1e;
-        }
-        .glass-panel {
-            background: #ffffff;
-            border: 1px solid #e0e3e5;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-        }
-        .glass-panel:hover {
-            border-color: #bdc2ff; /* primary-fixed-dim */
-            background: #ffffff;
-            box-shadow: 0 10px 15px -3px rgba(73, 83, 188, 0.1), 0 4px 6px -2px rgba(73, 83, 188, 0.05);
-        }
-        .ambient-orb {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, #e0e0ff 0%, rgba(224, 224, 255, 0) 70%);
-            z-index: -1;
-            pointer-events: none;
-        }
-        
-        .skill-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .filter-btn.active {
-            background: linear-gradient(135deg, #818cf8, #bae6fd);
-            color: #000767;
-            border-color: transparent;
-            box-shadow: 0 4px 15px rgba(129, 140, 248, 0.4);
-        }
-        
-        .filter-btn {
-            background: #ffffff;
-            border: 1px solid #c6c5d5;
-            color: #454653;
-            transition: all 0.3s ease;
-        }
-        
-        .filter-btn:hover:not(.active) {
-            border-color: #818cf8;
-            color: #191c1e;
-        }
-        
-        .progress-bar-fill {
-            background: linear-gradient(90deg, #818cf8, #bae6fd);
-        }
-    </style>
+  /* Noise & Grid Background */
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  }
+  .noise-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 99;
+  }
+  /* Custom Cursor */
+  .custom-cursor-dot {
+    pointer-events: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 6px; height: 6px;
+    background: #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease-out, opacity 0.2s;
+    z-index: 1000;
+  }
+  .custom-cursor-follower {
+    pointer-events: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 32px; height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
+    z-index: 999;
+  }
+  .cursor-hover .custom-cursor-follower {
+    width: 54px; height: 54px;
+    border-color: rgba(59, 130, 246, 0.8);
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  /* Glass Surfaces */
+  .glass-surface {
+    background: rgba(14, 17, 24, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .glass-surface-hover {
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-surface-hover:hover {
+    border-color: rgba(59, 130, 246, 0.45);
+    box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.25);
+    transform: translateY(-3px);
+  }
+  /* Typography Highlights */
+  .gradient-title {
+    background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .gradient-accent {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  /* Reveal on Scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #ambient-glow {
+    position: fixed;
+    top: 0; left: 0;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.03) 45%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.5s;
+  }
+  @media (pointer: coarse) {
+    .custom-cursor-dot, .custom-cursor-follower { display: none !important; }
+  }
+  @media print {
+    header, footer, .no-print, #ambient-glow, .noise-overlay { display: none !important; }
+    body { background: #ffffff !important; color: #000000 !important; }
+    .glass-surface { background: transparent !important; border: 1px solid #e2e8f0 !important; color: #000000 !important; }
+  }
+</style>
 </head>
-<body class="font-body-md text-body-md bg-background min-h-screen flex flex-col relative overflow-x-hidden">
-<!-- Ambient Orbs -->
-<div class="ambient-orb w-[600px] h-[600px] top-[-100px] left-[-200px]"></div>
-<div class="ambient-orb w-[800px] h-[800px] top-[40%] right-[-300px]"></div>
+<body class="bg-dark-950 text-slate-100 font-geist antialiased selection:bg-accent-blue/30 selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
+<div class="noise-overlay"></div>
+<div id="ambient-glow"></div>
+<div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+
 <!-- TopNavBar -->
-<nav id="topnav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300">
-  <div class="flex justify-between items-center w-full px-gutter max-w-[1280px] mx-auto h-20">
-    <a href="index.html" class="flex items-center gap-2">
-      <span class="material-symbols-outlined text-primary text-2xl">terminal</span>
-      <span class="font-bold text-headline-md text-primary tracking-tight">Portfolio.OS</span>
+<header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 md:py-6 transition-all duration-300" id="main-header">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <!-- Brand / System OS -->
+    <a href="index.html" class="flex items-center gap-3 group focus:outline-none">
+      <div class="w-9 h-9 rounded-xl bg-dark-900 border border-white/15 flex items-center justify-center text-accent-blue group-hover:border-accent-blue/60 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300">
+        <span class="material-symbols-outlined text-lg">terminal</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-syne font-bold text-sm tracking-tight text-white group-hover:text-accent-blue transition-colors">Portfolio.OS</span>
+        <span class="font-mono text-[10px] text-slate-400 tracking-widest uppercase flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          SYS.ONLINE
+        </span>
+      </div>
     </a>
-    <div class="hidden md:flex items-center gap-8 font-body-md text-body-md">
-      <a href="index.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Home</a>
-      <a href="about.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">About</a>
-      <a href="skills.html" class="text-primary font-bold border-b-2 border-primary pb-1 transition-all duration-300">Skills</a>
-      <a href="projects.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Projects</a>
-      <a href="experience.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Experience</a>
-      <a href="resume.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Resume</a>
-      <a href="contact.html" class="text-on-surface-variant font-medium hover:text-primary transition-all duration-300">Contact</a>
-    </div>
+
+    <!-- Desktop Floating Pill Nav -->
+    <nav class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-surface shadow-2xl border border-white/10">
+      <a href="index.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Home</a>
+<a href="about.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">About</a>
+<a href="skills.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-white bg-accent-blue/20 border border-accent-blue/40 shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300">Skills</a>
+<a href="projects.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Projects</a>
+<a href="experience.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Experience</a>
+<a href="resume.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Resume</a>
+<a href="contact.html" class="px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300">Contact</a>
+
+    </nav>
+
+    <!-- Quick Action / Status -->
     <div class="flex items-center gap-3">
-      <a href="assets/resume.pdf" download class="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface font-label-caps text-label-caps hover:border-primary hover:text-primary transition-all duration-300">Download CV <span class="material-symbols-outlined text-base">download</span></a>
-      <button id="mobile-menu-btn" class="md:hidden p-2 text-on-surface hover:text-primary transition-colors rounded-lg hover:bg-surface-container" aria-label="Toggle menu">
+      <a href="assets/resume.pdf" download class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full glass-surface text-xs font-mono text-slate-300 hover:text-white hover:border-accent-blue/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] transition-all duration-300">
+        <span>CV</span>
+        <span class="material-symbols-outlined text-sm">download</span>
+      </a>
+      <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-xl glass-surface flex items-center justify-center text-slate-300 hover:text-white" aria-label="Toggle menu">
         <span class="material-symbols-outlined" id="menu-icon">menu</span>
       </button>
     </div>
   </div>
-  <div id="mobile-menu" class="hidden md:hidden bg-surface/95 backdrop-blur-xl border-b border-outline-variant/30 px-gutter py-6 flex flex-col gap-1">
-    <a href="index.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Home</a>
-    <a href="about.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">About</a>
-    <a href="skills.html" class="py-3 px-4 rounded-xl bg-primary/10 text-primary font-bold font-body-md text-body-md transition-all">Skills</a>
-    <a href="projects.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Projects</a>
-    <a href="experience.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Experience</a>
-    <a href="resume.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Resume</a>
-    <a href="contact.html" class="py-3 px-4 rounded-xl text-on-surface hover:bg-surface-container hover:text-primary font-body-md text-body-md transition-all">Contact</a>
-    <div class="pt-4 border-t border-outline-variant/30 mt-2">
-      <a href="assets/resume.pdf" download class="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-on-primary font-label-caps text-label-caps hover:bg-primary/90 transition-all">Download CV <span class="material-symbols-outlined text-base">download</span></a>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto mt-3 rounded-2xl glass-surface p-6 flex flex-col gap-2 border border-white/10 shadow-2xl">
+    <a href="index.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Home</a>
+<a href="about.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">About</a>
+<a href="skills.html" class="py-3 px-4 rounded-xl text-white font-syne font-bold text-lg bg-accent-blue/20 border border-accent-blue/30 transition-all">Skills</a>
+<a href="projects.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Projects</a>
+<a href="experience.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Experience</a>
+<a href="resume.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Resume</a>
+<a href="contact.html" class="py-3 px-4 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 font-syne font-semibold text-lg transition-all">Contact</a>
+
+    <div class="pt-4 border-t border-white/10 mt-2">
+      <a href="assets/resume.pdf" download class="flex items-center justify-center gap-2 py-3 rounded-xl bg-accent-blue text-white font-mono text-xs tracking-wider uppercase hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20">
+        <span>Download CV</span>
+        <span class="material-symbols-outlined text-base">download</span>
+      </a>
     </div>
   </div>
-</nav>
-<!-- Main Content -->
-<main class="flex-grow pt-[120px] pb-[120px] px-gutter w-full max-w-[1280px] mx-auto">
-<!-- Header Section -->
-<div class="mb-16">
-<h1 class="font-headline-xl text-[64px] leading-[1.1] md:text-headline-xl font-bold text-on-surface mb-4">Technical Arsenal</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">A comprehensive breakdown of tools, languages, and frameworks utilized to architect scalable solutions and immersive digital experiences.</p>
-</div>
-<!-- Filter Controls -->
-<div class="flex flex-wrap gap-4 mb-12" id="filter-controls">
-<button class="filter-btn active px-6 py-2 rounded-full font-label-md text-label-md backdrop-blur-md" data-filter="all">All Skills</button>
-<button class="filter-btn px-6 py-2 rounded-full font-label-md text-label-md backdrop-blur-md" data-filter="programming">Programming</button>
-<button class="filter-btn px-6 py-2 rounded-full font-label-md text-label-md backdrop-blur-md" data-filter="web">Web</button>
-<button class="filter-btn px-6 py-2 rounded-full font-label-md text-label-md backdrop-blur-md" data-filter="tools">Tools</button>
-<button class="filter-btn px-6 py-2 rounded-full font-label-md text-label-md backdrop-blur-md" data-filter="exploring">Exploring</button>
-</div>
-<!-- Skills Grid (Bento Style) -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="skills-grid">
-<!-- Programming 1: C++ -->
-<div class="skill-card glass-panel rounded-xl p-6 flex flex-col gap-4" data-category="programming">
-<div class="flex justify-between items-start">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-2xl">terminal</span>
-</div>
-<h3 class="font-headline-md text-headline-md font-semibold text-on-surface">C++</h3>
-</div>
-<span class="font-label-md text-label-md text-primary bg-primary-fixed px-2 py-1 rounded-lg">Primary Focus</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant">Core language for problem solving, algorithmic thinking, and object-oriented design.</p>
-</div>
-<!-- Programming 2: DSA -->
-<div class="skill-card glass-panel rounded-xl p-6 flex flex-col gap-4" data-category="programming">
-<div class="flex justify-between items-start">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary">
-<span class="material-symbols-outlined text-2xl">account_tree</span>
-</div>
-<h3 class="font-headline-md text-headline-md font-semibold text-on-surface">Data Structures &amp; Algorithms</h3>
-</div>
-<span class="font-label-md text-label-md text-secondary bg-secondary-fixed px-2 py-1 rounded-lg">Active Practice</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant">Arrays, linked lists, stacks, queues, trees, sorting &amp; searching algorithms in C++.</p>
-</div>
-<!-- Programming 3: OOP -->
-<div class="skill-card glass-panel rounded-xl p-6 flex flex-col gap-4" data-category="programming">
-<div class="flex justify-between items-start">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-2xl">category</span>
-</div>
-<h3 class="font-headline-md text-headline-md font-semibold text-on-surface">Object-Oriented Programming</h3>
-</div>
-<span class="font-label-md text-label-md text-primary bg-primary-fixed px-2 py-1 rounded-lg">Core Concept</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant">Classes, inheritance, polymorphism, encapsulation, and clean software architecture.</p>
-</div>
-<!-- Programming 4: Problem Solving -->
-<div class="skill-card glass-panel rounded-xl p-6 flex flex-col gap-4" data-category="programming">
-<div class="flex justify-between items-start">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary">
-<span class="material-symbols-outlined text-2xl">psychology</span>
-</div>
-<h3 class="font-headline-md text-headline-md font-semibold text-on-surface">Problem Solving</h3>
-</div>
-<span class="font-label-md text-label-md text-secondary bg-secondary-fixed px-2 py-1 rounded-lg">Practice</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant">Analytical thinking, edge-case analysis, and systematic algorithmic reasoning.</p>
-</div>
-<!-- Web 1: JavaScript -->
-<div class="skill-card glass-panel rounded-xl p-6 flex flex-col gap-4" data-category="web">
-<div class="flex justify-between items-start">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary">
-<span class="material-symbols-outlined text-2xl">javascript</span>
-</div>
-<h3 class="font-headline-md text-headline-md font-semibold text-on-surface">JavaScript</h3>
-</div>
-<span class="font-label-md text-label-md text-tertiary bg-tertiary-fixed px-2 py-1 rounded-lg">Learning</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant">Dynamic client-side scripting, event handling, DOM manipulation, and interactive features.</p>
-</div>
-<!-- Web 2: HTML/CSS -->
-<div class="skill-card glass-panel rounded-xl p-6 flex flex-col gap-4" data-category="web">
-<div class="flex justify-between items-start">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
-<span class="material-symbols-outlined text-2xl">html</span>
-</div>
-<h3 class="font-headline-md text-headline-md font-semibold text-on-surface">HTML5 &amp; Tailwind CSS</h3>
-</div>
-<span class="font-label-md text-label-md text-on-primary-container bg-primary-container px-2 py-1 rounded-lg">Proficient</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant">Semantic page structure, responsive layouts, Tailwind CSS utility styling, and clean UI.</p>
-</div>
-<!-- Tools 1: VS Code -->
-<div class="skill-card glass-panel rounded-xl p-6 flex flex-col gap-4" data-category="tools">
-<div class="flex justify-between items-start">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-primary-fixed-dim flex items-center justify-center text-on-primary-fixed">
-<span class="material-symbols-outlined text-2xl">code</span>
-</div>
-<h3 class="font-headline-md text-headline-md font-semibold text-on-surface">VS Code</h3>
-</div>
-<span class="font-label-md text-label-md text-on-primary-fixed bg-primary-fixed-dim px-2 py-1 rounded-lg">Daily Driver</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant">Primary code editor with C++ tooling, debugging extensions, and efficient workspace setup.</p>
-</div>
-<!-- Tools 2: Git & GitHub -->
-<div class="skill-card glass-panel rounded-xl p-6 flex flex-col gap-4" data-category="tools">
-<div class="flex justify-between items-start">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-outline">
-<span class="material-symbols-outlined text-2xl">source</span>
-</div>
-<h3 class="font-headline-md text-headline-md font-semibold text-on-surface">Git &amp; GitHub</h3>
-</div>
-<span class="font-label-md text-label-md text-outline bg-surface-container px-2 py-1 rounded-lg">Version Control</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant">Version control, repository management, commit tracking, and collaborative workflow.</p>
-</div>
-<!-- Exploring 1: AI Developer Tools -->
-<div class="skill-card glass-panel rounded-xl p-6 flex flex-col gap-4" data-category="exploring">
-<div class="flex justify-between items-start">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-secondary-fixed-dim flex items-center justify-center text-on-secondary-fixed">
-<span class="material-symbols-outlined text-2xl">smart_toy</span>
-</div>
-<h3 class="font-headline-md text-headline-md font-semibold text-on-surface">AI Developer Tools</h3>
-</div>
-<span class="font-label-md text-label-md text-on-secondary-fixed bg-secondary-fixed-dim px-2 py-1 rounded-lg">Exploring</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant">Leveraging modern AI-assisted coding tools to accelerate learning and project development.</p>
-</div>
-<!-- Exploring 2: Hackathons -->
-<div class="skill-card glass-panel rounded-xl p-6 flex flex-col gap-4" data-category="exploring">
-<div class="flex justify-between items-start">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-tertiary-fixed-dim flex items-center justify-center text-on-tertiary-fixed">
-<span class="material-symbols-outlined text-2xl">emoji_events</span>
-</div>
-<h3 class="font-headline-md text-headline-md font-semibold text-on-surface">Hackathons &amp; Rapid Building</h3>
-</div>
-<span class="font-label-md text-label-md text-on-tertiary-fixed bg-tertiary-fixed-dim px-2 py-1 rounded-lg">Exploring</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant">Preparing for Smart India Hackathon (SIH) and collaborative rapid solution prototyping.</p>
-</div>
-</div>
-</div>
+</header>
+
+<!-- Page Content -->
+
+<main class="flex-grow relative z-10 pt-32 md:pt-44 pb-24 px-6 md:px-8 max-w-6xl mx-auto w-full">
+  
+  <header class="mb-12 md:mb-16">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-surface text-xs font-mono text-accent-blue mb-4 border border-accent-blue/30">
+      <span>02 // TECHNICAL CAPABILITIES</span>
+    </div>
+    <h1 class="font-syne font-extrabold text-4xl sm:text-6xl md:text-7xl text-white tracking-tight">
+      Skills &amp; Tooling<span class="text-accent-blue">.</span>
+    </h1>
+    <p class="font-geist text-lg text-slate-400 max-w-2xl mt-4">
+      A structured index of core programming languages, algorithms, developer tools, and technologies I work with.
+    </p>
+  </header>
+
+  <!-- Filter Buttons -->
+  <div class="flex flex-wrap gap-2 mb-12 pb-4 border-b border-white/10">
+    <button class="skill-filter-btn px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider bg-accent-blue text-white font-bold transition-all shadow-md shadow-blue-500/20" data-filter="all">All Skills</button>
+    <button class="skill-filter-btn px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider glass-surface text-slate-400 hover:text-white transition-all" data-filter="programming">Programming</button>
+    <button class="skill-filter-btn px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider glass-surface text-slate-400 hover:text-white transition-all" data-filter="web">Web</button>
+    <button class="skill-filter-btn px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider glass-surface text-slate-400 hover:text-white transition-all" data-filter="tools">Tools</button>
+    <button class="skill-filter-btn px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider glass-surface text-slate-400 hover:text-white transition-all" data-filter="exploring">Exploring</button>
+  </div>
+
+  <!-- 10 Skill Cards Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="skills-grid">
+    
+    <!-- Skill 1 -->
+    <div class="skill-card glass-surface glass-surface-hover rounded-xl p-6 flex flex-col justify-between" data-category="programming">
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-4">
+          <span class="font-mono text-xs text-accent-blue uppercase tracking-widest">LANGUAGES</span>
+          <span class="px-2 py-0.5 rounded bg-accent-blue/10 text-accent-blue border border-accent-blue/20 font-mono text-[10px] font-bold">CORE</span>
+        </div>
+        <h3 class="font-syne font-bold text-xl text-white mb-2">C++</h3>
+        <p class="font-geist text-sm text-slate-400">Core systems programming, competitive problem solving, memory management, and STL.</p>
+      </div>
+    </div>
+
+    <!-- Skill 2 -->
+    <div class="skill-card glass-surface glass-surface-hover rounded-xl p-6 flex flex-col justify-between" data-category="programming">
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-4">
+          <span class="font-mono text-xs text-accent-cyan uppercase tracking-widest">ALGORITHMS</span>
+          <span class="px-2 py-0.5 rounded bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20 font-mono text-[10px] font-bold">ACTIVE</span>
+        </div>
+        <h3 class="font-syne font-bold text-xl text-white mb-2">Data Structures &amp; Algorithms</h3>
+        <p class="font-geist text-sm text-slate-400">Arrays, linked lists, stacks, queues, trees, graphs, sorting &amp; searching algorithms.</p>
+      </div>
+    </div>
+
+    <!-- Skill 3 -->
+    <div class="skill-card glass-surface glass-surface-hover rounded-xl p-6 flex flex-col justify-between" data-category="programming">
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-4">
+          <span class="font-mono text-xs text-accent-purple uppercase tracking-widest">PARADIGM</span>
+          <span class="px-2 py-0.5 rounded bg-accent-purple/10 text-accent-purple border border-accent-purple/20 font-mono text-[10px] font-bold">CORE</span>
+        </div>
+        <h3 class="font-syne font-bold text-xl text-white mb-2">Object-Oriented Programming</h3>
+        <p class="font-geist text-sm text-slate-400">Classes, inheritance, polymorphism, encapsulation, and clean software architecture.</p>
+      </div>
+    </div>
+
+    <!-- Skill 4 -->
+    <div class="skill-card glass-surface glass-surface-hover rounded-xl p-6 flex flex-col justify-between" data-category="programming">
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-4">
+          <span class="font-mono text-xs text-emerald-400 uppercase tracking-widest">METHODOLOGY</span>
+          <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono text-[10px] font-bold">PRACTICE</span>
+        </div>
+        <h3 class="font-syne font-bold text-xl text-white mb-2">Problem Solving</h3>
+        <p class="font-geist text-sm text-slate-400">Analytical thinking, edge-case analysis, and systematic algorithmic reasoning.</p>
+      </div>
+    </div>
+
+    <!-- Skill 5 -->
+    <div class="skill-card glass-surface glass-surface-hover rounded-xl p-6 flex flex-col justify-between" data-category="web">
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-4">
+          <span class="font-mono text-xs text-yellow-400 uppercase tracking-widest">WEB TECH</span>
+          <span class="px-2 py-0.5 rounded bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 font-mono text-[10px] font-bold">FRONTEND</span>
+        </div>
+        <h3 class="font-syne font-bold text-xl text-white mb-2">JavaScript</h3>
+        <p class="font-geist text-sm text-slate-400">Dynamic client-side scripting, event handling, DOM manipulation, and interactive features.</p>
+      </div>
+    </div>
+
+    <!-- Skill 6 -->
+    <div class="skill-card glass-surface glass-surface-hover rounded-xl p-6 flex flex-col justify-between" data-category="web">
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-4">
+          <span class="font-mono text-xs text-accent-cyan uppercase tracking-widest">UI / STYLING</span>
+          <span class="px-2 py-0.5 rounded bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20 font-mono text-[10px] font-bold">FRONTEND</span>
+        </div>
+        <h3 class="font-syne font-bold text-xl text-white mb-2">HTML5 &amp; Tailwind CSS</h3>
+        <p class="font-geist text-sm text-slate-400">Semantic page structure, responsive layouts, Tailwind CSS utility styling, and clean UI.</p>
+      </div>
+    </div>
+
+    <!-- Skill 7 -->
+    <div class="skill-card glass-surface glass-surface-hover rounded-xl p-6 flex flex-col justify-between" data-category="tools">
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-4">
+          <span class="font-mono text-xs text-accent-blue uppercase tracking-widest">ENVIRONMENT</span>
+          <span class="px-2 py-0.5 rounded bg-accent-blue/10 text-accent-blue border border-accent-blue/20 font-mono text-[10px] font-bold">PRIMARY</span>
+        </div>
+        <h3 class="font-syne font-bold text-xl text-white mb-2">VS Code</h3>
+        <p class="font-geist text-sm text-slate-400">Primary code editor with C++ tooling, debugging extensions, and efficient workspace setup.</p>
+      </div>
+    </div>
+
+    <!-- Skill 8 -->
+    <div class="skill-card glass-surface glass-surface-hover rounded-xl p-6 flex flex-col justify-between" data-category="tools">
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-4">
+          <span class="font-mono text-xs text-slate-400 uppercase tracking-widest">VERSION CONTROL</span>
+          <span class="px-2 py-0.5 rounded bg-white/10 text-white border border-white/15 font-mono text-[10px] font-bold">ESSENTIAL</span>
+        </div>
+        <h3 class="font-syne font-bold text-xl text-white mb-2">Git &amp; GitHub</h3>
+        <p class="font-geist text-sm text-slate-400">Version control, repository management, commit tracking, and collaborative workflow.</p>
+      </div>
+    </div>
+
+    <!-- Skill 9 -->
+    <div class="skill-card glass-surface glass-surface-hover rounded-xl p-6 flex flex-col justify-between" data-category="exploring">
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-4">
+          <span class="font-mono text-xs text-accent-purple uppercase tracking-widest">EXPLORING</span>
+          <span class="px-2 py-0.5 rounded bg-accent-purple/10 text-accent-purple border border-accent-purple/20 font-mono text-[10px] font-bold">AI</span>
+        </div>
+        <h3 class="font-syne font-bold text-xl text-white mb-2">AI Developer Tools</h3>
+        <p class="font-geist text-sm text-slate-400">Leveraging modern AI-assisted coding tools to accelerate learning and project development.</p>
+      </div>
+    </div>
+
+    <!-- Skill 10 -->
+    <div class="skill-card glass-surface glass-surface-hover rounded-xl p-6 flex flex-col justify-between" data-category="exploring">
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-4">
+          <span class="font-mono text-xs text-rose-400 uppercase tracking-widest">RAPID DEV</span>
+          <span class="px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20 font-mono text-[10px] font-bold">BUILD</span>
+        </div>
+        <h3 class="font-syne font-bold text-xl text-white mb-2">Hackathons &amp; Rapid Building</h3>
+        <p class="font-geist text-sm text-slate-400">Rapid prototyping, idea execution, and problem solving under time constraints.</p>
+      </div>
+    </div>
+
+  </div>
+
 </main>
-<!-- Footer -->
-<footer class="w-full py-16 border-t border-outline-variant/30 bg-surface-container-lowest">
-  <div class="flex flex-col md:flex-row justify-between items-center w-full px-gutter max-w-[1280px] mx-auto gap-6 md:gap-0">
-    <div class="font-bold text-body-lg text-on-surface">Portfolio.OS</div>
-    <div class="font-label-caps text-label-caps text-secondary text-center">© 2026 Parag Verma • Computer Science Student &amp; Developer</div>
-    <div class="flex flex-wrap justify-center gap-6">
-      <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">GitHub</a>
-      <a href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" rel="noopener noreferrer" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">LinkedIn</a>
-      <a href="mailto:paragverma88014@gmail.com" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200">Email</a>
-      <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200 flex items-center gap-1">Back to Top <span class="material-symbols-outlined text-sm">arrow_upward</span></a>
+
+
+<!-- Global Footer -->
+<footer class="w-full py-16 md:py-24 border-t border-white/5 bg-dark-900/60 relative z-10 mt-auto">
+  <div class="max-w-6xl mx-auto px-6 md:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-12 border-b border-white/5">
+      <div>
+        <span class="font-mono text-xs text-accent-blue uppercase tracking-widest mb-2 block">// DIGITAL ARTIFACT 2026</span>
+        <h3 class="font-syne font-bold text-2xl md:text-3xl text-white">Parag Verma</h3>
+        <p class="font-geist text-sm text-slate-400 mt-1 max-w-md">Computer Science Student • Developer • Builder. Focused on systems, algorithmic problem solving, and software engineering.</p>
+      </div>
+      <div class="flex flex-wrap gap-4 font-mono text-xs">
+        <a href="https://github.com/ParagVerma81680" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span>GitHub</span>
+          <span class="material-symbols-outlined text-sm">open_in_new</span>
+        </a>
+        <a href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span>LinkedIn</span>
+          <span class="material-symbols-outlined text-sm">open_in_new</span>
+        </a>
+        <a href="mailto:paragverma88014@gmail.com" class="px-4 py-2 rounded-lg glass-surface hover:border-accent-blue/50 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span>Email</span>
+          <span class="material-symbols-outlined text-sm">mail</span>
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 text-xs font-mono text-slate-500">
+      <div>© 2026 Parag Verma • Computer Science Student &amp; Developer</div>
+      <div class="flex items-center gap-6">
+        <span>LOC // 28.6139° N, 77.2090° E</span>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-white transition-colors flex items-center gap-1">
+          <span>TOP</span>
+          <span class="material-symbols-outlined text-sm">arrow_upward</span>
+        </button>
+      </div>
     </div>
   </div>
 </footer>
+
+<!-- Interactive Scripts & Cursor -->
+<div class="custom-cursor-dot" id="cursor-dot"></div>
+<div class="custom-cursor-follower" id="cursor-follower"></div>
+
 <script>
-        // Simple Filtering Logic
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const skillCards = document.querySelectorAll('.skill-card');
+  // Mobile drawer toggle
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      const isHidden = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      menuIcon.textContent = isHidden ? 'close' : 'menu';
+    });
+  }
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all
-                filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked
-                btn.classList.add('active');
+  // Smooth Interactive Custom Cursor
+  const dot = document.getElementById('cursor-dot');
+  const follower = document.getElementById('cursor-follower');
+  const glow = document.getElementById('ambient-glow');
+  let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+  let followerX = mouseX, followerY = mouseY;
 
-                const filterValue = btn.getAttribute('data-filter');
-
-                skillCards.forEach(card => {
-                    const categories = card.getAttribute('data-category').split(' ');
-                    
-                    if (filterValue === 'all' || categories.includes(filterValue)) {
-                        card.style.display = 'flex';
-                        // Small animation reset
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(10px)';
-                        setTimeout(() => {
-                            card.style.transition = 'all 0.4s ease';
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, 50);
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-    </script>
-<script>
-// Mobile menu
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const menuIcon = document.getElementById('menu-icon');
-if (mobileMenuBtn) {
-  mobileMenuBtn.addEventListener('click', () => {
-    const isHidden = mobileMenu.classList.contains('hidden');
-    mobileMenu.classList.toggle('hidden');
-    menuIcon.textContent = isHidden ? 'close' : 'menu';
-  });
-  document.addEventListener('click', (e) => {
-    if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-      mobileMenu.classList.add('hidden');
-      menuIcon.textContent = 'menu';
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (dot) {
+      dot.style.left = mouseX + 'px';
+      dot.style.top = mouseY + 'px';
+    }
+    if (glow) {
+      glow.style.left = mouseX + 'px';
+      glow.style.top = mouseY + 'px';
     }
   });
-}
+
+  function renderCursor() {
+    followerX += (mouseX - followerX) * 0.18;
+    followerY += (mouseY - followerY) * 0.18;
+    if (follower) {
+      follower.style.left = followerX + 'px';
+      follower.style.top = followerY + 'px';
+    }
+    requestAnimationFrame(renderCursor);
+  }
+  requestAnimationFrame(renderCursor);
+
+  document.querySelectorAll('a, button, [role="button"], input, textarea').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+
+  // Scroll Reveal Observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
-</body></html>
+
+<script>
+  const filterBtns = document.querySelectorAll('.skill-filter-btn');
+  const cards = document.querySelectorAll('.skill-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => {
+        b.className = 'skill-filter-btn px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider glass-surface text-slate-400 hover:text-white transition-all';
+      });
+      btn.className = 'skill-filter-btn px-4 py-2 rounded-full font-mono text-xs uppercase tracking-wider bg-accent-blue text-white font-bold transition-all shadow-md shadow-blue-500/20';
+      
+      const f = btn.getAttribute('data-filter');
+      cards.forEach(card => {
+        if (f === 'all' || card.getAttribute('data-category') === f) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
