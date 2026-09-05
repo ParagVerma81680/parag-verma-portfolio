@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" data-theme="dark">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -317,9 +317,276 @@
     75%, 100% { transform: scale(2.2); opacity: 0; }
   }
 
+
+  /* ═══════════════════════════════════════════════════════════
+     THEME SYSTEM — CSS Custom Properties
+     Dark theme is default. Light theme via [data-theme="light"]
+  ══════════════════════════════════════════════════════════════ */
+
+  /* ── DARK THEME (default) ── */
+  :root, html[data-theme="dark"] {
+    --bg-page:         #0D0D0D;
+    --bg-card:         rgba(255,255,255,0.04);
+    --bg-card-hover:   rgba(0,102,255,0.07);
+    --bg-nav:          rgba(255,255,255,0.04);
+    --bg-header-scroll: rgba(10,10,10,0.92);
+    --bg-chip:         rgba(255,255,255,0.06);
+    --text-primary:    #F5F5F5;
+    --text-muted-rgb:  #9CA3AF;
+    --text-light-rgb:  #6B7280;
+    --accent-main:     #0066FF;
+    --accent-red-v:    #FF1744;
+    --accent-green-v:  #00E676;
+    --accent-purple-v: #8B5CF6;
+    --card-border:     rgba(255,255,255,0.08);
+    --card-shadow:     0 12px 40px -8px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06);
+    --card-hover-border: rgba(0,102,255,0.5);
+    --card-hover-shadow: 0 24px 60px -12px rgba(0,102,255,0.25), 0 0 0 1px rgba(0,102,255,0.15), 0 0 40px -10px rgba(0,102,255,0.15);
+    --tick-color:      #0066FF;
+    --tick-shadow:     0 0 8px rgba(0,102,255,0.5);
+    --cursor-color:    #0066FF;
+    --cursor-shadow:   0 0 12px #0066FF, 0 0 24px rgba(0,102,255,0.4);
+    --cursor-follow-border: rgba(0,102,255,0.5);
+    --cursor-follow-hover-bg: rgba(0,102,255,0.9);
+    --cursor-follow-hover-shadow: 0 0 30px rgba(0,102,255,0.6), 0 0 60px rgba(0,102,255,0.3);
+    --grid-color:      rgba(255,255,255,0.03);
+    --persp-grid:      rgba(0,102,255,0.15);
+    --watermark:       rgba(255,255,255,0.04);
+    --hotspot-pulse:   rgba(0,102,255,0.8);
+    --orb-opacity:     0.35;
+    --orb1-color:      rgba(0,102,255,0.5);
+    --orb2-color:      rgba(139,92,246,0.4);
+    --orb3-color:      rgba(255,23,68,0.35);
+    --nav-border:      rgba(255,255,255,0.08);
+    --footer-border:   rgba(255,255,255,0.06);
+    --footer-bg:       transparent;
+    --progress-bg:     linear-gradient(90deg, #0066FF, #8B5CF6, #FF1744);
+    --ruler-opacity:   0.15;
+    --sci-bg:          #0D0D0D;
+    --sci-particle:    rgba(0,102,255,ALPHA);
+    --sci-radar:       rgba(0,102,255,0.06);
+    --sci-line:        rgba(0,102,255,DALPHA);
+    --toggle-label:    "☀ LIGHT";
+    --toggle-icon:     light_mode;
+  }
+
+  /* ── LIGHT THEME ── */
+  html[data-theme="light"] {
+    --bg-page:         #F5F2EA;
+    --bg-card:         rgba(255,255,255,0.82);
+    --bg-card-hover:   rgba(255,255,255,0.96);
+    --bg-nav:          rgba(255,255,255,0.80);
+    --bg-header-scroll: rgba(245,242,234,0.92);
+    --bg-chip:         rgba(255,255,255,0.95);
+    --text-primary:    #111215;
+    --text-muted-rgb:  #4A4D57;
+    --text-light-rgb:  #797D8C;
+    --accent-main:     #2845E0;
+    --accent-red-v:    #FF5C38;
+    --accent-green-v:  #00BA88;
+    --accent-purple-v: #7C66FF;
+    --card-border:     rgba(17,18,21,0.09);
+    --card-shadow:     0 12px 40px -8px rgba(17,18,21,0.05), inset 0 1px 0 rgba(255,255,255,0.95);
+    --card-hover-border: rgba(40,69,224,0.4);
+    --card-hover-shadow: 0 24px 60px -12px rgba(40,69,224,0.16), 0 0 0 1px rgba(40,69,224,0.1);
+    --tick-color:      #2845E0;
+    --tick-shadow:     none;
+    --cursor-color:    #2845E0;
+    --cursor-shadow:   0 0 8px #2845E0;
+    --cursor-follow-border: rgba(40,69,224,0.45);
+    --cursor-follow-hover-bg: rgba(40,69,224,0.95);
+    --cursor-follow-hover-shadow: 0 10px 30px rgba(40,69,224,0.4);
+    --grid-color:      rgba(17,18,21,0.04);
+    --persp-grid:      rgba(40,69,224,0.08);
+    --watermark:       rgba(17,18,21,0.035);
+    --hotspot-pulse:   rgba(40,69,224,0.6);
+    --orb-opacity:     0.55;
+    --orb1-color:      rgba(40,69,224,0.3);
+    --orb2-color:      rgba(124,102,255,0.28);
+    --orb3-color:      rgba(255,92,56,0.25);
+    --nav-border:      rgba(17,18,21,0.09);
+    --footer-border:   rgba(17,18,21,0.09);
+    --footer-bg:       rgba(234,229,216,0.6);
+    --progress-bg:     linear-gradient(90deg, #2845E0, #7C66FF, #FF5C38);
+    --ruler-opacity:   0.12;
+    --sci-bg:          #F5F2EA;
+    --sci-particle:    rgba(40,69,224,ALPHA);
+    --sci-radar:       rgba(40,69,224,0.05);
+    --sci-line:        rgba(40,69,224,DALPHA);
+    --toggle-label:    "● DARK";
+    --toggle-icon:     dark_mode;
+  }
+
+  /* ── APPLY CSS VARIABLES TO ELEMENTS ── */
+
+  body { background-color: var(--bg-page) !important; }
+
+  .bg-grid-tech {
+    background-image:
+      linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px) !important;
+  }
+
+  .hud-card {
+    background: var(--bg-card) !important;
+    border-color: var(--card-border) !important;
+    box-shadow: var(--card-shadow) !important;
+  }
+
+  .hud-card-hover:hover {
+    border-color: var(--card-hover-border) !important;
+    background: var(--bg-card-hover) !important;
+    box-shadow: var(--card-hover-shadow) !important;
+  }
+
+  .hud-corner-tl::before {
+    border-color: var(--tick-color) !important;
+    box-shadow: var(--tick-shadow) !important;
+  }
+  .hud-corner-br::after {
+    border-color: var(--tick-color) !important;
+    box-shadow: var(--tick-shadow) !important;
+  }
+
+  .custom-cursor-dot {
+    background: var(--cursor-color) !important;
+    box-shadow: var(--cursor-shadow) !important;
+  }
+  .custom-cursor-follower {
+    border-color: var(--cursor-follow-border) !important;
+  }
+  .cursor-hover .custom-cursor-follower {
+    border-color: var(--cursor-color) !important;
+    background-color: var(--cursor-follow-hover-bg) !important;
+    box-shadow: var(--cursor-follow-hover-shadow) !important;
+  }
+
+  .tech-watermark-text {
+    color: var(--watermark) !important;
+  }
+
+  .perspective-grid-layer {
+    background-image:
+      linear-gradient(to right, var(--persp-grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--persp-grid) 1px, transparent 1px) !important;
+  }
+
+  .hotspot-pulse {
+    border-color: var(--hotspot-pulse) !important;
+  }
+
+  #progress-bar {
+    height: 2px;
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 60;
+    background: var(--progress-bg) !important;
+    transition: background 0.5s ease;
+  }
+
+  /* Glow orbs use CSS custom properties via JS */
+  #orb-1 { background: var(--orb1-color) !important; opacity: var(--orb-opacity) !important; filter: blur(160px); }
+  #orb-2 { background: var(--orb2-color) !important; opacity: var(--orb-opacity) !important; filter: blur(160px); }
+  #orb-3 { background: var(--orb3-color) !important; opacity: var(--orb-opacity) !important; filter: blur(160px); }
+
+  /* Footer theme */
+  footer {
+    border-top-color: var(--footer-border) !important;
+    background-color: var(--footer-bg) !important;
+  }
+  html[data-theme="light"] footer {
+    background: rgba(234,229,216,0.5) !important;
+  }
+
+  /* Nav theme */
+  #nav-pill {
+    background: var(--bg-nav) !important;
+    border-color: var(--nav-border) !important;
+  }
+
+  /* Theme toggle button */
+  #theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    border: 1.5px solid var(--nav-border);
+    background: var(--bg-card);
+    color: var(--text-muted-rgb);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    font-size: 0;
+    flex-shrink: 0;
+  }
+  #theme-toggle:hover {
+    border-color: var(--accent-main) !important;
+    color: var(--accent-main) !important;
+    box-shadow: 0 0 16px rgba(var(--accent-main), 0.3);
+  }
+  #theme-toggle .material-symbols-outlined {
+    font-size: 18px !important;
+    color: inherit;
+    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  #theme-toggle:hover .material-symbols-outlined {
+    transform: rotate(22deg);
+  }
+
+  /* Light theme inverted hud-card nav pill */
+  html[data-theme="light"] #nav-pill {
+    background: rgba(255,255,255,0.85) !important;
+    border-color: rgba(17,18,21,0.10) !important;
+  }
+  html[data-theme="light"] #live-clock-box {
+    background: rgba(255,255,255,0.82) !important;
+    border-color: rgba(17,18,21,0.09) !important;
+  }
+  html[data-theme="light"] #logo-box {
+    background: rgba(255,255,255,0.95) !important;
+    border-color: rgba(17,18,21,0.12) !important;
+  }
+  html[data-theme="light"] body {
+    color: #111215 !important;
+  }
+
+  /* Light mode accent text colors - Tailwind can't dynamically switch so we override */
+  html[data-theme="light"] .text-text-main { color: #111215 !important; }
+  html[data-theme="light"] .text-text-muted { color: #4A4D57 !important; }
+  html[data-theme="light"] .text-text-light { color: #797D8C !important; }
+  html[data-theme="light"] .text-accent-cobalt { color: #2845E0 !important; }
+  html[data-theme="light"] .text-accent-mint { color: #00BA88 !important; }
+  html[data-theme="light"] .text-accent-coral { color: #FF5C38 !important; }
+  html[data-theme="light"] .text-accent-lavender { color: #7C66FF !important; }
+  html[data-theme="light"] .bg-accent-cobalt { background-color: #2845E0 !important; }
+  html[data-theme="light"] .border-accent-cobalt { border-color: #2845E0 !important; }
+
+  /* Light mode: hero gradient text */
+  html[data-theme="light"] .hero-verma {
+    background: linear-gradient(to right, #111215, #2845E0, #7C66FF) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+  }
+  /* Dark mode: hero gradient text */
+  html[data-theme="dark"] .hero-verma {
+    background: linear-gradient(to right, #F5F5F5, #0066FF, #8B5CF6) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+  }
+
+  /* Smooth theme transition on all elements */
+  *, *::before, *::after {
+    transition: background-color 0.35s ease, border-color 0.35s ease, color 0.18s ease, box-shadow 0.35s ease !important;
+  }
+  /* Exception: don't animate animation/transform properties */
+  .anim-box, canvas, .glow-orb, .hotspot-pulse, .custom-cursor-dot, .custom-cursor-follower {
+    transition: none !important;
+  }
+
 </style>
 </head>
-<body class="bg-[#0D0D0D] text-text-main font-geist antialiased selection:bg-accent-cobalt selection:text-white min-h-screen flex flex-col relative overflow-x-hidden" style="background-color:#0D0D0D;">
+<body class="text-text-main font-geist antialiased selection:bg-accent-cobalt selection:text-white min-h-screen flex flex-col relative overflow-x-hidden" id="page-body">
 
 <!-- Scroll Progress Bar -->
 <div id="progress-bar"></div>
@@ -330,9 +597,9 @@
 <div class="fixed inset-0 bg-grid-tech pointer-events-none z-0"></div>
 
 <!-- Atmospheric Glow Orbs -->
-<div class="glow-orb w-[700px] h-[700px] top-[-15%] right-[-5%]" style="background:rgba(0,102,255,0.18);"></div>
-<div class="glow-orb w-[600px] h-[600px] top-[40%] left-[-10%]" style="background:rgba(139,92,246,0.14);animation-delay:-3s;"></div>
-<div class="glow-orb w-[650px] h-[650px] bottom-[-10%] right-[15%]" style="background:rgba(255,23,68,0.12);animation-delay:-6s;"></div>
+<div class="glow-orb w-[700px] h-[700px] top-[-15%] right-[-5%]" id="orb-1"></div>
+<div class="glow-orb w-[600px] h-[600px] top-[40%] left-[-10%]" id="orb-2" style="animation-delay:-3s;"></div>
+<div class="glow-orb w-[650px] h-[650px] bottom-[-10%] right-[15%]" id="orb-3" style="animation-delay:-6s;"></div>
 
 <!-- Scientific Ruler Tickers (Left & Right Viewport Edges) -->
 <div class="fixed top-0 bottom-0 left-3 w-4 hidden xl:flex flex-col justify-between py-24 pointer-events-none z-30 font-mono text-[9px] text-text-light/50 select-none">
@@ -350,7 +617,7 @@
   <div class="max-w-6xl mx-auto flex items-center justify-between">
     <!-- Brand / System OS -->
     <a href="index.html" class="flex items-center gap-3 group focus:outline-none" data-cursor="CORE">
-      <div class="w-10 h-10 rounded-xl bg-dark-700 border border-white/10 flex items-center justify-center text-accent-cobalt shadow-sm group-hover:border-accent-cobalt group-hover:shadow-[0_0_20px_rgba(0,102,255,0.4)] transition-all duration-300">
+      <div class="w-10 h-10 rounded-xl border flex items-center justify-center text-accent-cobalt shadow-sm group-hover:border-accent-cobalt transition-all duration-300" id="logo-box" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.10);">
         <span class="font-mono font-extrabold text-sm tracking-tighter">PV//</span>
       </div>
       <div class="flex flex-col">
@@ -363,7 +630,7 @@
     </a>
 
     <!-- Desktop Floating Pill Nav -->
-    <nav class="hidden md:flex items-center gap-1 px-3 py-1.5 rounded-full shadow-lg border border-white/8" style="background:rgba(255,255,255,0.04);backdrop-filter:blur(20px);">
+    <nav class="hidden md:flex items-center gap-1 px-3 py-1.5 rounded-full shadow-lg border" id="nav-pill" style="background:rgba(255,255,255,0.04);backdrop-filter:blur(20px);border-color:rgba(255,255,255,0.08);">
       <a href="index.html" class="px-3.5 py-1.5 rounded-full text-[11px] font-mono tracking-wider uppercase text-text-muted hover:text-white hover:bg-white/8 transition-all duration-300 font-semibold" data-cursor="JUMP →">01//HOME</a>
 <a href="about.html" class="px-3.5 py-1.5 rounded-full text-[11px] font-mono tracking-wider uppercase text-text-muted hover:text-white hover:bg-white/8 transition-all duration-300 font-semibold" data-cursor="JUMP →">02//ABOUT</a>
 <a href="skills.html" class="px-3.5 py-1.5 rounded-full text-[11px] font-mono tracking-wider uppercase text-text-muted hover:text-white hover:bg-white/8 transition-all duration-300 font-semibold" data-cursor="JUMP →">03//SKILLS</a>
@@ -376,7 +643,7 @@
 
     <!-- Quick Action / Status Telemetry -->
     <div class="flex items-center gap-3">
-      <div class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/8 font-mono text-[10px] text-text-muted" style="background:rgba(255,255,255,0.04);">
+      <div class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg border font-mono text-[10px] text-text-muted" id="live-clock-box" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);">
         <span class="text-accent-cobalt font-bold">UTC</span>
         <span id="live-clock">--:--:--</span>
       </div>
@@ -384,7 +651,11 @@
         <span>CV</span>
         <span class="material-symbols-outlined text-sm">download</span>
       </a>
-      <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-xl hud-card flex items-center justify-center text-text-main hover:text-accent-cobalt" aria-label="Toggle menu">
+      <!-- Theme Toggle Button -->
+      <button id="theme-toggle" aria-label="Toggle theme" title="Toggle light / dark mode" data-cursor="THEME">
+        <span class="material-symbols-outlined">dark_mode</span>
+      </button>
+      <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-xl flex items-center justify-center text-text-muted hover:text-accent-cobalt transition-all" style="background:var(--bg-card);border:1px solid var(--card-border);" aria-label="Toggle menu">
         <span class="material-symbols-outlined" id="menu-icon">menu</span>
       </button>
     </div>
@@ -715,9 +986,9 @@
 
 
 <!-- Editorial Scientific Footer -->
-<footer class="w-full py-16 md:py-24 border-t border-text-main/10 bg-cream-200/70 relative z-10 mt-auto">
+<footer class="w-full py-16 md:py-24 relative z-10 mt-auto" style="border-top:1px solid var(--footer-border);">
   <div class="max-w-6xl mx-auto px-6 md:px-8">
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-12 border-b border-text-main/10">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-12 border-b" style="border-color:var(--footer-border);">
       <div>
         <div class="flex items-center gap-2 font-mono text-xs text-accent-cobalt uppercase tracking-widest mb-2 font-bold">
           <span class="w-2 h-2 rounded-full bg-accent-cobalt"></span>
@@ -844,12 +1115,13 @@
     }
 
     function animateParticles() {
+      const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
       ctx.clearRect(0, 0, width, height);
 
       // Radar range circle following mouse
       ctx.beginPath();
       ctx.arc(mouseX, mouseY, 90, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(0, 102, 255, 0.06)';
+      ctx.strokeStyle = isDark ? 'rgba(0,102,255,0.06)' : 'rgba(40,69,224,0.05)';
       ctx.lineWidth = 1;
       ctx.stroke();
 
@@ -865,7 +1137,7 @@
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 102, 255, ${p.alpha})`;
+        ctx.fillStyle = isDark ? `rgba(0,102,255,${p.alpha})` : `rgba(40,69,224,${p.alpha * 0.7})` ;
         ctx.fill();
 
         // Connect nearby nodes
@@ -1060,9 +1332,9 @@
       start: 'top -60',
       onUpdate: self => {
         if (self.progress > 0) {
-          header.style.background = 'rgba(10,10,10,0.92)';
+          header.style.background = document.documentElement.getAttribute('data-theme') === 'light' ? 'rgba(245,242,234,0.92)' : 'rgba(10,10,10,0.92)';
           header.style.backdropFilter = 'blur(24px)';
-          header.style.boxShadow = '0 4px 24px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.06)';
+          header.style.boxShadow = document.documentElement.getAttribute('data-theme') === 'light' ? '0 4px 24px rgba(17,18,21,0.08)' : '0 4px 24px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.06)';
         } else {
           header.style.background = 'transparent';
           header.style.backdropFilter = 'none';
@@ -1230,6 +1502,58 @@
       card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
     });
   });
+
+
+  // ═══════════════════════════════════════════════════════════
+  // THEME TOGGLE SYSTEM
+  // ═══════════════════════════════════════════════════════════
+  (function() {
+    const html = document.documentElement;
+    const btn  = document.getElementById('theme-toggle');
+    const body = document.getElementById('page-body');
+
+    // Restore saved preference (default: dark)
+    const saved = localStorage.getItem('pv-theme') || 'dark';
+    applyTheme(saved);
+
+    if (btn) {
+      btn.addEventListener('click', () => {
+        const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        localStorage.setItem('pv-theme', next);
+      });
+    }
+
+    function applyTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      if (body) body.style.backgroundColor = theme === 'dark' ? '#0D0D0D' : '#F5F2EA';
+
+      // Update toggle icon
+      if (btn) {
+        btn.querySelector('.material-symbols-outlined').textContent =
+          theme === 'dark' ? 'light_mode' : 'dark_mode';
+        btn.title = theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+      }
+
+      // Update particle canvas background color
+      const canvas = document.getElementById('sci-canvas');
+      if (canvas) {
+        canvas.__theme = theme;
+      }
+
+      // Update header scroll colors
+      const header = document.getElementById('main-header');
+      if (header && parseInt(header.style.opacity) !== 0) {
+        const scrolled = window.scrollY > 60;
+        if (scrolled) {
+          header.style.background = theme === 'dark'
+            ? 'rgba(10,10,10,0.92)'
+            : 'rgba(245,242,234,0.92)';
+        }
+      }
+    }
+  })();
+
 
 </script>
 
