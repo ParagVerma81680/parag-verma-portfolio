@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,800;1,400&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
   tailwind.config = {
     theme: {
@@ -257,6 +258,59 @@
     .hud-card { background: transparent !important; border: 1px solid #e2e8f0 !important; box-shadow: none !important; }
     .anim-box { opacity: 1 !important; clip-path: none !important; }
   }
+
+  /* Large Background Watermark Typography */
+  .tech-watermark-text {
+    position: absolute;
+    font-family: 'JetBrains Mono', 'Cormorant Garant', monospace;
+    font-weight: 900;
+    font-size: clamp(3.5rem, 12vw, 14rem);
+    line-height: 0.8;
+    letter-spacing: -0.04em;
+    color: rgba(17, 18, 21, 0.035);
+    user-select: none;
+    pointer-events: none;
+    z-index: 0;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+
+  /* 3D Perspective Technical Grid Layer */
+  .perspective-grid-layer {
+    position: absolute;
+    inset: -30%;
+    background-size: 45px 45px;
+    background-image: 
+      linear-gradient(to right, rgba(40, 69, 224, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(40, 69, 224, 0.08) 1px, transparent 1px);
+    transform: perspective(700px) rotateX(65deg) translateY(-20px);
+    transform-origin: center top;
+    pointer-events: none;
+    mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 80%);
+  }
+
+  /* Interactive Hotspot Nodes */
+  .hotspot-node {
+    position: absolute;
+    cursor: pointer;
+    z-index: 35;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hotspot-node:hover {
+    transform: scale(1.12);
+  }
+  .hotspot-pulse {
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(40, 69, 224, 0.6);
+    animation: hotspot-ping 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  @keyframes hotspot-ping {
+    75%, 100% { transform: scale(2.2); opacity: 0; }
+  }
+
 </style>
 </head>
 <body class="bg-cream-100 text-text-main font-geist antialiased selection:bg-accent-cobalt selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
@@ -352,6 +406,7 @@
 <!-- Main Page Content Canvas -->
 
 <main class="flex-grow relative z-10 pt-32 md:pt-40 pb-24 px-6 md:px-8 max-w-6xl mx-auto w-full">
+  <div class="tech-watermark-text top-36 left-4">DISPATCH</div>
   
   <header class="mb-16 md:mb-20">
     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full hud-card text-xs font-mono text-accent-cobalt mb-4 border border-accent-cobalt/20 font-bold">
@@ -824,6 +879,163 @@
   }
 
 
+
+
+  // ============================================================
+  // THREE.JS 3D DEVELOPER CORE ENGINE (Interactive & Responsive)
+  // ============================================================
+  (function initThreeScene() {
+    const container = document.getElementById('hero-3d-viewport');
+    if (!container || typeof THREE === 'undefined') return;
+
+    let width = container.clientWidth;
+    let height = container.clientHeight;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+    camera.position.z = 7.5;
+
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'high-performance' });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.appendChild(renderer.domElement);
+
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
+    scene.add(ambientLight);
+
+    const light1 = new THREE.PointLight(0x2845E0, 3, 50);
+    light1.position.set(6, 6, 6);
+    scene.add(light1);
+
+    const light2 = new THREE.PointLight(0x7C66FF, 2.5, 50);
+    light2.position.set(-6, -6, 6);
+    scene.add(light2);
+
+    // 3D Objects Group
+    const coreGroup = new THREE.Group();
+    scene.add(coreGroup);
+
+    // Outer Geodesic Icosahedron Wireframe
+    const icoGeo = new THREE.IcosahedronGeometry(1.8, 1);
+    const icoMat = new THREE.MeshStandardMaterial({
+      color: 0x2845E0,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.7,
+      roughness: 0.2,
+      metalness: 0.8
+    });
+    const icoMesh = new THREE.Mesh(icoGeo, icoMat);
+    coreGroup.add(icoMesh);
+
+    // Inner Solid Glowing Core
+    const innerGeo = new THREE.OctahedronGeometry(0.85, 0);
+    const innerMat = new THREE.MeshStandardMaterial({
+      color: 0x335CFF,
+      emissive: 0x2845E0,
+      emissiveIntensity: 0.85,
+      roughness: 0.1,
+      metalness: 0.9
+    });
+    const innerMesh = new THREE.Mesh(innerGeo, innerMat);
+    coreGroup.add(innerMesh);
+
+    // Orbiting Tech Ring 1
+    const ring1Geo = new THREE.TorusGeometry(2.35, 0.025, 16, 100);
+    const ring1Mat = new THREE.MeshBasicMaterial({ color: 0x2845E0, wireframe: true, transparent: true, opacity: 0.55 });
+    const ring1 = new THREE.Mesh(ring1Geo, ring1Mat);
+    ring1.rotation.x = Math.PI / 3;
+    coreGroup.add(ring1);
+
+    // Orbiting Tech Ring 2
+    const ring2Geo = new THREE.TorusGeometry(2.75, 0.02, 16, 100);
+    const ring2Mat = new THREE.MeshBasicMaterial({ color: 0x7C66FF, wireframe: true, transparent: true, opacity: 0.45 });
+    const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
+    ring2.rotation.y = Math.PI / 4;
+    coreGroup.add(ring2);
+
+    // Orbital Point Cloud
+    const count = 160;
+    const pGeo = new THREE.BufferGeometry();
+    const pos = new Float32Array(count * 3);
+    for (let i = 0; i < count * 3; i += 3) {
+      pos[i] = (Math.random() - 0.5) * 8.5;
+      pos[i + 1] = (Math.random() - 0.5) * 8.5;
+      pos[i + 2] = (Math.random() - 0.5) * 8.5;
+    }
+    pGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    const pMat = new THREE.PointsMaterial({ size: 0.055, color: 0x335CFF, transparent: true, opacity: 0.65 });
+    const points = new THREE.Points(pGeo, pMat);
+    coreGroup.add(points);
+
+    // Mouse & Scroll Parallax Variables
+    let mouseX = 0, mouseY = 0;
+    let targetX = 0, targetY = 0;
+
+    const wrapper = document.getElementById('hero-3d-wrapper');
+    if (wrapper) {
+      wrapper.addEventListener('mousemove', (e) => {
+        const rect = wrapper.getBoundingClientRect();
+        mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+        mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+      });
+      wrapper.addEventListener('mouseleave', () => {
+        mouseX = 0;
+        mouseY = 0;
+      });
+    }
+
+    window.addEventListener('resize', () => {
+      if (!container) return;
+      width = container.clientWidth;
+      height = container.clientHeight;
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+    });
+
+    // Render Animation Loop
+    let clock = new THREE.Clock();
+    function render3D() {
+      requestAnimationFrame(render3D);
+
+      const t = clock.getElapsedTime();
+      const scrollY = window.scrollY || 0;
+
+      // Gentle floating sine wave
+      coreGroup.position.y = Math.sin(t * 1.4) * 0.16;
+
+      // Rotate with Mouse + Scroll Parallax
+      targetY = mouseX * 0.75 + scrollY * 0.0015;
+      targetX = mouseY * 0.75;
+
+      coreGroup.rotation.y += (targetY - coreGroup.rotation.y) * 0.05 + 0.004;
+      coreGroup.rotation.x += (targetX - coreGroup.rotation.x) * 0.05 + 0.002;
+
+      innerMesh.rotation.y -= 0.012;
+      ring1.rotation.z += 0.006;
+      ring2.rotation.z -= 0.005;
+
+      renderer.render(scene, camera);
+    }
+    render3D();
+  })();
+
+  // ── ENHANCED 3D TILT & HOVER ON CARDS ──
+  document.querySelectorAll('.mag-card, .proj-card, .skill-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width / 2);
+      const dy = (e.clientY - cy) / (rect.height / 2);
+      card.style.transform = "perspective(1000px) rotateY(" + (dx * 7) + "deg) rotateX(" + (-dy * 7) + "deg) translateZ(8px)";
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
+    });
+  });
 
 </script>
 
