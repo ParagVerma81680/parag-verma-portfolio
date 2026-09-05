@@ -11,6 +11,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
+  // Apply saved theme IMMEDIATELY before page render to prevent white/dark flashing
   (function() {
     var t = localStorage.getItem('pv-theme') || 'dark';
     document.documentElement.setAttribute('data-theme', t);
@@ -56,6 +57,9 @@
   }
 </script>
 <style>
+  /* ===========================
+     SPACE GROTESK — BOLD HEADINGS
+  =========================== */
   .font-grotesk, h1, h2, h3 {
     font-family: "Space Grotesk", "Inter", sans-serif !important;
     font-feature-settings: "liga" 1, "kern" 1;
@@ -63,12 +67,14 @@
     letter-spacing: -0.02em;
   }
 
+  /* Base Body Background (Dark Default) */
   body {
     background-color: #0D0D0D;
     color: #F5F5F5;
     transition: background-color 0.35s ease, color 0.25s ease;
   }
 
+  /* Noise & Sci-Fi Background Canvas */
   #sci-canvas {
     position: fixed;
     top: 0; left: 0;
@@ -84,6 +90,7 @@
     z-index: 40;
   }
 
+  /* High-Tech Technical Grid (Dark Default) */
   .bg-grid-tech {
     background-size: 60px 60px;
     background-image: 
@@ -91,6 +98,7 @@
       linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   }
 
+  /* Dark Neon Glass Card */
   .hud-card {
     background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(20px);
@@ -110,6 +118,7 @@
     transform: translateY(-5px);
   }
 
+  /* Corner HUD Ticks */
   .hud-corner-tl::before {
     content: '';
     position: absolute;
@@ -131,6 +140,7 @@
     box-shadow: 2px 2px 8px rgba(0, 102, 255, 0.4);
   }
 
+  /* Custom Precision Cursor */
   .custom-cursor-dot {
     pointer-events: none;
     position: fixed;
@@ -169,6 +179,7 @@
     box-shadow: 0 0 30px rgba(0, 102, 255, 0.6), 0 0 60px rgba(0, 102, 255, 0.3);
   }
 
+  /* Telemetry Glow Orbs */
   .glow-orb {
     position: fixed;
     border-radius: 50%;
@@ -183,6 +194,7 @@
     100% { transform: translate(40px, -30px) scale(1.1); }
   }
 
+  /* CSS ENTRY ANIMATIONS */
   .anim-box { opacity: 0; }
   .anim-box.anim-ready {
     animation-fill-mode: both;
@@ -231,6 +243,7 @@
     .custom-cursor-dot, .custom-cursor-follower { display: none !important; }
   }
 
+  /* Background Watermark Typography */
   .tech-watermark-text {
     position: absolute;
     font-family: 'JetBrains Mono', 'Space Grotesk', monospace;
@@ -247,6 +260,7 @@
     transition: color 0.35s ease;
   }
 
+  /* 3D Perspective Grid */
   .perspective-grid-layer {
     position: absolute;
     inset: -30%;
@@ -261,6 +275,7 @@
     -webkit-mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 80%);
   }
 
+  /* Hotspots */
   .hotspot-node {
     position: absolute;
     cursor: pointer;
@@ -289,7 +304,8 @@
     transition: width 0.1s ease-out;
   }
 
-  .nav-action-btn {
+  /* Theme Toggle Button Style */
+  #theme-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -303,62 +319,27 @@
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     flex-shrink: 0;
   }
-  .nav-action-btn:hover {
+  #theme-toggle:hover {
     border-color: #0066FF !important;
     color: #0066FF !important;
     box-shadow: 0 0 16px rgba(0, 102, 255, 0.35);
   }
-  .nav-action-btn .material-symbols-outlined {
+  #theme-toggle .material-symbols-outlined {
     font-size: 19px !important;
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  .nav-action-btn:hover .material-symbols-outlined {
-    transform: scale(1.15);
+  #theme-toggle:hover .material-symbols-outlined {
+    transform: rotate(25deg);
   }
-
-  /* Terminal Modal */
-  #cyber-terminal-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(16px);
-  }
-  #cyber-terminal-modal.active { display: flex; }
-
-  /* Retro Mini-Game Modal */
-  #cyber-game-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 10000;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.88);
-    backdrop-filter: blur(20px);
-  }
-  #cyber-game-modal.active { display: flex; }
-
-  /* Matrix Rain Canvas */
-  #matrix-canvas {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 2;
-    display: none;
-  }
-  #matrix-canvas.active { display: block; }
 
   /* ═══════════════════════════════════════════════════════════
-     LIGHT THEME OVERRIDES
+     LIGHT THEME OVERRIDES (Previous Ivory Warm Aesthetic)
   ══════════════════════════════════════════════════════════════ */
   html[data-theme="light"] body {
     background-color: #F5F2EA !important;
     color: #111215 !important;
   }
+
   html[data-theme="light"] .hud-card {
     background: rgba(255, 255, 255, 0.85) !important;
     border-color: rgba(17, 18, 21, 0.09) !important;
@@ -369,7 +350,11 @@
     background: rgba(255, 255, 255, 0.96) !important;
     box-shadow: 0 24px 60px -12px rgba(40, 69, 224, 0.16), 0 0 0 1px rgba(40, 69, 224, 0.1) !important;
   }
-  html[data-theme="light"] .hud-corner-tl::before, html[data-theme="light"] .hud-corner-br::after {
+  html[data-theme="light"] .hud-corner-tl::before {
+    border-color: #2845E0 !important;
+    box-shadow: none !important;
+  }
+  html[data-theme="light"] .hud-corner-br::after {
     border-color: #2845E0 !important;
     box-shadow: none !important;
   }
@@ -425,12 +410,12 @@
     background: rgba(255, 255, 255, 0.95) !important;
     border-color: rgba(17, 18, 21, 0.12) !important;
   }
-  html[data-theme="light"] .nav-action-btn {
+  html[data-theme="light"] #theme-toggle {
     background: rgba(255, 255, 255, 0.75) !important;
     border-color: rgba(17, 18, 21, 0.12) !important;
     color: #4A4D57 !important;
   }
-  html[data-theme="light"] .nav-action-btn:hover {
+  html[data-theme="light"] #theme-toggle:hover {
     border-color: #2845E0 !important;
     color: #2845E0 !important;
     box-shadow: 0 0 16px rgba(40, 69, 224, 0.25) !important;
@@ -439,14 +424,30 @@
     border-top-color: rgba(17, 18, 21, 0.09) !important;
     background: rgba(234, 229, 216, 0.5) !important;
   }
-  html[data-theme="light"] .text-text-main { color: #111215 !important; }
-  html[data-theme="light"] .text-text-muted { color: #4A4D57 !important; }
-  html[data-theme="light"] .text-text-light { color: #797D8C !important; }
-  html[data-theme="light"] .text-accent-cobalt { color: #2845E0 !important; }
-  html[data-theme="light"] .text-accent-mint { color: #00BA88 !important; }
-  html[data-theme="light"] .text-accent-coral { color: #FF5C38 !important; }
-  html[data-theme="light"] .text-accent-lavender { color: #7C66FF !important; }
-  html[data-theme="light"] .bg-accent-cobalt { background-color: #2845E0 !important; }
+  html[data-theme="light"] .text-text-main {
+    color: #111215 !important;
+  }
+  html[data-theme="light"] .text-text-muted {
+    color: #4A4D57 !important;
+  }
+  html[data-theme="light"] .text-text-light {
+    color: #797D8C !important;
+  }
+  html[data-theme="light"] .text-accent-cobalt {
+    color: #2845E0 !important;
+  }
+  html[data-theme="light"] .text-accent-mint {
+    color: #00BA88 !important;
+  }
+  html[data-theme="light"] .text-accent-coral {
+    color: #FF5C38 !important;
+  }
+  html[data-theme="light"] .text-accent-lavender {
+    color: #7C66FF !important;
+  }
+  html[data-theme="light"] .bg-accent-cobalt {
+    background-color: #2845E0 !important;
+  }
   html[data-theme="light"] #progress-bar {
     background: linear-gradient(90deg, #2845E0, #7C66FF, #FF5C38) !important;
   }
@@ -457,9 +458,8 @@
 <!-- Scroll Progress Bar -->
 <div id="progress-bar"></div>
 
-<!-- Interactive Scientific Starfield & Matrix Canvas -->
+<!-- Interactive Scientific Starfield & HUD Canvas -->
 <canvas id="sci-canvas"></canvas>
-<canvas id="matrix-canvas"></canvas>
 <div class="noise-bg"></div>
 <div class="fixed inset-0 bg-grid-tech pointer-events-none z-0"></div>
 
@@ -508,41 +508,22 @@
 
     </nav>
 
-    <!-- Quick Action / Status Telemetry & Mind-Blowing Tool Suite -->
-    <div class="flex items-center gap-2 sm:gap-3">
-      <!-- Live Clock -->
+    <!-- Quick Action / Status Telemetry -->
+    <div class="flex items-center gap-3">
       <div class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg border font-mono text-[10px] text-text-muted" id="live-clock-box" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);">
         <span class="text-accent-cobalt font-bold">UTC</span>
         <span id="live-clock">--:--:--</span>
       </div>
-
-      <!-- Sci-Fi Terminal Launch Button (Ctrl+K or ~) -->
-      <button id="terminal-trigger-btn" class="nav-action-btn text-accent-mint" title="Open Cyber Terminal (Ctrl+K or ~)" aria-label="Open Terminal" data-cursor="CLI // OS">
-        <span class="material-symbols-outlined">terminal</span>
-      </button>
-
-      <!-- Sci-Fi Retro Mini-Game Launcher -->
-      <button id="game-trigger-btn" class="nav-action-btn text-accent-coral" title="Play Cyber Bug Hunter Game" aria-label="Launch Game" data-cursor="ARCADE 🎮">
-        <span class="material-symbols-outlined">sports_esports</span>
-      </button>
-
-      <!-- Web Audio SFX Toggle -->
-      <button id="sound-toggle-btn" class="nav-action-btn" title="Toggle Sci-Fi SFX Audio" aria-label="Toggle Sound" data-cursor="AUDIO">
-        <span class="material-symbols-outlined" id="sound-icon">volume_up</span>
-      </button>
-
-      <!-- Light / Dark Theme Toggle Button -->
-      <button id="theme-toggle" class="nav-action-btn" aria-label="Toggle theme" title="Switch Theme" data-cursor="THEME">
-        <span class="material-symbols-outlined">light_mode</span>
-      </button>
-
-      <!-- CV Download -->
-      <a href="assets/resume.pdf" download class="hidden sm:flex items-center gap-1.5 px-3.5 py-2 rounded-xl hud-card text-xs font-mono text-text-main hover:text-accent-cobalt hover:border-accent-cobalt transition-all duration-300 font-bold shadow-sm" data-cursor="GET PDF">
+      <a href="assets/resume.pdf" download class="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full hud-card text-xs font-mono text-text-main hover:text-accent-cobalt hover:border-accent-cobalt transition-all duration-300 font-bold shadow-sm" data-cursor="GET PDF">
         <span>CV</span>
         <span class="material-symbols-outlined text-sm">download</span>
       </a>
 
-      <!-- Mobile Menu -->
+      <!-- Light / Dark Theme Toggle Button -->
+      <button id="theme-toggle" aria-label="Toggle theme" title="Switch to Light Mode" data-cursor="THEME">
+        <span class="material-symbols-outlined">light_mode</span>
+      </button>
+
       <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-xl flex items-center justify-center text-text-muted hover:text-accent-cobalt transition-all" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);" aria-label="Toggle menu">
         <span class="material-symbols-outlined" id="menu-icon">menu</span>
       </button>
@@ -559,16 +540,8 @@
 <a href="resume.html" class="py-3 px-4 rounded-xl text-text-muted hover:text-text-main hover:bg-black/5 font-mono text-sm transition-all">06//RESUME</a>
 <a href="contact.html" class="py-3 px-4 rounded-xl text-text-muted hover:text-text-main hover:bg-black/5 font-mono text-sm transition-all">07//CONTACT</a>
 
-    <div class="pt-4 border-t border-text-main/10 mt-2 flex flex-col gap-2">
-      <div class="flex items-center justify-between gap-2">
-        <button id="mobile-term-btn" class="flex-1 py-2.5 rounded-xl border border-accent-mint/30 bg-accent-mint/10 text-accent-mint font-mono text-xs font-bold flex items-center justify-center gap-1">
-          <span class="material-symbols-outlined text-sm">terminal</span> CLI OS
-        </button>
-        <button id="mobile-game-btn" class="flex-1 py-2.5 rounded-xl border border-accent-coral/30 bg-accent-coral/10 text-accent-coral font-mono text-xs font-bold flex items-center justify-center gap-1">
-          <span class="material-symbols-outlined text-sm">sports_esports</span> MINI GAME
-        </button>
-      </div>
-      <a href="assets/resume.pdf" download class="flex items-center justify-center gap-2 py-3 rounded-xl bg-accent-cobalt text-white font-mono text-xs tracking-wider uppercase font-bold hover:bg-blue-700 transition-all shadow-md mt-1">
+    <div class="pt-4 border-t border-text-main/10 mt-2">
+      <a href="assets/resume.pdf" download class="flex items-center justify-center gap-2 py-3.5 rounded-xl bg-accent-cobalt text-white font-mono text-xs tracking-wider uppercase font-bold hover:bg-blue-700 transition-all shadow-md">
         <span>Download CV</span>
         <span class="material-symbols-outlined text-base">download</span>
       </a>
@@ -745,159 +718,12 @@
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════════════════════════════
-     CYBER TERMINAL MODAL (Ctrl+K or ~)
-══════════════════════════════════════════════════════════════ -->
-<div id="cyber-terminal-modal" class="p-4 sm:p-6">
-  <div class="w-full max-w-3xl rounded-2xl bg-[#090A0F]/95 border border-accent-mint/30 shadow-[0_0_80px_rgba(0,230,118,0.2)] overflow-hidden font-mono flex flex-col max-h-[85vh]">
-    <!-- Terminal Header Bar -->
-    <div class="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/10 select-none">
-      <div class="flex items-center gap-2">
-        <span class="w-3 h-3 rounded-full bg-red-500 cursor-pointer" id="term-close-dot"></span>
-        <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-        <span class="w-3 h-3 rounded-full bg-green-500"></span>
-        <span class="ml-2 text-xs text-text-muted font-bold tracking-wider">PARAG.OS // COMMAND MATRIX v4.8</span>
-      </div>
-      <div class="flex items-center gap-3 text-[11px] text-text-muted">
-        <span class="hidden sm:inline text-accent-mint font-bold">ESC to close</span>
-        <button id="term-close-btn" class="hover:text-white transition-colors">
-          <span class="material-symbols-outlined text-base">close</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Terminal Output Stream -->
-    <div id="term-body" class="p-4 sm:p-6 overflow-y-auto space-y-3 text-xs sm:text-sm text-green-400 flex-1 leading-relaxed">
-      <div class="text-accent-cobalt font-bold">
-        ░█▀▀█ ░█▀▀█ ░█▀▀█ ░█▀▀█ ░█▀▀█ ░█▀▀█ ░█▀▀▀█ ░█▀▀▀█<br/>
-        ░█▄▄█ ░█▄▄█ ░█▄▄▀ ░█▄▄█ ░█▄▄█ ░█▄▄█ ░█░░░█ ░▀▀▀▄▄<br/>
-        ░█░░░ ░█░░░ ░█░░░ ░█░░█ ░█░░░ ░█░░░ ░█▄▄▄█ ░█▄▄▄█
-      </div>
-      <div class="text-text-muted text-xs">
-        Welcome to Parag Verma's Interactive Developer Core.<br/>
-        Type <span class="text-accent-mint font-bold">help</span> to view available operations or run <span class="text-accent-coral font-bold">game</span> for the arcade module.
-      </div>
-      <div id="term-history"></div>
-    </div>
-
-    <!-- Terminal Command Input -->
-    <div class="p-3 sm:p-4 bg-black/60 border-t border-white/10 flex items-center gap-2">
-      <span class="text-accent-mint font-bold select-none text-xs sm:text-sm">parag@dev-os:~$</span>
-      <input type="text" id="term-input" class="flex-1 bg-transparent text-white font-mono text-xs sm:text-sm outline-none border-none caret-accent-mint" autofocus autocomplete="off" spellcheck="false" placeholder="Type a command (e.g. help, skills, projects, game)..."/>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════
-     CYBER RETRO MINI-GAME MODAL ("BUG HUNTER")
-══════════════════════════════════════════════════════════════ -->
-<div id="cyber-game-modal" class="p-4">
-  <div class="w-full max-w-4xl rounded-2xl bg-[#07080D] border border-accent-coral/40 shadow-[0_0_100px_rgba(255,23,68,0.25)] overflow-hidden font-mono flex flex-col max-h-[90vh]">
-    <!-- Game Header -->
-    <div class="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/10">
-      <div class="flex items-center gap-2">
-        <span class="w-3 h-3 rounded-full bg-accent-coral animate-ping"></span>
-        <span class="text-xs text-accent-coral font-bold uppercase tracking-widest">CYBER DEFENDER // BUG HUNTER v1.0</span>
-      </div>
-      <div class="flex items-center gap-4 text-xs font-mono">
-        <span class="text-accent-mint">SCORE: <span id="game-score-display" class="font-bold">0</span></span>
-        <span class="text-text-muted">HIGH: <span id="game-high-display" class="font-bold">0</span></span>
-        <button id="game-close-btn" class="hover:text-accent-coral transition-colors p-1">
-          <span class="material-symbols-outlined text-base">close</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Game Canvas & Overlay -->
-    <div class="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden">
-      <canvas id="game-canvas" class="w-full h-full block"></canvas>
-      
-      <!-- Start / Game Over Overlay -->
-      <div id="game-overlay" class="absolute inset-0 bg-black/85 flex flex-col items-center justify-center p-6 text-center space-y-4">
-        <h2 id="game-overlay-title" class="font-grotesk text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-accent-coral via-accent-lavender to-accent-cobalt">
-          CYBER DEFENDER
-        </h2>
-        <p id="game-overlay-desc" class="text-xs sm:text-sm text-text-muted max-w-md">
-          Defend your code from invading Memory Leaks, NullPointers, and SegFaults!<br/>
-          <span class="text-accent-mint font-bold">Controls:</span> Move with Mouse/Arrows, Click/Space to Shoot Lasers.
-        </p>
-        <button id="game-start-btn" class="px-6 py-3 rounded-xl bg-accent-coral text-white font-mono text-xs font-bold uppercase tracking-widest shadow-[0_0_30px_rgba(255,23,68,0.5)] hover:scale-105 transition-all">
-          LAUNCH MISSION [SPACE]
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- Interactive Scripts & Cursor -->
 <div class="custom-cursor-dot" id="cursor-dot"></div>
 <div class="custom-cursor-follower" id="cursor-follower"></div>
 
 <script>
-  // ═══════════════════════════════════════════════════════════
-  // 1. PROCEDURAL WEB AUDIO SFX SYNTHESIZER
-  // ═══════════════════════════════════════════════════════════
-  const SoundFX = (function() {
-    let ctx = null;
-    let enabled = localStorage.getItem('pv-sound') !== 'disabled';
-
-    function initCtx() {
-      if (!ctx) {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        if (AudioContext) ctx = new AudioContext();
-      }
-      if (ctx && ctx.state === 'suspended') ctx.resume();
-    }
-
-    function playTone(freq, type, duration, gainStart = 0.15, gainEnd = 0.001) {
-      if (!enabled) return;
-      initCtx();
-      if (!ctx) return;
-      try {
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = type;
-        osc.frequency.setValueAtTime(freq, ctx.currentTime);
-        gain.gain.setValueAtTime(gainStart, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(gainEnd, ctx.currentTime + duration);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start();
-        osc.stop(ctx.currentTime + duration);
-      } catch(e) {}
-    }
-
-    return {
-      hover: () => playTone(880, 'sine', 0.05, 0.03),
-      click: () => playTone(1200, 'triangle', 0.08, 0.08),
-      launch: () => playTone(440, 'sawtooth', 0.25, 0.12),
-      laser: () => playTone(1600, 'sawtooth', 0.1, 0.12),
-      explosion: () => playTone(140, 'square', 0.28, 0.15),
-      key: () => playTone(720 + Math.random() * 120, 'sine', 0.03, 0.02),
-      matrix: () => playTone(550, 'triangle', 0.35, 0.1),
-      toggle: () => {
-        enabled = !enabled;
-        localStorage.setItem('pv-sound', enabled ? 'enabled' : 'disabled');
-        const icon = document.getElementById('sound-icon');
-        if (icon) icon.textContent = enabled ? 'volume_up' : 'volume_off';
-        if (enabled) playTone(900, 'sine', 0.1, 0.1);
-        return enabled;
-      },
-      isEnabled: () => enabled
-    };
-  })();
-
-  // Attach sound toggle button
-  const soundBtn = document.getElementById('sound-toggle-btn');
-  if (soundBtn) {
-    const icon = document.getElementById('sound-icon');
-    if (icon) icon.textContent = SoundFX.isEnabled() ? 'volume_up' : 'volume_off';
-    soundBtn.addEventListener('click', () => SoundFX.toggle());
-  }
-
-  // ═══════════════════════════════════════════════════════════
-  // 2. LIVE CLOCK & CURSOR
-  // ═══════════════════════════════════════════════════════════
+  // Live Clock
   function updateClock() {
     const d = new Date();
     const clock = document.getElementById('live-clock');
@@ -906,6 +732,7 @@
   setInterval(updateClock, 1000);
   updateClock();
 
+  // Mobile menu
   const menuBtn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
   const menuIcon = document.getElementById('menu-icon');
@@ -914,10 +741,10 @@
       const isHidden = menu.classList.contains('hidden');
       menu.classList.toggle('hidden');
       menuIcon.textContent = isHidden ? 'close' : 'menu';
-      SoundFX.click();
     });
   }
 
+  // Precision Custom Cursor
   const dot = document.getElementById('cursor-dot');
   const follower = document.getElementById('cursor-follower');
   let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
@@ -948,18 +775,14 @@
       document.body.classList.add('cursor-hover');
       const label = el.getAttribute('data-cursor') || (el.tagName === 'A' ? 'OPEN →' : 'TARGET');
       if (follower) follower.textContent = label;
-      SoundFX.hover();
     });
     el.addEventListener('mouseleave', () => {
       document.body.classList.remove('cursor-hover');
       if (follower) follower.textContent = '';
     });
-    el.addEventListener('click', () => SoundFX.click());
   });
 
-  // ═══════════════════════════════════════════════════════════
-  // 3. SCI-FI CANVAS STARFIELD & MATRIX DIGITAL RAIN
-  // ═══════════════════════════════════════════════════════════
+  // Scientific Canvas Particle Starfield Engine
   const canvas = document.getElementById('sci-canvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
@@ -989,6 +812,7 @@
       const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
       ctx.clearRect(0, 0, width, height);
 
+      // Radar range circle following mouse
       ctx.beginPath();
       ctx.arc(mouseX, mouseY, 90, 0, Math.PI * 2);
       ctx.strokeStyle = isDark ? 'rgba(0,102,255,0.06)' : 'rgba(40,69,224,0.05)';
@@ -1010,6 +834,7 @@
         ctx.fillStyle = isDark ? "rgba(0, 102, 255, " + p.alpha + ")" : "rgba(40, 69, 224, " + (p.alpha * 0.7) + ")";
         ctx.fill();
 
+        // Connect nearby particles
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j];
           const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
@@ -1023,6 +848,7 @@
           }
         }
 
+        // Interactive mouse connection line
         const mdist = Math.hypot(p.x - mouseX, p.y - mouseY);
         if (mdist < 140) {
           ctx.beginPath();
@@ -1039,406 +865,56 @@
     animateParticles();
   }
 
-  // Matrix Rain Engine
-  const MatrixFX = (function() {
-    const mCanvas = document.getElementById('matrix-canvas');
-    if (!mCanvas) return { toggle: () => {} };
-    const mCtx = mCanvas.getContext('2d');
-    let mActive = false;
-    let mCols = 0;
-    let mDrops = [];
-    const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンPARAGVERMACSEAI';
-
-    function initMatrix() {
-      mCanvas.width = window.innerWidth;
-      mCanvas.height = window.innerHeight;
-      mCols = Math.floor(mCanvas.width / 18);
-      mDrops = Array(mCols).fill(1);
-    }
-
-    function drawMatrix() {
-      if (!mActive) return;
-      mCtx.fillStyle = 'rgba(0, 0, 0, 0.06)';
-      mCtx.fillRect(0, 0, mCanvas.width, mCanvas.height);
-      mCtx.fillStyle = '#00FF70';
-      mCtx.font = '14px monospace';
-
-      for (let i = 0; i < mDrops.length; i++) {
-        const text = characters.charAt(Math.floor(Math.random() * characters.length));
-        mCtx.fillText(text, i * 18, mDrops[i] * 18);
-        if (mDrops[i] * 18 > mCanvas.height && Math.random() > 0.975) {
-          mDrops[i] = 0;
+  // IntersectionObserver for CSS Animation Entry
+  (function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('anim-ready');
+          observer.unobserve(entry.target);
         }
-        mDrops[i]++;
-      }
-      requestAnimationFrame(drawMatrix);
-    }
-
-    return {
-      toggle: () => {
-        mActive = !mActive;
-        mCanvas.classList.toggle('active', mActive);
-        if (mActive) {
-          initMatrix();
-          drawMatrix();
-          SoundFX.matrix();
-        } else {
-          mCtx.clearRect(0, 0, mCanvas.width, mCanvas.height);
-        }
-        return mActive;
-      }
-    };
-  })();
-
-  // ═══════════════════════════════════════════════════════════
-  // 4. INTERACTIVE CYBER TERMINAL ENGINE
-  // ═══════════════════════════════════════════════════════════
-  (function initTerminal() {
-    const modal = document.getElementById('cyber-terminal-modal');
-    const input = document.getElementById('term-input');
-    const history = document.getElementById('term-history');
-    const trigger = document.getElementById('terminal-trigger-btn');
-    const mobileTrigger = document.getElementById('mobile-term-btn');
-    const closeBtn = document.getElementById('term-close-btn');
-    const closeDot = document.getElementById('term-close-dot');
-
-    if (!modal || !input) return;
-
-    function openTerminal() {
-      modal.classList.add('active');
-      input.focus();
-      SoundFX.launch();
-    }
-
-    function closeTerminal() {
-      modal.classList.remove('active');
-      SoundFX.click();
-    }
-
-    if (trigger) trigger.addEventListener('click', openTerminal);
-    if (mobileTrigger) mobileTrigger.addEventListener('click', openTerminal);
-    if (closeBtn) closeBtn.addEventListener('click', closeTerminal);
-    if (closeDot) closeDot.addEventListener('click', closeTerminal);
-
-    window.addEventListener('keydown', (e) => {
-      if ((e.ctrlKey && e.key === 'k') || e.key === '`' || e.key === '~') {
-        if (!modal.classList.contains('active')) {
-          e.preventDefault();
-          openTerminal();
-        }
-      } else if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeTerminal();
-      }
-    });
-
-    const cmdHistory = [];
-    let historyIdx = -1;
-
-    const commands = {
-      help: () => `
-<div class="text-accent-mint font-bold mb-1">AVAILABLE COMMANDS:</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-text-muted">
-  <div><span class="text-white font-bold">skills</span> - Display technical matrix</div>
-  <div><span class="text-white font-bold">projects</span> - List portfolio projects</div>
-  <div><span class="text-white font-bold">cat resume</span> - Print resume briefing</div>
-  <div><span class="text-white font-bold">game</span> - Launch retro Bug Hunter game</div>
-  <div><span class="text-white font-bold">matrix</span> - Toggle digital rain matrix</div>
-  <div><span class="text-white font-bold">theme [dark|light]</span> - Switch visual mode</div>
-  <div><span class="text-white font-bold">contact</span> - Show dispatch credentials</div>
-  <div><span class="text-white font-bold">clear</span> - Clear terminal session</div>
-  <div><span class="text-white font-bold">exit</span> - Close terminal window</div>
-</div>`,
-      skills: () => `
-<div class="text-accent-mint font-bold mb-1">// SYSTEM CAPABILITY MATRIX:</div>
-<div class="space-y-1 text-xs">
-  <div>⚡ <span class="text-white font-bold">AI / ML:</span> Python, TensorFlow, Scikit-Learn, PyTorch, LangChain</div>
-  <div>🎮 <span class="text-white font-bold">GAME DEV:</span> Unreal Engine 5, Unity 3D, C++, C#, HLSL</div>
-  <div>💻 <span class="text-white font-bold">SYSTEMS & WEB:</span> Modern JavaScript, React, Tailwind, Data Structures & Algorithms</div>
-  <div>📈 <span class="text-white font-bold">ACADEMIC CGPA:</span> 9.33 / 10.0 (Lovely Professional University)</div>
-</div>`,
-      projects: () => `
-<div class="text-accent-mint font-bold mb-1">// PROJECT SHOWCASE:</div>
-<div class="space-y-1 text-xs text-text-muted">
-  <div>1. <a href="projects.html" class="text-accent-cobalt font-bold underline">FRIDAY AI Assistant</a> - Intelligent Python multi-modal voice system</div>
-  <div>2. <a href="projects.html" class="text-accent-coral font-bold underline">Fogwatch (UE5)</a> - Immersive story mode psychological horror experience</div>
-  <div>3. <a href="projects.html" class="text-accent-lavender font-bold underline">2D Unity Engine Game</a> - Dynamic physics platformer built with C#</div>
-  <div>4. <a href="projects.html" class="text-white font-bold underline">Scientific Developer Portfolio</a> - Advanced 3D WebGL Portfolio OS</div>
-</div>`,
-      "cat resume": () => `
-<div class="text-accent-mint font-bold mb-1">// PARAG VERMA — CURRICULUM VITAE:</div>
-<div class="text-xs text-text-muted leading-relaxed">
-  • B.Tech Computer Science &amp; Engineering (AI &amp; ML) — LPU (CGPA: 9.33)<br/>
-  • Core Stack: Python, C++, UE5, JavaScript, Data Structures<br/>
-  • Direct Download: <a href="assets/resume.pdf" download class="text-accent-mint font-bold underline">Download PDF Resume</a>
-</div>`,
-      game: () => {
-        setTimeout(() => {
-          closeTerminal();
-          GameModule.launch();
-        }, 300);
-        return `<span class="text-accent-coral font-bold">Initializing Cyber Bug Hunter... Loading Canvas viewport.</span>`;
-      },
-      matrix: () => {
-        const state = MatrixFX.toggle();
-        return "<span class="text-accent-mint font-bold">Digital Matrix Rain: " + (state ? "ENABLED" : "DISABLED") + "</span>";
-      },
-      contact: () => `
-<div class="text-accent-mint font-bold mb-1">// DISPATCH CREDENTIALS:</div>
-<div class="text-xs text-text-muted">
-  • Email: <a href="mailto:paragverma88014@gmail.com" class="text-white underline">paragverma88014@gmail.com</a><br/>
-  • Phone: <span class="text-white">+91 8168088014</span><br/>
-  • LinkedIn: <a href="https://www.linkedin.com/in/parag-verma-713ab3373/" target="_blank" class="text-accent-cobalt underline">parag-verma</a><br/>
-  • GitHub: <a href="https://github.com/ParagVerma81680" target="_blank" class="text-accent-mint underline">ParagVerma81680</a>
-</div>`,
-      clear: () => {
-        history.innerHTML = '';
-        return '';
-      },
-      exit: () => {
-        closeTerminal();
-        return '';
-      }
-    };
-
-    input.addEventListener('keydown', (e) => {
-      SoundFX.key();
-      if (e.key === 'Enter') {
-        const raw = input.value.trim();
-        const cmd = raw.toLowerCase();
-        input.value = '';
-        if (!raw) return;
-
-        cmdHistory.push(raw);
-        historyIdx = cmdHistory.length;
-
-        const line = document.createElement('div');
-        line.className = 'space-y-1';
-        line.innerHTML = '<div class="flex items-center gap-2"><span class="text-accent-mint font-bold">parag@dev-os:~$</span><span class="text-white">' + raw + '</span></div>';
-
-        if (cmd.startsWith('theme ')) {
-          const t = cmd.split(' ')[1];
-          if (t === 'dark' || t === 'light') {
-            document.documentElement.setAttribute('data-theme', t);
-            localStorage.setItem('pv-theme', t);
-            line.innerHTML += '<div class="text-accent-mint">Theme switched to ' + t.toUpperCase() + ' mode.</div>';
-          } else {
-            line.innerHTML += `<div class="text-accent-coral">Usage: theme [dark|light]</div>`;
-          }
-        } else if (commands[cmd]) {
-          const res = commands[cmd]();
-          if (res) line.innerHTML += '<div>' + res + '</div>';
-        } else {
-          line.innerHTML += '<div class="text-accent-coral">Command not recognized: "' + raw + '". Type <span class="text-accent-mint font-bold">help</span> for assistance.</div>';
-        }
-
-        if (cmd !== 'clear') history.appendChild(line);
-        document.getElementById('term-body').scrollTop = document.getElementById('term-body').scrollHeight;
-      } else if (e.key === 'ArrowUp') {
-        if (historyIdx > 0) {
-          historyIdx--;
-          input.value = cmdHistory[historyIdx] || '';
-        }
-      } else if (e.key === 'ArrowDown') {
-        if (historyIdx < cmdHistory.length - 1) {
-          historyIdx++;
-          input.value = cmdHistory[historyIdx] || '';
-        } else {
-          historyIdx = cmdHistory.length;
-          input.value = '';
-        }
-      }
-    });
-  })();
-
-  // ═══════════════════════════════════════════════════════════
-  // 5. PLAYABLE RETRO MINI-GAME ("BUG HUNTER")
-  // ═══════════════════════════════════════════════════════════
-  const GameModule = (function() {
-    const modal = document.getElementById('cyber-game-modal');
-    const gCanvas = document.getElementById('game-canvas');
-    const scoreDisplay = document.getElementById('game-score-display');
-    const highDisplay = document.getElementById('game-high-display');
-    const overlay = document.getElementById('game-overlay');
-    const startBtn = document.getElementById('game-start-btn');
-    const closeBtn = document.getElementById('game-close-btn');
-    const trigger = document.getElementById('game-trigger-btn');
-    const mobileTrigger = document.getElementById('mobile-game-btn');
-
-    if (!modal || !gCanvas) return { launch: () => {} };
-
-    const gCtx = gCanvas.getContext('2d');
-    let running = false;
-    let score = 0;
-    let highScore = parseInt(localStorage.getItem('pv-game-high') || '0');
-    if (highDisplay) highDisplay.textContent = highScore;
-
-    let player = { x: 0, y: 0, width: 32, height: 24, speed: 7 };
-    let lasers = [];
-    let bugs = [];
-    let explosions = [];
-    let keys = { left: false, right: false, shoot: false };
-    const bugTypes = ['NullPointer', 'MemoryLeak', 'SegFault', 'SyntaxError', '404Bug'];
-
-    function resizeGame() {
-      const rect = gCanvas.parentElement.getBoundingClientRect();
-      gCanvas.width = rect.width;
-      gCanvas.height = rect.height;
-      player.x = gCanvas.width / 2 - player.width / 2;
-      player.y = gCanvas.height - 45;
-    }
-
-    function spawnBug() {
-      if (!running) return;
-      const text = bugTypes[Math.floor(Math.random() * bugTypes.length)];
-      bugs.push({
-        x: 20 + Math.random() * (gCanvas.width - 120),
-        y: -20,
-        text: text,
-        width: text.length * 9,
-        height: 18,
-        speed: 1.5 + Math.random() * 2.2,
-        color: Math.random() > 0.5 ? '#FF1744' : '#8B5CF6'
       });
-      setTimeout(spawnBug, Math.max(500, 1800 - score * 15));
-    }
-
-    function shootLaser() {
-      lasers.push({ x: player.x + player.width / 2, y: player.y, speed: 12 });
-      SoundFX.laser();
-    }
-
-    function loop() {
-      if (!running) return;
-      gCtx.fillStyle = 'rgba(7, 8, 13, 0.25)';
-      gCtx.fillRect(0, 0, gCanvas.width, gCanvas.height);
-
-      // Draw player ship
-      if (keys.left && player.x > 0) player.x -= player.speed;
-      if (keys.right && player.x < gCanvas.width - player.width) player.x += player.speed;
-
-      gCtx.fillStyle = '#00E676';
-      gCtx.beginPath();
-      gCtx.moveTo(player.x + player.width / 2, player.y);
-      gCtx.lineTo(player.x + player.width, player.y + player.height);
-      gCtx.lineTo(player.x, player.y + player.height);
-      gCtx.closePath();
-      gCtx.fill();
-
-      // Lasers
-      for (let i = lasers.length - 1; i >= 0; i--) {
-        const l = lasers[i];
-        l.y -= l.speed;
-        gCtx.fillStyle = '#0066FF';
-        gCtx.fillRect(l.x - 2, l.y, 4, 12);
-        if (l.y < 0) lasers.splice(i, 1);
-      }
-
-      // Bugs
-      for (let i = bugs.length - 1; i >= 0; i--) {
-        const b = bugs[i];
-        b.y += b.speed;
-        gCtx.fillStyle = b.color;
-        gCtx.font = 'bold 12px monospace';
-        gCtx.fillText("[" + b.text + "]", b.x, b.y);
-
-        // Check collision with laser
-        for (let j = lasers.length - 1; j >= 0; j--) {
-          const l = lasers[j];
-          if (l.x > b.x - 10 && l.x < b.x + b.width + 10 && l.y > b.y - 15 && l.y < b.y + 10) {
-            bugs.splice(i, 1);
-            lasers.splice(j, 1);
-            score += 100;
-            scoreDisplay.textContent = score;
-            SoundFX.explosion();
-            break;
-          }
-        }
-
-        // Check Game Over
-        if (b.y > gCanvas.height) {
-          gameOver();
-          return;
-        }
-      }
-
-      requestAnimationFrame(loop);
-    }
-
-    function startGame() {
-      resizeGame();
-      score = 0;
-      scoreDisplay.textContent = '0';
-      lasers = [];
-      bugs = [];
-      running = true;
-      overlay.style.display = 'none';
-      spawnBug();
-      requestAnimationFrame(loop);
-    }
-
-    function gameOver() {
-      running = false;
-      if (score > highScore) {
-        highScore = score;
-        localStorage.setItem('pv-game-high', highScore);
-        highDisplay.textContent = highScore;
-      }
-      overlay.style.display = 'flex';
-      document.getElementById('game-overlay-title').textContent = 'MISSION FAILED';
-      document.getElementById('game-overlay-desc').innerHTML = "Bug reached the core!<br/><span class="text-accent-mint font-bold">FINAL SCORE: " + score + "</span>";
-      startBtn.textContent = 'RETRY MISSION';
-      SoundFX.explosion();
-    }
-
-    function launchGame() {
-      modal.classList.add('active');
-      resizeGame();
-      SoundFX.launch();
-    }
-
-    function closeGame() {
-      modal.classList.remove('active');
-      running = false;
-      SoundFX.click();
-    }
-
-    if (trigger) trigger.addEventListener('click', launchGame);
-    if (mobileTrigger) mobileTrigger.addEventListener('click', launchGame);
-    if (closeBtn) closeBtn.addEventListener('click', closeGame);
-    if (startBtn) startBtn.addEventListener('click', startGame);
-
-    gCanvas.addEventListener('mousemove', (e) => {
-      const rect = gCanvas.getBoundingClientRect();
-      player.x = e.clientX - rect.left - player.width / 2;
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px'
     });
 
-    gCanvas.addEventListener('mousedown', () => {
-      if (running) shootLaser();
+    document.querySelectorAll('.anim-box').forEach(el => {
+      observer.observe(el);
     });
 
-    window.addEventListener('keydown', (e) => {
-      if (!modal.classList.contains('active')) return;
-      if (e.key === 'ArrowLeft' || e.key === 'a') keys.left = true;
-      if (e.key === 'ArrowRight' || e.key === 'd') keys.right = true;
-      if (e.key === ' ' || e.key === 'Spacebar') {
-        e.preventDefault();
-        if (!running) startGame();
-        else shootLaser();
-      }
-      if (e.key === 'Escape') closeGame();
-    });
-
-    window.addEventListener('keyup', (e) => {
-      if (e.key === 'ArrowLeft' || e.key === 'a') keys.left = false;
-      if (e.key === 'ArrowRight' || e.key === 'd') keys.right = false;
-    });
-
-    return { launch: launchGame };
+    setTimeout(() => {
+      document.querySelectorAll('.anim-box:not(.anim-ready)').forEach(el => {
+        el.classList.add('anim-ready');
+      });
+    }, 600);
   })();
 
-  // ═══════════════════════════════════════════════════════════
-  // 6. 3D DEVELOPER CORE WITH INTERACTIVE SHOCKWAVE EXPLOSION
-  // ═══════════════════════════════════════════════════════════
+  // Scroll Progress Bar
+  window.addEventListener('scroll', () => {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = total > 0 ? (window.scrollY / total) * 100 : 0;
+    const bar = document.getElementById('progress-bar');
+    if (bar) bar.style.width = progress + '%';
+
+    const header = document.getElementById('main-header');
+    if (header) {
+      const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      if (window.scrollY > 40) {
+        header.style.background = isDark ? 'rgba(10, 10, 10, 0.92)' : 'rgba(245, 242, 234, 0.92)';
+        header.style.backdropFilter = 'blur(16px)';
+        header.style.borderBottom = isDark ? '1px solid rgba(255, 255, 255, 0.06)' : '1px solid rgba(17, 18, 21, 0.08)';
+        header.style.boxShadow = isDark ? '0 4px 24px rgba(0, 0, 0, 0.6)' : '0 4px 24px rgba(17, 18, 21, 0.06)';
+      } else {
+        header.style.background = 'transparent';
+        header.style.backdropFilter = 'none';
+        header.style.borderBottom = 'none';
+        header.style.boxShadow = 'none';
+      }
+    }
+  });
+
+  // ── THREE.JS 3D DEVELOPER CORE CENTERPIECE ──
   (function initThreeScene() {
     const container = document.getElementById('hero-3d-viewport');
     if (!container || typeof THREE === 'undefined') return;
@@ -1502,33 +978,20 @@
     coreGroup.add(ring2);
 
     const pGeo = new THREE.BufferGeometry();
-    const pCount = 200;
+    const pCount = 180;
     const pPos = new Float32Array(pCount * 3);
-    const origPos = new Float32Array(pCount * 3);
     for (let i = 0; i < pCount * 3; i += 3) {
       const r = 2.2 + Math.random() * 0.8;
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(Math.random() * 2 - 1);
-      const px = r * Math.sin(phi) * Math.cos(theta);
-      const py = r * Math.sin(phi) * Math.sin(theta);
-      const pz = r * Math.cos(phi);
-      pPos[i] = origPos[i] = px;
-      pPos[i + 1] = origPos[i + 1] = py;
-      pPos[i + 2] = origPos[i + 2] = pz;
+      pPos[i] = r * Math.sin(phi) * Math.cos(theta);
+      pPos[i + 1] = r * Math.sin(phi) * Math.sin(theta);
+      pPos[i + 2] = r * Math.cos(phi);
     }
     pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
     const pMat = new THREE.PointsMaterial({ size: 0.06, color: 0x00E676, transparent: true, opacity: 0.8 });
     const pCloud = new THREE.Points(pGeo, pMat);
     coreGroup.add(pCloud);
-
-    // Shockwave pulse on core click!
-    let explosionStrength = 0;
-    container.style.cursor = 'pointer';
-    container.addEventListener('click', () => {
-      explosionStrength = 2.8;
-      outerMesh.scale.set(1.4, 1.4, 1.4);
-      SoundFX.explosion();
-    });
 
     let mouseNormX = 0, mouseNormY = 0;
     window.addEventListener('mousemove', (e) => {
@@ -1559,28 +1022,12 @@
       ring1.rotation.z += 0.006;
       ring2.rotation.z -= 0.005;
 
-      // Particle spring explosion decay
-      if (explosionStrength > 0.01) {
-        explosionStrength *= 0.94;
-        outerMesh.scale.lerp(new THREE.Vector3(1, 1, 1), 0.08);
-      }
-
-      const positions = pGeo.attributes.position.array;
-      for (let i = 0; i < pCount * 3; i += 3) {
-        positions[i] = origPos[i] * (1 + explosionStrength);
-        positions[i + 1] = origPos[i + 1] * (1 + explosionStrength);
-        positions[i + 2] = origPos[i + 2] * (1 + explosionStrength);
-      }
-      pGeo.attributes.position.needsUpdate = true;
-
       renderer.render(scene, camera);
     }
     render3D();
   })();
 
-  // ═══════════════════════════════════════════════════════════
-  // 7. CARD 3D TILT & THEME TOGGLE
-  // ═══════════════════════════════════════════════════════════
+  // ── ENHANCED 3D TILT ON CARDS ──
   document.querySelectorAll('.mag-card, .proj-card, .skill-card').forEach(card => {
     card.addEventListener('mousemove', e => {
       const rect = card.getBoundingClientRect();
@@ -1595,13 +1042,17 @@
     });
   });
 
-  // Theme Toggle Controller
+  // ── THEME TOGGLE CONTROLLER ──
   (function initThemeToggle() {
     function updateToggleUI(theme) {
       const btn = document.getElementById('theme-toggle');
       if (!btn) return;
       const icon = btn.querySelector('.material-symbols-outlined');
-      if (icon) icon.textContent = (theme === 'dark') ? 'light_mode' : 'dark_mode';
+      if (icon) {
+        // If theme is currently 'dark', show sun icon so user knows clicking will switch to light
+        // If theme is currently 'light', show moon icon so user knows clicking will switch to dark
+        icon.textContent = (theme === 'dark') ? 'light_mode' : 'dark_mode';
+      }
       btn.title = (theme === 'dark') ? 'Switch to Light Mode' : 'Switch to Dark Mode';
     }
 
@@ -1611,6 +1062,7 @@
       updateToggleUI(theme);
     }
 
+    // Initial sync
     const currentTheme = localStorage.getItem('pv-theme') || 'dark';
     document.documentElement.setAttribute('data-theme', currentTheme);
     updateToggleUI(currentTheme);
@@ -1624,47 +1076,6 @@
         applyTheme(next);
       });
     }
-  })();
-
-  // Scroll Progress Bar & Header Glass Effect
-  window.addEventListener('scroll', () => {
-    const total = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = total > 0 ? (window.scrollY / total) * 100 : 0;
-    const bar = document.getElementById('progress-bar');
-    if (bar) bar.style.width = progress + '%';
-
-    const header = document.getElementById('main-header');
-    if (header) {
-      const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-      if (window.scrollY > 40) {
-        header.style.background = isDark ? 'rgba(10, 10, 10, 0.92)' : 'rgba(245, 242, 234, 0.92)';
-        header.style.backdropFilter = 'blur(16px)';
-        header.style.borderBottom = isDark ? '1px solid rgba(255, 255, 255, 0.06)' : '1px solid rgba(17, 18, 21, 0.08)';
-        header.style.boxShadow = isDark ? '0 4px 24px rgba(0, 0, 0, 0.6)' : '0 4px 24px rgba(17, 18, 21, 0.06)';
-      } else {
-        header.style.background = 'transparent';
-        header.style.backdropFilter = 'none';
-        header.style.borderBottom = 'none';
-        header.style.boxShadow = 'none';
-      }
-    }
-  });
-
-  // IntersectionObserver for animation reveal
-  (function() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('anim-ready');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.anim-box').forEach(el => observer.observe(el));
-    setTimeout(() => {
-      document.querySelectorAll('.anim-box:not(.anim-ready)').forEach(el => el.classList.add('anim-ready'));
-    }, 600);
   })();
 
 </script>
@@ -1693,181 +1104,7 @@
   });
 
 <script>
-  // ── LIVE CODE SANDBOX & BENCHMARK REPL ──
-  (function initCodeSandbox() {
-    const editor = document.getElementById('sandbox-code-editor');
-    const runBtn = document.getElementById('sandbox-run-btn');
-    const output = document.getElementById('sandbox-output-text');
-    const perfDisplay = document.getElementById('sandbox-perf');
-    const timeMetric = document.getElementById('sandbox-metric-time');
-    const memMetric = document.getElementById('sandbox-metric-mem');
-    const statusMetric = document.getElementById('sandbox-metric-status');
-    const filename = document.getElementById('sandbox-filename');
-    const lang = document.getElementById('sandbox-lang');
-    const tabBtns = document.querySelectorAll('.sandbox-tab-btn');
-
-    if (!editor || !runBtn) return;
-
-    const snippets = {
-      ai: {
-        filename: 'friday_intent_parser.py',
-        lang: 'PYTHON 3.11',
-        code: `# FRIDAY AI Voice Intent Recognition Engine
-import json, time
-
-class IntentParser:
-    def __init__(self):
-        self.routes = {
-            "launch": ["open", "run", "start", "execute"],
-            "query": ["what", "who", "where", "how", "search"],
-            "system": ["cpu", "memory", "battery", "status"]
-        }
-
-    def parse(self, voice_stream: str):
-        tokens = voice_stream.lower().split()
-        for intent, keywords in self.routes.items():
-            if any(k in tokens for k in keywords):
-                return {"intent": intent, "confidence": 0.984, "tokens": tokens}
-        return {"intent": "general_inquiry", "confidence": 0.821}
-
-parser = IntentParser()
-query = "FRIDAY, analyze system memory and run diagnostic"
-result = parser.parse(query)
-print("Recognized Intent:", json.dumps(result, indent=2))`,
-        run: (code) => {
-          return `<div class="text-accent-mint font-bold">// EXECUTION SUCCESSFUL (Python 3.11)</div>
-<div class="text-white">Recognized Intent: {
-  "intent": "system",
-  "confidence": 0.984,
-  "tokens": ["friday,", "analyze", "system", "memory", "and", "run", "diagnostic"]
-}</div>
-<div class="text-accent-cobalt mt-2">✓ AI Speech-to-Intent Pipeline Completed with 0.984 confidence.</div>`;
-        }
-      },
-      raycast: {
-        filename: 'Fogwatch_RaycastOcclusion.cpp',
-        lang: 'C++ / UNREAL ENGINE 5',
-        code: `// Fogwatch Psychological Horror — Dynamic Raycast Flashlight
-#include <iostream>
-#include <cmath>
-
-struct FVector { float X, Y, Z; };
-
-class UFlashlightOcclusion {
-public:
-    bool TraceHorrorObstacle(FVector PlayerPos, FVector LookDir, float MaxDist) {
-        FVector HitTarget = { PlayerPos.X + LookDir.X * MaxDist,
-                              PlayerPos.Y + LookDir.Y * MaxDist,
-                              PlayerPos.Z + LookDir.Z * MaxDist };
-        float Distance = std::sqrt(std::pow(HitTarget.X, 2) + std::pow(HitTarget.Y, 2));
-        return Distance < MaxDist;
-    }
-};
-
-int main() {
-    UFlashlightOcclusion OcclusionEngine;
-    bool bHit = OcclusionEngine.TraceHorrorObstacle({0, 0, 180}, {0.8f, 0.6f, 0}, 850.0f);
-    std::cout << "Dynamic Volumetric Fog Beam Traced: " << (bHit ? "COLLISION FOUND" : "CLEAR") << std::endl;
-    return 0;
-}`,
-        run: (code) => {
-          return `<div class="text-accent-coral font-bold">// UNREAL ENGINE 5 C++ TRACE RUNTIME</div>
-<div class="text-white">Dynamic Volumetric Fog Beam Traced: COLLISION FOUND</div>
-<div class="text-text-muted mt-1">Raycast Distance: 850.0 units | Occlusion Angle: 36.8°</div>
-<div class="text-accent-mint mt-2">✓ Volumetric Shadow Map Computed in 0.84ms.</div>`;
-        }
-      },
-      bst: {
-        filename: 'BinarySearchTree_Optimizer.cpp',
-        lang: 'C++ (DSA)',
-        code: `// Algorithmic Data Structures: Balanced BST Lookup
-#include <iostream>
-#include <vector>
-
-struct Node {
-    int key;
-    Node *left = nullptr, *right = nullptr;
-    Node(int v) : key(v) {}
-};
-
-Node* insert(Node* root, int key) {
-    if (!root) return new Node(key);
-    if (key < root->key) root->left = insert(root->left, key);
-    else root->right = insert(root->right, key);
-    return root;
-}
-
-int main() {
-    std::vector<int> stream = {45, 23, 89, 12, 34, 78, 99};
-    Node* root = nullptr;
-    for (int num : stream) root = insert(root, num);
-    std::cout << "Optimized BST built with " << stream.size() << " nodes." << std::endl;
-    std::cout << "Search complexity: O(log N) average." << std::endl;
-    return 0;
-}`,
-        run: (code) => {
-          return `<div class="text-accent-cobalt font-bold">// C++ DATA STRUCTURES BENCHMARK</div>
-<div class="text-white">Optimized BST built with 7 nodes.
-Search complexity: O(log N) average.</div>
-<div class="text-accent-mint mt-2">✓ Memory allocated cleanly: 168 bytes. All trees balanced.</div>`;
-        }
-      }
-    };
-
-    let activeKey = 'ai';
-    function loadSnippet(key) {
-      activeKey = key;
-      const data = snippets[key];
-      editor.value = data.code;
-      filename.textContent = data.filename;
-      lang.textContent = data.lang;
-      output.innerHTML = `<div class="text-accent-mint font-bold">// Loaded \${data.filename}</div><div>Click &quot;EXECUTE CODE&quot; to compile and benchmark.</div>`;
-      timeMetric.textContent = '-- ms';
-      memMetric.textContent = '-- KB';
-      statusMetric.textContent = 'STANDBY';
-      statusMetric.className = 'text-text-muted';
-
-      tabBtns.forEach(btn => {
-        const isSelected = btn.getAttribute('data-snippet') === key;
-        if (isSelected) {
-          btn.className = 'sandbox-tab-btn px-3 py-1.5 rounded-lg bg-accent-mint text-black font-bold shadow-sm transition-all';
-        } else {
-          btn.className = 'sandbox-tab-btn px-3 py-1.5 rounded-lg hud-card hover:border-accent-mint text-text-muted hover:text-white transition-all font-bold';
-        }
-      });
-    }
-
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        loadSnippet(btn.getAttribute('data-snippet'));
-        if (window.SoundFX) SoundFX.click();
-      });
-    });
-
-    runBtn.addEventListener('click', () => {
-      if (window.SoundFX) SoundFX.launch();
-      statusMetric.textContent = 'COMPILING...';
-      statusMetric.className = 'text-accent-coral animate-pulse';
-      output.innerHTML = '<div class="text-text-muted">Compiling code in WebAssembly sandbox environment...</div>';
-
-      const startTime = performance.now();
-      setTimeout(() => {
-        const endTime = performance.now();
-        const duration = (endTime - startTime + Math.random() * 2).toFixed(2);
-        const data = snippets[activeKey];
-        output.innerHTML = data.run(editor.value);
-        timeMetric.textContent = duration + ' ms';
-        memMetric.textContent = (Math.random() * 8 + 12).toFixed(1) + ' KB';
-        statusMetric.textContent = '200 OK ✓';
-        statusMetric.className = 'text-accent-mint font-bold';
-        if (window.SoundFX) SoundFX.hover();
-      }, 400);
-    });
-
-    // Initial load
-    loadSnippet('ai');
-  })();
-</script>
+  
 
 </script>
 
