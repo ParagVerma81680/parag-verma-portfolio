@@ -11,6 +11,13 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
+  // Apply saved theme IMMEDIATELY before page render to prevent white/dark flashing
+  (function() {
+    var t = localStorage.getItem('pv-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<script>
   tailwind.config = {
     theme: {
       extend: {
@@ -51,13 +58,20 @@
 </script>
 <style>
   /* ===========================
-     SPACE GROTESK — BOLD DARK NEON HEADINGS
+     SPACE GROTESK — BOLD HEADINGS
   =========================== */
-  .font-grotesk, .font-grotesk, h1, h2, h3 {
+  .font-grotesk, h1, h2, h3 {
     font-family: "Space Grotesk", "Inter", sans-serif !important;
     font-feature-settings: "liga" 1, "kern" 1;
     text-rendering: optimizeLegibility;
     letter-spacing: -0.02em;
+  }
+
+  /* Base Body Background (Dark Default) */
+  body {
+    background-color: #0D0D0D;
+    color: #F5F5F5;
+    transition: background-color 0.35s ease, color 0.25s ease;
   }
 
   /* Noise & Sci-Fi Background Canvas */
@@ -76,14 +90,13 @@
     z-index: 40;
   }
 
-  /* High-Tech Technical Grid — Dark */
+  /* High-Tech Technical Grid (Dark Default) */
   .bg-grid-tech {
     background-size: 60px 60px;
     background-image: 
       linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   }
-
 
   /* Dark Neon Glass Card */
   .hud-card {
@@ -93,6 +106,7 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.06);
     position: relative;
+    transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
   }
   .hud-card-hover {
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -104,7 +118,7 @@
     transform: translateY(-5px);
   }
 
-  /* Corner HUD Ticks — Neon Blue */
+  /* Corner HUD Ticks */
   .hud-corner-tl::before {
     content: '';
     position: absolute;
@@ -126,7 +140,7 @@
     box-shadow: 2px 2px 8px rgba(0, 102, 255, 0.4);
   }
 
-  /* Neon Electric Cursor */
+  /* Custom Precision Cursor */
   .custom-cursor-dot {
     pointer-events: none;
     position: fixed;
@@ -165,7 +179,7 @@
     box-shadow: 0 0 30px rgba(0, 102, 255, 0.6), 0 0 60px rgba(0, 102, 255, 0.3);
   }
 
-  /* Dark Neon Glow Orbs */
+  /* Telemetry Glow Orbs */
   .glow-orb {
     position: fixed;
     border-radius: 50%;
@@ -180,74 +194,44 @@
     100% { transform: translate(40px, -30px) scale(1.1); }
   }
 
-  /* ===========================
-     CSS ENTRY ANIMATIONS (IntersectionObserver driven)
-     Elements start hidden, get .anim-ready added by JS observer
-  =========================== */
-
-  /* Base hidden state */
+  /* CSS ENTRY ANIMATIONS */
   .anim-box { opacity: 0; }
   .anim-box.anim-ready {
     animation-fill-mode: both;
     animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
-
-  /* Fade up (default) */
-  .anim-box.from-bottom.anim-ready {
-    animation: anim-from-bottom 0.85s both;
-  }
+  .anim-box.from-bottom.anim-ready { animation: anim-from-bottom 0.85s both; }
   @keyframes anim-from-bottom {
     from { opacity: 0; transform: translateY(45px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
-  /* Swing in from left */
-  .anim-box.from-left.anim-ready {
-    animation: anim-from-left 0.9s both;
-  }
+  .anim-box.from-left.anim-ready { animation: anim-from-left 0.9s both; }
   @keyframes anim-from-left {
     from { opacity: 0; transform: translateX(-60px) rotate(-3deg); }
     to   { opacity: 1; transform: translateX(0) rotate(0); }
   }
-
-  /* Swing in from right */
-  .anim-box.from-right.anim-ready {
-    animation: anim-from-right 0.9s both;
-  }
+  .anim-box.from-right.anim-ready { animation: anim-from-right 0.9s both; }
   @keyframes anim-from-right {
     from { opacity: 0; transform: translateX(60px) rotate(3deg); }
     to   { opacity: 1; transform: translateX(0) rotate(0); }
   }
-
-  /* Zoom in */
-  .anim-box.zoom-in.anim-ready {
-    animation: anim-zoom-in 0.8s both;
-  }
+  .anim-box.zoom-in.anim-ready { animation: anim-zoom-in 0.8s both; }
   @keyframes anim-zoom-in {
     from { opacity: 0; transform: scale(0.88) translateY(30px); }
     to   { opacity: 1; transform: scale(1) translateY(0); }
   }
-
-  /* Swing from top */
-  .anim-box.from-top.anim-ready {
-    animation: anim-from-top 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-  }
+  .anim-box.from-top.anim-ready { animation: anim-from-top 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
   @keyframes anim-from-top {
     from { opacity: 0; transform: translateY(-50px) rotate(-5deg); transform-origin: top center; }
     to   { opacity: 1; transform: translateY(0) rotate(0); }
   }
-
-  /* Clip wipe */
   .anim-box.clip-wipe { opacity: 1 !important; clip-path: inset(0 100% 0 0); }
-  .anim-box.clip-wipe.anim-ready {
-    animation: anim-clip-wipe 1s cubic-bezier(0.77, 0, 0.175, 1) both;
-  }
+  .anim-box.clip-wipe.anim-ready { animation: anim-clip-wipe 1s cubic-bezier(0.77, 0, 0.175, 1) both; }
   @keyframes anim-clip-wipe {
     from { clip-path: inset(0 100% 0 0); }
     to   { clip-path: inset(0 0% 0 0); }
   }
 
-  /* Stagger delay helpers */
   .anim-d1 { animation-delay: 0.05s !important; }
   .anim-d2 { animation-delay: 0.12s !important; }
   .anim-d3 { animation-delay: 0.19s !important; }
@@ -258,17 +242,11 @@
   @media (pointer: coarse) {
     .custom-cursor-dot, .custom-cursor-follower { display: none !important; }
   }
-  @media print {
-    header, footer, .no-print, #sci-canvas, .noise-bg, .glow-orb { display: none !important; }
-    body { background: #ffffff !important; color: #000000 !important; }
-    .hud-card { background: transparent !important; border: 1px solid #e2e8f0 !important; box-shadow: none !important; }
-    .anim-box { opacity: 1 !important; clip-path: none !important; }
-  }
 
-  /* Large Background Watermark Typography */
+  /* Background Watermark Typography */
   .tech-watermark-text {
     position: absolute;
-    font-family: 'JetBrains Mono', 'Cormorant Garant', monospace;
+    font-family: 'JetBrains Mono', 'Space Grotesk', monospace;
     font-weight: 900;
     font-size: clamp(3.5rem, 12vw, 14rem);
     line-height: 0.8;
@@ -279,9 +257,10 @@
     z-index: 0;
     white-space: nowrap;
     text-transform: uppercase;
+    transition: color 0.35s ease;
   }
 
-  /* 3D Perspective Technical Grid Layer */
+  /* 3D Perspective Grid */
   .perspective-grid-layer {
     position: absolute;
     inset: -30%;
@@ -296,16 +275,14 @@
     -webkit-mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 80%);
   }
 
-  /* Interactive Hotspot Nodes */
+  /* Hotspots */
   .hotspot-node {
     position: absolute;
     cursor: pointer;
     z-index: 35;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .hotspot-node:hover {
-    transform: scale(1.12);
-  }
+  .hotspot-node:hover { transform: scale(1.12); }
   .hotspot-pulse {
     position: absolute;
     inset: -5px;
@@ -317,194 +294,17 @@
     75%, 100% { transform: scale(2.2); opacity: 0; }
   }
 
-
-  /* ═══════════════════════════════════════════════════════════
-     THEME SYSTEM — CSS Custom Properties
-     Dark theme is default. Light theme via [data-theme="light"]
-  ══════════════════════════════════════════════════════════════ */
-
-  /* ── DARK THEME (default) ── */
-  :root, html[data-theme="dark"] {
-    --bg-page:         #0D0D0D;
-    --bg-card:         rgba(255,255,255,0.04);
-    --bg-card-hover:   rgba(0,102,255,0.07);
-    --bg-nav:          rgba(255,255,255,0.04);
-    --bg-header-scroll: rgba(10,10,10,0.92);
-    --bg-chip:         rgba(255,255,255,0.06);
-    --text-primary:    #F5F5F5;
-    --text-muted-rgb:  #9CA3AF;
-    --text-light-rgb:  #6B7280;
-    --accent-main:     #0066FF;
-    --accent-red-v:    #FF1744;
-    --accent-green-v:  #00E676;
-    --accent-purple-v: #8B5CF6;
-    --card-border:     rgba(255,255,255,0.08);
-    --card-shadow:     0 12px 40px -8px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06);
-    --card-hover-border: rgba(0,102,255,0.5);
-    --card-hover-shadow: 0 24px 60px -12px rgba(0,102,255,0.25), 0 0 0 1px rgba(0,102,255,0.15), 0 0 40px -10px rgba(0,102,255,0.15);
-    --tick-color:      #0066FF;
-    --tick-shadow:     0 0 8px rgba(0,102,255,0.5);
-    --cursor-color:    #0066FF;
-    --cursor-shadow:   0 0 12px #0066FF, 0 0 24px rgba(0,102,255,0.4);
-    --cursor-follow-border: rgba(0,102,255,0.5);
-    --cursor-follow-hover-bg: rgba(0,102,255,0.9);
-    --cursor-follow-hover-shadow: 0 0 30px rgba(0,102,255,0.6), 0 0 60px rgba(0,102,255,0.3);
-    --grid-color:      rgba(255,255,255,0.03);
-    --persp-grid:      rgba(0,102,255,0.15);
-    --watermark:       rgba(255,255,255,0.04);
-    --hotspot-pulse:   rgba(0,102,255,0.8);
-    --orb-opacity:     0.35;
-    --orb1-color:      rgba(0,102,255,0.5);
-    --orb2-color:      rgba(139,92,246,0.4);
-    --orb3-color:      rgba(255,23,68,0.35);
-    --nav-border:      rgba(255,255,255,0.08);
-    --footer-border:   rgba(255,255,255,0.06);
-    --footer-bg:       transparent;
-    --progress-bg:     linear-gradient(90deg, #0066FF, #8B5CF6, #FF1744);
-    --ruler-opacity:   0.15;
-    --sci-bg:          #0D0D0D;
-    --sci-particle:    rgba(0,102,255,ALPHA);
-    --sci-radar:       rgba(0,102,255,0.06);
-    --sci-line:        rgba(0,102,255,DALPHA);
-    --toggle-label:    "☀ LIGHT";
-    --toggle-icon:     light_mode;
-  }
-
-  /* ── LIGHT THEME ── */
-  html[data-theme="light"] {
-    --bg-page:         #F5F2EA;
-    --bg-card:         rgba(255,255,255,0.82);
-    --bg-card-hover:   rgba(255,255,255,0.96);
-    --bg-nav:          rgba(255,255,255,0.80);
-    --bg-header-scroll: rgba(245,242,234,0.92);
-    --bg-chip:         rgba(255,255,255,0.95);
-    --text-primary:    #111215;
-    --text-muted-rgb:  #4A4D57;
-    --text-light-rgb:  #797D8C;
-    --accent-main:     #2845E0;
-    --accent-red-v:    #FF5C38;
-    --accent-green-v:  #00BA88;
-    --accent-purple-v: #7C66FF;
-    --card-border:     rgba(17,18,21,0.09);
-    --card-shadow:     0 12px 40px -8px rgba(17,18,21,0.05), inset 0 1px 0 rgba(255,255,255,0.95);
-    --card-hover-border: rgba(40,69,224,0.4);
-    --card-hover-shadow: 0 24px 60px -12px rgba(40,69,224,0.16), 0 0 0 1px rgba(40,69,224,0.1);
-    --tick-color:      #2845E0;
-    --tick-shadow:     none;
-    --cursor-color:    #2845E0;
-    --cursor-shadow:   0 0 8px #2845E0;
-    --cursor-follow-border: rgba(40,69,224,0.45);
-    --cursor-follow-hover-bg: rgba(40,69,224,0.95);
-    --cursor-follow-hover-shadow: 0 10px 30px rgba(40,69,224,0.4);
-    --grid-color:      rgba(17,18,21,0.04);
-    --persp-grid:      rgba(40,69,224,0.08);
-    --watermark:       rgba(17,18,21,0.035);
-    --hotspot-pulse:   rgba(40,69,224,0.6);
-    --orb-opacity:     0.55;
-    --orb1-color:      rgba(40,69,224,0.3);
-    --orb2-color:      rgba(124,102,255,0.28);
-    --orb3-color:      rgba(255,92,56,0.25);
-    --nav-border:      rgba(17,18,21,0.09);
-    --footer-border:   rgba(17,18,21,0.09);
-    --footer-bg:       rgba(234,229,216,0.6);
-    --progress-bg:     linear-gradient(90deg, #2845E0, #7C66FF, #FF5C38);
-    --ruler-opacity:   0.12;
-    --sci-bg:          #F5F2EA;
-    --sci-particle:    rgba(40,69,224,ALPHA);
-    --sci-radar:       rgba(40,69,224,0.05);
-    --sci-line:        rgba(40,69,224,DALPHA);
-    --toggle-label:    "● DARK";
-    --toggle-icon:     dark_mode;
-  }
-
-  /* ── APPLY CSS VARIABLES TO ELEMENTS ── */
-
-  body { background-color: var(--bg-page) !important; }
-
-  .bg-grid-tech {
-    background-image:
-      linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px) !important;
-  }
-
-  .hud-card {
-    background: var(--bg-card) !important;
-    border-color: var(--card-border) !important;
-    box-shadow: var(--card-shadow) !important;
-  }
-
-  .hud-card-hover:hover {
-    border-color: var(--card-hover-border) !important;
-    background: var(--bg-card-hover) !important;
-    box-shadow: var(--card-hover-shadow) !important;
-  }
-
-  .hud-corner-tl::before {
-    border-color: var(--tick-color) !important;
-    box-shadow: var(--tick-shadow) !important;
-  }
-  .hud-corner-br::after {
-    border-color: var(--tick-color) !important;
-    box-shadow: var(--tick-shadow) !important;
-  }
-
-  .custom-cursor-dot {
-    background: var(--cursor-color) !important;
-    box-shadow: var(--cursor-shadow) !important;
-  }
-  .custom-cursor-follower {
-    border-color: var(--cursor-follow-border) !important;
-  }
-  .cursor-hover .custom-cursor-follower {
-    border-color: var(--cursor-color) !important;
-    background-color: var(--cursor-follow-hover-bg) !important;
-    box-shadow: var(--cursor-follow-hover-shadow) !important;
-  }
-
-  .tech-watermark-text {
-    color: var(--watermark) !important;
-  }
-
-  .perspective-grid-layer {
-    background-image:
-      linear-gradient(to right, var(--persp-grid) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--persp-grid) 1px, transparent 1px) !important;
-  }
-
-  .hotspot-pulse {
-    border-color: var(--hotspot-pulse) !important;
-  }
-
   #progress-bar {
-    height: 2px;
     position: fixed;
     top: 0; left: 0;
-    z-index: 60;
-    background: var(--progress-bg) !important;
-    transition: background 0.5s ease;
+    height: 2px;
+    width: 0%;
+    z-index: 100;
+    background: linear-gradient(90deg, #0066FF, #8B5CF6, #FF1744);
+    transition: width 0.1s ease-out;
   }
 
-  /* Glow orbs use CSS custom properties via JS */
-  #orb-1 { background: var(--orb1-color) !important; opacity: var(--orb-opacity) !important; filter: blur(160px); }
-  #orb-2 { background: var(--orb2-color) !important; opacity: var(--orb-opacity) !important; filter: blur(160px); }
-  #orb-3 { background: var(--orb3-color) !important; opacity: var(--orb-opacity) !important; filter: blur(160px); }
-
-  /* Footer theme */
-  footer {
-    border-top-color: var(--footer-border) !important;
-    background-color: var(--footer-bg) !important;
-  }
-  html[data-theme="light"] footer {
-    background: rgba(234,229,216,0.5) !important;
-  }
-
-  /* Nav theme */
-  #nav-pill {
-    background: var(--bg-nav) !important;
-    border-color: var(--nav-border) !important;
-  }
-
-  /* Theme toggle button */
+  /* Theme Toggle Button Style */
   #theme-toggle {
     display: flex;
     align-items: center;
@@ -512,81 +312,148 @@
     width: 38px;
     height: 38px;
     border-radius: 12px;
-    border: 1.5px solid var(--nav-border);
-    background: var(--bg-card);
-    color: var(--text-muted-rgb);
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    color: #9CA3AF;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
-    font-size: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     flex-shrink: 0;
   }
   #theme-toggle:hover {
-    border-color: var(--accent-main) !important;
-    color: var(--accent-main) !important;
-    box-shadow: 0 0 16px rgba(var(--accent-main), 0.3);
+    border-color: #0066FF !important;
+    color: #0066FF !important;
+    box-shadow: 0 0 16px rgba(0, 102, 255, 0.35);
   }
   #theme-toggle .material-symbols-outlined {
-    font-size: 18px !important;
-    color: inherit;
-    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
+    font-size: 19px !important;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
   #theme-toggle:hover .material-symbols-outlined {
-    transform: rotate(22deg);
+    transform: rotate(25deg);
   }
 
-  /* Light theme inverted hud-card nav pill */
-  html[data-theme="light"] #nav-pill {
-    background: rgba(255,255,255,0.85) !important;
-    border-color: rgba(17,18,21,0.10) !important;
-  }
-  html[data-theme="light"] #live-clock-box {
-    background: rgba(255,255,255,0.82) !important;
-    border-color: rgba(17,18,21,0.09) !important;
-  }
-  html[data-theme="light"] #logo-box {
-    background: rgba(255,255,255,0.95) !important;
-    border-color: rgba(17,18,21,0.12) !important;
-  }
+  /* ═══════════════════════════════════════════════════════════
+     LIGHT THEME OVERRIDES (Previous Ivory Warm Aesthetic)
+  ══════════════════════════════════════════════════════════════ */
   html[data-theme="light"] body {
+    background-color: #F5F2EA !important;
     color: #111215 !important;
   }
 
-  /* Light mode accent text colors - Tailwind can't dynamically switch so we override */
-  html[data-theme="light"] .text-text-main { color: #111215 !important; }
-  html[data-theme="light"] .text-text-muted { color: #4A4D57 !important; }
-  html[data-theme="light"] .text-text-light { color: #797D8C !important; }
-  html[data-theme="light"] .text-accent-cobalt { color: #2845E0 !important; }
-  html[data-theme="light"] .text-accent-mint { color: #00BA88 !important; }
-  html[data-theme="light"] .text-accent-coral { color: #FF5C38 !important; }
-  html[data-theme="light"] .text-accent-lavender { color: #7C66FF !important; }
-  html[data-theme="light"] .bg-accent-cobalt { background-color: #2845E0 !important; }
-  html[data-theme="light"] .border-accent-cobalt { border-color: #2845E0 !important; }
-
-  /* Light mode: hero gradient text */
-  html[data-theme="light"] .hero-verma {
-    background: linear-gradient(to right, #111215, #2845E0, #7C66FF) !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
+  html[data-theme="light"] .hud-card {
+    background: rgba(255, 255, 255, 0.85) !important;
+    border-color: rgba(17, 18, 21, 0.09) !important;
+    box-shadow: 0 12px 40px -8px rgba(17, 18, 21, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
   }
-  /* Dark mode: hero gradient text */
-  html[data-theme="dark"] .hero-verma {
-    background: linear-gradient(to right, #F5F5F5, #0066FF, #8B5CF6) !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
+  html[data-theme="light"] .hud-card-hover:hover {
+    border-color: rgba(40, 69, 224, 0.4) !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 24px 60px -12px rgba(40, 69, 224, 0.16), 0 0 0 1px rgba(40, 69, 224, 0.1) !important;
   }
-
-  /* Smooth theme transition on all elements */
-  *, *::before, *::after {
-    transition: background-color 0.35s ease, border-color 0.35s ease, color 0.18s ease, box-shadow 0.35s ease !important;
+  html[data-theme="light"] .hud-corner-tl::before {
+    border-color: #2845E0 !important;
+    box-shadow: none !important;
   }
-  /* Exception: don't animate animation/transform properties */
-  .anim-box, canvas, .glow-orb, .hotspot-pulse, .custom-cursor-dot, .custom-cursor-follower {
-    transition: none !important;
+  html[data-theme="light"] .hud-corner-br::after {
+    border-color: #2845E0 !important;
+    box-shadow: none !important;
   }
-
+  html[data-theme="light"] .custom-cursor-dot {
+    background: #2845E0 !important;
+    box-shadow: 0 0 8px #2845E0 !important;
+  }
+  html[data-theme="light"] .custom-cursor-follower {
+    border-color: rgba(40, 69, 224, 0.45) !important;
+  }
+  html[data-theme="light"] .cursor-hover .custom-cursor-follower {
+    border-color: #2845E0 !important;
+    background-color: rgba(40, 69, 224, 0.95) !important;
+    box-shadow: 0 10px 30px rgba(40, 69, 224, 0.4) !important;
+  }
+  html[data-theme="light"] .bg-grid-tech {
+    background-image: 
+      linear-gradient(to right, rgba(17, 18, 21, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(17, 18, 21, 0.04) 1px, transparent 1px) !important;
+  }
+  html[data-theme="light"] .perspective-grid-layer {
+    background-image: 
+      linear-gradient(to right, rgba(40, 69, 224, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(40, 69, 224, 0.08) 1px, transparent 1px) !important;
+  }
+  html[data-theme="light"] .tech-watermark-text {
+    color: rgba(17, 18, 21, 0.035) !important;
+  }
+  html[data-theme="light"] .hotspot-pulse {
+    border-color: rgba(40, 69, 224, 0.6) !important;
+  }
+  html[data-theme="light"] #orb-1 {
+    background: rgba(40, 69, 224, 0.3) !important;
+    opacity: 0.55 !important;
+  }
+  html[data-theme="light"] #orb-2 {
+    background: rgba(124, 102, 255, 0.28) !important;
+    opacity: 0.55 !important;
+  }
+  html[data-theme="light"] #orb-3 {
+    background: rgba(255, 92, 56, 0.25) !important;
+    opacity: 0.55 !important;
+  }
+  html[data-theme="light"] #nav-pill {
+    background: rgba(255, 255, 255, 0.85) !important;
+    border-color: rgba(17, 18, 21, 0.10) !important;
+  }
+  html[data-theme="light"] #live-clock-box {
+    background: rgba(255, 255, 255, 0.82) !important;
+    border-color: rgba(17, 18, 21, 0.09) !important;
+  }
+  html[data-theme="light"] #logo-box {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-color: rgba(17, 18, 21, 0.12) !important;
+  }
+  html[data-theme="light"] #theme-toggle {
+    background: rgba(255, 255, 255, 0.75) !important;
+    border-color: rgba(17, 18, 21, 0.12) !important;
+    color: #4A4D57 !important;
+  }
+  html[data-theme="light"] #theme-toggle:hover {
+    border-color: #2845E0 !important;
+    color: #2845E0 !important;
+    box-shadow: 0 0 16px rgba(40, 69, 224, 0.25) !important;
+  }
+  html[data-theme="light"] footer {
+    border-top-color: rgba(17, 18, 21, 0.09) !important;
+    background: rgba(234, 229, 216, 0.5) !important;
+  }
+  html[data-theme="light"] .text-text-main {
+    color: #111215 !important;
+  }
+  html[data-theme="light"] .text-text-muted {
+    color: #4A4D57 !important;
+  }
+  html[data-theme="light"] .text-text-light {
+    color: #797D8C !important;
+  }
+  html[data-theme="light"] .text-accent-cobalt {
+    color: #2845E0 !important;
+  }
+  html[data-theme="light"] .text-accent-mint {
+    color: #00BA88 !important;
+  }
+  html[data-theme="light"] .text-accent-coral {
+    color: #FF5C38 !important;
+  }
+  html[data-theme="light"] .text-accent-lavender {
+    color: #7C66FF !important;
+  }
+  html[data-theme="light"] .bg-accent-cobalt {
+    background-color: #2845E0 !important;
+  }
+  html[data-theme="light"] #progress-bar {
+    background: linear-gradient(90deg, #2845E0, #7C66FF, #FF5C38) !important;
+  }
 </style>
 </head>
-<body class="text-text-main font-geist antialiased selection:bg-accent-cobalt selection:text-white min-h-screen flex flex-col relative overflow-x-hidden" id="page-body">
+<body class="font-geist antialiased selection:bg-accent-cobalt selection:text-white min-h-screen flex flex-col relative overflow-x-hidden" id="page-body">
 
 <!-- Scroll Progress Bar -->
 <div id="progress-bar"></div>
@@ -597,9 +464,9 @@
 <div class="fixed inset-0 bg-grid-tech pointer-events-none z-0"></div>
 
 <!-- Atmospheric Glow Orbs -->
-<div class="glow-orb w-[700px] h-[700px] top-[-15%] right-[-5%]" id="orb-1"></div>
-<div class="glow-orb w-[600px] h-[600px] top-[40%] left-[-10%]" id="orb-2" style="animation-delay:-3s;"></div>
-<div class="glow-orb w-[650px] h-[650px] bottom-[-10%] right-[15%]" id="orb-3" style="animation-delay:-6s;"></div>
+<div class="glow-orb w-[700px] h-[700px] top-[-15%] right-[-5%]" id="orb-1" style="background:rgba(0,102,255,0.18);"></div>
+<div class="glow-orb w-[600px] h-[600px] top-[40%] left-[-10%]" id="orb-2" style="background:rgba(139,92,246,0.14);animation-delay:-3s;"></div>
+<div class="glow-orb w-[650px] h-[650px] bottom-[-10%] right-[15%]" id="orb-3" style="background:rgba(255,23,68,0.12);animation-delay:-6s;"></div>
 
 <!-- Scientific Ruler Tickers (Left & Right Viewport Edges) -->
 <div class="fixed top-0 bottom-0 left-3 w-4 hidden xl:flex flex-col justify-between py-24 pointer-events-none z-30 font-mono text-[9px] text-text-light/50 select-none">
@@ -651,11 +518,13 @@
         <span>CV</span>
         <span class="material-symbols-outlined text-sm">download</span>
       </a>
-      <!-- Theme Toggle Button -->
-      <button id="theme-toggle" aria-label="Toggle theme" title="Toggle light / dark mode" data-cursor="THEME">
-        <span class="material-symbols-outlined">dark_mode</span>
+
+      <!-- Light / Dark Theme Toggle Button -->
+      <button id="theme-toggle" aria-label="Toggle theme" title="Switch to Light Mode" data-cursor="THEME">
+        <span class="material-symbols-outlined">light_mode</span>
       </button>
-      <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-xl flex items-center justify-center text-text-muted hover:text-accent-cobalt transition-all" style="background:var(--bg-card);border:1px solid var(--card-border);" aria-label="Toggle menu">
+
+      <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-xl flex items-center justify-center text-text-muted hover:text-accent-cobalt transition-all" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);" aria-label="Toggle menu">
         <span class="material-symbols-outlined" id="menu-icon">menu</span>
       </button>
     </div>
@@ -799,9 +668,9 @@
 
 
 <!-- Editorial Scientific Footer -->
-<footer class="w-full py-16 md:py-24 relative z-10 mt-auto" style="border-top:1px solid var(--footer-border);">
+<footer class="w-full py-16 md:py-24 relative z-10 mt-auto" style="border-top:1px solid rgba(255,255,255,0.06);">
   <div class="max-w-6xl mx-auto px-6 md:px-8">
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-12 border-b" style="border-color:var(--footer-border);">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-12 border-b" style="border-color:rgba(255,255,255,0.06);">
       <div>
         <div class="flex items-center gap-2 font-mono text-xs text-accent-cobalt uppercase tracking-widest mb-2 font-bold">
           <span class="w-2 h-2 rounded-full bg-accent-cobalt"></span>
@@ -950,36 +819,31 @@
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = isDark ? `rgba(0,102,255,${p.alpha})` : `rgba(40,69,224,${p.alpha * 0.7})` ;
+        ctx.fillStyle = isDark ? "rgba(0, 102, 255, " + p.alpha + ")" : "rgba(40, 69, 224, " + (p.alpha * 0.7) + ")";
         ctx.fill();
 
-        // Connect nearby nodes
+        // Connect nearby particles
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j];
-          const dx = p.x - p2.x;
-          const dy = p.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < 120) {
+          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+          if (dist < 90) {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(0, 102, 255, ${0.08 * (1 - dist / 120)})`;
-            ctx.lineWidth = 0.75;
+            ctx.strokeStyle = isDark ? "rgba(0, 102, 255, " + (0.12 * (1 - dist / 90)) + ")" : "rgba(40, 69, 224, " + (0.08 * (1 - dist / 90)) + ")";
+            ctx.lineWidth = 0.6;
             ctx.stroke();
           }
         }
 
-        // React to mouse proximity
-        const mdx = p.x - mouseX;
-        const mdy = p.y - mouseY;
-        const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+        // Interactive mouse connection line
+        const mdist = Math.hypot(p.x - mouseX, p.y - mouseY);
         if (mdist < 140) {
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(mouseX, mouseY);
-          ctx.strokeStyle = `rgba(0, 102, 255, ${0.15 * (1 - mdist / 140)})`;
-          ctx.lineWidth = 1;
+          ctx.strokeStyle = isDark ? "rgba(0, 102, 255, " + (0.25 * (1 - mdist / 140)) + ")" : "rgba(40, 69, 224, " + (0.15 * (1 - mdist / 140)) + ")";
+          ctx.lineWidth = 0.8;
           ctx.stroke();
         }
       }
@@ -989,307 +853,157 @@
     animateParticles();
   }
 
-  // ============================================================
-  // GSAP ANIMATION ENGINE — Swing · Scramble · Zoom · Magnetic
-  // ============================================================
-  gsap.registerPlugin(ScrollTrigger);
-
-  // ── SCROLL PROGRESS BAR ──
-  const progressBar = document.getElementById('progress-bar');
-  if (progressBar) {
-    window.addEventListener('scroll', () => {
-      const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-      progressBar.style.width = pct + '%';
-    });
-  }
-
-  // ── UTILITY: SPLIT TEXT INTO CHARS ──
-  function splitChars(el) {
-    const text = el.innerText;
-    el.innerHTML = text.split('').map(c =>
-      c === ' ' ? ' ' : `<span class="char-wrap"><span class="char-inner">${c}</span></span>`
-    ).join('');
-    return el.querySelectorAll('.char-inner');
-  }
-
-  // ── UTILITY: SPLIT TEXT INTO WORDS ──
-  function splitWords(el) {
-    const html = el.innerHTML;
-    el.innerHTML = html.split(/(\s+)/).map(w =>
-      w.trim() ? `<span class="word-wrap" style="display:inline-block;overflow:hidden"><span class="word-inner" style="display:inline-block">${w}</span></span>` : w
-    ).join('');
-    return el.querySelectorAll('.word-inner');
-  }
-
-  // ── SCRAMBLE TEXT EFFECT ──
-  function scramble(el, finalText, duration) {
-    const chars = '!<>-_\/[]{}—=+*^?#ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let frame = 0;
-    const totalFrames = Math.floor(duration * 60);
-    function tick() {
-      el.textContent = finalText.split('').map((c, i) => {
-        if (i < Math.floor((frame / totalFrames) * finalText.length)) return c;
-        return chars[Math.floor(Math.random() * chars.length)];
-      }).join('');
-      frame++;
-      if (frame <= totalFrames) requestAnimationFrame(tick);
-      else el.textContent = finalText;
-    }
-    tick();
-  }
-
-  // ── PAGE LOAD SEQUENCE ──
-  gsap.set('main', { autoAlpha: 0 });
-  gsap.to('main', { autoAlpha: 1, duration: 0.4, ease: 'power2.out' });
-
-  // Hero telemetry strip — slides in from left
-  gsap.from('.hero-telemetry', {
-    x: -60, opacity: 0, duration: 0.9,
-    ease: 'expo.out', delay: 0.2
-  });
-
-  // Hero label — fade up
-  gsap.from('.hero-label', {
-    y: 20, opacity: 0, duration: 0.6,
-    ease: 'power3.out', delay: 0.4
-  });
-
-  // PARAG — swing in from the left with rotation
-  const paragEl = document.querySelector('.hero-parag');
-  if (paragEl) {
-    gsap.from(paragEl, {
-      x: -160, rotation: -4, opacity: 0, duration: 1.4,
-      ease: 'elastic.out(1, 0.6)', delay: 0.5
-    });
-  }
-
-  // VERMA — swing in from the right with rotation (opposite direction)
-  const vermaEl = document.querySelector('.hero-verma');
-  if (vermaEl) {
-    gsap.from(vermaEl, {
-      x: 160, rotation: 4, opacity: 0, duration: 1.4,
-      ease: 'elastic.out(1, 0.6)', delay: 0.7
-    });
-  }
-
-  // Scramble subtitle
-  const subEl = document.querySelector('.hero-subtitle');
-  if (subEl) {
-    const final = subEl.textContent;
-    gsap.set(subEl, { opacity: 0 });
-    gsap.to(subEl, {
-      opacity: 1, duration: 0.01, delay: 1.2,
-      onComplete: () => scramble(subEl, final, 1.2)
-    });
-  }
-
-  // Bio paragraph — fade up
-  gsap.from('.hero-bio', {
-    y: 30, opacity: 0, duration: 0.9,
-    ease: 'power3.out', delay: 1.5
-  });
-
-  // CTA buttons — staggered zoom-in from bottom
-  gsap.from('.hero-cta', {
-    y: 40, scale: 0.88, opacity: 0,
-    duration: 0.8, stagger: 0.12,
-    ease: 'back.out(1.7)', delay: 1.7
-  });
-
-  // ── CSS ANIMATION OBSERVER (reliable for all pages) ──
-  // Adds .anim-ready to .anim-box elements as they enter viewport
-  const animObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('anim-ready');
-        animObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.05, rootMargin: '0px 0px -10px 0px' });
-
-  document.querySelectorAll('.anim-box').forEach(el => animObserver.observe(el));
-
-  // Safety net: after 800ms force all still-hidden anim-box visible
-  setTimeout(() => {
-    document.querySelectorAll('.anim-box:not(.anim-ready)').forEach(el => {
-      el.classList.add('anim-ready');
-    });
-  }, 800);
-
-  // ── MAGNETIC 3D TILT ON HUD CARDS ──
-  document.querySelectorAll('.mag-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      const dx = (e.clientX - cx) / (rect.width / 2);
-      const dy = (e.clientY - cy) / (rect.height / 2);
-      gsap.to(card, {
-        rotateY: dx * 10, rotateX: -dy * 10,
-        scale: 1.02, duration: 0.5, ease: 'power2.out',
-        transformPerspective: 800
-      });
-    });
-    card.addEventListener('mouseleave', () => {
-      gsap.to(card, {
-        rotateY: 0, rotateX: 0,
-        scale: 1, duration: 0.7, ease: 'elastic.out(1, 0.6)'
-      });
-    });
-  });
-
-  // ── HEADER SCROLL BEHAVIOUR ──
-  const header = document.getElementById('main-header');
-  if (header) {
-    ScrollTrigger.create({
-      start: 'top -60',
-      onUpdate: self => {
-        if (self.progress > 0) {
-          header.style.background = document.documentElement.getAttribute('data-theme') === 'light' ? 'rgba(245,242,234,0.92)' : 'rgba(10,10,10,0.92)';
-          header.style.backdropFilter = 'blur(24px)';
-          header.style.boxShadow = document.documentElement.getAttribute('data-theme') === 'light' ? '0 4px 24px rgba(17,18,21,0.08)' : '0 4px 24px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.06)';
-        } else {
-          header.style.background = 'transparent';
-          header.style.backdropFilter = 'none';
-          header.style.boxShadow = 'none';
+  // IntersectionObserver for CSS Animation Entry
+  (function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('anim-ready');
+          observer.unobserve(entry.target);
         }
-      }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px'
     });
-  }
 
+    document.querySelectorAll('.anim-box').forEach(el => {
+      observer.observe(el);
+    });
 
+    setTimeout(() => {
+      document.querySelectorAll('.anim-box:not(.anim-ready)').forEach(el => {
+        el.classList.add('anim-ready');
+      });
+    }, 600);
+  })();
 
+  // Scroll Progress Bar
+  window.addEventListener('scroll', () => {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = total > 0 ? (window.scrollY / total) * 100 : 0;
+    const bar = document.getElementById('progress-bar');
+    if (bar) bar.style.width = progress + '%';
 
-  // ============================================================
-  // THREE.JS 3D DEVELOPER CORE ENGINE (Interactive & Responsive)
-  // ============================================================
+    const header = document.getElementById('main-header');
+    if (header) {
+      const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      if (window.scrollY > 40) {
+        header.style.background = isDark ? 'rgba(10, 10, 10, 0.92)' : 'rgba(245, 242, 234, 0.92)';
+        header.style.backdropFilter = 'blur(16px)';
+        header.style.borderBottom = isDark ? '1px solid rgba(255, 255, 255, 0.06)' : '1px solid rgba(17, 18, 21, 0.08)';
+        header.style.boxShadow = isDark ? '0 4px 24px rgba(0, 0, 0, 0.6)' : '0 4px 24px rgba(17, 18, 21, 0.06)';
+      } else {
+        header.style.background = 'transparent';
+        header.style.backdropFilter = 'none';
+        header.style.borderBottom = 'none';
+        header.style.boxShadow = 'none';
+      }
+    }
+  });
+
+  // ── THREE.JS 3D DEVELOPER CORE CENTERPIECE ──
   (function initThreeScene() {
     const container = document.getElementById('hero-3d-viewport');
     if (!container || typeof THREE === 'undefined') return;
 
-    let width = container.clientWidth;
-    let height = container.clientHeight;
-
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.z = 7.5;
+    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+    camera.position.z = 5.2;
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'high-performance' });
-    renderer.setSize(width, height);
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
 
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
 
     const light1 = new THREE.PointLight(0x0066FF, 4, 50);
-    light1.position.set(6, 6, 6);
+    light1.position.set(5, 5, 5);
     scene.add(light1);
 
     const light2 = new THREE.PointLight(0xFF1744, 3, 50);
-    light2.position.set(-6, -6, 6);
+    light2.position.set(-5, -5, -2);
     scene.add(light2);
 
-    // 3D Objects Group
     const coreGroup = new THREE.Group();
     scene.add(coreGroup);
 
-    // Outer Geodesic Icosahedron Wireframe
-    const icoGeo = new THREE.IcosahedronGeometry(1.8, 1);
-    const icoMat = new THREE.MeshStandardMaterial({
+    const outerGeo = new THREE.IcosahedronGeometry(1.6, 1);
+    const outerMat = new THREE.MeshBasicMaterial({
       color: 0x0066FF,
       wireframe: true,
       transparent: true,
-      opacity: 0.7,
-      roughness: 0.2,
-      metalness: 0.8
+      opacity: 0.35
     });
-    const icoMesh = new THREE.Mesh(icoGeo, icoMat);
-    coreGroup.add(icoMesh);
+    const outerMesh = new THREE.Mesh(outerGeo, outerMat);
+    coreGroup.add(outerMesh);
 
-    // Inner Solid Glowing Core
-    const innerGeo = new THREE.OctahedronGeometry(0.85, 0);
+    const innerGeo = new THREE.OctahedronGeometry(0.9, 0);
     const innerMat = new THREE.MeshStandardMaterial({
       color: 0x00C2FF,
       emissive: 0x0066FF,
-      emissiveIntensity: 0.85,
-      roughness: 0.1,
-      metalness: 0.9
+      emissiveIntensity: 0.6,
+      roughness: 0.2,
+      metalness: 0.9,
+      wireframe: false
     });
     const innerMesh = new THREE.Mesh(innerGeo, innerMat);
     coreGroup.add(innerMesh);
 
-    // Orbiting Tech Ring 1
-    const ring1Geo = new THREE.TorusGeometry(2.35, 0.025, 16, 100);
-    const ring1Mat = new THREE.MeshBasicMaterial({ color: 0x0066FF, wireframe: true, transparent: true, opacity: 0.55 });
+    const ring1Geo = new THREE.TorusGeometry(2.1, 0.015, 16, 100);
+    const ring1Mat = new THREE.MeshBasicMaterial({ color: 0x0066FF, transparent: true, opacity: 0.6 });
     const ring1 = new THREE.Mesh(ring1Geo, ring1Mat);
     ring1.rotation.x = Math.PI / 3;
     coreGroup.add(ring1);
 
-    // Orbiting Tech Ring 2
-    const ring2Geo = new THREE.TorusGeometry(2.75, 0.02, 16, 100);
-    const ring2Mat = new THREE.MeshBasicMaterial({ color: 0xFF1744, wireframe: true, transparent: true, opacity: 0.45 });
+    const ring2Geo = new THREE.TorusGeometry(2.4, 0.015, 16, 100);
+    const ring2Mat = new THREE.MeshBasicMaterial({ color: 0xFF1744, transparent: true, opacity: 0.45 });
     const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
-    ring2.rotation.y = Math.PI / 4;
+    ring2.rotation.x = -Math.PI / 4;
+    ring2.rotation.y = Math.PI / 6;
     coreGroup.add(ring2);
 
-    // Orbital Point Cloud
-    const count = 160;
     const pGeo = new THREE.BufferGeometry();
-    const pos = new Float32Array(count * 3);
-    for (let i = 0; i < count * 3; i += 3) {
-      pos[i] = (Math.random() - 0.5) * 8.5;
-      pos[i + 1] = (Math.random() - 0.5) * 8.5;
-      pos[i + 2] = (Math.random() - 0.5) * 8.5;
+    const pCount = 180;
+    const pPos = new Float32Array(pCount * 3);
+    for (let i = 0; i < pCount * 3; i += 3) {
+      const r = 2.2 + Math.random() * 0.8;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos(Math.random() * 2 - 1);
+      pPos[i] = r * Math.sin(phi) * Math.cos(theta);
+      pPos[i + 1] = r * Math.sin(phi) * Math.sin(theta);
+      pPos[i + 2] = r * Math.cos(phi);
     }
-    pGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-    const pMat = new THREE.PointsMaterial({ size: 0.06, color: 0x00E676, transparent: true, opacity: 0.65 });
-    const points = new THREE.Points(pGeo, pMat);
-    coreGroup.add(points);
+    pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+    const pMat = new THREE.PointsMaterial({ size: 0.06, color: 0x00E676, transparent: true, opacity: 0.8 });
+    const pCloud = new THREE.Points(pGeo, pMat);
+    coreGroup.add(pCloud);
 
-    // Mouse & Scroll Parallax Variables
-    let mouseX = 0, mouseY = 0;
-    let targetX = 0, targetY = 0;
-
-    const wrapper = document.getElementById('hero-3d-wrapper');
-    if (wrapper) {
-      wrapper.addEventListener('mousemove', (e) => {
-        const rect = wrapper.getBoundingClientRect();
-        mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-        mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-      });
-      wrapper.addEventListener('mouseleave', () => {
-        mouseX = 0;
-        mouseY = 0;
-      });
-    }
+    let mouseNormX = 0, mouseNormY = 0;
+    window.addEventListener('mousemove', (e) => {
+      mouseNormX = (e.clientX / window.innerWidth) * 2 - 1;
+      mouseNormY = -(e.clientY / window.innerHeight) * 2 + 1;
+    });
 
     window.addEventListener('resize', () => {
       if (!container) return;
-      width = container.clientWidth;
-      height = container.clientHeight;
-      camera.aspect = width / height;
+      camera.aspect = container.clientWidth / container.clientHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(width, height);
+      renderer.setSize(container.clientWidth, container.clientHeight);
     });
 
-    // Render Animation Loop
-    let clock = new THREE.Clock();
+    let clock = 0;
     function render3D() {
       requestAnimationFrame(render3D);
+      clock += 0.015;
 
-      const t = clock.getElapsedTime();
-      const scrollY = window.scrollY || 0;
+      coreGroup.position.y = Math.sin(clock * 0.8) * 0.12;
 
-      // Gentle floating sine wave
-      coreGroup.position.y = Math.sin(t * 1.4) * 0.16;
-
-      // Rotate with Mouse + Scroll Parallax
-      targetY = mouseX * 0.75 + scrollY * 0.0015;
-      targetX = mouseY * 0.75;
-
-      coreGroup.rotation.y += (targetY - coreGroup.rotation.y) * 0.05 + 0.004;
+      const targetY = mouseNormX * 0.6;
+      const targetX = -mouseNormY * 0.4;
+      coreGroup.rotation.y += (targetY - coreGroup.rotation.y) * 0.05 + 0.003;
       coreGroup.rotation.x += (targetX - coreGroup.rotation.x) * 0.05 + 0.002;
 
       innerMesh.rotation.y -= 0.012;
@@ -1301,7 +1015,7 @@
     render3D();
   })();
 
-  // ── ENHANCED 3D TILT & HOVER ON CARDS ──
+  // ── ENHANCED 3D TILT ON CARDS ──
   document.querySelectorAll('.mag-card, .proj-card, .skill-card').forEach(card => {
     card.addEventListener('mousemove', e => {
       const rect = card.getBoundingClientRect();
@@ -1316,57 +1030,41 @@
     });
   });
 
-
-  // ═══════════════════════════════════════════════════════════
-  // THEME TOGGLE SYSTEM
-  // ═══════════════════════════════════════════════════════════
-  (function() {
-    const html = document.documentElement;
-    const btn  = document.getElementById('theme-toggle');
-    const body = document.getElementById('page-body');
-
-    // Restore saved preference (default: dark)
-    const saved = localStorage.getItem('pv-theme') || 'dark';
-    applyTheme(saved);
-
-    if (btn) {
-      btn.addEventListener('click', () => {
-        const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        applyTheme(next);
-        localStorage.setItem('pv-theme', next);
-      });
+  // ── THEME TOGGLE CONTROLLER ──
+  (function initThemeToggle() {
+    function updateToggleUI(theme) {
+      const btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      const icon = btn.querySelector('.material-symbols-outlined');
+      if (icon) {
+        // If theme is currently 'dark', show sun icon so user knows clicking will switch to light
+        // If theme is currently 'light', show moon icon so user knows clicking will switch to dark
+        icon.textContent = (theme === 'dark') ? 'light_mode' : 'dark_mode';
+      }
+      btn.title = (theme === 'dark') ? 'Switch to Light Mode' : 'Switch to Dark Mode';
     }
 
     function applyTheme(theme) {
-      html.setAttribute('data-theme', theme);
-      if (body) body.style.backgroundColor = theme === 'dark' ? '#0D0D0D' : '#F5F2EA';
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('pv-theme', theme);
+      updateToggleUI(theme);
+    }
 
-      // Update toggle icon
-      if (btn) {
-        btn.querySelector('.material-symbols-outlined').textContent =
-          theme === 'dark' ? 'light_mode' : 'dark_mode';
-        btn.title = theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
-      }
+    // Initial sync
+    const currentTheme = localStorage.getItem('pv-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    updateToggleUI(currentTheme);
 
-      // Update particle canvas background color
-      const canvas = document.getElementById('sci-canvas');
-      if (canvas) {
-        canvas.__theme = theme;
-      }
-
-      // Update header scroll colors
-      const header = document.getElementById('main-header');
-      if (header && parseInt(header.style.opacity) !== 0) {
-        const scrolled = window.scrollY > 60;
-        if (scrolled) {
-          header.style.background = theme === 'dark'
-            ? 'rgba(10,10,10,0.92)'
-            : 'rgba(245,242,234,0.92)';
-        }
-      }
+    const btn = document.getElementById('theme-toggle');
+    if (btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const current = document.documentElement.getAttribute('data-theme') || 'dark';
+        const next = (current === 'dark') ? 'light' : 'dark';
+        applyTheme(next);
+      });
     }
   })();
-
 
 </script>
 
